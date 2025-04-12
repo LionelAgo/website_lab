@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Research</title>
+    <meta name="description" content="Research work of Dr. Lionel Agostini in fluid mechanics, focusing on turbulence, flow control, and machine learning applications.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #25256F;
+            --secondary-color: #87CEEB;
+            --accent-color: #FFD700;
+            --background-color: #F8F8F8;
+            --text-color: #333333;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(37, 37, 111, 0.8), rgba(37, 37, 111, 0.9)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            padding: 150px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Research Overview */
+        .research-overview {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .research-overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .research-overview-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        /* Research Areas */
+        .research-areas {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+        
+        .research-area {
+            margin-bottom: 80px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-area-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .research-area-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .research-area-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .research-area-content {
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .research-area-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .research-area-text h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .research-area-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .research-area-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .research-area-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .key-points {
+            margin-top: 30px;
+        }
+        
+        .key-point {
+            display: flex;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        
+        .key-point i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .key-publications {
+            margin-top: 30px;
+        }
+        
+        .key-publications h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .publication-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        /* Machine Learning Section */
+        .ml-approach {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .ml-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .ml-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .ml-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .ml-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .ml-diagram {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .ml-diagram img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .workflow-steps {
+            margin-top: 50px;
+        }
+        
+        .workflow-step {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        
+        .step-content h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .step-content p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Future Research */
+        .future-research {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+        
+        .future-research-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .future-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .future-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .future-card-content {
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .future-card-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .future-card-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .research-area-content {
+                flex-direction: column;
+            }
+            
+            .ml-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 24px;
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .research-area-header {
+                padding: 20px;
+            }
+            
+            .research-area-title {
+                font-size: 24px;
+            }
+            
+            .research-area-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .workflow-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logos/logo_cnrs.png" alt="CNRS Logo">
+                Dr. Lionel Agostini
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700; color: var(--accent-color);">
+                Research in Fluid Mechanics
+            </h2>
+        </div>
+        <div class="hero-background">
+            <div class="background-slide active" style="background-image: url('images/background/back2.jpg')"></div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Research Focus Areas</h1>
+            <p class="page-subtitle">Exploring the complexities of wall-bounded turbulence, flow control, and data-driven approaches in fluid mechanics.</p>
+        </div>
+    </section>
+
+    <!-- Research Overview -->
+    <section class="research-overview">
+        <div class="container">
+            <h2 class="section-title">Research Philosophy</h2>
+            <div class="research-overview-content">
+                <p>My research is driven by a multidisciplinary approach that combines fundamental fluid mechanics, high-fidelity numerical simulations, and cutting-edge data science techniques. By integrating these fields, I seek to deepen our understanding of complex flow phenomena and develop innovative strategies for flow prediction and control.</p>
+                <p>With a focus on wall-bounded turbulence across a range of Reynolds numbers, my work addresses critical challenges in energy efficiency and environmental sustainability by targeting drag reduction and heat transfer enhancement in engineering systems.</p>
+                <p>The research methodologies I employ span from direct numerical simulations (DNS) and large eddy simulations (LES) to advanced machine learning algorithms, particularly auto-encoders for reduced-order modeling and feature extraction from turbulent flows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section id="research-areas" class="research-areas">
+        <div class="container">
+            <h2 class="section-title">Core Research Areas</h2>
+            
+            <!-- Wall-bounded Turbulence -->
+            <div id="boundary-layer" class="research-area">
+                <div class="research-area-header">
+                    <h3 class="research-area-title">Wall-bounded Turbulence</h3>
+                    <p class="research-area-subtitle">Investigating multi-scale interactions in turbulent boundary layers</p>
+                </div>
+                <div class="research-area-content">
+                    <div class="research-area-text">
+                        <h3>Multi-scale Dynamics and Scale Interactions</h3>
+                        <p>My research in wall-bounded turbulence focuses on understanding the intricate dynamics of turbulent structures across multiple scales, particularly the interactions between large-scale outer structures and small-scale near-wall turbulence at high Reynolds numbers. These interactions become increasingly significant as Reynolds number increases, fundamentally altering the statistical characteristics of the flow and affecting key engineering quantities such as wall friction and heat transfer.</p>
+                        <p>Through detailed analysis of direct numerical simulation data, I have developed novel methodologies for scale separation and analysis, enabling a deeper understanding of the modulation effects of large-scale structures on near-wall turbulence. This work has challenged existing paradigms, particularly the quasi-steady hypothesis, by revealing complex asymmetric responses and non-linear interactions that conventional models fail to capture.</p>
+                        
+                        <div class="key-points">
+                            <div class="key-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Developed auto-encoder methodology to separate large and small scale turbulent motions in high Reynolds number flows</div>
+                            </div>
+                            <div class="key-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Demonstrated asymmetric modulation and "splatting" effects that standard models fail to account for</div>
+                            </div>
+                            <div class="key-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Established quantitative connections between turbulent structures and their contributions to wall shear stress</div>
+                            </div>
+                            <div class="key-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Examined scale-dependent phase relationships in turbulent boundary layers</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-publications">
+                            <h4>Key Publications</h4>
+                            <div class="publication-item">
+                                "Zones of influence and shock boundary layer interaction", AIAA Journal (2012)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="research-area-image">
+                        <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shock wave visualization">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Approach -->
+    <section class="ml-approach">
+        <div class="container">
+            <h2 class="section-title">Machine Learning Approach in Fluid Dynamics</h2>
+            
+            <div class="ml-content">
+                <div class="ml-text">
+                    <h3>A New Paradigm for Flow Analysis and Control</h3>
+                    <p>Traditional approaches to flow modeling and control face significant challenges when dealing with the high-dimensional, non-linear, and multi-scale nature of turbulent flows. My research leverages machine learning techniques to overcome these limitations, offering a transformative framework for studying complex fluid dynamics problems.</p>
+                    <p>Rather than following the classical sequential process of understanding, modeling, and then optimizing, my approach employs an iterative methodology that couples data-driven modeling with optimization of control strategies. This paradigm shift enables more efficient discovery of effective control laws and deeper insights into flow physics.</p>
+                    <p>The integration of physical knowledge with data-driven methods is a cornerstone of my research philosophy. By embedding physical constraints and domain expertise into machine learning architectures, I develop models that are both accurate and physically consistent, bridging the gap between purely data-driven approaches and traditional physics-based modeling.</p>
+                </div>
+                <div class="ml-diagram">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine learning workflow diagram">
+                </div>
+            </div>
+            
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Feature Extraction with Auto-Encoders</h4>
+                        <p>The first step involves using specialized auto-encoder architectures to extract the most relevant features from high-dimensional flow data. These neural networks compress the complex flow information into a low-dimensional latent space that captures the essential dynamics of the system. By analyzing this latent representation, we can identify coherent structures and dominant flow patterns that would be difficult to detect with traditional methods.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Clustering and Reduced-Order Modeling</h4>
+                        <p>The low-dimensional representation from the auto-encoder is further analyzed using clustering algorithms to identify distinct flow states and their transitions. This approach enables the construction of reduced-order dynamical models that can efficiently predict the temporal evolution of the flow. By combining the auto-encoder with clustering techniques, we obtain a powerful framework for understanding complex flow dynamics in a computationally efficient manner.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Physics-Informed Machine Learning</h4>
+                        <p>To enhance the reliability and physical consistency of the models, I incorporate domain knowledge and physical constraints into the machine learning algorithms. This physics-informed approach ensures that the predictions respect fundamental conservation laws and physical principles, leading to more robust and interpretable models. The integration of physical knowledge also improves the generalization capabilities of the models to conditions not seen in the training data.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Optimization and Control</h4>
+                        <p>The final step involves using the reduced-order models to design and optimize control strategies for specific objectives, such as drag reduction or heat transfer enhancement. Advanced optimization algorithms, including reinforcement learning, are employed to explore the parameter space efficiently and identify optimal control laws. This data-driven approach to flow control has demonstrated significant potential for discovering novel control strategies that outperform traditional methods.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Research -->
+    <section class="future-research">
+        <div class="container">
+            <h2 class="section-title">Future Research Directions</h2>
+            
+            <div class="future-research-cards">
+                <div class="future-card">
+                    <div class="future-card-content">
+                        <h3>Multi-scale Control of Wall Turbulence</h3>
+                        <p>My future research aims to develop innovative control strategies that operate simultaneously at different scales of turbulence, allowing for enhancement or limitation of heat transfer across a wide range of Reynolds numbers. This multi-scale approach will target both near-wall structures and large-scale outer motions, exploiting their interactions to achieve unprecedented control capabilities.</p>
+                        <p>By leveraging the understanding of scale interactions gained from my previous work, I plan to design control algorithms that can adaptively respond to the multi-scale nature of the flow, providing more effective and robust performance than single-scale approaches. This research will have significant impact on renewable energy development and improvement of industrial processes using heat exchangers.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="future-card">
+                    <div class="future-card-content">
+                        <h3>Hybrid Data-Physics Framework</h3>
+                        <p>I aim to develop a comprehensive methodological framework that integrates physical knowledge and data-driven approaches to design optimal active control strategies for complex fluid systems. This hybrid approach will combine the interpretability and generalizability of physics-based models with the flexibility and predictive power of machine learning algorithms.</p>
+                        <p>The framework will incorporate multi-fidelity modeling, uncertainty quantification, and adaptive learning techniques to create robust and reliable models that can operate across a wide range of flow conditions. This approach will offer new possibilities for improving industrial processes, particularly in the context of complex geometries made possible by additive manufacturing.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="future-card">
+                    <div class="future-card-content">
+                        <h3>Adaptive Modeling for Thermofluid Systems</h3>
+                        <p>Future research will focus on developing adaptive models capable of adjusting to changing flow conditions, enabling accurate prediction and robust control in variable industrial environments. These models will leverage online learning techniques and transfer learning approaches to continuously update their predictions based on new observations.</p>
+                        <p>A key aspect of this research will be the integration of these adaptive models with sensing and actuation systems to create intelligent control frameworks that can optimize performance in real-time. The resulting technology will pave the way for smart heat exchangers and other thermal-fluid systems with significantly improved efficiency and responsiveness.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Research Areas</h4>
+                    <ul>
+                        <li><a href="#boundary-layer">Wall-bounded Turbulence</a></li>
+                        <li><a href="#drag-reduction">Drag Reduction</a></li>
+                        <li><a href="#machine-learning">Machine Learning</a></li>
+                        <li><a href="#shock-wave">Shock-Wave Interactions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            }
+        });
+    </script>
+</body>
+</html>

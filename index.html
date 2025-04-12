@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Researcher in Fluid Mechanics</title>
+    <meta name="description" content="Dr. Lionel Agostini is a CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning applications.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #25256F;
+            --secondary-color: #87CEEB;
+            --accent-color: #FFD700;
+            --background-color: #F8F8F8;
+            --text-color: #333333;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .background-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .background-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(37, 37, 111, 0.7), rgba(37, 37, 111, 0.8));
+        }
+        
+        .background-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            color: white;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero-position {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            flex: 2;
+        }
+        
+        .about-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Research Interests */
+        .research {
+            padding: var(--section-padding);
+            background-color: #f9f9f9;
+        }
+        
+        .research-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        
+        .research-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .research-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .research-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slides {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: none;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            display: block;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+        
+        .carousel-prev, .carousel-next {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .carousel-prev:hover, .carousel-next:hover {
+            background: white;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin: 0 10px;
+        }
+        
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicator.active {
+            background-color: white;
+            transform: scale(1.3);
+        }
+        
+        .research-card:hover .research-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .research-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .research-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .research-card-content p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            flex-grow: 1;
+        }
+        
+        /* Methodologies Section */
+        .methodologies {
+            padding: var(--section-padding);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .methodologies .section-title {
+            color: white;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .methodology-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .methodology-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .methodology-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .methodology-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: var(--section-padding);
+            background-color: #f9f9f9;
+        }
+        
+        .projects-overview {
+            padding: 40px 0;
+        }
+        
+        .projects-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .projects-intro p {
+            font-size: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-header {
+            margin-bottom: 15px;
+        }
+        
+        .project-period {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .project-card h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .project-focus {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+        
+        .project-role {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .project-funding, .project-duration {
+            color: #888;
+        }
+        
+        .projects-action {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Publications Section */
+        .publications {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .publication-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .publication-list {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .publication-item {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .publication-authors {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .publication-journal {
+            font-size: 15px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .publication-year {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .publication-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .publication-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background-color: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-detail h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .contact-detail p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Institute Logos */
+        .institutes {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .institutes img {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        
+        .institutes img:hover {
+            filter: grayscale(0%) !important;
+            transform: scale(1.05);
+        }
+        
+        .institutes a {
+            transition: transform 0.3s ease;
+        }
+        
+        .institutes a:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-img {
+                margin: 0 auto 30px;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 24px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .hero-position {
+                font-size: 16px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logos/logo_cnrs.png" alt="CNRS Logo">
+                Dr. Lionel Agostini
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teams.html">Teams</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle" style="font-size: 18px; margin-bottom: 15px; color: var(--accent-color);">Dr. Lionel Agostini | CNRS Researcher</p>
+            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700;">
+                Diving into the Complexities of<br>
+                Multi-Scale Wall-Bounded<br>
+                Turbulence Dynamics
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Exploring the fundamental physics of turbulent flows through advanced numerical simulations and data-driven approaches to improve energy efficiency and sustainability.
+            </p>
+            <div class="hero-btns">
+                <a href="#research" class="btn" style="position: relative; overflow: hidden;">
+                    <span style="position: relative; z-index: 2;">View Research</span>
+                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
+                </a>
+                <a href="https://sdrive.cnrs.fr/s/4wJr3zABm2RZgCG" class="btn" style="position: relative; overflow: hidden;" target="_blank">
+                    <span style="position: relative; z-index: 2;">Download HDR Manuscript</span>
+                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
+                </a>
+                <a href="images/Resume.pdf" class="btn" style="position: relative; overflow: hidden;" target="_blank">
+                    <span style="position: relative; z-index: 2;">Download CV</span>
+                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <source src="images/background/back1_mov.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(37, 37, 111, 0.7), rgba(37, 37, 111, 0.8)); z-index: 2;"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Understanding and Controlling Wall-Bounded Turbulence</h2>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 18px; max-width: 900px; margin: 0 auto;">When any body moves through a fluid or when fluid flows through pipes, a <span style="color: #25256F; font-weight: 600;">boundary layer</span> forms where various families of <span style="color: #25256F; font-weight: 600;">turbulent structures</span> develop, significantly impacting both <span style="color: #00CCFF; font-weight: 600;">drag</span> and <span style="color: #FF5050; font-weight: 600;">heat transfer</span>.</p>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; margin-bottom: 40px; align-items: center; justify-content: center; gap: 30px;">
+                <div style="flex: 1; min-width: 300px; max-width: 500px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+                    <img src="images/index_page/drag.webp" alt="Drag Reduction in Transport" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 15px; background-color: rgba(0, 204, 255, 0.1); text-align: center;">
+                        <h3 style="color: #00CCFF; margin: 0;">Drag Reduction in Transport</h3>
+                    </div>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px; max-width: 500px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
+                    <img src="images/index_page/heat.webp" alt="Heat Transfer Applications" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 15px; background-color: rgba(255, 80, 80, 0.1); text-align: center;">
+                        <h3 style="color: #FF5050; margin: 0;">Heat Transfer Applications</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content" style="max-width: 900px; margin: 0 auto;">
+                <p>These eddies play a major role in both <span style="color: #00CCFF; font-weight: 600;">skin-friction drag</span> and <span style="color: #FF5050; font-weight: 600;">heat transfer</span>. As velocity increases further, new families of <span style="color: #25256F; font-weight: 600;">turbulent structures</span> emerge and their characteristics evolve, often being influenced by wall properties and geometry. This evolution renders the flow increasingly complex and challenging to predict or control.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
+                    <div style="flex: 1; min-width: 300px; padding: 25px; background-color: rgba(0, 204, 255, 0.05); border-radius: 10px; border-left: 4px solid #00CCFF;">
+                        <h4 style="color: #00CCFF; margin-top: 0;">Drag Reduction Research</h4>
+                        <p>For transport applications—aircraft, ships, and pipelines—<span style="color: #00CCFF; font-weight: 600;">drag reduction</span> is essential, as turbulence can increase friction by factors of 10-100 compared to laminar conditions, significantly affecting energy consumption and emissions.</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 300px; padding: 25px; background-color: rgba(255, 80, 80, 0.05); border-radius: 10px; border-left: 4px solid #FF5050;">
+                        <h4 style="color: #FF5050; margin-top: 0;">Heat Transfer Control</h4>
+                        <p><span style="color: #FF5050; font-weight: 600;">Heat transfer</span> is approached with dual objectives: for renewable energy harvesting (CSP plants), heat transfer must be significantly enhanced, while in engines and industrial equipment, it must be carefully regulated within optimal operating ranges.</p>
+                    </div>
+                </div>
+                
+                <p>My research is motivated by the critical need to address <span style="color: #25256F; font-weight: 600;">climate change</span> through improved understanding and control of these wall-bounded turbulent flows. A synergistic approach is employed in my research, wherein traditional <span style="color: #25256F; font-weight: 600;">fluid mechanics</span> is integrated with advanced <span style="color: #25256F; font-weight: 600;">machine learning</span> techniques. Through the development of innovative <span style="color: #25256F; font-weight: 600;">control strategies</span> targeting these boundary layer structures, significant improvements in energy efficiency and sustainability can be achieved across diverse engineering applications.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="images/Resume.pdf" class="btn" target="_blank">Download Full CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Research Interests -->
+    <section id="research" class="research">
+        <div class="container">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="research-intro">
+                <p>My research focuses on understanding the fundamental physics of turbulent flows, particularly wall-bounded turbulence, which is omnipresent in engineering applications and natural phenomena. I develop new methodologies to analyze, model, and control these complex systems with the ultimate goal of improving energy efficiency and sustainability.</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-card-img carousel-container">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide active">
+                                <img src="image_NW/pics/nw0.svg" alt="Wall-bounded Turbulence Visualization 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw1.svg" alt="Wall-bounded Turbulence Visualization 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw2.svg" alt="Wall-bounded Turbulence Visualization 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw3.jpg" alt="Wall-bounded Turbulence Visualization 4">
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-prev">&lt;</button>
+                            <div class="carousel-indicators">
+                                <span class="carousel-indicator active"></span>
+                                <span class="carousel-indicator"></span>
+                                <span class="carousel-indicator"></span>
+                                <span class="carousel-indicator"></span>
+                            </div>
+                            <button class="carousel-next">&gt;</button>
+                        </div>
+                    </div>
+                    <div class="research-card-content">
+                        <h3>Wall-bounded Turbulence</h3>
+                        <p>I investigate the multi-scale dynamics of turbulent flows, particularly focusing on how large-scale outer structures interact with and modulate small-scale near-wall turbulence. My work has pioneered new techniques for scale separation, challenging traditional paradigms like the quasi-steady hypothesis by revealing complex asymmetric responses and non-linear interactions. These findings are critical for understanding friction and heat transfer at high Reynolds numbers.</p>
+                        <a href="research.html#boundary-layer" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="research-card-img">
+                        <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Drag Reduction & Heat Transfer">
+                    </div>
+                    <div class="research-card-content">
+                        <h3>Drag Reduction & Heat Transfer</h3>
+                        <p>My research explores innovative flow control techniques, particularly using spanwise wall oscillations to manipulate near-wall turbulence. Recently, I've achieved a significant breakthrough by demonstrating preferential enhancement of heat transfer over drag, effectively breaking the Reynolds analogy. This work has profound implications for thermal management in various engineering systems, potentially leading to more efficient heat exchangers with minimal energy penalties.</p>
+                        <a href="research.html#drag-reduction" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="research-card-img">
+                        <img src="https://images.unsplash.com/photo-1527474305487-b87b222841cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine Learning in Fluid Dynamics">
+                    </div>
+                    <div class="research-card-content">
+                        <h3>Machine Learning in Fluid Dynamics</h3>
+                        <p>I develop and apply advanced machine learning techniques to extract physical insights from complex turbulent flow data. My work with auto-encoders and other data-driven methods has enabled the identification of coherent structures and the creation of reduced-order models for predicting flow behavior. This research represents a paradigm shift from traditional sequential modeling approaches to an iterative methodology that couples data-driven modeling with optimization of control strategies.</p>
+                        <a href="research.html#machine-learning" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Methodologies Section -->
+    <section class="methodologies">
+        <div class="container">
+            <h2 class="section-title">Advanced Methodologies</h2>
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <div class="methodology-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="methodology-title">High-Fidelity DNS</h3>
+                    <p>Using direct numerical simulations to obtain detailed data on wall turbulence, allowing in-depth analysis of turbulent structures and their interactions.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <div class="methodology-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="methodology-title">Advanced Statistical Analysis</h3>
+                    <p>Employing sophisticated statistical methods, including joint and conditional PDF analysis, to quantify relationships between different scales and flow properties.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <div class="methodology-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="methodology-title">Bimodal Empirical Decomposition</h3>
+                    <p>Utilizing data-driven filtering methods to separate large and small-scale fluctuations and study their interactions in turbulent flows.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <div class="methodology-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="methodology-title">Machine Learning Techniques</h3>
+                    <p>Developing and applying machine learning algorithms such as auto-encoders and symbolic regression to extract key information from vast simulation datasets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Current Projects</h2>
+            <div class="projects-overview">
+                <div class="projects-intro">
+                    <p>I currently lead and participate in several research projects, including:</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-period">2022-2026</span>
+                            <h3>ANR SOLAIRE</h3>
+                        </div>
+                        <p class="project-focus">Machine learning for solar receivers optimization</p>
+                        <div class="project-meta">
+                            <span class="project-role">Co-investigator</span>
+                            <span class="project-funding">179,000€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-period">2023-2027</span>
+                            <h3>ANR MUFDD</h3>
+                        </div>
+                        <p class="project-focus">Data-driven modeling of urban canopy flows</p>
+                        <div class="project-meta">
+                            <span class="project-role">Team Member</span>
+                            <span class="project-funding">182,000€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-period">2024-2028</span>
+                            <h3>ANR JCJC INFERENCE</h3>
+                        </div>
+                        <p class="project-focus">Modeling near-wall turbulence at high Reynolds numbers</p>
+                        <div class="project-meta">
+                            <span class="project-role">Project Lead</span>
+                            <span class="project-funding">330,000€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-period">2025-2029</span>
+                            <h3>SAFRAN Aircraft Engines</h3>
+                        </div>
+                        <p class="project-focus">Turbulent flows in aircraft engines</p>
+                        <div class="project-meta">
+                            <span class="project-role">Project Lead</span>
+                            <span class="project-duration">4 years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-action">
+                    <a href="projects.html" class="btn">View All Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="publication-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="boundary-layer">Boundary Layer Theory</button>
+                <button class="filter-btn" data-category="drag-reduction">Drag Reduction</button>
+                <button class="filter-btn" data-category="heat-transfer">Heat Transfer</button>
+                <button class="filter-btn" data-category="machine-learning">Machine Learning</button>
+            </div>
+            <div class="publication-list">
+                <div class="publication-item" data-categories="machine-learning boundary-layer">
+                    <h3 class="publication-title">Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200</h3>
+                    <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
+                    <p class="publication-journal">Physics of Fluids, Vol. 34</p>
+                    <p class="publication-year">2022</p>
+                    <div class="publication-links">
+                        <a href="https://hal.science/hal-03852043/document" class="publication-link" target="_blank">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="#" class="publication-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
+                    </div>
+                </div>
+                <div class="publication-item" data-categories="heat-transfer drag-reduction">
+                    <h3 class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</h3>
+                    <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu, & <strong>L. Agostini</strong></p>
+                    <p class="publication-journal">International Journal of Heat and Fluid Flow, Vol. 1010:109564</p>
+                    <p class="publication-year">2024</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" class="publication-link" target="_blank">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="#" class="publication-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
+                    </div>
+                </div>
+                <div class="publication-item" data-categories="drag-reduction boundary-layer">
+                    <h3 class="publication-title">Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology</h3>
+                    <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
+                    <p class="publication-journal">Journal of Fluid Mechanics, Vol. 923</p>
+                    <p class="publication-year">2021</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.1017/jfm.2021.585" class="publication-link" target="_blank">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="#" class="publication-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
+                    </div>
+                </div>
+                <div class="publication-item" data-categories="machine-learning">
+                    <h3 class="publication-title">Exploration and prediction of fluid dynamical systems using Auto-Encoder technology</h3>
+                    <p class="publication-authors"><strong>L. Agostini</strong></p>
+                    <p class="publication-journal">Physics of Fluids, Vol. 32(6):067103</p>
+                    <p class="publication-year">2020</p>
+                    <div class="publication-links">
+                        <a href="https://doi.org/10.1063/5.0012906" class="publication-link" target="_blank">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="#" class="publication-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 40px; text-align: center;">
+                <a href="publications.html" class="btn">View All Publications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Institut Pprime, Université de Poitiers<br>France</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>lionel.agostini@univ-poitiers.fr<br>lionel.agostini@cnrs.fr</p>
+                        </div>
+                    </div>
+                    <h3>Academic Profiles</h3>
+                    <div class="social-links">
+                        <a href="https://orcid.org/0000-0001-8305-5493" class="social-link" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://publons.com/researcher/2949337/lionel-agostini/" class="social-link" target="_blank" title="Publons">
+                            <i class="fas fa-bookmark"></i>
+                        </a>
+                        <a href="https://scholar.google.co.uk/citations?user=wGGHJvijIz8C&hl=en" class="social-link" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://github.com/LionelAgo" class="social-link" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=55015567200" class="social-link" target="_blank" title="Scopus">
+                            <i class="fas fa-database"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institute Logos -->
+    <section class="institutes">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                <a href="https://www.cnrs.fr/" target="_blank" style="max-width: 200px;">
+                    <img src="logos/cnrs.png" alt="CNRS Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+                </a>
+                <a href="https://www.univ-poitiers.fr/" target="_blank" style="max-width: 200px;">
+                    <img src="logos/logo_up.png" alt="Université de Poitiers Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+                </a>
+                <a href="https://pprime.fr/" target="_blank" style="max-width: 200px;">
+                    <img src="logos/logo_pprime.jpg" alt="Institut Pprime Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Research Areas</h4>
+                    <ul>
+                        <li><a href="research.html#boundary-layer">Wall-bounded Turbulence</a></li>
+                        <li><a href="research.html#drag-reduction">Drag Reduction</a></li>
+                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
+                        <li><a href="research.html#machine-learning">Machine Learning</a></li>
+                        <li><a href="research.html#shock-wave">Computational Fluid Dynamics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            }
+        });
+        
+        // Publication filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const publicationItems = document.querySelectorAll('.publication-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Get selected category
+                const selectedCategory = btn.getAttribute('data-category');
+                
+                // Filter publications
+                publicationItems.forEach(item => {
+                    const categories = item.getAttribute('data-categories').split(' ');
+                    if (selectedCategory === 'all' || categories.includes(selectedCategory)) {
+                        item.style.display = 'block';
+                        // Add fade-in animation
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Button hover effects for all hero buttons
+        const heroButtons = document.querySelectorAll('.hero-btns .btn, .hero-btns .btn-outline');
+        
+        heroButtons.forEach(button => {
+            const highlight = button.querySelector('span:last-child');
+            
+            button.addEventListener('mouseenter', () => {
+                highlight.style.transform = 'translateX(0)';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                highlight.style.transform = 'translateX(-100%)';
+            });
+        });
+        
+        // Carousel functionality for research cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.hero-background video');
+            if (video) {
+                video.playbackRate = 0.3; // Set video speed to 0.25x (4 times slower)
+            }
+        });
+    </script>
+</body>
+</html>

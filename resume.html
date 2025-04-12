@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Resume</title>
+    <meta name="description" content="Academic CV and resume of Dr. Lionel Agostini, CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #25256F;
+            --secondary-color: #87CEEB;
+            --accent-color: #FFD700;
+            --background-color: #F8F8F8;
+            --text-color: #333333;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(37, 37, 111, 0.8), rgba(37, 37, 111, 0.9)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80') no-repeat center center/cover;
+            padding: 150px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Resume Section */
+        .resume-section {
+            padding: 80px 0;
+        }
+        
+        .resume-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .resume-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .resume-header p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .resume-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .resume-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .section-heading {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            left: 0;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--primary-color);
+            border: 4px solid var(--accent-color);
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-institution {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-location {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .timeline-description {
+            font-size: 15px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            margin-bottom: 30px;
+        }
+        
+        .skill-category h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .publication-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin: 15px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .resume-container {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 24px;
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .resume-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .publication-stats {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .resume-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logos/logo_cnrs.png" alt="CNRS Logo">
+                Dr. Lionel Agostini
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Academic Resume</h1>
+            <p class="page-subtitle">A comprehensive overview of my academic background, research experience, and professional achievements.</p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+        <div class="container">
+            <div class="resume-header">
+                <h2>Curriculum Vitae</h2>
+                <p>With over 15 years of experience in fluid mechanics research, my career encompasses research positions at leading institutions including Imperial College London, Ohio State University, and currently at the CNRS Pprime Institute.</p>
+                <div class="resume-actions">
+                    <a href="#" class="btn">Download Complete CV (PDF)</a>
+                    <a href="#" class="btn btn-outline">Download Short Resume</a>
+                </div>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h3 class="timeline-title">Habilitation à Diriger des Recherches (HDR)</h3>
+                            <p class="timeline-institution">Université de Poitiers</p>
+                            <p class="timeline-location">Poitiers, France</p>
+                            <p class="timeline-description">Successfully defended my HDR thesis on "Modeling and Control of Wall Turbulence"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2008-2011</div>
+                            <h3 class="timeline-title">PhD in Fluid Mechanics</h3>
+                            <p class="timeline-institution">Institut Universitaire des Systèmes Thermiques Industriels (IUSTI), Aix-Marseille University</p>
+                            <p class="timeline-location">Marseille, France</p>
+                            <p class="timeline-description">Thesis: "Unsteadiness in separated supersonic flow"<br>Supervisors: Prof. Jean-Paul Dussauge and Dr. Pierre Dupont<br>Distinction: The highest honors</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2007-2008</div>
+                            <h3 class="timeline-title">Master's Degree in Fluid Dynamics and Aeroacoustics</h3>
+                            <p class="timeline-institution">Paris Sud University</p>
+                            <p class="timeline-location">Orsay, France</p>
+                            <p class="timeline-description">Grade: Bien (high distinction)<br>Rank: 1/30</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2005-2006</div>
+                            <h3 class="timeline-title">Bachelor's Degree in Physics</h3>
+                            <p class="timeline-institution">Aix-Marseille University</p>
+                            <p class="timeline-location">Marseille, France</p>
+                            <p class="timeline-description">Grade: Bien (high distinction)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Professional Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Since 2020</div>
+                            <h3 class="timeline-title">Researcher - CNRS</h3>
+                            <p class="timeline-institution">Pprime Institute - Fluids, Thermal and Combustion Department - CURIOSITY Team</p>
+                            <p class="timeline-location">Poitiers, France</p>
+                            <p class="timeline-description">Leading research on wall-bounded turbulence, focusing on multi-scale interactions, flow control strategies, and data-driven approaches for fluid dynamics modeling.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2019-2020</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">Imperial College London, Department of Aeronautics</p>
+                            <p class="timeline-location">London, UK</p>
+                            <p class="timeline-description">Project: "High-Fidelity LES/DNS Data for Innovative Turbulence Models"<br>Supervisor: Prof. Peter Vincent<br>Funding: EU project - HIFI-TURB</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2016-2019</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">Imperial College London, Department of Aeronautics</p>
+                            <p class="timeline-location">London, UK</p>
+                            <p class="timeline-description">Project: "Near-wall turbulence and drag reduction at high Reynolds number"<br>Supervisor: Prof. Michael Leschziner<br>Funding: EU-China project DRAGY</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2014-2017</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">Ohio State University, Department of Aeronautics</p>
+                            <p class="timeline-location">Columbus, USA</p>
+                            <p class="timeline-description">Project: "Near-wall turbulence, shockwave/boundary layer interaction, jet"<br>Supervisor: Prof. Datta Gaitonde</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2013-2014</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">Imperial College London, Department of Aeronautics</p>
+                            <p class="timeline-location">London, UK</p>
+                            <p class="timeline-description">Project: "Control of Görtler vortices"<br>Supervisor: Dr. George Papadakis<br>Funding: EPSRC</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2012-2013</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">Imperial College London, Department of Aeronautics</p>
+                            <p class="timeline-location">London, UK</p>
+                            <p class="timeline-description">Project: "Drag reduction in turbulent channel flow by oscillatory spanwise motion"<br>Supervisor: Prof. Michael Leschziner<br>Funding: EPSRC</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2011-2012</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <p class="timeline-institution">IUSTI, Aix-Marseille University</p>
+                            <p class="timeline-location">Marseille, France</p>
+                            <p class="timeline-description">Project: "Unsteadiness in separated supersonic flow"<br>Supervisor: Prof. Jean-Paul Dussauge<br>Funding: State grant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Research Activities and Impact</h3>
+                
+                <div class="publication-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">23</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Rank A Journals</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Conference Papers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">ANR Projects</div>
+                    </div>
+                </div>
+                
+                <h4 style="font-size: 22px; color: var(--primary-color); margin-bottom: 20px;">Current Projects</h4>
+                
+                <div class="projects-timeline">
+                    <div class="project-item">
+                        <div class="project-date">2024-2028</div>
+                        <div class="project-content">
+                            <h5>ANR JCJC INFERENCE</h5>
+                            <div class="project-details">
+                                <p><strong>Role:</strong> Project Lead</p>
+                                <p><strong>Topic:</strong> Modeling near-wall turbulence at high Reynolds numbers</p>
+                                <p><strong>Funding:</strong> 330,000€</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-date">2023-2025</div>
+                        <div class="project-content">
+                            <h5>SAFRAN Aircraft Engines Collaboration</h5>
+                            <div class="project-details">
+                                <p><strong>Role:</strong> Project Lead</p>
+                                <p><strong>Topic:</strong> Study of turbulent flows in aircraft engines through active control of secondary flow instabilities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-date">2023-2027</div>
+                        <div class="project-content">
+                            <h5>ANR MUFDD</h5>
+                            <div class="project-details">
+                                <p><strong>Role:</strong> Team Member</p>
+                                <p><strong>Topic:</strong> Data-driven modeling of urban canopy flows</p>
+                                <p><strong>Funding for Pprime:</strong> 182,000€</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-date">2022-2026</div>
+                        <div class="project-content">
+                            <h5>ANR SOLAIRE</h5>
+                            <div class="project-details">
+                                <p><strong>Role:</strong> Co-investigator</p>
+                                <p><strong>Topic:</strong> Machine learning for high-temperature solar receivers</p>
+                                <p><strong>Funding for Pprime:</strong> 179,000€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .projects-timeline {
+                        position: relative;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        padding: 20px 0;
+                    }
+
+                    .projects-timeline::before {
+                        content: '';
+                        position: absolute;
+                        width: 4px;
+                        background-color: var(--primary-color);
+                        top: 0;
+                        bottom: 0;
+                        left: 50%;
+                        margin-left: -2px;
+                    }
+
+                    .project-item {
+                        padding: 20px 40px;
+                        position: relative;
+                        width: 50%;
+                        left: 0;
+                        margin-bottom: 30px;
+                    }
+
+                    .project-item:nth-child(even) {
+                        left: 50%;
+                    }
+
+                    .project-item::after {
+                        content: '';
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        right: -10px;
+                        background-color: var(--primary-color);
+                        border: 4px solid var(--accent-color);
+                        top: 20px;
+                        border-radius: 50%;
+                        z-index: 1;
+                    }
+
+                    .project-item:nth-child(even)::after {
+                        left: -10px;
+                    }
+
+                    .project-content {
+                        padding: 20px;
+                        background-color: #f9f9f9;
+                        border-radius: 8px;
+                        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .project-content:hover {
+                        transform: translateY(-5px);
+                    }
+
+                    .project-date {
+                        font-weight: 600;
+                        color: var(--primary-color);
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                    .project-content h5 {
+                        font-size: 20px;
+                        color: var(--primary-color);
+                        margin-bottom: 15px;
+                    }
+
+                    .project-details {
+                        font-size: 15px;
+                    }
+
+                    .project-details p {
+                        margin-bottom: 8px;
+                    }
+
+                    @media (max-width: 768px) {
+                        .projects-timeline::before {
+                            left: 31px;
+                        }
+
+                        .project-item {
+                            width: 100%;
+                            padding-left: 70px;
+                            padding-right: 25px;
+                            left: 0;
+                        }
+
+                        .project-item:nth-child(even) {
+                            left: 0;
+                        }
+
+                        .project-item::after {
+                            left: 18px;
+                            right: auto;
+                        }
+
+                        .project-item:nth-child(even)::after {
+                            left: 18px;
+                        }
+                    }
+                </style>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Skills & Expertise</h3>
+                
+                <div class="skills-container">
+                    <div>
+                        <div class="skill-category">
+                            <h3>Research Areas</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-check-circle"></i> Fluid Mechanics</li>
+                                <li><i class="fas fa-check-circle"></i> Wall-bounded Turbulence</li>
+                                <li><i class="fas fa-check-circle"></i> Compressible/Incompressible Flows</li>
+                                <li><i class="fas fa-check-circle"></i> Flow Control</li>
+                                <li><i class="fas fa-check-circle"></i> Drag Reduction</li>
+                                <li><i class="fas fa-check-circle"></i> Heat Transfer</li>
+                                <li><i class="fas fa-check-circle"></i> Unsteady Separated Flows</li>
+                                <li><i class="fas fa-check-circle"></i> Shock-wave/Boundary Layer Interaction</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-check-circle"></i> French (native)</li>
+                                <li><i class="fas fa-check-circle"></i> English (professional proficiency)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-category">
+                            <h3>Technical Skills</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-check-circle"></i> Numerical Simulations (DNS, LES)</li>
+                                <li><i class="fas fa-check-circle"></i> Machine Learning for Fluid Dynamics</li>
+                                <li><i class="fas fa-check-circle"></i> Auto-Encoders & Dimensionality Reduction</li>
+                                <li><i class="fas fa-check-circle"></i> Statistical Analysis of Turbulent Flows</li>
+                                <li><i class="fas fa-check-circle"></i> Reduced-Order Modeling</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Programming</h3>
+                            <ul class="skill-list">
+                                <li><i class="fas fa-check-circle"></i> Matlab</li>
+                                <li><i class="fas fa-check-circle"></i> Python</li>
+                                <li><i class="fas fa-check-circle"></i> Julia</li>
+                                <li><i class="fas fa-check-circle"></i> TensorFlow & Keras</li>
+                                <li><i class="fas fa-check-circle"></i> Fortran</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Teaching & Supervision</h3>
+                
+                <div style="margin-bottom: 40px;">
+                    <h4 style="font-size: 20px; color: var(--primary-color); margin-bottom: 20px;">Doctoral Supervision</h4>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Blessing Akinpelu (2024-2027)</h5>
+                        <p style="margin-bottom: 5px;"><strong>Thesis Director</strong> - Modeling of near-wall turbulence at high Reynolds numbers and development of control strategies</p>
+                        <p style="margin-bottom: 5px;">Funding: ANR INFERENCE</p>
+                        <p>Supervision: 60% (with C. Flageul - Pprime, 40%)</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Lou Guérin (2022-2025)</h5>
+                        <p style="margin-bottom: 5px;"><strong>Co-director</strong> - Improvement of heat transfers in solar receivers through active control methods</p>
+                        <p style="margin-bottom: 5px;">Funding: ANR SOLAIRE</p>
+                        <p style="margin-bottom: 5px;">Supervision: 25% (with L. Cordier - Pprime, S. Grieu - PROMES)</p>
+                        <p>Publications: 2 journal articles, 2 papers in preparation, 4 conference presentations</p>
+                    </div>
+                    
+                    <div>
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Niccolò Tonioni (2023-2026)</h5>
+                        <p style="margin-bottom: 5px;"><strong>Co-supervisor</strong> - Reduced-order modeling of turbulent flows using machine learning methods</p>
+                        <p style="margin-bottom: 5px;">Funding: EUR Intree/KTH</p>
+                        <p>Publications: 1 paper in preparation, 3 conference presentations</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 20px; color: var(--primary-color); margin-bottom: 20px;">Teaching Experience</h4>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Research Project Supervision at ENSMA (2023)</h5>
+                        <p>Guided approximately 20 engineering students in the application of machine learning methods for studying and predicting flow behavior around a cylinder.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Teaching Associate (2011-2012)</h5>
+                        <p style="margin-bottom: 5px;"><strong>Ecole Polytech Universitaire de Marseille</strong></p>
+                        <p style="margin-bottom: 5px;">Mathematics (differential equations, Fourier series, Multi-variable function)</p>
+                        <p>Experimental work (laminar/turbulent transition, centrifugal pumps, wave flume and open channel flow)</p>
+                    </div>
+                    
+                    <div>
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Teaching Assistant (2008-2011)</h5>
+                        <p style="margin-bottom: 5px;"><strong>Ecole Polytechnique Universitaire de Marseille</strong></p>
+                        <p>Fluid mechanics (Navier-Stokes equations, dimensional analysis)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-container">
+                <h3 class="section-heading">Professional Activities</h3>
+                
+                <div style="margin-bottom: 30px;">
+                    <h4 style="font-size: 20px; color: var(--primary-color); margin-bottom: 20px;">Administrative Responsibilities</h4>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Member of Evaluating Scientific Committee (CES 60)</h5>
+                        <p>University of Poitiers (Since 2021)</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Member of Pprime Communication Committee</h5>
+                        <p>Pprime Institute (Since 2020)</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 20px; color: var(--primary-color); margin-bottom: 20px;">Scientific Community Involvement</h4>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Journal Reviewer</h5>
+                        <p>Journal of Fluid Mechanics, Physics of Fluids, International Journal of Heat and Fluid Flow, Physical Review Fluids, Journal of Turbulence</p>
+                    </div>
+                    
+                    <div>
+                        <h5 style="font-size: 18px; margin-bottom: 10px;">Conference Session Organizer</h5>
+                        <p>"Machine Learning for Turbulence" session at ETC 16 (2022)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn">Download Complete CV (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#research">Research</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#publications">Publications</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Research Areas</h4>
+                    <ul>
+                        <li><a href="#">Wall-bounded Turbulence</a></li>
+                        <li><a href="#">Drag Reduction</a></li>
+                        <li><a href="#">Heat Transfer</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Computational Fluid Dynamics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            }
+        });
+    </script>

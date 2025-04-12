@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Publications</title>
+    <meta name="description" content="Academic publications of Dr. Lionel Agostini, CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #25256F;
+            --secondary-color: #87CEEB;
+            --accent-color: #FFD700;
+            --background-color: #F8F8F8;
+            --text-color: #333333;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(37, 37, 111, 0.8), rgba(37, 37, 111, 0.9)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            padding: 150px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Publications Section */
+        .publications-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .publications-overview {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+        
+        .publications-overview p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .publications-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+        }
+        
+        .publications-controls {
+            margin-bottom: 40px;
+        }
+        
+        .filter-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .search-box {
+            margin-top: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(37, 37, 111, 0.2);
+        }
+        
+        .publications-list {
+            margin-top: 20px;
+        }
+        
+        .publication-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .publication-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .publication-authors {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .publication-authors .highlight {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .publication-year {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #777;
+        }
+        
+        .publication-abstract {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        
+        .show-abstract {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .show-abstract i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .show-abstract.active i {
+            transform: rotate(180deg);
+        }
+        
+        .abstract-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .publication-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .publication-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-btn:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 24px;
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .page-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .publications-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .publication-item {
+                padding: 15px;
+            }
+            
+            .publication-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logos/logo_cnrs.png" alt="CNRS Logo">
+                Dr. Lionel Agostini
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700; color: var(--accent-color);">
+                Publications
+            </h2>
+            <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--accent-color);">
+                Contributing to the scientific community through peer-reviewed research and academic publications.
+            </p>
+        </div>
+        <div class="hero-background">
+            <div class="background-slide active" style="background-image: url('images/background/back3.jpg')"></div>
+            <div class="background-slide" style="background-image: url('images/background/back2.jpg')"></div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications-section">
+        <div class="container">
+            <div class="publications-overview">
+                <h2 class="section-title">Research Output</h2>
+                <p>My research has been published in leading peer-reviewed journals in the field of fluid mechanics, including the Journal of Fluid Mechanics, Physics of Fluids, and Physical Review Fluids. Below is a collection of my scholarly articles, conference papers, and other scientific contributions.</p>
+                
+                <div class="publications-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">23</div>
+                        <div class="stat-label">Total Publications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Rank A Journals</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Conference Papers</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="publications-controls">
+                <div class="filter-title">Filter Publications</div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Publications</button>
+                    <button class="filter-btn" data-filter="boundary-layer">Boundary Layer Theory</button>
+                    <button class="filter-btn" data-filter="drag-reduction">Drag Reduction</button>
+                    <button class="filter-btn" data-filter="heat-transfer">Heat Transfer</button>
+                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                    <button class="filter-btn" data-filter="shock-wave">Shock-Wave Interactions</button>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search publications by title, author, or keyword...">
+                </div>
+            </div>
+            
+            <div class="publications-list">
+                <!-- Boundary Layer Theory -->
+                <div class="publication-category" id="boundary-layer">
+                    <h3 class="category-title">Boundary Layer Theory</h3>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M. A. Leschziner</p>
+                        <p class="publication-journal">Physics of Fluids, Vol. 34</p>
+                        <p class="publication-year">2022</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This article presents a new methodology using an auto-encoder algorithm to separate large- and small-scale motions from extremely large direct numerical simulation fields of a channel flow at friction Reynolds number Re<sub>τ</sub> ≈ 5200. This approach overcomes the limitations of the empirical mode decomposition method previously used at lower Reynolds numbers. The modulation of small-scale turbulence by large-scale structures is quantified using multi-variable joint probability density functions and the derivative of the second-order structure function, providing insights into the underlying mechanisms. The validity of the quasi-steady hypothesis, proposing the universality of near-wall turbulence when scaled by the variable large-scale wall shear stress, is also examined.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://hal.science/hal-03852043/document" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">On the departure of near-wall turbulence from the quasi-steady state</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M. A. Leschziner</p>
+                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 871</p>
+                        <p class="publication-year">2019</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study examines the validity of the quasi-steady hypothesis in representing the effects of large-scale outer motions on near-wall turbulence in boundary layers. Direct numerical simulation data from a channel flow at Re<sub>τ</sub> ≈ 1000 is analyzed to assess both amplitude and phase modulation effects. The research reveals limitations in the quasi-steady model, particularly in capturing the asymmetric response of near-wall turbulence to positive and negative large-scale fluctuations, and the phase relationships between scales. These findings have important implications for predictive modeling of wall-bounded turbulent flows at high Reynolds numbers.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="http://dx.doi.org/10.1017/jfm.2019.395" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at Re<sub>τ</sub> ≈ 1000</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M. A. Leschziner</p>
+                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 871</p>
+                        <p class="publication-year">2019</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study investigates the relationship between the spectrum of turbulent scales and skin-friction statistics in a channel flow at Re<sub>τ</sub> ≈ 1000. By analyzing direct numerical simulation data, the research establishes quantitative connections between turbulent structures of different scales and their contributions to the wall shear stress. The findings provide valuable insights into the physical mechanisms driving skin friction and highlight the significance of scale interactions in determining the statistical properties of wall-bounded turbulence.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="http://dx.doi.org/10.1017/jfm.2019.297" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Drag Reduction -->
+                <div class="publication-category" id="drag-reduction">
+                    <h3 class="category-title">Drag Reduction</h3>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M. A. Leschziner</p>
+                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 923</p>
+                        <p class="publication-year">2021</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This paper presents a statistical analysis of interactions between large-scale outer structures and small-scale near-wall turbulence in a channel flow subjected to spanwise oscillatory wall forcing, using a methodology based on multi-variable joint probability density functions. Direct numerical simulation data is analyzed by consolidating the dataset into joint PDFs, allowing the extraction of a wide range of conditional statistics. The study focuses on elucidating the mechanisms by which near-wall turbulence is modified by the action of large-scale footprints, which tend to strengthen as the Reynolds number increases. The strongly asymmetric response of the production rate and turbulence level in the buffer layer to positive and negative footprints is identified as a partial explanation for the diminishing effectiveness of drag-reducing wall motion as Reynolds number increases.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1017/jfm.2021.585" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M. A. Leschziner</p>
+                        <p class="publication-journal">Journal of Flow, Turbulence and Combustion, pp. 1-25</p>
+                        <p class="publication-year">2018</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study investigates how the footprints of large-scale outer structures affect the near-wall layer in channel flow subjected to drag-reducing spanwise wall motion. The research reveals important insights into the interplay between outer large-scale motions and the effectiveness of drag reduction strategies. By analyzing the impact of these footprints on the near-wall turbulence structure and momentum transfer mechanisms, the study provides valuable knowledge for developing more effective flow control strategies at high Reynolds numbers.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Heat Transfer -->
+                <div class="publication-category" id="heat-transfer">
+                    <h3 class="category-title">Heat Transfer</h3>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</h4>
+                        <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu, & <span class="highlight">L. Agostini</span></p>
+                        <p class="publication-journal">International Journal of Heat and Fluid Flow, Vol. 1010:109564</p>
+                        <p class="publication-year">2024</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study examines the manipulation of convective heat transfer through spanwise wall oscillations in a turbulent channel flow. Direct numerical simulations are performed at Re<sub>τ</sub> = 180 and Pr = 1. The main objective is to explore the heat transfer response to oscillation parameters that promote drag increase, a regime that has received limited attention. By adopting a period (T<sup>+</sup> = 500) and amplitude (W<sup>+</sup> = 30) reported to increase drag, a remarkable dissimilarity between momentum and heat transport emerges. Under these conditions, convective heat transfer experiences a substantial increase of 15%, while drag increases by only 7.7%, effectively breaking the Reynolds analogy. A comprehensive statistical analysis elucidates the physical mechanisms responsible for this dissimilar behavior, examining the effect of control on near-wall streaks and associated momentum and heat mixing by analyzing energy distribution across scales and wall-normal positions. The investigation highlights the potential of using unconventional spanwise wall oscillation parameters to preferentially enhance convective heat transfer while minimizing the associated drag penalty.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</h4>
+                        <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu, & <span class="highlight">L. Agostini</span></p>
+                        <p class="publication-journal">arXiv preprint, 2312.13002</p>
+                        <p class="publication-year">2024</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This paper explores the decoupling of turbulent heat and momentum transport through spanwise wall oscillations in wall-bounded flows. The research challenges the traditional Reynolds analogy, which suggests a direct correlation between heat transfer and momentum transport in turbulent flows. By implementing strategic wall oscillation parameters, the study demonstrates how heat transfer can be enhanced more significantly than drag, providing new opportunities for thermal management in engineering applications. This breakthrough has important implications for the design of more efficient heat exchangers and thermal management systems.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://arxiv.org/html/2312.13002v1" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Machine Learning -->
+                <div class="publication-category" id="machine-learning">
+                    <h3 class="category-title">Machine Learning</h3>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Catching up with missing particles</h4>
+                        <p class="publication-authors">S. Atis & <span class="highlight">L. Agostini</span></p>
+                        <p class="publication-journal">Nature Machine Intelligence, Vol. 6</p>
+                        <p class="publication-year">2024</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This paper presents innovative machine learning approaches for tracking and predicting particle motion in complex fluid flows. The research addresses the challenging problem of identifying and tracking particles in experimental or simulation data with incomplete information. By utilizing advanced neural network architectures, the study demonstrates how to recover missing particle trajectories, enabling more comprehensive analysis of particle dynamics in turbulent flows and other complex systems.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s42256-023-00770-x" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Exploration and prediction of fluid dynamical systems using Auto-Encoder technology</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span></p>
+                        <p class="publication-journal">Physics of Fluids, Vol. 32(6):067103</p>
+                        <p class="publication-year">2020</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This paper introduces a novel methodology employing auto-encoder technology for the exploration and prediction of fluid dynamical systems. The approach enables the identification of coherent structures in complex flow fields and the construction of low-dimensional dynamical models that capture the essential physics of the flow. By combining clustering algorithms with the reduced-order representation obtained from the auto-encoder, the method provides an effective framework for analyzing and predicting the behavior of complex fluid systems, with applications in flow control and optimization.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1063/5.0012906" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shock-Wave Interactions -->
+                <div class="publication-category" id="shock-wave">
+                    <h3 class="category-title">Shock-Wave Boundary Layer Interactions</h3>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions</h4>
+                        <p class="publication-authors">M. Waindim, <span class="highlight">L. Agostini</span>, L. Larchevêque & D. Gaitonde</p>
+                        <p class="publication-journal">Shock Waves, Vol. 30, pp. 63-75</p>
+                        <p class="publication-year">2020</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study investigates the dynamic behavior of separation bubbles in shock wave/turbulent boundary layer interactions. Using advanced numerical simulations and statistical analysis, the research characterizes the processes of bubble dilation and collapse, and their relationship to the unsteady shock motion. The findings provide important insights into the mechanisms driving flow separation and reattachment in high-speed flows, with implications for the design of supersonic and hypersonic vehicles.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1007/s00193-019-00918-y" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Mechanism of shock unsteadiness in separated shock/boundary-layer interactions</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, L. Larchevêque & P. Dupont</p>
+                        <p class="publication-journal">Physics of Fluids, Vol. 27(12):126103</p>
+                        <p class="publication-year">2015</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This paper examines the mechanisms driving shock unsteadiness in separated shock/boundary-layer interactions. Through detailed analysis of experimental and numerical data, the study identifies the key physical processes responsible for the low-frequency oscillations of the shock wave. The research provides valuable insights into the complex interactions between the incoming boundary layer, the separation bubble, and the shock system, contributing to a better understanding of high-speed flow phenomena relevant to aerospace applications.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="http://dx.doi.org/10.1063/1.4937350" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4 class="publication-title">Zones of influence and shock boundary layer interaction</h4>
+                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, L. Larchevêque, P. Dupont, J.-F. Debiève & J.-P. Dussauge</p>
+                        <p class="publication-journal">AIAA Journal, Vol. 50(6):1377</p>
+                        <p class="publication-year">2012</p>
+                        <div class="publication-abstract">
+                            <div class="show-abstract">
+                                Show Abstract <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="abstract-content">
+                                This study introduces the concept of "zones of influence" to analyze shock boundary layer interactions. By identifying the regions that significantly affect the shock motion and flow dynamics, the research provides a new framework for understanding the complex phenomena that occur in high-speed flows with shock-induced separation. The findings have important implications for the prediction and control of shock unsteadiness in aerospace applications.
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="http://dx.doi.org/10.2514/1.J051516" class="publication-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="publication-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn">View All Publications on Google Scholar</a>
+            </div>
+            
+            <div class="pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn"><i class="fas fa-ellipsis-h"></i></button>
+                <button class="pagination-btn"><i class="fas fa-angle-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Research Areas</h4>
+                    <ul>
+                        <li><a href="research.html#boundary-layer">Wall-bounded Turbulence</a></li>
+                        <li><a href="research.html#drag-reduction">Drag Reduction</a></li>
+                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
+                        <li><a href="research.html#machine-learning">Machine Learning</a></li>
+                        <li><a href="research.html#shock-wave">Shock-Wave Interactions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.padding = '0';
+            }
+        });
+        
+        // Toggle abstract visibility
+        document.querySelectorAll('.show-abstract').forEach(button => {
+            button.addEventListener('click', function() {
+                const abstractContent = this.nextElementSibling;
+                this.classList.toggle('active');
+                
+                if (abstractContent.style.display === 'block') {
+                    abstractContent.style.display = 'none';
+                } else {
+                    abstractContent.style.display = 'block';
+                }
+            });
+        });
+        
+        // Filter publications
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publicationCategories = document.querySelectorAll('.publication-category');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show/hide categories
+                if (filter === 'all') {
+                    publicationCategories.forEach(category => {
+                        category.style.display = 'block';
+                    });
+                } else {
+                    publicationCategories.forEach(category => {
+                        if (category.id === filter) {
+                            category.style.display = 'block';
+                        } else {
+                            category.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        const publicationItems = document.querySelectorAll('.publication-item');
+        
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            publicationItems.forEach(item => {
+                const title = item.querySelector('.publication-title').textContent.toLowerCase();
+                const authors = item.querySelector('.publication-authors').textContent.toLowerCase();
+                const abstract = item.querySelector('.abstract-content') ? item.querySelector('.abstract-content').textContent.toLowerCase() : '';
+                
+                if (title.includes(searchTerm) || authors.includes(searchTerm) || abstract.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide category headers based on visible items
+            publicationCategories.forEach(category => {
+                const visibleItems = category.querySelectorAll('.publication-item[style="display: block"]').length;
+                if (visibleItems === 0) {
+                    category.style.display = 'none';
+                } else {
+                    category.style.display = 'block';
+                }
+            });
+        });
+    </script>
