@@ -194,19 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Button hover effects for hero buttons
-    const heroButtons = document.querySelectorAll('.hero-btns .btn');
-    
-    heroButtons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.style.transform = 'translateY(-5px)';
-        });
-        
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'translateY(0)';
-        });
-    });
-    
     // Publication abstract toggle
     const abstractToggles = document.querySelectorAll('.show-abstract');
     

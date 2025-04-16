@@ -354,6 +354,8 @@ header.scrolled {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    line-height: 1.3;
+    font-weight: 700;
 }
 
 .hero-subtitle {
@@ -368,6 +370,15 @@ header.scrolled {
     margin-bottom: 40px;
     color: var(--accent-color);
     font-weight: 600;
+}
+
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-btns {
@@ -401,6 +412,27 @@ header.scrolled {
     }
 }
 
+
+.hero-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(37, 37, 111, 0.7), rgba(37, 37, 111, 0.8));
+    z-index: 2;
+}
+
 /* About Section */
 .about {
     padding: var(--section-padding);
@@ -420,6 +452,23 @@ header.scrolled {
 
 .highlight {
     color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* Utility Text Styles */
+.text-primary {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.text-drag {
+    color: #00CCFF; /* Specific color from inline style */
+    font-weight: 600;
+}
+
+.text-heat {
+    color: #FF5050; /* Specific color from inline style */
     font-weight: 600;
 }
 
@@ -464,6 +513,108 @@ header.scrolled {
 .benefit-card p {
     font-size: 15px;
     color: var(--text-light);
+}
+
+
+.about-intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-intro-text p {
+    font-size: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-image-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.about-image-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.about-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-image-caption {
+    padding: 15px;
+    text-align: center;
+}
+
+.about-image-caption h3 {
+    margin: 0;
+}
+
+.about-image-caption-drag {
+    background-color: rgba(0, 204, 255, 0.1);
+}
+
+.about-image-caption-drag h3 {
+    color: #00CCFF;
+}
+
+.about-image-caption-heat {
+    background-color: rgba(255, 80, 80, 0.1);
+}
+
+.about-image-caption-heat h3 {
+    color: #FF5050;
+}
+
+.about-info-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.info-box {
+    flex: 1;
+    min-width: 300px;
+    padding: 25px;
+    border-radius: var(--border-radius);
+}
+
+.info-box h4 {
+    margin-top: 0;
+}
+
+.info-box-drag {
+    background-color: rgba(0, 204, 255, 0.05);
+    border-left: 4px solid #00CCFF;
+}
+
+.info-box-drag h4 {
+    color: #00CCFF;
+}
+
+.info-box-heat {
+    background-color: rgba(255, 80, 80, 0.05);
+    border-left: 4px solid #FF5050;
+}
+
+.info-box-heat h4 {
+    color: #FF5050;
+}
+
+.about-cv-link {
+    text-align: center;
+    margin-top: 30px;
 }
 
 /* Research Interests */
@@ -957,6 +1108,12 @@ header.scrolled {
     transform: translateX(3px);
 }
 
+
+
+.publications-action {
+    margin-top: 40px;
+    text-align: center;
+}
 /* Contact Section */
 .contact {
     padding: var(--section-padding);
@@ -1067,6 +1224,23 @@ header.scrolled {
     background-color: white;
 }
 
+
+.institute-logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.institute-logos-container a {
+    max-width: 200px;
+}
+
+.institute-logos-container img {
+    width: 100%;
+    height: auto;
+}
 .institutes img {
     filter: grayscale(100%);
     transition: filter 0.5s ease, transform 0.5s ease;

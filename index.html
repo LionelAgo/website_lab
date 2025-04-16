@@ -33,35 +33,26 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-subtitle" style="font-size: 18px; margin-bottom: 15px; color: var(--accent-color);">Dr. Lionel Agostini | CNRS Researcher</p>
-            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700;">
+            <p class="hero-position">Dr. Lionel Agostini | CNRS Researcher</p>
+            <h2 class="hero-title">
                 Diving into the Complexities of<br>
                 Multi-Scale Wall-Bounded<br>
                 Turbulence Dynamics
             </h2>
-            <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p class="hero-description">
                 Exploring the fundamental physics of turbulent flows through advanced numerical simulations and data-driven approaches to improve energy efficiency and sustainability.
             </p>
             <div class="hero-btns">
-                <a href="#research" class="btn" style="position: relative; overflow: hidden;">
-                    <span style="position: relative; z-index: 2;">View Research</span>
-                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
-                </a>
-                <a href="https://sdrive.cnrs.fr/s/4wJr3zABm2RZgCG" class="btn" style="position: relative; overflow: hidden;" target="_blank">
-                    <span style="position: relative; z-index: 2;">Download HDR Manuscript</span>
-                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
-                </a>
-                <a href="images/Resume.pdf" class="btn" style="position: relative; overflow: hidden;" target="_blank">
-                    <span style="position: relative; z-index: 2;">Download CV</span>
-                    <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateX(-100%); transition: transform 0.3s ease; z-index: 1;"></span>
-                </a>
+                <a href="#research" class="btn">View Research</a>
+                <a href="https://sdrive.cnrs.fr/s/4wJr3zABm2RZgCG" class="btn" target="_blank">Download HDR Manuscript</a>
+                <a href="images/Resume.pdf" class="btn" target="_blank">Download CV</a>
             </div>
         </div>
         <div class="hero-background">
-            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+            <video autoplay muted loop playsinline>
                 <source src="images/background/back1_mov.mp4" type="video/mp4">
             </video>
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(37, 37, 111, 0.7), rgba(37, 37, 111, 0.8)); z-index: 2;"></div>
+            <div class="hero-overlay"></div>
         </div>
     </section>
 
@@ -70,44 +61,44 @@
         <div class="container">
             <h2 class="section-title">Understanding and Controlling Wall-Bounded Turbulence</h2>
             
-            <div style="text-align: center; margin-bottom: 30px;">
-                <p style="font-size: 18px; max-width: 900px; margin: 0 auto;">When any body moves through a fluid or when fluid flows through pipes, a <span style="color: #25256F; font-weight: 600;">boundary layer</span> forms where various families of <span style="color: #25256F; font-weight: 600;">turbulent structures</span> develop, significantly impacting both <span style="color: #00CCFF; font-weight: 600;">drag</span> and <span style="color: #FF5050; font-weight: 600;">heat transfer</span>.</p>
+            <div class="about-intro-text">
+                <p>When any body moves through a fluid or when fluid flows through pipes, a <span class="text-primary">boundary layer</span> forms where various families of <span class="text-primary">turbulent structures</span> develop, significantly impacting both <span class="text-drag">drag</span> and <span class="text-heat">heat transfer</span>.</p>
             </div>
             
-            <div style="display: flex; flex-wrap: wrap; margin-bottom: 40px; align-items: center; justify-content: center; gap: 30px;">
-                <div style="flex: 1; min-width: 300px; max-width: 500px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
-                    <img src="images/index_page/drag.webp" alt="Drag Reduction in Transport" style="width: 100%; height: auto; display: block;">
-                    <div style="padding: 15px; background-color: rgba(0, 204, 255, 0.1); text-align: center;">
-                        <h3 style="color: #00CCFF; margin: 0;">Drag Reduction in Transport</h3>
+            <div class="about-image-row">
+                <div class="about-image-card">
+                    <img src="images/index_page/drag.webp" alt="Drag Reduction in Transport">
+                    <div class="about-image-caption about-image-caption-drag">
+                        <h3>Drag Reduction in Transport</h3>
                     </div>
                 </div>
                 
-                <div style="flex: 1; min-width: 300px; max-width: 500px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden;">
-                    <img src="images/index_page/heat.webp" alt="Heat Transfer Applications" style="width: 100%; height: auto; display: block;">
-                    <div style="padding: 15px; background-color: rgba(255, 80, 80, 0.1); text-align: center;">
-                        <h3 style="color: #FF5050; margin: 0;">Heat Transfer Applications</h3>
+                <div class="about-image-card">
+                    <img src="images/index_page/heat.webp" alt="Heat Transfer Applications">
+                    <div class="about-image-caption about-image-caption-heat">
+                        <h3>Heat Transfer Applications</h3>
                     </div>
                 </div>
             </div>
             
-            <div class="about-content" style="max-width: 900px; margin: 0 auto;">
-                <p>These eddies play a major role in both <span style="color: #00CCFF; font-weight: 600;">skin-friction drag</span> and <span style="color: #FF5050; font-weight: 600;">heat transfer</span>. As velocity increases further, new families of <span style="color: #25256F; font-weight: 600;">turbulent structures</span> emerge and their characteristics evolve, often being influenced by wall properties and geometry. This evolution renders the flow increasingly complex and challenging to predict or control.</p>
+            <div class="about-content">
+                <p>These eddies play a major role in both <span class="text-drag">skin-friction drag</span> and <span class="text-heat">heat transfer</span>. As velocity increases further, new families of <span class="text-primary">turbulent structures</span> emerge and their characteristics evolve, often being influenced by wall properties and geometry. This evolution renders the flow increasingly complex and challenging to predict or control.</p>
                 
-                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
-                    <div style="flex: 1; min-width: 300px; padding: 25px; background-color: rgba(0, 204, 255, 0.05); border-radius: 10px; border-left: 4px solid #00CCFF;">
-                        <h4 style="color: #00CCFF; margin-top: 0;">Drag Reduction Research</h4>
-                        <p>For transport applications—aircraft, ships, and pipelines—<span style="color: #00CCFF; font-weight: 600;">drag reduction</span> is essential, as turbulence can increase friction by factors of 10-100 compared to laminar conditions, significantly affecting energy consumption and emissions.</p>
+                <div class="about-info-boxes">
+                    <div class="info-box info-box-drag">
+                        <h4>Drag Reduction Research</h4>
+                        <p>For transport applications—aircraft, ships, and pipelines—<span class="text-drag">drag reduction</span> is essential, as turbulence can increase friction by factors of 10-100 compared to laminar conditions, significantly affecting energy consumption and emissions.</p>
                     </div>
                     
-                    <div style="flex: 1; min-width: 300px; padding: 25px; background-color: rgba(255, 80, 80, 0.05); border-radius: 10px; border-left: 4px solid #FF5050;">
-                        <h4 style="color: #FF5050; margin-top: 0;">Heat Transfer Control</h4>
-                        <p><span style="color: #FF5050; font-weight: 600;">Heat transfer</span> is approached with dual objectives: for renewable energy harvesting (CSP plants), heat transfer must be significantly enhanced, while in engines and industrial equipment, it must be carefully regulated within optimal operating ranges.</p>
+                    <div class="info-box info-box-heat">
+                        <h4>Heat Transfer Control</h4>
+                        <p><span class="text-heat">Heat transfer</span> is approached with dual objectives: for renewable energy harvesting (CSP plants), heat transfer must be significantly enhanced, while in engines and industrial equipment, it must be carefully regulated within optimal operating ranges.</p>
                     </div>
                 </div>
                 
-                <p>My research is motivated by the critical need to address <span style="color: #25256F; font-weight: 600;">climate change</span> through improved understanding and control of these wall-bounded turbulent flows. A synergistic approach is employed in my research, wherein traditional <span style="color: #25256F; font-weight: 600;">fluid mechanics</span> is integrated with advanced <span style="color: #25256F; font-weight: 600;">machine learning</span> techniques. Through the development of innovative <span style="color: #25256F; font-weight: 600;">control strategies</span> targeting these boundary layer structures, significant improvements in energy efficiency and sustainability can be achieved across diverse engineering applications.</p>
+                <p>My research is motivated by the critical need to address <span class="text-primary">climate change</span> through improved understanding and control of these wall-bounded turbulent flows. A synergistic approach is employed in my research, wherein traditional <span class="text-primary">fluid mechanics</span> is integrated with advanced <span class="text-primary">machine learning</span> techniques. Through the development of innovative <span class="text-primary">control strategies</span> targeting these boundary layer structures, significant improvements in energy efficiency and sustainability can be achieved across diverse engineering applications.</p>
                 
-                <div style="text-align: center; margin-top: 30px;">
+                <div class="about-cv-link">
                     <a href="images/Resume.pdf" class="btn" target="_blank">Download Full CV</a>
                 </div>
             </div>
@@ -351,7 +342,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 40px; text-align: center;">
+            <div class="publications-action text-center">
                 <a href="publications.html" class="btn">View All Publications</a>
             </div>
         </div>
@@ -408,15 +399,15 @@
     <!-- Institute Logos -->
     <section class="institutes">
         <div class="container">
-            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
-                <a href="https://www.cnrs.fr/" target="_blank" style="max-width: 200px;">
-                    <img src="logos/cnrs.png" alt="CNRS Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+            <div class="institute-logos-container">
+                <a href="https://www.cnrs.fr/" target="_blank">
+                    <img src="logos/cnrs.png" alt="CNRS Logo">
                 </a>
-                <a href="https://www.univ-poitiers.fr/" target="_blank" style="max-width: 200px;">
-                    <img src="logos/logo_up.png" alt="Université de Poitiers Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+                <a href="https://www.univ-poitiers.fr/" target="_blank">
+                    <img src="logos/logo_up.png" alt="Université de Poitiers Logo">
                 </a>
-                <a href="https://pprime.fr/" target="_blank" style="max-width: 200px;">
-                    <img src="logos/logo_pprime.jpg" alt="Institut Pprime Logo" style="width: 100%; height: auto; filter: grayscale(100%); transition: filter 0.3s ease;">
+                <a href="https://pprime.fr/" target="_blank">
+                    <img src="logos/logo_pprime.jpg" alt="Institut Pprime Logo">
                 </a>
             </div>
         </div>
