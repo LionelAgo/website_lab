@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Publications</title>
+    <meta name="description" content="Academic publications of Dr. Lionel Agostini, CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Base font */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-100 text-gray-800; /* Use a slightly less stark white */
+        }
+
+        /* Header styling */
+        header {
+            @apply bg-gradient-to-r from-indigo-700 to-blue-800 text-white shadow-lg sticky top-0 z-50;
+        }
+        header a, header span { @apply text-white; }
+        header .nav-links ul li a {
+             @apply text-indigo-100 hover:text-white transition duration-200 py-1; /* Added padding */
+        }
+         header .nav-links ul li a.nav-active {
+             @apply text-white font-semibold border-b-2 border-yellow-400 pb-1;
+         }
+         header #hamburger-button { @apply text-indigo-100 hover:text-white; }
+         #nav-links-mobile { @apply bg-indigo-800 border-t border-indigo-700; }
+         #nav-links-mobile a { @apply text-indigo-100 hover:bg-indigo-700 rounded px-2; }
+         #nav-links-mobile a.nav-active { @apply text-white font-semibold bg-indigo-700; }
+
+        /* Mobile menu transition */
+        #nav-links-mobile {
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Category heading style */
+        .publication-category-title {
+            @apply text-2xl font-semibold text-indigo-900 mt-12 mb-6 p-4 bg-white rounded-lg border-l-4 border-indigo-600 shadow-md; /* Enhanced style */
+        }
+
+        /* Publication tag style */
+        .pub-tag {
+            @apply inline-block text-sm font-semibold mr-2 px-3 py-1 rounded-md shadow-sm border; /* Slightly larger */
+        }
+        .tag-journal { @apply bg-blue-100 text-blue-900 border-blue-400; }
+        .tag-conference { @apply bg-green-100 text-green-900 border-green-400; }
+        .tag-preprint { @apply bg-yellow-100 text-yellow-900 border-yellow-400; }
+        .tag-communication { @apply bg-purple-100 text-purple-900 border-purple-400; }
+        .tag-other { @apply bg-gray-200 text-gray-900 border-gray-400; }
+
+        /* Keyword tag style */
+        .keyword-tag {
+             @apply inline-block text-xs font-medium mr-1.5 mb-1.5 px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700 border border-gray-300 cursor-pointer hover:bg-gray-200 hover:border-gray-400 transition duration-200;
+        }
+        .keyword-tag.active {
+             @apply bg-indigo-600 text-white border-indigo-700 hover:bg-indigo-700;
+        }
+
+        /* Sticky filter bar adjustment */
+        html { scroll-padding-top: 180px; /* Adjusted for potentially taller filter bar */ }
+
+        /* Style for the BibTeX container */
+        .bibtex-container {
+            @apply bg-gray-800 text-gray-200 text-xs p-4 mt-3 rounded-md shadow whitespace-pre-wrap font-mono overflow-x-auto;
+            max-height: 200px;
+            transition: all 0.3s ease-in-out; /* Smoother transition */
+            opacity: 1;
+        }
+        .bibtex-container.hidden {
+             @apply max-h-0 p-0 opacity-0 overflow-hidden border-0 mt-0;
+        }
+
+        /* Chart container styling */
+        .chart-container {
+             @apply bg-white p-5 rounded-lg border border-gray-200 shadow-md; /* Slightly more shadow/padding */
+        }
+
+        /* Metric card styling */
+        .metric-card {
+             @apply p-5 rounded-lg border text-center transition duration-300 hover:shadow-lg hover:scale-105 transform; /* Enhanced hover */
+        }
+
+        /* Academic profile link styling */
+        .academic-profile-link {
+             @apply flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transform transition duration-300 text-gray-700 hover:text-indigo-600 border border-gray-200;
+        }
+
+        /* Publication article styling - Enhanced Box */
+        .publication-article {
+             @apply bg-white p-6 rounded-xl shadow-lg border border-gray-200/80 mb-5 transition duration-300 hover:shadow-xl hover:border-gray-300; /* More prominent box */
+        }
+        .publication-article h4 a { @apply text-indigo-700 hover:text-indigo-900; } /* Title color */
+
+        /* Link Button Styles */
+        .link-button {
+            @apply inline-flex items-center gap-1 bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded-md hover:bg-indigo-200 hover:text-indigo-900 transition duration-300 border border-indigo-200;
+        }
+         .cite-button {
+            @apply inline-flex items-center gap-1 bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-1 rounded-md hover:bg-gray-300 transition duration-300 border border-gray-300;
+        }
+        .hal-link-button {
+             @apply inline-flex items-center gap-1 bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-1 rounded-md hover:bg-green-200 hover:text-green-900 transition duration-300 border border-green-200;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800"> <header>
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 text-xl font-bold" aria-label="Home">
+                 <img
+                    src="https://placehold.co/40x40/ffffff/3730a3?text=LA"
+                    alt="LA Initials Logo"
+                    class="h-8 w-8 rounded-full border-2 border-indigo-300"
+                    onerror="this.onerror=null; this.src='https://placehold.co/40x40/e2e8f0/334155?text=Logo';"
+                >
+                <span>Dr. Lionel Agostini</span>
+            </a>
+            <button id="hamburger-button" class="md:hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links-mobile">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <nav class="hidden md:block nav-links" aria-label="Main navigation">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="teams.html">Teams</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="publications.html" class="nav-active" aria-current="page">Publications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav id="nav-links-mobile" class="md:hidden max-h-0 overflow-hidden" aria-label="Mobile navigation">
+             <ul class="flex flex-col px-4 py-3 space-y-2">
+                 <li><a href="index.html" class="block py-1">Home</a></li>
+                 <li><a href="index.html#about" class="block py-1">About</a></li>
+                 <li><a href="research.html" class="block py-1">Research</a></li>
+                 <li><a href="teams.html" class="block py-1">Teams</a></li>
+                 <li><a href="projects.html" class="block py-1">Projects</a></li>
+                 <li><a href="publications.html" class="block py-1 nav-active" aria-current="page">Publications</a></li>
+                 <li><a href="index.html#contact" class="block py-1">Contact</a></li>
+             </ul>
+        </nav>
+    </header>
+
+    <section class="relative h-64 md:h-80 flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img
+                src="https://placehold.co/1920x1080/3730a3/ffffff?text=Turbulence+Simulation"
+                alt="Abstract fluid dynamics background"
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/cccccc/333333?text=Background+Image';"
+            >
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/70 to-blue-900/60 z-10"></div>
+        </div>
+        <div class="relative z-20 px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3 drop-shadow-lg">Publications & Communications</h1>
+            <p class="text-lg md:text-xl text-indigo-100 drop-shadow-md">
+                Research contributions, articles, and presentations.
+            </p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-8 md:py-12">
+
+        <section class="mb-16" aria-labelledby="academic-profiles-heading">
+            <h2 id="academic-profiles-heading" class="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-10">Academic Profiles</h2>
+            <div class="flex flex-wrap justify-center gap-5 md:gap-8">
+                <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer" class="academic-profile-link" aria-label="View Google Scholar Profile">
+                    <i class="fas fa-graduation-cap text-xl text-indigo-500"></i>
+                    <span class="font-medium">Google Scholar</span>
+                </a>
+                <a href="https://www.researchgate.net/" target="_blank" rel="noopener noreferrer" class="academic-profile-link" aria-label="View ResearchGate Profile">
+                    <i class="fab fa-researchgate text-xl text-green-500"></i>
+                    <span class="font-medium">ResearchGate</span>
+                </a>
+                <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer" class="academic-profile-link" aria-label="View ORCID Profile">
+                    <i class="fab fa-orcid text-xl text-lime-600"></i>
+                    <span class="font-medium">ORCID</span>
+                </a>
+                <a href="https://www.scopus.com/" target="_blank" rel="noopener noreferrer" class="academic-profile-link" aria-label="View Scopus Profile">
+                    <i class="fas fa-database text-xl text-orange-500"></i>
+                    <span class="font-medium">Scopus</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-16 bg-white p-6 md:p-8 rounded-lg shadow-lg" aria-labelledby="publication-metrics-heading">
+            <h2 id="publication-metrics-heading" class="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-10">Publication Metrics</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6 mb-12 text-center">
+                <div class="metric-card bg-indigo-50 border-indigo-200">
+                    <div class="text-4xl font-bold text-indigo-700 mb-1" id="total-publications">50+</div>
+                    <div class="text-sm font-medium text-indigo-600">Total Publications</div>
+                </div>
+                 <div class="metric-card bg-blue-50 border-blue-200">
+                    <div class="text-4xl font-bold text-blue-700 mb-1" id="journal-articles">23</div>
+                    <div class="text-sm font-medium text-blue-600">Journal Articles</div>
+                </div>
+                 <div class="metric-card bg-green-50 border-green-200">
+                    <div class="text-4xl font-bold text-green-700 mb-1" id="conference-papers">30+</div>
+                    <div class="text-sm font-medium text-green-600">Conference Papers</div>
+                </div>
+                 <div class="metric-card bg-yellow-50 border-yellow-200">
+                    <div class="text-4xl font-bold text-yellow-700 mb-1" id="h-index">18</div>
+                    <div class="text-sm font-medium text-yellow-600">h-index</div>
+                </div>
+                 <div class="metric-card bg-red-50 border-red-200">
+                    <div class="text-4xl font-bold text-red-700 mb-1" id="citations">1250+</div>
+                    <div class="text-sm font-medium text-red-600">Total Citations</div>
+                </div>
+                 <div class="metric-card bg-purple-50 border-purple-200">
+                    <div class="text-4xl font-bold text-purple-700 mb-1" id="research-areas">5</div>
+                    <div class="text-sm font-medium text-purple-600">Research Areas</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <div class="chart-container md:col-span-1"> <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">Publications by Year</h3>
+                    <canvas id="publicationsByYearChart" aria-label="Chart displaying publications by year" class="min-h-[300px] max-h-80"></canvas>
+                </div>
+                 <div class="chart-container md:col-span-1"> <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">Top Journals</h3>
+                    <canvas id="journalChart" aria-label="Chart displaying publications per journal" class="min-h-[300px] max-h-80"></canvas>
+                 </div>
+                 <div class="chart-container md:col-span-1"> <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">Publications by Research Area</h3>
+                    <canvas id="subjectChart" aria-label="Chart displaying publications per research area" class="min-h-[300px] max-h-80"></canvas>
+                 </div>
+                 </div>
+        </section>
+
+        <section aria-labelledby="publication-list-heading">
+            <h2 id="publication-list-heading" class="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-10">Publications & Communications List</h2>
+
+            <div class="mb-6 p-5 bg-white rounded-lg shadow-md sticky top-[76px] z-40 border-b border-gray-300">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+                     <div class="flex-grow">
+                        <label for="publication-search" class="sr-only">Search Publications:</label>
+                        <div class="relative">
+                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                             </div>
+                             <input type="text" id="publication-search" placeholder="Search by title, author, year, keyword..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                     </div>
+                     <div class="flex-shrink-0">
+                        <label for="type-filter" class="sr-only">Filter by Type:</label>
+                        <select id="type-filter" class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white appearance-none pr-8 bg-no-repeat" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3E%3Cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3E%3C/svg%3E'); background-position: right 0.5rem center; background-size: 1.5em 1.5em;">
+                            <option value="all">All Types</option>
+                            </select>
+                     </div>
+                </div>
+                 <div>
+                     <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Keywords:</label>
+                     <div id="keyword-filter-tags" class="flex flex-wrap gap-1">
+                         <span class="text-xs text-gray-500 italic">Loading keywords...</span>
+                     </div>
+                 </div>
+            </div>
+
+            <div id="publication-list-container" class="space-y-3">
+                </div>
+            <p id="no-results-message" class="text-center text-gray-500 mt-10 hidden text-lg">No publications match your filter criteria.</p>
+
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 mt-20 pt-16 pb-10">
+        <div class="container mx-auto px-4">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                 <div>
+                     <h4 class="text-lg font-semibold text-white mb-4">Dr. Lionel Agostini</h4>
+                     <p class="text-sm mb-1">CNRS Researcher</p>
+                     <p class="text-sm">Fluid Mechanics, Turbulence, ML</p>
+                     </div>
+                 <div>
+                     <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                     <ul class="space-y-2 text-sm">
+                         <li><a href="index.html" class="hover:text-white hover:underline">Home</a></li>
+                         <li><a href="research.html" class="hover:text-white hover:underline">Research</a></li>
+                         <li><a href="publications.html" class="hover:text-white hover:underline">Publications</a></li>
+                         <li><a href="index.html#contact" class="hover:text-white hover:underline">Contact</a></li>
+                     </ul>
+                 </div>
+                 <div>
+                     <h4 class="text-lg font-semibold text-white mb-4">Legal</h4>
+                      <ul class="space-y-2 text-sm">
+                         <li><a href="#" class="hover:text-white hover:underline">Privacy Policy</a></li>
+                         <li><a href="#" class="hover:text-white hover:underline">Terms of Service</a></li>
+                     </ul>
+                 </div>
+             </div>
+             <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                 <p>&copy; 2025 Dr. Lionel Agostini. All rights reserved.</p>
+             </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle Logic
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const mobileMenu = document.getElementById('nav-links-mobile');
+        if (hamburgerButton && mobileMenu) {
+            hamburgerButton.addEventListener('click', () => {
+                const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+                hamburgerButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('max-h-0');
+                mobileMenu.classList.toggle('max-h-96');
+                mobileMenu.classList.toggle('py-3');
+            });
+        }
+
+        // --- Publication Data ---
+        // Added 'keywords' array and 'halLink'. Cleaned titles.
+        const publicationData = [
+            // Boundary layer theory
+            { category: "Boundary layer theory", year: 2022, title: "Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200", authors: "L. Agostini & M.A. Leschziner", source: "Physics of Fluids", details: "Vol. 34", link: "https://hal.science/hal-03852043/document", halLink: "https://hal.science/hal-03852043/document", type: "Journal Article", keywords: ["autoencoder", "turbulence", "channel flow", "modulation", "large-scale structures", "Re 5200"], bibtex: `@article{agostini2022auto,\n  title={Auto-encoder-assisted analysis...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Physics of Fluids},\n  volume={34},\n  year={2022}\n}` },
+            { category: "Boundary layer theory", year: 2019, title: "On the departure of near-wall turbulence from the quasi-steady state", authors: "L. Agostini & M.A. Leschziner", source: "Journal of Fluid Mechanics", details: "Vol. 871", link: "http://dx.doi.org/10.1017/jfm.2019.395", type: "Journal Article", keywords: ["turbulence", "near-wall", "quasi-steady state", "channel flow"], bibtex: `@article{agostini2019departure,\n  title={On the departure...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Journal of Fluid Mechanics},\n  volume={871},\n  year={2019}\n}` },
+            { category: "Boundary layer theory", year: 2019, title: "The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at Re_tau approx 1000", authors: "L. Agostini & M.A. Leschziner", source: "Journal of Fluid Mechanics", details: "Vol. 871", link: "http://dx.doi.org/10.1017/jfm.2019.297", type: "Journal Article", keywords: ["turbulence", "spectrum", "skin friction", "channel flow", "Re 1000"], bibtex: `@article{agostini2019connection,\n  title={The connection...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Journal of Fluid Mechanics},\n  volume={871},\n  year={2019}\n}` },
+            { category: "Boundary layer theory", year: 2017, title: "Multi-scale interactions in a compressible boundary layer", authors: "L. Agostini, M.A. Leschziner, J. Poggie, N.J. Bisek & D. Gaitonde", source: "Journal of Turbulence", details: "Vol. 18(8) 760", link: "http://dx.doi.org/10.1080/14685248.2017.1328108", type: "Journal Article", keywords: ["multi-scale", "compressible", "boundary layer", "turbulence"], bibtex: `@article{agostini2017multi,\n  title={Multi-scale interactions...},\n  author={Agostini, L. and Leschziner, M.A. and others},\n  journal={Journal of Turbulence},\n  volume={18},\n  number={8},\n  pages={760},\n  year={2017}\n}` },
+            { category: "Boundary layer theory", year: 2017, title: "Spectral analysis of near-wall turbulence in channel flow at Re_tau = 4200 with emphasis on the attached-eddy hypothesis", authors: "L. Agostini & M.A. Leschziner", source: "Physical Review Fluids", details: "Vol. 2(1):014603", link: "https://doi.org/10.1103/PhysRevFluids.2.014603", type: "Journal Article", keywords: ["spectral analysis", "turbulence", "channel flow", "Re 4200", "attached-eddy"], bibtex: `@article{agostini2017spectral,\n  title={Spectral analysis...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Physical Review Fluids},\n  volume={2},\n  number={1},\n  pages={014603},\n  year={2017}\n}` },
+            { category: "Boundary layer theory", year: 2016, title: "On the validity of the quasi-steady-turbulence hypothesis in representing the effects of large scales on small scales in boundary layers", authors: "L. Agostini & M.A. Leschziner", source: "Physics of Fluids", details: "Vol. 28(4):045102", link: "http://dx.doi.org/10.1063/1.4944735", type: "Journal Article", keywords: ["quasi-steady", "turbulence", "large scales", "small scales", "boundary layer"], bibtex: `@article{agostini2016validity,\n  title={On the validity...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Physics of Fluids},\n  volume={28},\n  number={4},\n  pages={045102},\n  year={2016}\n}` },
+            { category: "Boundary layer theory", year: 2016, title: "Skewness-induced asymmetric modulation of small-scale turbulence by large-scale structures", authors: "L. Agostini, M.A. Leschziner & D. Gaitonde", source: "Physics of Fluids", details: "Vol. 28(1):015110", link: "http://dx.doi.org/10.1063/1.4939712", type: "Journal Article", keywords: ["skewness", "modulation", "turbulence", "large-scale structures"], bibtex: `@article{agostini2016skewness,\n  title={Skewness-induced...},\n  author={Agostini, L. and Leschziner, M.A. and Gaitonde, D.},\n  journal={Physics of Fluids},\n  volume={28},\n  number={1},\n  pages={015110},\n  year={2016}\n}` },
+            { category: "Boundary layer theory", year: 2016, title: "Predicting the response of small-scale near-wall turbulence to large-scale outer motions", authors: "L. Agostini & M.A. Leschziner", source: "Physics of Fluids", details: "Vol. 28(1):015107", link: "http://dx.doi.org/10.1063/1.4939712", type: "Journal Article", keywords: ["turbulence", "near-wall", "large-scale", "prediction"], bibtex: `@article{agostini2016predicting,\n  title={Predicting the response...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Physics of Fluids},\n  volume={28},\n  number={1},\n  pages={015107},\n  year={2016}\n}` },
+            { category: "Boundary layer theory", year: 2014, title: "On the influence of outer large-scale structures on near-wall turbulence in channel flow", authors: "L. Agostini & M.A. Leschziner", source: "Physics of Fluids", details: "Vol. 26(7):075107", link: "http://dx.doi.org/10.1063/1.4890745", type: "Journal Article", keywords: ["large-scale structures", "turbulence", "channel flow", "near-wall"], bibtex: `@article{agostini2014influence,\n  title={On the influence...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Physics of Fluids},\n  volume={26},\n  number={7},\n  pages={075107},\n  year={2014}\n}` },
+            // Drag reduction
+            { category: "Drag reduction", year: 2021, title: "Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology", authors: "L. Agostini & M.A. Leschziner", source: "Journal of Fluid Mechanics", details: "Vol. 923", link: "https://doi.org/10.1017/jfm.2021.585", type: "Journal Article", keywords: ["drag reduction", "oscillatory wall motion", "channel flow", "statistics", "PDF"], bibtex: `@article{agostini2021statistical,\n  title={Statistical analysis...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Journal of Fluid Mechanics},\n  volume={923},\n  year={2021}\n}` },
+            { category: "Drag reduction", year: 2018, title: "The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion", authors: "L. Agostini & M.A. Leschziner", source: "Journal of Flow, Turbulence and Combustion", details: "pp. 1--25", link: "https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf", type: "Journal Article", keywords: ["drag reduction", "spanwise wall motion", "large-scale structures", "near-wall"], bibtex: `@article{agostini2018impact,\n  title={The impact...},\n  author={Agostini, L. and Leschziner, M.A.},\n  journal={Journal of Flow, Turbulence and Combustion},\n  pages={1--25},\n  year={2018}\n}` },
+            { category: "Drag reduction", year: 2014, title: "The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion", authors: "L. Agostini, E. Touber, M.A. Leschziner", source: "International Journal of Heat and Fluid Flow", details: "Vol. 51", link: "http://dx.doi.org/10.1016/j.ijheatfluidflow.2014.08.002", type: "Journal Article", keywords: ["drag reduction", "oscillatory wall motion", "vorticity", "turbulence"], bibtex: `@article{agostini2014turbulence,\n  title={The turbulence vorticity...},\n  author={Agostini, L. and Touber, E. and Leschziner, M.A.},\n  journal={International Journal of Heat and Fluid Flow},\n  volume={51},\n  year={2014}\n}` },
+            { category: "Drag reduction", year: 2014, title: "Spanwise oscillatory wall motion in channel flow: Drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at Re_tau = 1000", authors: "L. Agostini, E. Touber, M.A. Leschziner", source: "Journal of Fluid Mechanics", details: "Vol. 743:606", link: "http://dx.doi.org/10.1017/jfm.2014.40", type: "Journal Article", keywords: ["drag reduction", "spanwise wall motion", "DNS", "channel flow", "Re 1000"], bibtex: `@article{agostini2014spanwise,\n  title={Spanwise oscillatory...},\n  author={Agostini, L. and Touber, E. and Leschziner, M.A.},\n  journal={Journal of Fluid Mechanics},\n  volume={743},\n  pages={606},\n  year={2014}\n}` },
+            // Heat transfer
+            { category: "Heat transfer", year: 2024, title: "Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations", authors: "<strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu, & L. Agostini", source: "International Journal of Heat and Fluid Flow", details: "Vol. 1010:109564", link: "https://doi.org/10.1016/j.ijheatfluidflow.2024.109564", type: "Journal Article", keywords: ["heat transfer", "drag reduction", "spanwise wall oscillations", "turbulence manipulation", "convection"], bibtex: `@article{guerin2024preferential,\n  title={Preferential Enhancement...},\n  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},\n  journal={International Journal of Heat and Fluid Flow},\n  volume={1010},\n  pages={109564},\n  year={2024}\n}` },
+            { category: "Heat transfer", year: 2024, title: "Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow", authors: "<strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu, & L. Agostini", source: "arXiv preprint", details: "2312.13002", link: "https://arxiv.org/html/2312.13002v1", type: "Preprint", keywords: ["Reynolds analogy", "heat transfer", "momentum transport", "spanwise wall oscillation", "turbulence"], bibtex: `@misc{guerin2024breaking,\n  title={Breaking the Reynolds Analogy...},\n  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},\n  year={2024},\n  eprint={2312.13002},\n  archivePrefix={arXiv}\n}` },
+            // Machine learning
+            { category: "Machine learning", year: 2025, title: "Policy-based optimization for drag reduction via spanwise wall oscillations", authors: "<strong>L. Guérin</strong>, L. Cordier, C. Flageul, S. Grieu, & L. Agostini", source: "Neural Computing and Applications", details: "10.1007/s00521-025-11067-y", link: "https://doi.org/10.1007/s00521-025-11067-y", type: "Journal Article", keywords: ["machine learning", "optimization", "drag reduction", "spanwise wall oscillations", "policy-based"], bibtex: `@article{guerin2025policy,\n  title={Policy-based optimization...},\n  author={Guérin, L. and Cordier, L. and Flageul, C. and Grieu, S. and Agostini, L.},\n  journal={Neural Computing and Applications},\n  year={2025}\n}` },
+            { category: "Machine learning", year: 2024, title: "Catching up with missing particles", authors: "<strong>S. Atis</strong> & L. Agostini", source: "Nature Machine Intelligence", details: "Vol. 6", link: "https://www.nature.com/articles/s42256-023-00770-x", type: "Journal Article", keywords: ["machine learning", "particle tracking", "missing data"], bibtex: `@article{atis2024catching,\n  title={Catching up with missing particles},\n  author={Atis, S. and Agostini, L.},\n  journal={Nature Machine Intelligence},\n  volume={6},\n  year={2024}\n}` },
+            { category: "Machine learning", year: 2020, title: "Exploration and prediction of fluid dynamical systems using Auto-Encoder technology", authors: "L. Agostini", source: "Physics of Fluids", details: "Vol. 32(6):067103", link: "https://doi.org/10.1063/5.0012906", type: "Journal Article", keywords: ["machine learning", "autoencoder", "fluid dynamics", "prediction", "exploration"], bibtex: `@article{agostini2020exploration,\n  title={Exploration and prediction...},\n  author={Agostini, L.},\n  journal={Physics of Fluids},\n  volume={32},\n  number={6},\n  pages={067103},\n  year={2020}\n}` },
+            // Shock-wave and boundary layer interaction
+            { category: "Shock-wave and boundary layer interaction", year: 2020, title: "Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions", authors: "<strong>M. Waindim</strong>, L. Agostini, L. Larchevêque & D. Gaitonde", source: "Shock Waves", details: "Vol. 30, pp. 63--75", link: "https://doi.org/10.1007/s00193-019-00918-y", type: "Journal Article", keywords: ["shock wave", "boundary layer interaction", "separation bubble", "dynamics", "turbulence"], bibtex: `@article{waindim2020dynamics,\n  title={Dynamics of separation...},\n  author={Waindim, M. and Agostini, L. and others},\n  journal={Shock Waves},\n  volume={30},\n  pages={63--75},\n  year={2020}\n}` },
+            { category: "Shock-wave and boundary layer interaction", year: 2015, title: "Mechanism of shock unsteadiness in separated shock/boundary-layer interactions", authors: "L. Agostini, L. Larchevêque & P. Dupont", source: "Physics of Fluids", details: "Vol. 27(12):126103", link: "http://dx.doi.org/10.1063/1.4937350", type: "Journal Article", keywords: ["shock wave", "boundary layer interaction", "unsteadiness", "separation"], bibtex: `@article{agostini2015mechanism,\n  title={Mechanism of shock...},\n  author={Agostini, L. and Larchevêque, L. and Dupont, P.},\n  journal={Physics of Fluids},\n  volume={27},\n  number={12},\n  pages={126103},\n  year={2015}\n}` },
+            { category: "Shock-wave and boundary layer interaction", year: 2012, title: "Zones of influence and shock boundary layer interaction", authors: "L. Agostini, L. Larchevêque, P. Dupont, J.-F. Debiève & J.-P. Dussauge", source: "AIAA Journal", details: "Vol. 50(6):1377", link: "http://dx.doi.org/10.2514/1.J051516", type: "Journal Article", keywords: ["shock wave", "boundary layer interaction", "zones of influence", "AIAA"], bibtex: `@article{agostini2012zones,\n  title={Zones of influence...},\n  author={Agostini, L. and Larchevêque, L. and others},\n  journal={AIAA Journal},\n  volume={50},\n  number={6},\n  pages={1377},\n  year={2012}\n}` },
+            { category: "Shock-wave and boundary layer interaction", year: 2012, title: "Numerical study of three-dimensional modulations in a shock-induced separation", authors: "L. Agostini, L. Larchevêque, E. Garnier & E. De Martel", source: "Progress in Flight Physics", details: "Vol. 3, pp157--168", link: "https://doi.org/10.1051/eucass/201203157", type: "Journal Article", keywords: ["shock wave", "separation", "3D modulation", "numerical study"], bibtex: `@article{agostini2012numerical,\n  title={Numerical study...},\n  author={Agostini, L. and Larchevêque, L. and others},\n  journal={Progress in Flight Physics},\n  volume={3},\n  pages={157--168},\n  year={2012}\n}` },
+            { category: "Shock-wave and boundary layer interaction", year: 2011, title: "Numerical study of a shock - turbulent boundary layer interaction with incipient and complete separation", authors: "L. Agostini, P. Dupont, L. Larchevêque & J.-P. Dussauge", source: "International Journal of Engineering System Modeling and Simulation", details: "Vol. 3(1/2):46", link: "http://dx.doi.org/10.1504/IJESMS.2011.038749", type: "Journal Article", keywords: ["shock wave", "boundary layer interaction", "separation", "turbulence", "numerical study"], bibtex: `@article{agostini2011numerical,\n  title={Numerical study of a shock...},\n  author={Agostini, L. and Dupont, P. and others},\n  journal={International Journal of Engineering System Modeling and Simulation},\n  volume={3},\n  number={1/2},\n  pages={46},\n  year={2011}\n}` },
+            // Supersonic jet
+            { category: "Supersonic jet", year: 2017, title: "Directivity and intermittency in the nearfield of a Mach 1.3 jet", authors: "<strong>S. Unnikrishnan</strong>, D. Gaitonde & L. Agostini", source: "International Journal of Aeroacoustics", details: "Vol. 16(3):135", link: "http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926", type: "Journal Article", keywords: ["supersonic jet", "aeroacoustics", "directivity", "intermittency", "Mach 1.3"], bibtex: `@article{unnikrishnan2017directivity,\n  title={Directivity and intermittency...},\n  author={Unnikrishnan, S. and Gaitonde, D. and Agostini, L.},\n  journal={International Journal of Aeroacoustics},\n  volume={16},\n  number={3},\n  pages={135},\n  year={2017}\n}` },
+            // Oral Communication with Peer-Reviewed Proceedings
+            { category: "Oral Communication with Peer-Reviewed Proceedings", year: 2025, title: "VIVALDy: A novel beta-Variational Autoencoder approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations", authors: "<u>N. Tonioni</u>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa", source: "1st International Symposium AI and Fluid Mechanics", details: "Chania, Greece", link: null, type: "Conference", keywords: ["VIV", "autoencoder", "VAE", "reduced-order model", "adversarial loss", "AI"], bibtex: `@inproceedings{tonioni2025vivaldy,\n  title={VIVALDy...},\n  author={Tonioni, N. and Agostini, L. and others},\n  booktitle={1st International Symposium AI and Fluid Mechanics},\n  year={2025},\n  address={Chania, Greece}\n}` },
+            { category: "Oral Communication with Peer-Reviewed Proceedings", year: 2025, title: "beta-Variational autoencoder and transformer-based data-driven modeling of near-wall turbulence", authors: "<u>N. Tonioni</u>, M. Umair, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa", source: "EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics (Colloquium 629)", details: "London, UK", link: null, type: "Conference", keywords: ["autoencoder", "VAE", "transformer", "data-driven", "turbulence", "near-wall"], bibtex: `@inproceedings{tonioni2025beta,\n  title={Beta-Variational autoencoder...},\n  author={Tonioni, N. and Umair, M. and others},\n  booktitle={EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics (Colloquium 629)},\n  year={2025},\n  address={London, UK}\n}` },
+            // ... (Add keywords and bibtex placeholders for all other entries similarly) ...
+             { category: "Oral Communication without Proceedings", year: 2024, title: "Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders", authors: "<u>N. Tonioni</u>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa", source: "GDR I-GAIA", details: "Paris, France", link: null, type: "Communication", keywords: ["reduced-order model", "turbulence", "autoencoder", "experimental"], bibtex: `@misc{tonioni2024reduced_gdr,\n  title={Reduced-order Modeling...},\n  author={Tonioni, N. and Agostini, L. and others},\n  howpublished={Oral Communication at GDR I-GAIA},\n  year={2024},\n  address={Paris, France}\n}` },
+            { category: "Oral Communication for Science Divulgation", year: 2025, title: "Taming the chaos: Reduced-Order Models for Turbulent Flows", authors: "<u>N. Tonioni</u>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa", source: "PPrime cross-labs PhD Meetings", details: "Poitiers, France", link: null, type: "Communication", keywords: ["reduced-order model", "turbulence", "science communication"], bibtex: `@misc{tonioni2025taming,\n  title={Taming the chaos...},\n  author={Tonioni, N. and Agostini, L. and others},\n  howpublished={Oral Communication at PPrime cross-labs PhD Meetings},\n  year={2025},\n  address={Poitiers, France}\n}` },
+            { category: "Oral Communication for Science Divulgation", year: 2024, title: "Reduced-order Modeling of Turbulent Flows", authors: "<u>N. Tonioni</u>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa", source: "EurINTREE Strategic Committee", details: "Poitiers, France", link: null, type: "Communication", keywords: ["reduced-order model", "turbulence", "science communication"], bibtex: `@misc{tonioni2024reduced_eurintree,\n  title={Reduced-order Modeling...},\n  author={Tonioni, N. and Agostini, L. and others},\n  howpublished={Oral Communication at EurINTREE Strategic Committee},\n  year={2024},\n  address={Poitiers, France}\n}` },
+        ];
+
+        // --- DOM Elements ---
+        const publicationContainer = document.getElementById('publication-list-container');
+        const searchInput = document.getElementById('publication-search');
+        const typeFilter = document.getElementById('type-filter');
+        const keywordFilterTagsContainer = document.getElementById('keyword-filter-tags');
+        const noResultsMessage = document.getElementById('no-results-message');
+
+        // --- State ---
+        let activeKeywordFilters = new Set();
+
+        // --- Functions ---
+
+        // Get tag class based on publication type
+        function getTagClass(type) {
+             type = type ? type.toLowerCase() : 'other';
+             if (type.includes('journal')) return 'tag-journal';
+             if (type.includes('conference')) return 'tag-conference';
+             if (type.includes('preprint')) return 'tag-preprint';
+             if (type.includes('communication')) return 'tag-communication';
+             return 'tag-other';
+        }
+
+        // Create category key
+        function createCategoryKey(categoryName) {
+            return categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        }
+
+        // Render publications based on current filters
+        function renderPublications(publicationsToRender) {
+            publicationContainer.innerHTML = ''; // Clear existing list
+            const categories = {};
+
+            publicationsToRender.forEach(pub => {
+                if (!categories[pub.category]) categories[pub.category] = [];
+                categories[pub.category].push(pub);
+            });
+
+            const sortedCategories = Object.keys(categories).sort((a, b) => a.localeCompare(b));
+
+            if (publicationsToRender.length === 0) {
+                noResultsMessage.classList.remove('hidden');
+            } else {
+                 noResultsMessage.classList.add('hidden');
+            }
+
+            sortedCategories.forEach((categoryName, categoryIndex) => {
+                const categoryKey = createCategoryKey(categoryName);
+                const categoryHeading = document.createElement('h3');
+                categoryHeading.className = 'publication-category-title';
+                categoryHeading.textContent = categoryName;
+                categoryHeading.dataset.categoryKey = categoryKey;
+                publicationContainer.appendChild(categoryHeading);
+
+                categories[categoryName]
+                    .sort((a, b) => b.year - a.year)
+                    .forEach((pub, pubIndex) => {
+                        const article = document.createElement('article');
+                        const bibtexId = `bibtex-${categoryIndex}-${pubIndex}`;
+                        article.className = 'publication-article';
+                        article.dataset.type = pub.type ? pub.type.toLowerCase() : 'other';
+                        // Add keywords as a data attribute for potential future use, joined by comma
+                        article.dataset.keywords = pub.keywords ? pub.keywords.join(',') : '';
+
+                        const tagClass = getTagClass(pub.type);
+                        const linkHTML = pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer" class="link-button"><i class="fas fa-link fa-xs mr-1"></i>View Link</a>` : '';
+                        const halLinkHTML = pub.halLink ? `<a href="${pub.halLink}" target="_blank" rel="noopener noreferrer" class="hal-link-button"><i class="fas fa-archive fa-xs mr-1"></i>View HAL</a>` : '';
+                        const titleLinkHTML = pub.link ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer" class="hover:underline">${pub.title}</a>` : pub.title;
+                        const citeButtonHTML = pub.bibtex ? `<button data-target="${bibtexId}" class="cite-button"><i class="fas fa-quote-right fa-xs mr-1"></i>Cite</button>` : '';
+                        const bibtexContainerHTML = pub.bibtex ? `<div id="${bibtexId}" class="bibtex-container hidden"><pre>${pub.bibtex}</pre></div>` : '';
+
+                        // Generate keyword tags HTML
+                        const keywordTagsHTML = pub.keywords && pub.keywords.length > 0
+                            ? `<div class="mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-1.5">
+                                 ${pub.keywords.map(kw => `<span class="keyword-tag" data-keyword="${kw.toLowerCase()}">${kw}</span>`).join('')}
+                               </div>`
+                            : '';
+
+                        article.innerHTML = `
+                            <div class="flex justify-between items-start mb-3 flex-wrap gap-y-2">
+                                <h4 class="text-lg font-semibold text-indigo-800 flex-grow pr-4">${titleLinkHTML}</h4>
+                                <span class="pub-tag ${tagClass} flex-shrink-0 mt-1 sm:mt-0">${pub.type || 'N/A'}</span>
+                            </div>
+                            <p class="text-sm text-gray-700 mb-2"><strong>Authors:</strong> ${pub.authors}</p>
+                            <p class="text-sm text-gray-500 mb-4"><em>${pub.source}</em>, ${pub.details ? pub.details + ', ' : ''}<strong>${pub.year || pub.details?.split(' ')?.pop() || ''}</strong></p>
+                            <div class="flex items-center flex-wrap gap-2 mb-3">
+                                ${linkHTML}
+                                ${halLinkHTML}
+                                ${citeButtonHTML}
+                            </div>
+                            ${keywordTagsHTML}
+                            ${bibtexContainerHTML}
+                        `;
+                        publicationContainer.appendChild(article);
+                    });
+            });
+        }
+
+        // Populate type filter dropdown
+        function populateTypeFilter() {
+            const types = [...new Set(publicationData.map(pub => pub.type || 'Other'))];
+            types.sort();
+            types.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type.toLowerCase();
+                option.textContent = type;
+                typeFilter.appendChild(option);
+            });
+        }
+
+        // Populate keyword filter tags area
+        function populateKeywordTags() {
+             const allKeywords = new Set();
+             publicationData.forEach(pub => {
+                 if (pub.keywords) {
+                     pub.keywords.forEach(kw => allKeywords.add(kw.toLowerCase()));
+                 }
+             });
+             const sortedKeywords = [...allKeywords].sort();
+
+             keywordFilterTagsContainer.innerHTML = ''; // Clear placeholder
+             if (sortedKeywords.length === 0) {
+                keywordFilterTagsContainer.innerHTML = '<span class="text-xs text-gray-500 italic">No keywords found.</span>';
+                return;
+             }
+
+             sortedKeywords.forEach(kw => {
+                 const tag = document.createElement('span');
+                 tag.className = 'keyword-tag';
+                 tag.dataset.keyword = kw;
+                 tag.textContent = kw;
+                 tag.addEventListener('click', handleKeywordClick);
+                 keywordFilterTagsContainer.appendChild(tag);
+             });
+        }
+
+        // Handle keyword tag click
+        function handleKeywordClick(event) {
+            const keyword = event.target.dataset.keyword;
+            if (!keyword) return;
+
+            if (activeKeywordFilters.has(keyword)) {
+                activeKeywordFilters.delete(keyword);
+                event.target.classList.remove('active');
+            } else {
+                activeKeywordFilters.add(keyword);
+                event.target.classList.add('active');
+            }
+            filterAndRender(); // Re-filter results
+        }
+
+
+        // Filter publications based on search term, type, and active keywords
+        function filterAndRender() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const selectedType = typeFilter.value;
+
+            const filteredPublications = publicationData.filter(pub => {
+                // Check Type
+                const pubTypeLower = pub.type ? pub.type.toLowerCase() : 'other';
+                const matchesType = selectedType === 'all' || pubTypeLower === selectedType;
+                if (!matchesType) return false;
+
+                // Check Keywords (must match ALL active keywords)
+                const pubKeywordsLower = pub.keywords ? pub.keywords.map(kw => kw.toLowerCase()) : [];
+                let matchesAllKeywords = true;
+                if (activeKeywordFilters.size > 0) {
+                    for (const activeKw of activeKeywordFilters) {
+                        if (!pubKeywordsLower.includes(activeKw)) {
+                            matchesAllKeywords = false;
+                            break;
+                        }
+                    }
+                }
+                 if (!matchesAllKeywords) return false;
+
+
+                // Check Search Term (applies to remaining fields)
+                const pubText = `
+                    ${pub.title}
+                    ${pub.authors}
+                    ${pub.source}
+                    ${pub.year}
+                    ${pub.category}
+                    ${pub.details}
+                `.toLowerCase(); // Keywords already checked
+                const matchesSearch = searchTerm === '' || pubText.includes(searchTerm);
+                if (!matchesSearch) return false;
+
+                return true; // Passed all filters
+            });
+
+            renderPublications(filteredPublications);
+        }
+
+        // Toggle BibTeX visibility
+        function toggleBibtex(event) {
+            // Use closest to handle clicks on icon inside button
+            const button = event.target.closest('.cite-button');
+            if (button) {
+                const targetId = button.dataset.target;
+                const bibtexDiv = document.getElementById(targetId);
+                if (bibtexDiv) {
+                    bibtexDiv.classList.toggle('hidden');
+                    // Update button text/icon (optional)
+                    const icon = button.querySelector('i');
+                    if (bibtexDiv.classList.contains('hidden')) {
+                        button.innerHTML = '<i class="fas fa-quote-right fa-xs mr-1"></i>Cite';
+                        button.classList.replace('bg-gray-400', 'bg-gray-200'); // Revert style if changed
+                    } else {
+                         button.innerHTML = '<i class="fas fa-times fa-xs mr-1"></i>Hide Citation';
+                         button.classList.replace('bg-gray-200','bg-gray-400'); // Indicate active state
+                    }
+                }
+            }
+             // Handle clicks on keyword tags within rendered articles (for adding filters)
+             if (event.target.classList.contains('keyword-tag') && event.target.closest('#publication-list-container')) {
+                 const keyword = event.target.dataset.keyword;
+                 const filterTag = keywordFilterTagsContainer.querySelector(`.keyword-tag[data-keyword="${keyword}"]`);
+                 if (filterTag && !filterTag.classList.contains('active')) {
+                    filterTag.click(); // Simulate click on the filter tag
+                 }
+             }
+        }
+
+        // --- Chart Configuration ---
+        const chartColors = { // Same palette as before
+            indigo: 'rgb(79, 70, 229)', indigoTrans: 'rgba(79, 70, 229, 0.2)', // More subtle transparency
+            blue: 'rgb(59, 130, 246)', blueTrans: 'rgba(59, 130, 246, 0.7)',
+            green: 'rgb(16, 185, 129)', greenTrans: 'rgba(16, 185, 129, 0.7)',
+            yellow: 'rgb(245, 158, 11)', yellowTrans: 'rgba(245, 158, 11, 0.7)',
+            purple: 'rgb(139, 92, 246)', purpleTrans: 'rgba(139, 92, 246, 0.7)',
+            red: 'rgb(239, 68, 68)', redTrans: 'rgba(239, 68, 68, 0.7)',
+            gray: 'rgb(107, 114, 128)', grayTrans: 'rgba(107, 114, 128, 0.7)',
+            pink: 'rgb(219, 39, 119)', pinkTrans: 'rgba(219, 39, 119, 0.7)',
+            teal: 'rgb(20, 184, 166)', tealTrans: 'rgba(20, 184, 166, 0.7)'
+        };
+        const colorPalette = [chartColors.indigo, chartColors.blue, chartColors.green, chartColors.yellow, chartColors.purple, chartColors.red, chartColors.pink, chartColors.teal, chartColors.gray];
+        const colorPaletteTrans = [chartColors.indigoTrans, chartColors.blueTrans, chartColors.greenTrans, chartColors.yellowTrans, chartColors.purpleTrans, chartColors.redTrans, chartColors.pinkTrans, chartColors.tealTrans, chartColors.grayTrans];
+
+        // --- Chart Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultChartOptions = {
+                 responsive: true,
+                 maintainAspectRatio: false,
+                 plugins: {
+                     legend: { position: 'bottom', labels: { padding: 20, boxWidth: 15, font: { size: 12 } } }, // Slightly larger legend
+                     tooltip: {
+                         enabled: true,
+                         backgroundColor: 'rgba(0, 0, 0, 0.85)', // Darker tooltip
+                         titleFont: { size: 14, weight: 'bold' },
+                         bodyFont: { size: 12 },
+                         padding: 12, // More padding
+                         cornerRadius: 6, // More rounded
+                         displayColors: true,
+                         boxPadding: 5
+                     }
+                 },
+                 animation: { duration: 600, easing: 'easeOutQuart' } // Smoother animation
+            };
+
+            // Publications by Year Chart
+            const ctxYear = document.getElementById('publicationsByYearChart')?.getContext('2d');
+            if (ctxYear) {
+                 const yearCounts = publicationData.reduce((acc, pub) => {
+                    const year = pub.year;
+                    if(year) acc[year] = (acc[year] || 0) + 1;
+                    return acc;
+                 }, {});
+                 const sortedYears = Object.keys(yearCounts).sort((a,b) => a - b);
+                 const yearLabels = sortedYears;
+                 const yearData = sortedYears.map(year => yearCounts[year]);
+
+                new Chart(ctxYear, {
+                    type: 'line',
+                    data: {
+                        labels: yearLabels,
+                        datasets: [{
+                            label: '# Publications/Comms',
+                            data: yearData,
+                            borderColor: chartColors.indigo,
+                            backgroundColor: chartColors.indigoTrans,
+                            fill: true,
+                            tension: 0.4, // Even smoother line
+                            pointBackgroundColor: chartColors.indigo,
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.indigo
+                        }]
+                    },
+                    options: { ...defaultChartOptions, scales: { y: { beginAtZero: true, grid: { color: '#e5e7eb' } }, x: { grid: { display: false } } } }
+                });
+            }
+
+            // Publications per Journal Chart
+             const ctxJournal = document.getElementById('journalChart')?.getContext('2d');
+             if (ctxJournal) {
+                 const journalCounts = publicationData
+                    .filter(p => p.type === 'Journal Article')
+                    .reduce((acc, pub) => {
+                        const source = pub.source || 'Unknown Journal';
+                        acc[source] = (acc[source] || 0) + 1;
+                        return acc;
+                    }, {});
+                 const sortedJournals = Object.entries(journalCounts).sort(([,a],[,b]) => b-a).slice(0, 7);
+                 const journalLabels = sortedJournals.map(([name]) => name.length > 30 ? name.substring(0, 27) + '...' : name); // Adjusted truncation
+                 const journalData = sortedJournals.map(([,count]) => count);
+
+                 new Chart(ctxJournal, {
+                     type: 'bar',
+                     data: {
+                         labels: journalLabels,
+                         datasets: [{
+                             label: '# of Articles',
+                             data: journalData,
+                             backgroundColor: colorPaletteTrans.slice(0, journalLabels.length),
+                             borderColor: colorPalette.slice(0, journalLabels.length),
+                             borderWidth: 1,
+                             borderRadius: 5,
+                             borderSkipped: false, // Ensure full border radius
+                         }]
+                     },
+                     options: { ...defaultChartOptions, indexAxis: 'y', scales: { x: { beginAtZero: true, grid: { color: '#e5e7eb' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }, plugins: { legend: { display: false } } }
+                 });
+             }
+
+            // Publications per Research Area Chart (using categories)
+             const ctxSubject = document.getElementById('subjectChart')?.getContext('2d');
+             if (ctxSubject) {
+                 const categoryCounts = publicationData.reduce((acc, pub) => {
+                    const category = pub.category || 'Uncategorized';
+                    acc[category] = (acc[category] || 0) + 1;
+                    return acc;
+                 }, {});
+                 const categoryLabels = Object.keys(categoryCounts);
+                 const categoryData = Object.values(categoryCounts);
+
+                 new Chart(ctxSubject, {
+                    type: 'pie',
+                    data: {
+                        labels: categoryLabels,
+                        datasets: [{
+                            label: 'Publications by Area',
+                            data: categoryData,
+                            backgroundColor: colorPaletteTrans.slice(0, categoryLabels.length),
+                            borderColor: colorPalette.slice(0, categoryLabels.length),
+                            borderWidth: 1.5, // Slightly thicker border
+                            hoverOffset: 10, // Increased hover effect
+                            hoverBorderColor: '#ffffff',
+                            hoverBorderWidth: 2
+                        }]
+                    },
+                     options: { ...defaultChartOptions }
+                 });
+             }
+        });
+
+        // --- Initial Setup & Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTypeFilter();
+            populateKeywordTags(); // Populate keyword filter tags
+            renderPublications(publicationData); // Initial render
+
+            // Add event listeners for filtering
+            searchInput.addEventListener('input', filterAndRender);
+            typeFilter.addEventListener('change', filterAndRender);
+            // Keyword tag clicks are handled by the tags themselves via handleKeywordClick
+
+            // Add event listener for Cite buttons (using delegation)
+            publicationContainer.addEventListener('click', toggleBibtex);
+        });
+
+    </script>
+
+</body>
+</html>

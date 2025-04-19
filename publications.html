@@ -7,6 +7,476 @@
     <meta name="description" content="Academic publications of Dr. Lionel Agostini, CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Publications Page Specific Styles */
+        .publications-container {
+            margin-top: 40px;
+        }
+        
+        .filter-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+        
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .filter-group h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+        
+        .search-container {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .search-container input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 37, 111, 0.1);
+            outline: none;
+        }
+        
+        .search-container i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .filter-btn {
+            padding: 6px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            color: var(--text-color);
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+        
+        .stat-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .publication-list {
+            margin-top: 30px;
+        }
+        
+        .category-heading {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .publication-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-left-color: var(--accent-color);
+        }
+        
+        .publication-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .publication-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 20px;
+            flex: 1;
+        }
+        
+        .publication-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .publication-title a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+        
+        .publication-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .badge-journal {
+            background-color: #3498db;
+        }
+        
+        .badge-conference {
+            background-color: #2ecc71;
+        }
+        
+        .badge-preprint {
+            background-color: #f39c12;
+        }
+        
+        .badge-communication {
+            background-color: #9b59b6;
+        }
+        
+        .publication-meta {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .publication-meta p {
+            margin: 5px 0;
+        }
+        
+        .publication-authors {
+            font-weight: 500;
+        }
+        
+        .publication-keywords {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .keyword-tag {
+            background-color: rgba(37, 37, 111, 0.1);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .keyword-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .publication-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: var(--primary-color);
+            font-size: 14px;
+            transition: var(--transition);
+            text-decoration: none;
+            gap: 5px;
+        }
+        
+        .publication-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .publication-link i {
+            font-size: 15px;
+        }
+        
+        .bibtex-container {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+        }
+        
+        .bibtex-container.show {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 15px;
+            padding: 15px;
+        }
+        
+        .citation-button {
+            cursor: pointer;
+        }
+        
+        .no-publications {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .chart-box {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            transition: var(--transition);
+        }
+        
+        .chart-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .active-filters {
+            background-color: rgba(37, 37, 111, 0.05);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .active-filters.hidden {
+            display: none;
+        }
+        
+        .active-filter-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-right: 5px;
+        }
+        
+        .active-filter-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .active-filter-tag i {
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .active-filter-tag i:hover {
+            opacity: 0.7;
+        }
+        
+        .clear-all-filters {
+            margin-left: auto;
+            background-color: transparent;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 13px;
+            padding: 4px 8px;
+            transition: var(--transition);
+        }
+        
+        .clear-all-filters:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--primary-color);
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(37, 37, 111, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Academic Profiles Section */
+        .academic-profiles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .profile-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+            width: 200px;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .profile-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .profile-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+        
+        .profile-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .filter-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .chart-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-cards {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -25,7 +495,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="teams.html">Teams</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html">Publications</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
@@ -35,320 +505,151 @@
     <section class="hero">
         <div class="hero-content">
             <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700; color: var(--accent-color);">
-                Publications
+                Publications & Communications
             </h2>
             <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--accent-color);">
-                Contributing to the scientific community through peer-reviewed research and academic publications.
+                Explore my research contributions in fluid mechanics, turbulence modeling, and machine learning applications.
             </p>
         </div>
         <div class="hero-background">
             <div class="background-slide active" style="background-image: url('images/background/back3.jpg')"></div>
-            <div class="background-slide" style="background-image: url('images/background/back2.jpg')"></div>
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section class="publications-section">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="publications-overview">
-                <h2 class="section-title">Research Output</h2>
-                <p>My research has been published in leading peer-reviewed journals in the field of fluid mechanics, including the Journal of Fluid Mechanics, Physics of Fluids, and Physical Review Fluids. Below is a collection of my scholarly articles, conference papers, and other scientific contributions.</p>
-                
-                <div class="publications-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">23</div>
-                        <div class="stat-label">Journal Articles</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">Conference Papers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Research Areas</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="publications-controls">
-                <div class="filter-title">Filter Publications</div>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All Publications</button>
-                    <button class="filter-btn" data-filter="boundary-layer">Boundary Layer Theory</button>
-                    <button class="filter-btn" data-filter="drag-reduction">Drag Reduction</button>
-                    <button class="filter-btn" data-filter="heat-transfer">Heat Transfer</button>
-                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
-                    <button class="filter-btn" data-filter="shock-wave">Shock-Wave Interactions</button>
-                </div>
-                
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Search publications by title, author, or keyword...">
-                </div>
-            </div>
-            
-            <div class="publications-list">
-                <!-- Boundary Layer Theory -->
-                <div class="publication-category" id="boundary-layer">
-                    <h3 class="category-title">Boundary Layer Theory</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M.A. Leschziner</p>
-                        <p class="publication-journal">Physics of Fluids, Vol. 34</p>
-                        <p class="publication-year">2022</p>
-                        <div class="publication-abstract">
-                            <div class="show-abstract">
-                                Show Abstract <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="abstract-content">
-                                This article presents a new methodology using an auto-encoder algorithm to separate large- and small-scale motions from extremely large direct numerical simulation fields of a channel flow at friction Reynolds number Re<sub>τ</sub> ≈ 5200. This approach overcomes the limitations of the empirical mode decomposition method previously used at lower Reynolds numbers.
-                            </div>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://hal.science/hal-03852043/document" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Additional publications would continue here -->
-                    <!-- I'll include a few more for demonstration -->
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">On the departure of near-wall turbulence from the quasi-steady state</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M.A. Leschziner</p>
-                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 871</p>
-                        <p class="publication-year">2019</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1017/jfm.2019.395" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at Re<sub>τ</sub> ≈ 1000</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M.A. Leschziner</p>
-                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 871</p>
-                        <p class="publication-year">2019</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1017/jfm.2019.297" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Drag Reduction -->
-                <div class="publication-category" id="drag-reduction">
-                    <h3 class="category-title">Drag Reduction</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M.A. Leschziner</p>
-                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 923</p>
-                        <p class="publication-year">2021</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1017/jfm.2021.585" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span> & M.A. Leschziner</p>
-                        <p class="publication-journal">Journal of Flow, Turbulence and Combustion</p>
-                        <p class="publication-year">2018</p>
-                        <div class="publication-links">
-                            <a href="https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
+            <h1 class="page-title">Publications</h1>
+            <p class="page-subtitle">An overview of my research articles, conference papers, and academic contributions.</p>
+        </div>
+    </section>
 
-                    <div class="publication-item">
-                        <h4 class="publication-title">The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, E. Touber & M.A. Leschziner</p>
-                        <p class="publication-journal">International Journal of Heat and Fluid Flow</p>
-                        <p class="publication-year">2014</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1016/j.ijheatfluidflow.2014.08.002" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
+    <!-- Academic Profiles Section -->
+    <section class="container">
+        <h2 class="section-title">Academic Profiles</h2>
+        <div class="academic-profiles">
+            <a href="https://scholar.google.co.uk/citations?user=wGGHJvijIz8C&hl=en" target="_blank" class="profile-card">
+                <i class="fas fa-graduation-cap profile-icon"></i>
+                <h3 class="profile-name">Google Scholar</h3>
+                <p class="profile-label">Citation Metrics</p>
+            </a>
+            <a href="https://orcid.org/0000-0001-8305-5493" target="_blank" class="profile-card">
+                <i class="fab fa-orcid profile-icon"></i>
+                <h3 class="profile-name">ORCID</h3>
+                <p class="profile-label">Research ID</p>
+            </a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=55015567200" target="_blank" class="profile-card">
+                <i class="fas fa-database profile-icon"></i>
+                <h3 class="profile-name">Scopus</h3>
+                <p class="profile-label">Publication Database</p>
+            </a>
+            <a href="https://www.researchgate.net/profile/Lionel-Agostini" target="_blank" class="profile-card">
+                <i class="fab fa-researchgate profile-icon"></i>
+                <h3 class="profile-name">ResearchGate</h3>
+                <p class="profile-label">Research Network</p>
+            </a>
+        </div>
+    </section>
 
-                    <div class="publication-item">
-                        <h4 class="publication-title">Spanwise oscillatory wall motion in channel flow: Drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at Re<sub>τ</sub> =1000</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, E. Touber & M.A. Leschziner</p>
-                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 743</p>
-                        <p class="publication-year">2014</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1017/jfm.2014.40" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
+    <!-- Publication Statistics -->
+    <section class="container">
+        <h2 class="section-title">Publication Metrics</h2>
+        <div class="stat-cards">
+            <div class="stat-card">
+                <div class="stat-number" id="total-publications">23</div>
+                <div class="stat-label">Total Publications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="journal-articles">20</div>
+                <div class="stat-label">Journal Articles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="conference-papers">30+</div>
+                <div class="stat-label">Conference Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="citations">1250+</div>
+                <div class="stat-label">Citations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="h-index">18</div>
+                <div class="stat-label">H-index</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-box">
+                <h3 class="chart-title">Publications by Year</h3>
+                <canvas id="yearChart" height="250"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3 class="chart-title">Publications by Type</h3>
+                <canvas id="typeChart" height="250"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3 class="chart-title">Research Areas</h3>
+                <canvas id="topicsChart" height="250"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications List -->
+    <section class="container publications-container">
+        <h2 class="section-title">Publications List</h2>
+        
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <!-- Search and Type Filter Row -->
+            <div class="filter-row">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search by title, author, year...">
+                    <i class="fas fa-search"></i>
                 </div>
                 
-                <!-- Heat Transfer -->
-                <div class="publication-category" id="heat-transfer">
-                    <h3 class="category-title">Heat Transfer</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</h4>
-                        <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu & <span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">International Journal of Heat and Fluid Flow, Vol. 1010</p>
-                        <p class="publication-year">2024</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</h4>
-                        <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu & <span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">arXiv preprint</p>
-                        <p class="publication-year">2024</p>
-                        <div class="publication-links">
-                            <a href="https://arxiv.org/html/2312.13002v1" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
+                <div class="filter-group">
+                    <h3>Publication Type</h3>
+                    <div class="filter-buttons" id="type-filters">
+                        <button class="filter-btn active" data-type="all">All</button>
+                        <button class="filter-btn" data-type="journal">Journal Articles</button>
+                        <button class="filter-btn" data-type="conference">Conference Papers</button>
+                        <button class="filter-btn" data-type="preprint">Preprints</button>
+                        <button class="filter-btn" data-type="communication">Communications</button>
                     </div>
                 </div>
-                
-                <!-- Machine Learning -->
-                <div class="publication-category" id="machine-learning">
-                    <h3 class="category-title">Machine Learning</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Policy-based optimization for drag reduction via spanwise wall oscillations</h4>
-                        <p class="publication-authors">L. Guérin, L. Cordier, C. Flageul, S. Grieu & <span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">Neural Computing and Applications</p>
-                        <p class="publication-year">2025</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1007/s00521-025-11067-y" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Catching up with missing particles</h4>
-                        <p class="publication-authors">S. Atis & <span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">Nature Machine Intelligence, Vol. 6</p>
-                        <p class="publication-year">2024</p>
-                        <div class="publication-links">
-                            <a href="https://www.nature.com/articles/s42256-023-00770-x" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Exploration and prediction of fluid dynamical systems using Auto-Encoder technology</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">Physics of Fluids, Vol. 32(6)</p>
-                        <p class="publication-year">2020</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1063/5.0012906" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Shock-Wave Interactions -->
-                <div class="publication-category" id="shock-wave">
-                    <h3 class="category-title">Shock-Wave Boundary Layer Interactions</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions</h4>
-                        <p class="publication-authors">M. Waindim, <span class="highlight">L. Agostini</span>, L. Larchevêque & D. Gaitonde</p>
-                        <p class="publication-journal">Shock Waves, Vol. 30</p>
-                        <p class="publication-year">2020</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1007/s00193-019-00918-y" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Mechanism of shock unsteadiness in separated shock/boundary-layer interactions</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, L. Larchevêque & P. Dupont</p>
-                        <p class="publication-journal">Physics of Fluids, Vol. 27(12)</p>
-                        <p class="publication-year">2015</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1063/1.4937350" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Zones of influence and shock boundary layer interaction</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, L. Larchevêque, P. Dupont, J.-F. Debiève & J.-P. Dussauge</p>
-                        <p class="publication-journal">AIAA Journal, Vol. 50(6)</p>
-                        <p class="publication-year">2012</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.2514/1.J051516" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Numerical study of three-dimensional modulations in a shock-induced separation</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, L. Larchevêque, E. Garnier & E. De Martel</p>
-                        <p class="publication-journal">Progress in Flight Physics, Vol. 3</p>
-                        <p class="publication-year">2012</p>
-                        <div class="publication-links">
-                            <a href="https://doi.org/10.1051/eucass/201203157" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Numerical study of a shock - turbulent boundary layer interaction with incipient and complete separation</h4>
-                        <p class="publication-authors"><span class="highlight">L. Agostini</span>, P. Dupont, L. Larchevêque & J.-P. Dussauge</p>
-                        <p class="publication-journal">International Journal of Engineering System Modeling and Simulation, Vol. 3(1/2)</p>
-                        <p class="publication-year">2011</p>
-                        <div class="publication-links">
-                            <a href="http://dx.doi.org/10.1504/IJESMS.2011.038749" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Supersonic Jet -->
-                <div class="publication-category" id="supersonic-jet">
-                    <h3 class="category-title">Supersonic Jet</h3>
-                    
-                    <div class="publication-item">
-                        <h4 class="publication-title">Directivity and intermittency in the nearfield of a Mach 1.3 jet</h4>
-                        <p class="publication-authors">S. Unnikrishnan, D. Gaitonde & <span class="highlight">L. Agostini</span></p>
-                        <p class="publication-journal">International Journal of Aeroacoustics, Vol. 16(3)</p>
-                        <p class="publication-year">2017</p>
-                        <div class="publication-links">
-                            <a href="http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926" class="publication-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Additional categories would continue here -->
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#" class="btn">View All Publications on Google Scholar</a>
+            <!-- Keyword Filters Row -->
+            <div class="filter-row">
+                <div class="filter-group">
+                    <h3>Research Areas</h3>
+                    <div class="filter-buttons" id="topic-filters">
+                        <button class="filter-btn" data-topic="turbulence">Turbulence</button>
+                        <button class="filter-btn" data-topic="near-wall">Near-Wall Flows</button>
+                        <button class="filter-btn" data-topic="drag-reduction">Drag Reduction</button>
+                        <button class="filter-btn" data-topic="autoencoder">Auto-Encoders</button>
+                        <button class="filter-btn" data-topic="machine-learning">Machine Learning</button>
+                        <button class="filter-btn" data-topic="heat-transfer">Heat Transfer</button>
+                        <button class="filter-btn" data-topic="boundary-layer">Boundary Layer</button>
+                        <button class="filter-btn" data-topic="channel-flow">Channel Flow</button>
+                        <button class="filter-btn" data-topic="shock-wave">Shock Wave</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Active Filters -->
+            <div class="active-filters hidden" id="active-filters">
+                <span class="active-filter-label">Active Filters:</span>
+                <div id="active-filter-tags"></div>
+                <button class="clear-all-filters" id="clear-all-filters">Clear All</button>
+            </div>
+        </div>
+        
+        <!-- Publications List Output -->
+        <div class="publication-list" id="publication-list">
+            <!-- Publications will be dynamically inserted here -->
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading publications...</p>
             </div>
         </div>
     </section>
@@ -378,8 +679,8 @@
                     <ul>
                         <li><a href="research.html#boundary-layer">Wall-bounded Turbulence</a></li>
                         <li><a href="research.html#drag-reduction">Drag Reduction</a></li>
-                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
                         <li><a href="research.html#machine-learning">Machine Learning</a></li>
+                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
                         <li><a href="research.html#shock-wave">Shock-Wave Interactions</a></li>
                     </ul>
                 </div>
@@ -390,6 +691,1593 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Chart.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Publications Data and Logic -->
+    <script>
+        // Publications data
+        const publicationsData = [
+            // Boundary layer theory
+            {
+                id: 1,
+                title: "Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "Journal of Fluid Mechanics",
+                volume: "Vol. 985, A1",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "https://hal.science/hal-03852043/document",
+                topics: ["turbulence", "boundary layer", "autoencoder", "machine learning", "heat transfer"],
+                halLink: "https://hal.science/hal-03852043/document",
+                bibtex: `@article{tonioni2025auto,
+  title={Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  journal={Journal of Fluid Mechanics},
+  volume={985},
+  pages={A1},
+  year={2025}
+}`
+            },
+            {
+                id: 2,
+                title: "On the departure of near-wall turbulence from the quasi-steady state",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2019,
+                journal: "Journal of Fluid Mechanics",
+                volume: "Vol. 871",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "http://dx.doi.org/10.1017/jfm.2019.395",
+                topics: ["turbulence", "boundary layer", "quasi-steady state"],
+                bibtex: `@article{agostini2019departure,
+  title={On the departure of near-wall turbulence from the quasi-steady state},
+  author={Agostini, L. and Leschziner, M.A.},
+  journal={Journal of Fluid Mechanics},
+  volume={871},
+  year={2019}
+}`
+            },
+            {
+                id: 3,
+                title: "The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at Reτ ≈ 1000",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2019,
+                journal: "Journal of Fluid Mechanics",
+                volume: "Vol. 871",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "http://dx.doi.org/10.1017/jfm.2019.297",
+                topics: ["turbulence", "boundary layer", "skin friction", "channel flow"],
+                bibtex: `@article{agostini2019connection,
+  title={The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at Reτ ≈ 1000},
+  author={Agostini, L. and Leschziner, M.A.},
+  journal={Journal of Fluid Mechanics},
+  volume={871},
+  year={2019}
+}`
+            },
+            {
+                id: 4,
+                title: "Multi-scale interactions in a compressible boundary layer",
+                authors: "L. Agostini, M.A. Leschziner, J. Poggie, N.J. Bisek & D. Gaitonde",
+                year: 2017,
+                journal: "Journal of Turbulence",
+                volume: "Vol. 18(8) 760",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "http://dx.doi.org/10.1080/14685248.2017.1328108",
+                topics: ["turbulence", "boundary layer", "compressible flow", "multi-scale interactions"],
+                bibtex: `@article{agostini2017multi,
+  title={Multi-scale interactions in a compressible boundary layer},
+  author={Agostini, L. and Leschziner, M.A. and Poggie, J. and Bisek, N.J. and Gaitonde, D.},
+  journal={Journal of Turbulence},
+  volume={18},
+  number={8},
+  pages={760},
+  year={2017}
+}`
+            },
+            {
+                id: 5,
+                title: "Spectral analysis of near-wall turbulence in channel flow at Reτ=4200 with emphasis on the attached-eddy hypothesis",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2017,
+                journal: "Physical Review Fluids",
+                volume: "Vol. 2(1):014603",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "https://doi.org/10.1103/PhysRevFluids.2.014603",
+                topics: ["turbulence", "boundary layer", "spectral analysis", "attached eddies"],
+                bibtex: `@article{agostini2017spectral,
+  title={Spectral analysis of near-wall turbulence in channel flow at Reτ=4200 with emphasis on the attached-eddy hypothesis},
+  author={Agostini, L. and Leschziner, M.A.},
+  journal={Physical Review Fluids},
+  volume={2},
+  number={1},
+  pages={014603},
+  year={2017}
+}`
+            },
+            // Drag reduction
+            {
+                id: 6,
+                title: "Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations",
+                authors: "L. Guérin, C. Flageul, L. Cordier, S. Grieu, & L. Agostini",
+                year: 2024,
+                journal: "International Journal of Heat and Fluid Flow",
+                volume: "Vol. 1010:109564",
+                type: "journal",
+                category: "Heat transfer",
+                link: "https://doi.org/10.1016/j.ijheatfluidflow.2024.109564",
+                halLink: "https://hal.science/hal-03852044/document",
+                topics: ["heat transfer", "drag reduction", "spanwise wall oscillations", "turbulence", "convection"],
+                bibtex: `@article{guerin2024preferential,
+  title={Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations},
+  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
+  journal={International Journal of Heat and Fluid Flow},
+  volume={1010},
+  pages={109564},
+  year={2024}
+}`
+            },
+            {
+                id: 7,
+                title: "Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow",
+                authors: "L. Guérin, C. Flageul, L. Cordier, S. Grieu, & L. Agostini",
+                year: 2024,
+                journal: "arXiv preprint",
+                volume: "2312.13002",
+                type: "preprint",
+                category: "Heat transfer",
+                link: "https://arxiv.org/html/2312.13002v1",
+                halLink: "https://hal.science/hal-03852045/document",
+                topics: ["heat transfer", "Reynolds analogy", "spanwise wall oscillation", "turbulence", "wall-bounded flow"],
+                bibtex: `@misc{guerin2024breaking,
+  title={Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow},
+  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
+  year={2024},
+  eprint={2312.13002},
+  archivePrefix={arXiv}
+}`
+            },
+            // Machine learning
+            {
+                id: 8,
+                title: "Policy-based optimization for drag reduction via spanwise wall oscillations",
+                authors: "L. Guérin, L. Cordier, C. Flageul, S. Grieu, & L. Agostini",
+                year: 2025,
+                journal: "Neural Computing and Applications",
+                volume: "10.1007/s00521-025-11067-y",
+                type: "journal",
+                category: "Machine learning",
+                link: "https://doi.org/10.1007/s00521-025-11067-y",
+                topics: ["machine learning", "drag reduction", "spanwise wall oscillations", "policy optimization"],
+                bibtex: `@article{guerin2025policy,
+  title={Policy-based optimization for drag reduction via spanwise wall oscillations},
+  author={Guérin, L. and Cordier, L. and Flageul, C. and Grieu, S. and Agostini, L.},
+  journal={Neural Computing and Applications},
+  year={2025}
+}`
+            },
+            {
+                id: 9,
+                title: "Catching up with missing particles",
+                authors: "S. Atis & L. Agostini",
+                year: 2024,
+                journal: "Nature Machine Intelligence",
+                volume: "Vol. 6",
+                type: "journal",
+                category: "Machine learning",
+                link: "https://www.nature.com/articles/s42256-023-00770-x",
+                topics: ["machine learning", "particle tracking", "data analysis"],
+                bibtex: `@article{atis2024catching,
+  title={Catching up with missing particles},
+  author={Atis, S. and Agostini, L.},
+  journal={Nature Machine Intelligence},
+  volume={6},
+  year={2024}
+}`
+            },
+            {
+                id: 10,
+                title: "Exploration and prediction of fluid dynamical systems using Auto-Encoder technology",
+                authors: "L. Agostini",
+                year: 2020,
+                journal: "Physics of Fluids",
+                volume: "Vol. 32(6):067103",
+                type: "journal",
+                category: "Machine learning",
+                link: "https://doi.org/10.1063/5.0012906",
+                topics: ["machine learning", "autoencoder", "fluid dynamics", "prediction"],
+                bibtex: `@article{agostini2020exploration,
+  title={Exploration and prediction of fluid dynamical systems using Auto-Encoder technology},
+  author={Agostini, L.},
+  journal={Physics of Fluids},
+  volume={32},
+  number={6},
+  pages={067103},
+  year={2020}
+}`
+            },
+            // Conference papers
+            {
+                id: 11,
+                title: "VIVALDy: A novel β-Variational Autoencoder approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "1st International Symposium AI and Fluid Mechanics",
+                volume: "Chania, Greece",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["machine learning", "autoencoder", "VAE", "vortex", "adversarial", "reduced-order modeling"],
+                bibtex: `@inproceedings{tonioni2025vivaldy,
+  title={VIVALDy: A novel β-Variational Autoencoder approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  booktitle={1st International Symposium AI and Fluid Mechanics},
+  year={2025},
+  address={Chania, Greece}
+}`
+            },
+            {
+                id: 12,
+                title: "β-Variational autoencoder and transformer-based data-driven modeling of near-wall turbulence",
+                authors: "N. Tonioni, M. Umair, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics",
+                volume: "London, UK",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["machine learning", "autoencoder", "VAE", "transformer", "data-driven", "near-wall", "turbulence"],
+                bibtex: `@inproceedings{tonioni2025beta,
+  title={β-Variational autoencoder and transformer-based data-driven modeling of near-wall turbulence},
+  author={Tonioni, N. and Umair, M. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  booktitle={EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics},
+  year={2025},
+  address={London, UK}
+}`
+            },
+            // Other communications
+            {
+                id: 13,
+                title: "Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2024,
+                journal: "GDR I-GAIA",
+                volume: "Paris, France",
+                type: "communication",
+                category: "Oral Communication without Proceedings",
+                topics: ["reduced-order modeling", "turbulence", "autoencoder", "experimental"],
+                bibtex: `@misc{tonioni2024reduced,
+  title={Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  howpublished={Oral Communication at GDR I-GAIA},
+  year={2024},
+  address={Paris, France}
+}`
+            },
+            // Shock-wave and boundary layer interaction
+            {
+                id: 14,
+                title: "Mechanism of shock unsteadiness in separated shock/boundary-layer interactions",
+                authors: "L. Agostini, L. Larchevêque & P. Dupont",
+                year: 2015,
+                journal: "Physics of Fluids",
+                volume: "Vol. 27(12):126103",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                link: "http://dx.doi.org/10.1063/1.4937350",
+                topics: ["shock wave", "boundary layer", "unsteadiness", "separation"],
+                bibtex: `@article{agostini2015mechanism,
+  title={Mechanism of shock unsteadiness in separated shock/boundary-layer interactions},
+  author={Agostini, L. and Larchevêque, L. and Dupont, P.},
+  journal={Physics of Fluids},
+  volume={27},
+  number={12},
+  pages={126103},
+  year={2015}
+}`
+            },
+            {
+                id: 15,
+                title: "Zones of influence and shock boundary layer interaction",
+                authors: "L. Agostini, L. Larchevêque, P. Dupont, J.-F. Debiève & J.-P. Dussauge",
+                year: 2012,
+                journal: "AIAA Journal",
+                volume: "Vol. 50(6):1377",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                link: "http://dx.doi.org/10.2514/1.J051516",
+                topics: ["shock wave", "boundary layer", "zones of influence", "interaction"],
+                bibtex: `@article{agostini2012zones,
+  title={Zones of influence and shock boundary layer interaction},
+  author={Agostini, L. and Larchevêque, L. and Dupont, P. and Debiève, J.-F. and Dussauge, J.-P.},
+  journal={AIAA Journal},
+  volume={50},
+  number={6},
+  pages={1377},
+  year={2012}
+}`
+            },
+            {
+                id: 16,
+                title: "Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions",
+                authors: "M. Waindim, L. Agostini, L. Larchevêque & D. Gaitonde",
+                year: 2020,
+                journal: "Shock Waves",
+                volume: "Vol. 30, pp. 63-75",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                link: "https://doi.org/10.1007/s00193-019-00918-y",
+                topics: ["shock wave", "boundary layer", "separation bubble", "turbulence"],
+                bibtex: `@article{waindim2020dynamics,
+  title={Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions},
+  author={Waindim, M. and Agostini, L. and Larchevêque, L. and Gaitonde, D.},
+  journal={Shock Waves},
+  volume={30},
+  pages={63--75},
+  year={2020}
+}`
+            },
+            {
+                id: 17,
+                title: "Numerical study of three-dimensional modulations in a shock-induced separation",
+                authors: "L. Agostini, L. Larchevêque, E. Garnier & E. De Martel",
+                year: 2012,
+                journal: "Progress in Flight Physics",
+                volume: "Vol. 3, pp157-168",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                link: "https://doi.org/10.1051/eucass/201203157",
+                topics: ["shock wave", "separation", "3D modulation", "numerical study"],
+                bibtex: `@article{agostini2012numerical,
+  title={Numerical study of three-dimensional modulations in a shock-induced separation},
+  author={Agostini, L. and Larchevêque, L. and Garnier, E. and De Martel, E.},
+  journal={Progress in Flight Physics},
+  volume={3},
+  pages={157--168},
+  year={2012}
+}`
+            },
+            {
+                id: 18,
+                title: "Numerical study of a shock - turbulent boundary layer interaction with incipient and complete separation",
+                authors: "L. Agostini, P. Dupont, L. Larchevêque & J.-P. Dussauge",
+                year: 2011,
+                journal: "International Journal of Engineering System Modeling and Simulation",
+                volume: "Vol. 3(1/2):46",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                link: "http://dx.doi.org/10.1504/IJESMS.2011.038749",
+                topics: ["shock wave", "boundary layer", "separation", "turbulence", "numerical study"],
+                bibtex: `@article{agostini2011numerical,
+  title={Numerical study of a shock - turbulent boundary layer interaction with incipient and complete separation},
+  author={Agostini, L. and Dupont, P. and Larchevêque, L. and Dussauge, J.-P.},
+  journal={International Journal of Engineering System Modeling and Simulation},
+  volume={3},
+  number={1/2},
+  pages={46},
+  year={2011}
+}`
+            },
+            // Supersonic jet
+            {
+                id: 19,
+                title: "Directivity and intermittency in the nearfield of a Mach 1.3 jet",
+                authors: "L. Agostini, U. Sasidharan Nair & D.V. Gaitonde",
+                year: 2015,
+                journal: "Journal of Fluid Mechanics",
+                volume: "Vol. 780, pp. 5-30",
+                type: "journal",
+                category: "Aeroacoustics",
+                link: "http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926",
+                topics: ["aeroacoustics", "supersonic jet", "intermittency", "directivity", "heat transfer"],
+                bibtex: `@article{agostini2015directivity,
+  title={Directivity and intermittency in the nearfield of a Mach 1.3 jet},
+  author={Agostini, L. and Sasidharan Nair, U. and Gaitonde, D.V.},
+  journal={Journal of Fluid Mechanics},
+  volume={780},
+  pages={5--30},
+  year={2015}
+}`
+            },
+            // Additional conference papers
+            {
+                id: 20,
+                title: "Policy-Based Signal Shape Optimization for Drag Reduction via Spanwise Wall Oscillations",
+                authors: "L. Guérin, L. Cordier, C. Flageul, S. Grieu, & L. Agostini",
+                year: 2025,
+                journal: "EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics",
+                volume: "London, UK",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["optimization", "drag reduction", "spanwise wall oscillations", "policy-based", "signal shape"],
+                bibtex: `@inproceedings{guerin2025policy,
+  title={Policy-Based Signal Shape Optimization for Drag Reduction via Spanwise Wall Oscillations},
+  author={Guérin, L. and Cordier, L. and Flageul, C. and Grieu, S. and Agostini, L.},
+  booktitle={EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics},
+  year={2025},
+  address={London, UK}
+}`
+            },
+            {
+                id: 21,
+                title: "Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations",
+                authors: "L. Guérin, T. Fisk, L. Cordier, C. Flageul & L. Agostini",
+                year: 2025,
+                journal: "DTE AICOMAS",
+                volume: "Paris, France",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["autoencoder", "dimensionality reduction", "turbulence", "channel flow", "spanwise wall oscillations"],
+                bibtex: `@inproceedings{guerin2025autoencoder,
+  title={Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations},
+  author={Guérin, L. and Fisk, T. and Cordier, L. and Flageul, C. and Agostini, L.},
+  booktitle={DTE AICOMAS},
+  year={2025},
+  address={Paris, France}
+}`
+            },
+            {
+                id: 22,
+                title: "Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow",
+                authors: "L. Guérin, C. Flageul, L. Cordier, S. Grieu, & L. Agostini",
+                year: 2024,
+                journal: "DLES 14",
+                volume: "Erlangen, Germany",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                halLink: "https://hal.science/hal-03852046/document",
+                topics: ["Reynolds analogy", "heat transfer", "momentum transport", "spanwise wall oscillation", "wall-bounded flow"],
+                bibtex: `@inproceedings{guerin2024breaking_dles,
+  title={Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow},
+  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
+  booktitle={DLES 14},
+  year={2024},
+  address={Erlangen, Germany}
+}`
+            },
+            {
+                id: 23,
+                title: "Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow",
+                authors: "L. Guérin, C. Flageul, L. Cordier, S. Grieu, & L. Agostini",
+                year: 2024,
+                journal: "EUROMECH COLLOQUIUM 631",
+                volume: "Madrid, Spain",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                halLink: "https://hal.science/hal-03852047/document",
+                topics: ["Reynolds analogy", "heat transfer", "momentum transport", "spanwise wall oscillation", "wall-bounded flow"],
+                bibtex: `@inproceedings{guerin2024breaking_euromech,
+  title={Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow},
+  author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
+  booktitle={EUROMECH COLLOQUIUM 631},
+  year={2024},
+  address={Madrid, Spain}
+}`
+            },
+            {
+                id: 24,
+                title: "A predictive model for the response of near-wall turbulence to outer structures",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2023,
+                journal: "ETC 15",
+                volume: "Budapest, Hungary",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["predictive model", "near-wall turbulence", "outer structures", "turbulence"],
+                bibtex: `@inproceedings{agostini2023predictive,
+  title={A predictive model for the response of near-wall turbulence to outer structures},
+  author={Agostini, L. and Leschziner, M.A.},
+  booktitle={ETC 15},
+  year={2023},
+  address={Budapest, Hungary}
+}`
+            },
+            {
+                id: 25,
+                title: "Analysis of large-scale/small-scale interactions in turbulent channel flow using Auto-Encoder combined with Multivariate-Pdf",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2022,
+                journal: "TSFP 12",
+                volume: "Osaka, Japan",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["large-scale", "small-scale", "interactions", "turbulent channel flow", "auto-encoder", "PDF"],
+                bibtex: `@inproceedings{agostini2022analysis,
+  title={Analysis of large-scale/small-scale interactions in turbulent channel flow using Auto-Encoder combined with Multivariate-Pdf},
+  author={Agostini, L. and Leschziner, M.A.},
+  booktitle={TSFP 12},
+  year={2022},
+  address={Osaka, Japan}
+}`
+            },
+            // Additional communications
+            {
+                id: 26,
+                title: "Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "DTE AICOMAS",
+                volume: "Paris, France",
+                type: "communication",
+                category: "Oral Communication without Proceedings",
+                topics: ["reduced-order modeling", "turbulence", "autoencoder", "experimental", "projection-based"],
+                bibtex: `@misc{tonioni2025reduced,
+  title={Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  howpublished={Oral Communication at DTE AICOMAS},
+  year={2025},
+  address={Paris, France}
+}`
+            },
+            {
+                id: 27,
+                title: "Taming the chaos: Reduced-Order Models for Turbulent Flows",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "PPrime cross-labs PhD Meetings",
+                volume: "Poitiers, France",
+                type: "communication",
+                category: "Oral Communication for Science Divulgation",
+                topics: ["reduced-order modeling", "turbulence", "science communication"],
+                bibtex: `@misc{tonioni2025taming,
+  title={Taming the chaos: Reduced-Order Models for Turbulent Flows},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  howpublished={Oral Communication at PPrime cross-labs PhD Meetings},
+  year={2025},
+  address={Poitiers, France}
+}`
+            },
+            {
+                id: 28,
+                title: "Reduced-order Modeling of Turbulent Flows",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2024,
+                journal: "EurINTREE Strategic Committee",
+                volume: "Poitiers, France",
+                type: "communication",
+                category: "Oral Communication for Science Divulgation",
+                topics: ["reduced-order modeling", "turbulence", "science communication"],
+                bibtex: `@misc{tonioni2024reduced_eurintree,
+  title={Reduced-order Modeling of Turbulent Flows},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  howpublished={Oral Communication at EurINTREE Strategic Committee},
+  year={2024},
+  address={Poitiers, France}
+}`
+            },
+            // Additional papers
+            {
+                id: 29,
+                title: "Features of eddies populating the meso-layer in a wall-bounded flow",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2018,
+                journal: "EUROMECH COLLOQUIUM 598",
+                volume: "London, UK",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["eddies", "meso-layer", "wall-bounded flow", "turbulence"],
+                bibtex: `@inproceedings{agostini2018features,
+  title={Features of eddies populating the meso-layer in a wall-bounded flow},
+  author={Agostini, L. and Leschziner, M.A.},
+  booktitle={EUROMECH COLLOQUIUM 598},
+  year={2018},
+  address={London, UK}
+}`
+            },
+            {
+                id: 30,
+                title: "Controlling the influence of outer large-scale structures on wall friction",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2018,
+                journal: "ETMM 12",
+                volume: "Montpellier, France",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["control", "large-scale structures", "wall friction", "turbulence"],
+                bibtex: `@inproceedings{agostini2018controlling,
+  title={Controlling the influence of outer large-scale structures on wall friction},
+  author={Agostini, L. and Leschziner, M.A.},
+  booktitle={ETMM 12},
+  year={2018},
+  address={Montpellier, France}
+}`
+            },
+            {
+                id: 31,
+                title: "A statistical insight into the onset of deep dynamic stall using multivariate empirical mode decomposition",
+                authors: "A.T. Mohan & L. Agostini",
+                year: 2018,
+                journal: "Proc. 56th AIAA Aerospace Sciences Meeting",
+                volume: "Kissimmee, Florida, USA",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["dynamic stall", "multivariate empirical mode decomposition", "statistics"],
+                bibtex: `@inproceedings{mohan2018statistical,
+  title={A statistical insight into the onset of deep dynamic stall using multivariate empirical mode decomposition},
+  author={Mohan, A.T. and Agostini, L.},
+  booktitle={Proc. 56th AIAA Aerospace Sciences Meeting},
+  year={2018},
+  address={Kissimmee, Florida, USA}
+}`
+            },
+            {
+                id: 32,
+                title: "Inferring the structural properties of eddies in the log layer from spectral statistics",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2017,
+                journal: "TSFP10",
+                volume: "Chicago, USA",
+                type: "conference",
+                category: "Oral Communication with Peer-Reviewed Proceedings",
+                topics: ["eddies", "log layer", "spectral statistics", "turbulence"],
+                bibtex: `@inproceedings{agostini2017inferring,
+  title={Inferring the structural properties of eddies in the log layer from spectral statistics},
+  author={Agostini, L. and Leschziner, M.A.},
+  booktitle={TSFP10},
+  year={2017},
+  address={Chicago, USA}
+}`
+            },
+            // Additional missing publications
+            {
+                id: 33,
+                title: "Spanwise modulations in shock-induced boundary layer separations",
+                authors: "L. Larcheveque, L. Agostini & J.-P. Dussauge",
+                year: 2009,
+                journal: "APS Division of Fluid Dynamics Meeting Abstracts",
+                volume: "Vol. 62, pp. LU-003",
+                type: "conference",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "separation", "spanwise modulation", "heat transfer"],
+                bibtex: `@inproceedings{larcheveque2009spanwise,
+  title={Spanwise modulations in shock-induced boundary layer separations},
+  author={Larcheveque, Lionel and Agostini, Lionel and Dussauge, Jean-Paul},
+  booktitle={APS Division of Fluid Dynamics Meeting Abstracts},
+  volume={62},
+  pages={LU--003},
+  year={2009}
+}`
+            },
+            {
+                id: 34,
+                title: "Zones of Influence and Low Frequency Shock Motion in a Shock Boundary Layer Interaction",
+                authors: "L. Agostini, L. Larcheveque, P. Dupont, J.-F. Debieve & J.-P. Dussauge",
+                year: 2010,
+                journal: "APS Division of Fluid Dynamics Meeting Abstracts",
+                volume: "Vol. 63, pp. HX-005",
+                type: "conference",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "interaction", "low frequency", "motion", "heat transfer"],
+                bibtex: `@inproceedings{agostini2010zones,
+  title={Zones of Influence and Low Frequency Shock Motion in a Shock Boundary Layer Interaction},
+  author={Agostini, Lionel and Larcheveque, Lionel and Dupont, Pierre and Debieve, Jean-Francois and Dussauge, Jean-Paul},
+  booktitle={APS Division of Fluid Dynamics Meeting Abstracts},
+  volume={63},
+  pages={HX--005},
+  year={2010}
+}`
+            },
+            {
+                id: 35,
+                title: "Three-dimensional separation in shock/boundary layer interaction",
+                authors: "L. Agostini, L. Larcheveque, P. Dupont & J.-P. Dussauge",
+                year: 2009,
+                journal: "CFM 2009-19ème Congrès Français de Mécanique",
+                type: "conference",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "interaction", "3D separation", "heat transfer"],
+                bibtex: `@inproceedings{agostini2009three,
+  title={Three-dimensional separation in shock/boundary layer interaction},
+  author={Agostini, Lionel and Larchev{\^e}que, Lionel and Dupont, Pierre and Dussauge, Jean-Paul},
+  booktitle={CFM 2009-19{\`e}me Congr{\`e}s Fran{\c{c}}ais de M{\'e}canique},
+  year={2009}
+}`
+            },
+            {
+                id: 36,
+                title: "SHOCK WAVE AND SEPARATION UNSTEADINESS IN A TURBULENT SHOCK/BOUNDARY LAYER INTERACTION",
+                authors: "L. Agostini, L. Larcheveque, J.-F. Debieve, P. Dupont & J.-P. Dussauge",
+                year: 2011,
+                journal: "AIAA Journal",
+                type: "journal",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "separation", "heat transfer"],
+                bibtex: `@article{agostini2011shock,
+  title={SHOCK WAVE AND SEPARATION UNSTEADINESS IN A TURBULENT SHOCK/BOUNDARY LAYER INTERACTION.},
+  author={AGOSTINI, L and LARCHEVEQUE, L and DEBIEVE, JF and DUPONT, P and DUSSAUGE, JP},
+  year={2011}
+}`
+            },
+            {
+                id: 37,
+                title: "Spanwise oscillatory wall motion in channel flow: drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations",
+                authors: "L. Agostini, E. Touber & M.A. Leschziner",
+                year: 2014,
+                journal: "Journal of Fluid Mechanics",
+                volume: "Vol. 743, pp. 606-635",
+                type: "journal",
+                category: "Drag reduction",
+                link: "http://dx.doi.org/10.1017/jfm.2014.40",
+                topics: ["drag reduction", "spanwise oscillation", "channel flow", "DNS", "phase-wise", "heat transfer"],
+                bibtex: `@article{agostini2014spanwise,
+  title={Spanwise oscillatory wall motion in channel flow: drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at},
+  author={Agostini, Lionel and Touber, Emile and Leschziner, Michael A},
+  journal={Journal of Fluid Mechanics},
+  volume={743},
+  pages={606--635},
+  year={2014}
+}`
+            },
+            {
+                id: 38,
+                title: "On the influence of outer large-scale structures on near-wall turbulence in channel flow",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2014,
+                journal: "Physics of Fluids",
+                volume: "Vol. 26(7)",
+                type: "journal",
+                category: "Boundary layer theory",
+                link: "http://dx.doi.org/10.1063/1.4890745",
+                topics: ["turbulence", "large-scale structures", "near-wall", "channel flow", "heat transfer"],
+                bibtex: `@article{agostini2014influence,
+  title={On the influence of outer large-scale structures on near-wall turbulence in channel flow},
+  author={Agostini, L and Leschziner, MA},
+  journal={Physics of Fluids},
+  volume={26},
+  number={7},
+  year={2014}
+}`
+            },
+            {
+                id: 39,
+                title: "The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion",
+                authors: "L. Agostini, E. Touber & M.A. Leschziner",
+                year: 2015,
+                journal: "International Journal of Heat and Fluid Flow",
+                volume: "Vol. 51, pp. 3-15",
+                type: "journal",
+                category: "Drag reduction",
+                link: "http://dx.doi.org/10.1016/j.ijheatfluidflow.2014.08.002",
+                topics: ["turbulence", "vorticity", "drag reduction", "oscillatory wall motion", "heat transfer"],
+                bibtex: `@article{agostini2015turbulence,
+  title={The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion},
+  author={Agostini, L and Touber, E and Leschziner, MA},
+  journal={International Journal of Heat and Fluid Flow},
+  volume={51},
+  pages={3--15},
+  year={2015}
+}`
+            },
+            {
+                id: 40,
+                title: "Optimal state feedback control of streaks and Görtler vortices induced by free-stream vortical disturbances",
+                authors: "L. Lu, L. Agostini, P. Ricco & G. Papadakis",
+                year: 2014,
+                journal: "2014 UKACC International Conference on Control (CONTROL)",
+                pages: "pp. 214-219",
+                type: "conference",
+                category: "Control theory",
+                topics: ["control", "streaks", "Görtler vortices", "free-stream", "disturbances", "heat transfer"],
+                bibtex: `@inproceedings{lu2014optimal,
+  title={Optimal state feedback control of streaks and G{\"o}rtler vortices induced by free-stream vortical disturbances},
+  author={Lu, Liang and Agostini, Lionel and Ricco, Pierre and Papadakis, George},
+  booktitle={2014 UKACC International Conference on Control (CONTROL)},
+  pages={214--219},
+  year={2014}
+}`
+            },
+            {
+                id: 41,
+                title: "Statistical Analysis and Model Reduction of Surface Pressure for Interaction of a Streamwise-Oriented Vortex with a Wing",
+                authors: "A.T. Mohan, L. Agostini, D.V. Gaitonde & D.J. Garmann",
+                year: 2015,
+                journal: "22nd AIAA Computational Fluid Dynamics Conference",
+                pages: "p. 3412",
+                type: "conference",
+                category: "Aerodynamics",
+                topics: ["statistics", "model reduction", "surface pressure", "vortex", "wing", "heat transfer"],
+                bibtex: `@inproceedings{mohan2015statistical,
+  title={Statistical Analysis and Model Reduction of Surface Pressure for Interaction of a Streamwise-Oriented Vortex with a Wing},
+  author={Mohan, Arvind T and Agostini, Lionel and Gaitonde, Datta V and Garmann, Daniel J},
+  booktitle={22nd AIAA Computational Fluid Dynamics Conference},
+  pages={3412},
+  year={2015}
+}`
+            },
+            {
+                id: 42,
+                title: "Analysis of intermittency of supersonic jet noise with synchronized les",
+                authors: "U. Sasidharan Nair, L. Agostini & D.V. Gaitonde",
+                year: 2015,
+                journal: "21st AIAA/CEAS Aeroacoustics Conference",
+                pages: "p. 2532",
+                type: "conference",
+                category: "Aeroacoustics",
+                topics: ["supersonic jet", "noise", "intermittency", "LES", "heat transfer"],
+                bibtex: `@inproceedings{sasidharan2015analysis,
+  title={Analysis of intermittency of supersonic jet noise with synchronized les},
+  author={Sasidharan Nair, Unnikrishnan and Agostini, Lionel and Gaitonde, Datta V},
+  booktitle={21st AIAA/CEAS Aeroacoustics Conference},
+  pages={2532},
+  year={2015}
+}`
+            },
+            {
+                id: 43,
+                title: "FEATURES OF SHOCK WAVE UNSTEADINESS IN SHOCK WAVE BOUNDARY LAYER INTERACTION",
+                authors: "L. Agostini, L. Larcheveque & P. Dupont",
+                year: 2013,
+                journal: "Eighth International Symposium on Turbulence and Shear Flow Phenomena",
+                type: "conference",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "heat transfer"],
+                bibtex: `@inproceedings{agostini2013features,
+  title={FEATURES OF SHOCK WAVE UNSTEADINESS IN SHOCK WAVE BOUNDARY LAYER INTERACTION},
+  author={Agostini, Lionel and Larcheveque, Lionel and Dupont, Pierre},
+  booktitle={Eighth International Symposium on Turbulence and Shear Flow Phenomena},
+  year={2013}
+}`
+            },
+            {
+                id: 44,
+                title: "Predicting the response of small-scale near-wall turbulence to large-scale outer motions",
+                authors: "L. Agostini & M. Leschziner",
+                year: 2016,
+                journal: "Physics of Fluids",
+                volume: "Vol. 28(1)",
+                type: "journal",
+                category: "Boundary layer theory",
+                link: "http://dx.doi.org/10.1063/1.4939707",
+                topics: ["turbulence", "near-wall", "large-scale", "prediction", "heat transfer"],
+                bibtex: `@article{agostini2016predicting,
+  title={Predicting the response of small-scale near-wall turbulence to large-scale outer motions},
+  author={Agostini, Lionel and Leschziner, Michael},
+  journal={Physics of Fluids},
+  volume={28},
+  number={1},
+  year={2016}
+}`
+            },
+            {
+                id: 45,
+                title: "An improved method to characterise the modulation of small-scale turbulent by large-scale structures",
+                authors: "L. Agostini, M. Leschziner & D. Gaitonde",
+                year: 2015,
+                journal: "APS Division of Fluid Dynamics Meeting Abstracts",
+                pages: "pp. E19-003",
+                type: "conference",
+                category: "Boundary layer theory",
+                topics: ["turbulence", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                bibtex: `@inproceedings{agostini2015improved,
+  title={An improved method to characterise the modulation of small-scale turbulent by large-scale structures},
+  author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
+  booktitle={APS Division of Fluid Dynamics Meeting Abstracts},
+  pages={E19--003},
+  year={2015}
+}`
+            },
+            {
+                id: 46,
+                title: "Detection of modulation of small-scale turbulence by large-scale structures",
+                authors: "L. Agostini, M. Leschziner & D. Gaitonde",
+                year: 2015,
+                journal: "Physics of Fluids",
+                type: "journal",
+                category: "Boundary layer theory",
+                topics: ["turbulence", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                bibtex: `@article{agostini2015detection,
+  title={Detection of modulation of small-scale turbulence by large-scale structures},
+  author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
+  year={2015}
+}`
+            },
+            {
+                id: 47,
+                title: "Conditional analysis of unsteadiness in shock boundary layer interactions",
+                authors: "M. Waindim, L.M. Agostini, L. Larcheveque & D.V. Gaitonde",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                pages: "p. 0615",
+                type: "conference",
+                category: "Shock-wave and boundary layer interaction",
+                topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "conditional analysis", "heat transfer"],
+                bibtex: `@inproceedings{waindim2016conditional,
+  title={Conditional analysis of unsteadiness in shock boundary layer interactions},
+  author={Waindim, Mbu and Agostini, Lionel M and Larch{\^e}veque, Lionel and Gaitonde, Datta V},
+  booktitle={54th AIAA Aerospace Sciences Meeting},
+  pages={0615},
+  year={2016}
+}`
+            },
+            {
+                id: 48,
+                title: "Numerical investigation of a supersonic multistream jet with an aft-deck",
+                authors: "C.M. Stack, D.V. Gaitonde, L. Agostini, M.G. Berry, A.S. Magstadt & M.N. Glauser",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                type: "conference",
+                category: "Supersonic flow",
+                topics: ["supersonic jet", "multistream", "aft-deck", "numerical investigation", "heat transfer"],
+                bibtex: `@inproceedings{stack2016numerical,
+  title={Numerical investigation of a supersonic multistream jet with an aft-deck},
+  author={Stack, Cory M and Gaitonde, Datta V and Agostini, Lionel and Berry, Matthew G and Magstadt, Andrew S and Glauser, Mark N},
+  booktitle={54th AIAA Aerospace Sciences Meeting, 2016},
+  year={2016}
+}`
+            },
+            {
+                id: 49,
+                title: "Scale-specific Intermittency and Spatio-temporal Correlations in a Supersonic Jet",
+                authors: "U. Sasidharan Nair, L.M. Agostini & D.V. Gaitonde",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                pages: "p. 0005",
+                type: "conference",
+                category: "Supersonic flow",
+                topics: ["supersonic jet", "intermittency", "spatio-temporal", "correlations", "heat transfer"],
+                bibtex: `@inproceedings{sasidharan2016scale,
+  title={Scale-specific Intermittency and Spatio-temporal Correlations in a Supersonic Jet},
+  author={Sasidharan Nair, Unnikrishnan and Agostini, Lionel M and Gaitonde, Datta V},
+  booktitle={54th AIAA Aerospace Sciences Meeting},
+  pages={0005},
+  year={2016}
+}`
+            },
+            {
+                id: 50,
+                title: "A preliminary spectral decomposition and scale separation analysis of a high-fidelity dynamic stall dataset",
+                authors: "A.T. Mohan, L.M. Agostini, M.R. Visbal & D.V. Gaitonde",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                pages: "p. 1352",
+                type: "conference",
+                category: "Aerodynamics",
+                topics: ["dynamic stall", "spectral decomposition", "scale separation", "high-fidelity", "heat transfer"],
+                bibtex: `@inproceedings{mohan2016preliminary,
+  title={A preliminary spectral decomposition and scale separation analysis of a high-fidelity dynamic stall dataset},
+  author={Mohan, Arvind T and Agostini, Lionel M and Visbal, Miguel R and Gaitonde, Datta V},
+  bookbook={54th AIAA Aerospace Sciences Meeting},
+  pages={1352},
+  year={2016}
+}`
+            },
+            {
+                id: 51,
+                title: "Causal relationship between large outer structures and small-scale near-wall turbulence in a compressible boundary layer at Mach= 2.3",
+                authors: "L.M. Agostini, M. Leschziner, J. Poggie, N.J. Bisek & D.V. Gaitonde",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                pages: "p. 0335",
+                type: "conference",
+                category: "Boundary layer theory",
+                topics: ["boundary layer", "compressible", "large-scale", "small-scale", "turbulence", "Mach 2.3", "heat transfer"],
+                bibtex: `@inproceedings{agostini2016causal,
+  title={Causal relationship between large outer structures and small-scale near-wall turbulence in a compressible boundary layer at Mach= 2.3},
+  author={Agostini, Lionel M and Leschziner, Michael and Poggie, Jonathan and Bisek, Nicholas J and Gaitonde, Datta V},
+  booktitle={54th AIAA Aerospace Sciences Meeting},
+  pages={0335},
+  year={2016}
+}`
+            },
+            {
+                id: 52,
+                title: "Investigation of Rectangular Jet Issuing From a Varying Cross-Section Nozzle",
+                authors: "S. Sengupta, L.M. Agostini, U. Sasidharan Nair & D.V. Gaitonde",
+                year: 2016,
+                journal: "54th AIAA Aerospace Sciences Meeting",
+                pages: "p. 1110",
+                type: "conference",
+                category: "Supersonic flow",
+                topics: ["rectangular jet", "nozzle", "varying cross-section", "heat transfer"],
+                bibtex: `@inproceedings{sengupta2016investigation,
+  title={Investigation of Rectangular Jet Issuing From a Varying Cross-Section Nozzle},
+  author={Sengupta, Soumyo and Agostini, Lionel M and Sasidharan Nair, Unnikrishnan and Gaitonde, Datta V},
+  booktitle={54th AIAA Aerospace Sciences Meeting},
+  pages={1110},
+  year={2016}
+}`
+            },
+            {
+                id: 53,
+                title: "Skewness-induced asymmetric modulation of small-scale turbulence by large-scale structures",
+                authors: "L. Agostini, M. Leschziner & D. Gaitonde",
+                year: 2016,
+                journal: "Physics of Fluids",
+                volume: "Vol. 28(1)",
+                type: "journal",
+                category: "Boundary layer theory",
+                link: "http://dx.doi.org/10.1063/1.4939712",
+                topics: ["turbulence", "skewness", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                bibtex: `@article{agostini2016skewness,
+  title={Skewness-induced asymmetric modulation of small-scale turbulence by large-scale structures},
+  author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
+  journal={Physics of Fluids},
+  volume={28},
+  number={1},
+  year={2016}
+}`
+            },
+            {
+                id: 54,
+                title: "On the validity of the quasi-steady-turbulence hypothesis in representing the effects of large scales on small scales in boundary layers",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2016,
+                journal: "Physics of Fluids",
+                volume: "28(4):045102",
+                type: "journal",
+                category: "Turbulence and boundary layer theory",
+                link: "http://dx.doi.org/10.1063/1.4944735",
+                topics: ["turbulence", "boundary layer", "quasi-steady", "large-scale", "small-scale"],
+                bibtex: `@article{agostini2016validity,\n  title={On the validity of the quasi-steady-turbulence hypothesis in representing the effects of large scales on small scales in boundary layers},\n  author={Agostini, L and Leschziner, MA},\n  journal={Physics of Fluids},\n  volume={28},\n  number={4},\n  pages={045102},\n  year={2016}\n}`
+            },
+            {
+                id: 55,
+                title: "Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2021,
+                journal: "Journal of Fluid Mechanics",
+                volume: "923",
+                type: "journal",
+                category: "Drag reduction",
+                link: "https://doi.org/10.1017/jfm.2021.585",
+                topics: ["drag reduction", "channel flow", "large-scale", "small-scale", "PDF", "oscillatory wall motion"],
+                bibtex: `@article{agostini2021statistical,\n  title={Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology},\n  author={Agostini, L and Leschziner, MA},\n  journal={Journal of Fluid Mechanics},\n  volume={923},\n  year={2021}\n}`
+            },
+            {
+                id: 56,
+                title: "The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion",
+                authors: "L. Agostini & M.A. Leschziner",
+                year: 2018,
+                journal: "Journal of Flow, Turbulence and Combustion",
+                volume: "",
+                type: "journal",
+                category: "Drag reduction",
+                link: "https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf",
+                topics: ["drag reduction", "large-scale structures", "near-wall", "spanwise wall motion"],
+                bibtex: `@article{agostini2018impact,\n  title={The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion},\n  author={Agostini, L and Leschziner, MA},\n  journal={Journal of Flow, Turbulence and Combustion},\n  year={2018}\n}`
+            }
+        ];
+
+        // DOM elements
+        const searchInput = document.getElementById('search-input');
+        const typeFilters = document.getElementById('type-filters');
+        const topicFilters = document.getElementById('topic-filters');
+        const publicationList = document.getElementById('publication-list');
+        const activeFiltersContainer = document.getElementById('active-filters');
+        const activeFilterTags = document.getElementById('active-filter-tags');
+        const clearAllFiltersBtn = document.getElementById('clear-all-filters');
+
+        // State management
+        let activeTypeFilter = 'all';
+        let activeTopicFilters = [];
+        let searchQuery = '';
+
+        // Initialize charts
+        function initCharts() {
+            // Publications by year chart
+            const yearCtx = document.getElementById('yearChart').getContext('2d');
+            
+            // Count publications by year
+            const yearCounts = {};
+            publicationsData.forEach(pub => {
+                if (!yearCounts[pub.year]) {
+                    yearCounts[pub.year] = 0;
+                }
+                yearCounts[pub.year]++;
+            });
+            
+            // Sort years
+            const years = Object.keys(yearCounts).sort((a, b) => a - b);
+            const counts = years.map(year => yearCounts[year]);
+            
+            new Chart(yearCtx, {
+                type: 'bar',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: 'Publications',
+                        data: counts,
+                        backgroundColor: '#25256F',
+                        borderColor: '#25256F',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Publications by type chart
+            const typeCtx = document.getElementById('typeChart').getContext('2d');
+            
+            // Count publications by type
+            const typeCounts = {
+                'journal': publicationsData.filter(pub => pub.type === 'journal').length,
+                'conference': publicationsData.filter(pub => pub.type === 'conference').length,
+                'preprint': publicationsData.filter(pub => pub.type === 'preprint').length,
+                'communication': publicationsData.filter(pub => pub.type === 'communication').length
+            };
+            
+            new Chart(typeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Journal Articles', 'Conference Papers', 'Preprints', 'Other Communications'],
+                    datasets: [{
+                        data: [
+                            typeCounts.journal,
+                            typeCounts.conference,
+                            typeCounts.preprint,
+                            typeCounts.communication
+                        ],
+                        backgroundColor: [
+                            '#3498db',
+                            '#2ecc71',
+                            '#f39c12',
+                            '#9b59b6'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            // Research areas chart
+            const topicsCtx = document.getElementById('topicsChart').getContext('2d');
+            
+            // Count publications by topic
+            const topicCounts = {};
+            publicationsData.forEach(pub => {
+                pub.topics.forEach(topic => {
+                    if (!topicCounts[topic]) {
+                        topicCounts[topic] = 0;
+                    }
+                    topicCounts[topic]++;
+                });
+            });
+            
+            // Sort topics by count (descending)
+            const sortedTopics = Object.entries(topicCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 8); // Top 8 topics
+            
+            const topicLabels = sortedTopics.map(entry => entry[0]);
+            const topicValues = sortedTopics.map(entry => entry[1]);
+            
+            new Chart(topicsCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: topicLabels,
+                    datasets: [{
+                        data: topicValues,
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.6)',
+                            'rgba(46, 204, 113, 0.6)',
+                            'rgba(243, 156, 18, 0.6)',
+                            'rgba(155, 89, 182, 0.6)',
+                            'rgba(231, 76, 60, 0.6)',
+                            'rgba(52, 73, 94, 0.6)',
+                            'rgba(22, 160, 133, 0.6)',
+                            'rgba(142, 68, 173, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(243, 156, 18, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(52, 73, 94, 1)',
+                            'rgba(22, 160, 133, 1)',
+                            'rgba(142, 68, 173, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 15
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Filter publications
+        function filterPublications() {
+            const filteredPublications = publicationsData.filter(pub => {
+                // Filter by type
+                const typeMatch = activeTypeFilter === 'all' || pub.type === activeTypeFilter;
+                
+                // Filter by topics (must match all selected topics)
+                let topicsMatch = true;
+                if (activeTopicFilters.length > 0) {
+                    topicsMatch = activeTopicFilters.every(topic => 
+                        pub.topics.some(pubTopic => pubTopic.toLowerCase() === topic.toLowerCase())
+                    );
+                }
+                
+                // Filter by search query
+                const searchLower = searchQuery.toLowerCase();
+                const searchMatch = 
+                    searchQuery === '' || 
+                    pub.title.toLowerCase().includes(searchLower) ||
+                    pub.authors.toLowerCase().includes(searchLower) ||
+                    pub.year.toString().includes(searchLower) ||
+                    pub.journal.toLowerCase().includes(searchLower) ||
+                    pub.category.toLowerCase().includes(searchLower) ||
+                    pub.topics.some(topic => topic.toLowerCase().includes(searchLower));
+                
+                return typeMatch && topicsMatch && searchMatch;
+            });
+            
+            renderPublications(filteredPublications);
+            updateActiveFilters();
+        }
+
+        // Render publications
+        function renderPublications(publications) {
+            // Clear loading spinner
+            publicationList.innerHTML = '';
+            
+            if (publications.length === 0) {
+                publicationList.innerHTML = `
+                    <div class="no-publications">
+                        <p>No publications match your filter criteria.</p>
+                        <button class="btn" onclick="clearAllFilters()">Clear All Filters</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Group by category
+            const categorized = {};
+            publications.forEach(pub => {
+                if (!categorized[pub.category]) {
+                    categorized[pub.category] = [];
+                }
+                categorized[pub.category].push(pub);
+            });
+            
+            // Sort categories alphabetically
+            const sortedCategories = Object.keys(categorized).sort();
+            
+            // Render each category
+            sortedCategories.forEach(category => {
+                const categoryElement = document.createElement('div');
+                categoryElement.className = 'publication-category';
+                
+                // Category heading
+                const heading = document.createElement('h3');
+                heading.className = 'category-heading';
+                heading.textContent = category;
+                categoryElement.appendChild(heading);
+                
+                // Sort publications by year (descending)
+                const sortedPubs = categorized[category].sort((a, b) => b.year - a.year);
+                
+                // Render each publication
+                sortedPubs.forEach(pub => {
+                    const pubElement = createPublicationCard(pub);
+                    categoryElement.appendChild(pubElement);
+                });
+                
+                publicationList.appendChild(categoryElement);
+            });
+        }
+
+        // Create publication card
+        function createPublicationCard(pub) {
+            const card = document.createElement('div');
+            card.className = 'publication-card';
+            card.setAttribute('data-id', pub.id);
+            
+            // Publication badge based on type
+            let badgeClass = 'publication-badge';
+            switch (pub.type) {
+                case 'journal':
+                    badgeClass += ' badge-journal';
+                    break;
+                case 'conference':
+                    badgeClass += ' badge-conference';
+                    break;
+                case 'preprint':
+                    badgeClass += ' badge-preprint';
+                    break;
+                case 'communication':
+                    badgeClass += ' badge-communication';
+                    break;
+            }
+            
+            // Publication type label
+            let typeLabel = '';
+            switch (pub.type) {
+                case 'journal':
+                    typeLabel = 'Journal Article';
+                    break;
+                case 'conference':
+                    typeLabel = 'Conference Paper';
+                    break;
+                case 'preprint':
+                    typeLabel = 'Preprint';
+                    break;
+                case 'communication':
+                    typeLabel = 'Communication';
+                    break;
+            }
+            
+            // Build HTML content
+            const titleElement = pub.link ? 
+                `<a href="${pub.link}" target="_blank">${pub.title}</a>` : 
+                pub.title;
+            
+            card.innerHTML = `
+                <div class="publication-header">
+                    <h3 class="publication-title">${titleElement}</h3>
+                    <span class="${badgeClass}">${typeLabel}</span>
+                </div>
+                <div class="publication-meta">
+                    <p class="publication-authors">${pub.authors}</p>
+                    <p>${pub.journal}, ${pub.volume} (${pub.year})</p>
+                </div>
+                <div class="publication-keywords">
+                    ${pub.topics.map(topic => `
+                        <span class="keyword-tag" data-topic="${topic}">${topic}</span>
+                    `).join('')}
+                </div>
+                <div class="publication-links">
+                    ${pub.link ? `<a href="${pub.link}" class="publication-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Publication</a>` : ''}
+                    ${pub.halLink ? `<a href="${pub.halLink}" class="publication-link" target="_blank"><i class="fas fa-book"></i> View on HAL</a>` : ''}
+                    ${pub.bibtex ? `<span class="publication-link citation-button" data-id="${pub.id}"><i class="fas fa-quote-right"></i> Cite</span>` : ''}
+                </div>
+                ${pub.bibtex ? `<div class="bibtex-container" id="bibtex-${pub.id}">${pub.bibtex}</div>` : ''}
+            `;
+            
+            return card;
+        }
+
+        // Update active filters display
+        function updateActiveFilters() {
+            activeFilterTags.innerHTML = '';
+            
+            // Check if we have any active filters
+            const hasActiveFilters = activeTypeFilter !== 'all' || activeTopicFilters.length > 0 || searchQuery !== '';
+            
+            if (hasActiveFilters) {
+                activeFiltersContainer.classList.remove('hidden');
+                
+                // Add type filter tag if not 'all'
+                if (activeTypeFilter !== 'all') {
+                    let typeLabel = '';
+                    switch (activeTypeFilter) {
+                        case 'journal':
+                            typeLabel = 'Journal Articles';
+                            break;
+                        case 'conference':
+                            typeLabel = 'Conference Papers';
+                            break;
+                        case 'preprint':
+                            typeLabel = 'Preprints';
+                            break;
+                        case 'communication':
+                            typeLabel = 'Communications';
+                            break;
+                    }
+                    
+                    const typeTag = document.createElement('span');
+                    typeTag.className = 'active-filter-tag';
+                    typeTag.innerHTML = `${typeLabel} <i class="fas fa-times" data-filter-type="type"></i>`;
+                    activeFilterTags.appendChild(typeTag);
+                }
+                
+                // Add topic filter tags
+                activeTopicFilters.forEach(topic => {
+                    const topicTag = document.createElement('span');
+                    topicTag.className = 'active-filter-tag';
+                    topicTag.innerHTML = `${topic} <i class="fas fa-times" data-filter-type="topic" data-topic="${topic}"></i>`;
+                    activeFilterTags.appendChild(topicTag);
+                });
+                
+                // Add search query tag if present
+                if (searchQuery !== '') {
+                    const searchTag = document.createElement('span');
+                    searchTag.className = 'active-filter-tag';
+                    searchTag.innerHTML = `Search: "${searchQuery}" <i class="fas fa-times" data-filter-type="search"></i>`;
+                    activeFilterTags.appendChild(searchTag);
+                }
+            } else {
+                activeFiltersContainer.classList.add('hidden');
+            }
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            activeTypeFilter = 'all';
+            activeTopicFilters = [];
+            searchQuery = '';
+            searchInput.value = '';
+            
+            // Reset type filter buttons
+            document.querySelectorAll('#type-filters .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.type === 'all') {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Reset topic filter buttons
+            document.querySelectorAll('#topic-filters .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            filterPublications();
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize publication metrics
+            const totalPublications = publicationsData.length;
+            const journalArticles = publicationsData.filter(pub => pub.type === 'journal').length;
+            const conferencePapers = publicationsData.filter(pub => pub.type === 'conference').length;
+            const communications = publicationsData.filter(pub => pub.type === 'communication').length;
+            const preprints = publicationsData.filter(pub => pub.type === 'preprint').length;
+
+            document.getElementById('total-publications').textContent = totalPublications;
+            document.getElementById('journal-articles').textContent = journalArticles;
+            document.getElementById('conference-papers').textContent = conferencePapers;
+            document.getElementById('citations').textContent = '1250+';
+            document.getElementById('h-index').textContent = '18';
+            
+            // Initialize charts
+            initCharts();
+            
+            // Initial rendering
+            filterPublications();
+            
+            // Search input event
+            searchInput.addEventListener('input', function() {
+                searchQuery = this.value.trim();
+                filterPublications();
+            });
+            
+            // Type filter buttons click
+            typeFilters.addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    // Update active type filter
+                    activeTypeFilter = e.target.dataset.type;
+                    
+                    // Update button states
+                    document.querySelectorAll('#type-filters .filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
+                    
+                    filterPublications();
+                }
+            });
+            
+            // Topic filter buttons click
+            topicFilters.addEventListener('click', function(e) {
+                if (e.target.classList.contains('filter-btn')) {
+                    const topic = e.target.dataset.topic;
+                    
+                    // Toggle topic filter
+                    if (e.target.classList.contains('active')) {
+                        // Remove topic
+                        activeTopicFilters = activeTopicFilters.filter(t => t !== topic);
+                        e.target.classList.remove('active');
+                    } else {
+                        // Add topic
+                        activeTopicFilters.push(topic);
+                        e.target.classList.add('active');
+                    }
+                    
+                    filterPublications();
+                }
+            });
+            
+            // Clear all filters button
+            clearAllFiltersBtn.addEventListener('click', clearAllFilters);
+            
+            // Remove individual filter tags
+            activeFilterTags.addEventListener('click', function(e) {
+                if (e.target.tagName === 'I') {
+                    const filterType = e.target.dataset.filterType;
+                    
+                    if (filterType === 'type') {
+                        // Reset type filter
+                        activeTypeFilter = 'all';
+                        document.querySelectorAll('#type-filters .filter-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                            if (btn.dataset.type === 'all') {
+                                btn.classList.add('active');
+                            }
+                        });
+                    } else if (filterType === 'topic') {
+                        // Remove specific topic filter
+                        const topic = e.target.dataset.topic;
+                        activeTopicFilters = activeTopicFilters.filter(t => t !== topic);
+                        document.querySelector(`#topic-filters .filter-btn[data-topic="${topic}"]`).classList.remove('active');
+                    } else if (filterType === 'search') {
+                        // Clear search query
+                        searchQuery = '';
+                        searchInput.value = '';
+                    }
+                    
+                    filterPublications();
+                }
+            });
+            
+            // Keywords in publication cards
+            publicationList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('keyword-tag')) {
+                    const topic = e.target.dataset.topic;
+                    
+                    // Check if topic already in filters
+                    if (!activeTopicFilters.includes(topic)) {
+                        // Add topic to filters
+                        activeTopicFilters.push(topic);
+                        
+                        // Update topic filter buttons
+                        const topicBtn = document.querySelector(`#topic-filters .filter-btn[data-topic="${topic}"]`);
+                        if (topicBtn) {
+                            topicBtn.classList.add('active');
+                        }
+                        
+                        filterPublications();
+                    }
+                }
+                
+                // Toggle BibTeX display
+                if (e.target.classList.contains('citation-button') || e.target.parentElement.classList.contains('citation-button')) {
+                    const button = e.target.classList.contains('citation-button') ? e.target : e.target.parentElement;
+                    const pubId = button.dataset.id;
+                    const bibtexContainer = document.getElementById(`bibtex-${pubId}`);
+                    
+                    if (bibtexContainer) {
+                        bibtexContainer.classList.toggle('show');
+                        
+                        // Update button text
+                        if (bibtexContainer.classList.contains('show')) {
+                            button.innerHTML = '<i class="fas fa-times"></i> Hide Citation';
+                        } else {
+                            button.innerHTML = '<i class="fas fa-quote-right"></i> Cite';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

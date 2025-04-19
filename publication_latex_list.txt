@@ -1,0 +1,191 @@
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage{palatino}
+
+% moderncv themes
+\moderncvtheme[blue]{classic}
+
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.84]{geometry}
+
+
+\section{Publications}
+
+\cvline{\textbf{\underline{Boundary layer theory:}}}{}
+
+\cventry{2022}{\href{https://hal.science/hal-03852043/document}{Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200}}
+{\jj{Physics of Fluids}}{34}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2019}{\href{http://dx.doi.org/10.1017/jfm.2019.395}{On the departure of near-wall turbulence from the quasi-steady state}}
+{\jj{Journal of Fluid Mechanics}}{871}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2019}{\href{http://dx.doi.org/10.1017/jfm.2019.297}{The connection between the spectrum of turbulent scales and the skin-friction statistics in channel flow at $Re_{\tau} \approx 1000$}}
+{\jj{Journal of Fluid Mechanics}}{871}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2017}{\href{http://dx.doi.org/10.1080/14685248.2017.1328108}{Multi-scale interactions in a compressible boundary layer}}
+{\jj{Journal of Turbulence}}{18(8) 760}{L. Agostini, M.A. Leschziner, J. Poggie, N.J. Bisek \& D. Gaitonde}{}
+
+\cventry{2017}{\href{https://doi.org/10.1103/PhysRevFluids.2.014603}{Spectral analysis of near-wall turbulence in channel flow at ${\mathrm{Re}}_{\tau}=4200$ with emphasis on the attached-eddy hypothesis}}
+{\jj{Physical Review Fluids}}{2(1):014603}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2016}{\href{http://dx.doi.org/10.1063/1.4944735}{On the validity of the quasi-steady-turbulence hypothesis in representing the effects of large scales on small scales in boundary layers}}
+{\jj{Physics of Fluids}}{28(4):045102}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2016}{\href{http://dx.doi.org/10.1063/1.4939712}{Skewness-induced asymmetric modulation of small-scale turbulence by large-scale structures}}
+{\jj{Physics of Fluids}}{28(1):015110}{L. Agostini, M.A. Leschziner \& D. Gaitonde}{}
+
+\cventry{2016}{\href{http://dx.doi.org/10.1063/1.4939712}{Predicting the response of small-scale near-wall turbulence to large-scale outer motions}}
+{\jj{Physics of Fluids}}{28(1):015107}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2014}{\href{http://dx.doi.org/10.1063/1.4890745}{On the influence of outer large-scale structures on near-wall turbulence in channel flow}}
+{\jj{Physics of Fluids}}{26(7):075107}{L. Agostini \& M.A. Leschziner}{}
+
+\cvline{\textbf{\underline{Drag reduction:}}}{}
+
+\cventry{2021}{\href{https://doi.org/10.1017/jfm.2021.585}{Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology}}
+{\jj{Journal of Fluid Mechanics}}{923}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2018}{\href{https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf}{The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion}}
+{\jj{Journal of Flow, Turbulence and Combustion}}{1--25}{L. Agostini \& M.A. Leschziner}{}
+
+\cventry{2014}{\href{http://dx.doi.org/10.1016/j.ijheatfluidflow.2014.08.002}{The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion}}
+{\jj{International Journal of Heat and Fluid Flow}}{09/2014(51)}{L. Agostini, E. Touber, M.A. Leschziner}{}
+
+\cventry{2014}{\href{http://dx.doi.org/10.1017/jfm.2014.40}{Spanwise oscillatory wall motion in channel flow: Drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at $Re_{\tau} =1000$}}
+{\jj{Journal of Fluid Mechanics}}{743:606}{L. Agostini, E. Touber, M.A. Leschziner}{}
+
+\cvline{\textbf{\underline{Heat transfer:}}}{}
+
+\cventry{2024}{\href{https://doi.org/10.1016/j.ijheatfluidflow.2024.109564}{Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations}}
+{\jj{International Journal of Heat and Fluid Flow}}{1010:109564}{\textbf{L. Guérin}, C. Flageul, L. Cordier, S. Grieu, \& L. Agostini}{}
+
+\cventry{2024}{\href{https://arxiv.org/html/2312.13002v1}{Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow}}
+{\jj{arXiv preprint}}{2312.13002}{\textbf{L. Guérin}, C. Flageul, L. Cordier, S. Grieu, \& L. Agostini}{}
+
+\cvline{\textbf{\underline{Machine learning:}}}{}
+
+\cventry{2025}{\href{https://doi.org/10.1007/s00521-025-11067-y}{Policy-based optimization for drag reduction via spanwise wall oscillations}}
+{\jj{Neural Computing and Applications}}{10.1007/s00521-025-11067-y}{\textbf{L. Guérin}, L. Cordier, C. Flageul, S. Grieu, \& L. Agostini}{}
+
+\cventry{2024}{\href{https://www.nature.com/articles/s42256-023-00770-x}{Catching up with missing particles}}
+{\jj{Nature Machine Intelligence}}{6}{\textbf{S. Atis} \& L. Agostini}{}
+
+\cventry{2020}{\href{https://doi.org/10.1063/5.0012906}{Exploration and prediction of fluid dynamical systems using Auto-Encoder technology}}
+{\jj{Physics of Fluids}}{32(6):067103}{L. Agostini}{}
+
+\cvline{\textbf{\underline{Shock-wave and boundary layer interaction:}}}{}
+
+\cventry{2020}{\href{https://doi.org/10.1007/s00193-019-00918-y}{Dynamics of separation bubble dilation and collapse in shock wave/turbulent boundary layer interactions}}
+{\jj{Shock Waves}}{30}{63--75}{\textbf{M. Waindim}, L. Agostini, L. Larchevêque \& D. Gaitonde}{}
+
+\cventry{2015}{\href{http://dx.doi.org/10.1063/1.4937350}{Mechanism of shock unsteadiness in separated shock/boundary-layer interactions}}
+{\jj{Physics of Fluids}}{27(12):126103}{L. Agostini, L. Larchevêque \& P. Dupont}{}
+
+\cventry{2012}{\href{http://dx.doi.org/10.2514/1.J051516}{Zones of influence and shock boundary layer interaction}}
+{\jj{AIAA Journal}}{50(6):1377}{L. Agostini, L. Larchevêque, P. Dupont, J.-F. Debiève \& J.-P. Dussauge}{}
+
+\cventry{2012}{\href{https://doi.org/10.1051/eucass/201203157}{Numerical study of three-dimensional modulations in a shock-induced separation}}
+{\jj{Progress in Flight Physics}}{3, pp157--168}{L. Agostini, L. Larchevêque, E. Garnier \& E. De Martel}{}
+
+\cventry{2011}{\href{http://dx.doi.org/10.1504/IJESMS.2011.038749}{Numerical study of a shock - turbulent boundary layer interaction with incipient and complete separation}}
+{\jj{International Journal of Engineering System Modeling and Simulation}}{3(1/2):46}{L. Agostini, P. Dupont, L. Larchevêque \& J.-P. Dussauge}{}
+
+\cvline{\textbf{\underline{Supersonic jet:}}}{}
+
+\cventry{2017}{\href{http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926}{Directivity and intermittency in the nearfield of a Mach 1.3 jet}}
+{\jj{International Journal of Aeroacoustics}}{16(3):135}{\textbf{S. Unnikrishnan}, D. Gaitonde \& L. Agostini}{}
+
+
+
+\section{Oral Communication with Peer-Reviewed Proceedings}
+
+
+\cventry{May 2025}{\underline{N. Tonioni}, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{VIVALDy: A novel $\beta$-Variational Autoencoder approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations}{1st International Symposium AI and Fluid Mechanics}{Chania, Greece}{}
+
+\cventry{May 2025}{\underline{N. Kumar}, L. Agostini, F. Kerhervé \& L. Cordier}{Deep learning of SPOD time-domain coefficient dynamics for reduced-order modeling of street canyon flow}{1st International Symposium AI and Fluid Mechanics}{Chania, Greece}{}
+
+
+\cventry{April 2025}{\underline{N. Tonioni}, M. Umair, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{Spectral proper orthogonal decomposition of street canyon flow dynamics and its application to
+time-domain reconstruction}{EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics}{Colloquium 629}{London, United Kingdom}
+
+\cventry{April 2025}{\underline{N. Kumar}, L. Agostini, F. Kerhervé \& L. Cordier}{$\beta$-Variational autoencoder and transformer-based data-driven modeling of near-wall turbulence}{EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics}{Colloquium 629}{London, United Kingdom}
+
+\cventry{April 2025}{\underline{L. Guérin}, L. Cordier, C. Flageul, S. Grieu \& L. Agostini}{Policy-Based Signal Shape Optimization for Drag Reduction via
+Spanwise Wall Oscillations}{EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics}{Colloquium 629}{London, United Kingdom}
+
+\cventry{February 2025}{\underline{N. Tonioni}, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders}{DTE AICOMAS}{2025}{Paris, France}
+
+\cventry{February 2025}{\underline{L. Guérin}, T. Fisk, L. Cordier, C. Flageul \& L. Agostini}{Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations}{DTE AICOMAS}{2025}{Paris, France}
+
+\cventry{April 2024}{\underline{L. Guérin}, C. Flageul, L. Cordier, S. Grieu, \& L. Agostini}{Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow}{DLES}{14}{Erlangen, Germany}
+
+\cventry{March 2024}{\underline{L. Guérin}, C. Flageul, L. Cordier, S. Grieu, \& L. Agostini}{Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow}{EUROMECH}{COLLOQUIUM 631}{Madrid, Spain}
+
+\cventry{April 2023}{L. Agostini \& M.A. Leschziner}{A predictive model for the response of near-wall turbulence to outer structures}{ETC 15}{Budapest, Hungary}{}
+
+\cventry{July 2022}{L. Agostini \& M.A. Leschziner}{Analysis of large-scale/small-scale interactions in turbulent channel flow using Auto-Encoder combined with Multivariate-Pdf}{TSFP}{12}{Osaka, Japan}
+
+\cventry{August 2018}{\underline{L. Agostini} \& M.A. Leschziner}{Features of eddies populating the meso-layer in a wall-bounded flow}{EUROMECH}{COLLOQUIUM 598}{London, UK}
+
+\cventry{September 2018}{L. Agostini \& M.A. Leschziner}{Controlling the influence of outer large-scale structures on wall friction}{ETMM 12}{Montpellier, France}{}
+
+\cventry{January 2018}{\underline{A.T. Mohan} \& L. Agostini}{A statistical insight into the onset of deep dynamic stall using multivariate empirical mode decomposition}{Proc. 56th AIAA Aerospace Sciences Meeting}{Kissimmee, Florida, USA}{}
+
+\cventry{July 2017}{\underline{L. Agostini} \& M.A. Leschziner}{Inferring the structural properties of eddies in the log layer from spectral statistics}{TSFP10}{Chicago, USA}{}
+
+\cventry{June 2016}{\underline{S. Sengupta}, L. Agostini \& D. Gaitonde}{Effect of Asymmetric Nozzle Configuration on Jet Flow Characteristics}{Proc. 46th AIAA Fluid Dynamics Conference}{Washington, D.C, USA}{}
+
+\cventry{January 2016}{\underline{L. Agostini}, M. Leschziner, J. Poggie, N.J. Bisek \& D. Gaitonde}{Causal relationship between large outer structures and small-scale near-wall turbulence in a compressible boundary layer at Mach= 2.3}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{January 2016}{\underline{A.T. Mohan}, L. Agostini, M.R. Visbal \& D. Gaitonde}{A Preliminary Spectral Decomposition and Scale Separation Analysis of a High-Fidelity Dynamic Stall Dataset}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{January 2016}{\underline{S. Unnikrishnan}, L. Agostini \& D. Gaitonde}{Scale-specific Intermittency and Spatio-temporal Correlations in a Supersonic Jet}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{January 2016}{\underline{M. Waindim}, L. Agostini, L. Larchevêque \& D. Gaitonde}{Conditional analysis of unsteadiness in shock boundary layer interactions}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{January 2016}{\underline{C.M. Stack}, D. Gaitonde, L. Agostini, M.G. Berry, A.S. Magstadt \& M.N. Glauser}{Numerical Investigation of a Supersonic Multistream Jet with an Aft-Deck}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{January 2016}{\underline{S. Sengupta}, L. Agostini, S. Unnikrishnan \& D. Gaitonde}{Investigation of Rectangular Jet Issuing From a Varying Cross-Section Nozzle}{Proc. 54th AIAA Aerospace Sciences Meeting}{San Diego, California, USA}{}
+
+\cventry{August 2015}{L. Agostini \& M. Leschziner}{Predicting the response of small-scale near-wall turbulence to large-scale outer motions}{15th ETC}{Delft, Netherlands}{}
+
+\cventry{June 2015}{\underline{A.T. Mohan}, L. Agostini, D. Gaitonde \& D.J. Garmann}{Statistical Analysis and Model Reduction of Surface Pressure in the Interaction of a Streamwise-Oriented Vortex with a Wing}{Proc. 22nd AIAA Computational Fluid Dynamics Conference}{Dallas, Texas, USA}{}
+
+\cventry{June 2015}{\underline{S. Unnikrishnan}, L. Agostini \& D. Gaitonde}{Analysis of Intermittency of Supersonic Jet Noise with Synchronized LES}{Proc. 22nd AIAA Computational Fluid Dynamics Conference}{Dallas, Texas, USA}{}
+
+\cventry{September 2014}{\underline{L. Agostini}, M.A. Leschziner}{On the influence of outer large-scales structures on near-wall turbulence in channel flow}{Proc. 10th International ERCOFTAC Symposium on Engineering Turbulence Modelling and Measurements}{Marbella, Spain}{}
+
+\cventry{July 2014}{L. Lu, L. Agostini, P. Ricco, \underline{G. Papadakis}}{Optimal state feedback control of streaks and G\"{o}rtler vortices induced by free-stream vortical disturbances}{Proc. 10th UKACC International Conference on Control}{Loughborough, UK}{}
+
+\cventry{August 2013}{\underline{L. Agostini}, E. Touber, M.A. Leschziner}{Spanwise oscillatory wall motion in channel flow: drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at $Re_{\tau}=1000$}{Proc. International Symposium On Turbulence and Shear Flow Phenomena}{Poitiers, France}{}
+
+\cventry{August 2013}{\underline{L. Agostini}, L. Larchevêque, P. Dupont}{Features of shock wave unsteadiness in shock wave boundary layer interaction}{Proc. International Symposium On Turbulence and Shear Flow Phenomena}{Poitiers, France}{}
+
+\cventry{August 2012}{L. Agostini, \underline{L. Larchevêque}, P. Dupont}{Inviscid quasistatic modeling for unsteady shock reflection with separation}{Proc. 23rd International Congress of Theoretical and Applied Mechanics}{Peking, China}{}
+
+\cventry{January 2011}{\textbf{\underline{L. Agostini}}, L. Larchevêque, P. Dupont, J-F. Debiève \& J.-P. Dussauge}{Zones of Influence and Shock Motion in a Shock Boundary Layer Interaction}{Proc. 49th AIAA Aerospace Sciences Meeting}{Orlando, USA}{}
+
+\cventry{June 2010}{\textbf{\underline{L. Agostini}}, L. Larchevêque, P. Dupont \& J.-P. Dussauge}{Numerical study of a shock-turbulent boundary layer interaction with incipient separation}{Proc. 8th International ERCOFTAC Symposium on Engineering Turbulence Modelling and Measurements}{Marseille, France}{}
+
+\cventry{March 2010}{\textbf{\underline{L. Agostini}}, L. Larchevêque, P. Dupont \& J.-P. Dussauge}{Numerical study of shock-turbulent boundary layer interaction with incipient and complete separation}{Proc. 45th Symposium on Applied Aerodynamics}{Marseille, France}{}
+
+\cventry{September 2009}{\underline{F. Moisy}, L. Agostini, G. Tan}{Structure functions and energy transfers in a decaying rotating turbulence experiment}{Proc. 12th Euromech European Turbulence Conference}{Marburg, Germany}{}
+
+\cventry{August 2009}{L. Agostini, \underline{L. Larchevêque}, P. Dupont \& J.-P. Dussauge}{Three-dimensional separation in shock/boundary layer interaction}{Proc. colloque Euromech LESTAC}{Congrès Français de Mécanique}{Marseille, France}
+
+\cventry{July 2009}{L. Agostini, \underline{L. Larchevêque}, E. Garnier \& E. De Martel}{Numerical study of three-dimensional modulations in a shock-induced separation}{Proc. 3rd European Conference for Aerospace Sciences}{Versailles, France}{}
+
+\section{Oral Communication without Proceedings}
+
+\cventry{December 2024}{\underline{N. Tonioni}, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders}{GDR I-GAIA}{Paris, France}{}
+
+\section{Oral Communication for Science Divulgation}
+
+\cventry{March 2025}{\underline{N. Tonioni}, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{Taming the chaos: Reduced-Order Models for Turbulent Flows}{PPrime cross-labs PhD Meetings}{Poitiers, France}{}
+
+\cventry{September 2024}{\underline{N. Tonioni}, L. Agostini, F. Kerhervé, L. Cordier \& R. Vinuesa}{Reduced-order Modeling of Turbulent Flows}{EurINTREE Strategic Committee}{Poitiers, France}{}
+
+\end{document}
