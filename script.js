@@ -147,7 +147,104 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize publication charts
     initPublicationCharts();
+    
+    // Initialize carousels
+    setupCarousels();
 });
+
+// Carousel Functionality - UPDATED
+function setupCarousels() {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(container => {
+        const slides = container.querySelectorAll('.carousel-slide');
+        const prevBtn = container.querySelector('.carousel-prev');
+        const nextBtn = container.querySelector('.carousel-next');
+        const indicators = container.querySelectorAll('.carousel-indicator');
+        
+        if (!slides.length || !prevBtn || !nextBtn) {
+            console.error("Missing critical carousel elements:", container);
+            return; // Skip setup for this carousel
+        }
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // Function to update slides and indicators
+        function updateCarouselState(newIndex) {
+            if (newIndex < 0 || newIndex >= totalSlides) return; // Boundary check
+
+            // Update slides
+            slides[currentIndex].classList.remove('active');
+            slides[newIndex].classList.add('active');
+            
+            // Update indicators if they exist
+            if (indicators.length > 0) {
+                indicators[currentIndex].classList.remove('active');
+                indicators[newIndex].classList.add('active');
+            }
+            
+            currentIndex = newIndex;
+            updateButtons();
+        }
+
+        // Previous button click
+        prevBtn.addEventListener('click', () => {
+            console.log("Previous clicked"); // For debugging
+            updateCarouselState(currentIndex - 1);
+        });
+        
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+            console.log("Next clicked"); // For debugging
+            updateCarouselState(currentIndex + 1);
+        });
+
+        // Indicator click listeners
+        if (indicators.length > 0) {
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    updateCarouselState(index);
+                });
+            });
+        }
+        
+        // Function to update button states (disabled/opacity)
+        function updateButtons() {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === totalSlides - 1;
+            
+            prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+            nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+        }
+        
+        // Initialize: Ensure first slide and indicator are active
+        slides.forEach((slide, index) => {
+            // Start with all slides hidden
+            slide.classList.remove('active');
+            // Make only the first slide active
+            if (index === 0) slide.classList.add('active');
+        });
+        
+        if (indicators.length > 0) {
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+        }
+        
+        updateButtons(); // Set initial button state
+    });
+    
+    // Preload images to prevent display issues
+    const carouselImages = document.querySelectorAll('.carousel-slide img');
+    carouselImages.forEach(img => {
+        const imgSrc = img.getAttribute('src');
+        if (imgSrc) {
+            const preloadImg = new Image();
+            preloadImg.src = imgSrc;
+        }
+    });
+}
 
 // Publication Statistics Charts
 function initPublicationCharts() {
@@ -214,3 +311,56 @@ function initPublicationCharts() {
         });
     }
 }
+// Foldable Sections Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const foldableSections = document.querySelectorAll('.foldable-section');
+
+    foldableSections.forEach(section => {
+        const header = section.querySelector('.section-header');
+        const button = section.querySelector('.section-toggle-button');
+        const content = section.querySelector('.section-content');
+        const icon = button?.querySelector('i'); // Get the icon element
+
+        if (header && button && content && icon) {
+            header.addEventListener('click', (e) => {
+                // Prevent toggling if clicking on a link inside the header
+                if (e.target.tagName === 'A') {
+                    return;
+                }
+
+                const isExpanded = section.classList.contains('expanded');
+
+                // Toggle the expanded class on the section
+                section.classList.toggle('expanded');
+                button.setAttribute('aria-expanded', !isExpanded);
+
+                // Toggle the icon class
+                if (!isExpanded) {
+                    // If it was collapsed, now expanding: change plus to minus
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                    // Ensure correct rotation is applied immediately if needed by CSS
+                    button.style.transform = 'rotate(180deg)';
+                } else {
+                    // If it was expanded, now collapsing: change minus to plus
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                     // Ensure correct rotation is applied immediately if needed by CSS
+                    button.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Set initial icon based on default state
+            const initiallyExpanded = section.classList.contains('expanded');
+            if (initiallyExpanded) {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+                button.style.transform = 'rotate(180deg)'; // Set initial rotation if expanded
+            } else {
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+                button.style.transform = 'rotate(0deg)'; // Set initial rotation if collapsed
+            }
+        }
+    });
+});

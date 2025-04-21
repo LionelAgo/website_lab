@@ -7,6 +7,403 @@
     <meta name="description" content="Research work of Dr. Lionel Agostini in fluid mechanics, focusing on turbulence, flow control, and machine learning applications.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Research Page Specific Styles */
+        .research-section {
+            padding: 40px 0;
+        }
+
+        .research-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-left-color: var(--accent-color);
+        }
+
+        .research-card-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .research-card-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .research-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .research-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .key-points-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .key-points-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .key-points-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+
+        .research-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .research-images img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .image-note {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .future-directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .direction-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+            height: 100%;
+        }
+
+        .direction-card:hover {
+             transform: translateY(-5px);
+             box-shadow: var(--card-shadow-hover);
+             border-top-color: var(--accent-color);
+        }
+
+        .direction-card h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .direction-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        /* Unified Carousel Styles */
+        .carousel-container {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .carousel {
+            display: flex;
+            position: relative;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            min-height: 300px;
+            max-height: 400px;
+            background-color: #f8f8f8;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(37, 37, 111, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        .carousel-button:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        /* Placeholder for missing images */
+        .placeholder-image {
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--text-light);
+            font-style: italic;
+            height: 300px;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .placeholder-image i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Research methodologies section */
+        .methodologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .methodology-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+            height: 100%;
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-top-color: var(--accent-color);
+        }
+
+        .methodology-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .methodology-card:hover .methodology-icon {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        .methodology-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .methodology-description {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Added for Area 1 special layout */
+        .md\:grid {
+            display: grid;
+        }
+        
+        .md\:grid-cols-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        
+        .md\:gap-8 {
+            gap: 2rem;
+        }
+        
+        .md\:col-span-3 {
+            grid-column: span 3 / span 3;
+        }
+        
+        .md\:col-span-2 {
+            grid-column: span 2 / span 2;
+        }
+        
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+        
+        .research-subheading {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        
+        .key-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .key-point::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+        
+        .research-area-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .research-area-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .research-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .md\:grid {
+                display: block;
+            }
+            
+            .md\:col-span-3, .md\:col-span-2 {
+                width: 100%;
+            }
+            
+            .md\:mb-0 {
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .research-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -22,7 +419,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="research.html">Research</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="teams.html">Teams</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
@@ -33,11 +431,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700; color: var(--accent-color);">
-                Research in Fluid Mechanics
-            </h2>
+             <h2 class="hero-title">Research in Fluid Mechanics</h2>
+            <p class="hero-description">
+                Advancing the understanding and control of wall-bounded turbulent flows.
+            </p>
         </div>
         <div class="hero-background">
+            <!-- Using a relevant background image -->
             <div class="background-slide active" style="background-image: url('images/background/back2.jpg')"></div>
         </div>
     </section>
@@ -45,158 +445,566 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">Research Focus Areas</h1>
-            <p class="page-subtitle">Exploring the complexities of wall-bounded turbulence, flow control, and data-driven approaches in fluid mechanics.</p>
+            <h1 class="page-title">Research Philosophy</h1>
+            <p class="page-subtitle">Integrating simulations, data analysis, and machine learning to unravel turbulence complexities.</p>
         </div>
     </section>
 
-    <!-- Research Overview -->
-    <section class="research-overview">
+    <!-- Research Philosophy Section -->
+     <section class="research-section bg-white">
         <div class="container">
-            <h2 class="section-title">Research Philosophy</h2>
-            <div class="research-overview-content">
-                <p>My research is driven by a multidisciplinary approach that combines fundamental fluid mechanics, high-fidelity numerical simulations, and cutting-edge data science techniques. By integrating these fields, I seek to deepen our understanding of complex flow phenomena and develop innovative strategies for flow prediction and control.</p>
-                <p>With a focus on wall-bounded turbulence across a range of Reynolds numbers, my work addresses critical challenges in energy efficiency and environmental sustainability by targeting drag reduction and heat transfer enhancement in engineering systems.</p>
-                <p>The research methodologies I employ span from direct numerical simulations (DNS) and large eddy simulations (LES) to advanced machine learning algorithms, particularly auto-encoders for reduced-order modeling and feature extraction from turbulent flows.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Areas -->
-    <section id="research-areas" class="research-areas">
-        <div class="container">
-            <h2 class="section-title">Core Research Areas</h2>
-            
-            <!-- Wall-bounded Turbulence -->
-            <div id="boundary-layer" class="research-area">
-                <div class="research-area-header">
-                    <h3 class="research-area-title">Wall-bounded Turbulence</h3>
-                    <p class="research-area-subtitle">Investigating multi-scale interactions in turbulent boundary layers</p>
+             <div class="section-description">
+                <p>My research investigates the complex physics of wall-bounded turbulent flows, aiming to unravel the fundamental mechanisms governing phenomena like drag and heat transfer. By integrating high-fidelity numerical simulations (DNS/LES), advanced statistical analysis, and cutting-edge machine learning techniques, I seek to develop predictive models and innovative control strategies.</p>
+                <p>The focus spans canonical flows and actively controlled systems, addressing challenges in energy efficiency and transport by exploring drag reduction and heat transfer enhancement across a range of Reynolds numbers. This work is motivated by the urgent need to combat climate change through improved energy efficiency and reduced pollution in various applications, from fluid transport to vehicle performance optimisation and heat exchange technologies.</p>
+             </div>
+             
+             <div class="methodologies-grid">
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="methodology-title">High-Fidelity Simulations</h3>
+                    <p class="methodology-description">Direct numerical simulations (DNS) and large-eddy simulations (LES) to capture the full range of turbulent scales and their interactions.</p>
                 </div>
-                <div class="research-area-content">
-                    <div class="research-area-text">
-                        <h3>Multi-scale Dynamics and Scale Interactions</h3>
-                        <p>My research in wall-bounded turbulence focuses on understanding the intricate dynamics of turbulent structures across multiple scales, particularly the interactions between large-scale outer structures and small-scale near-wall turbulence at high Reynolds numbers. These interactions become increasingly significant as Reynolds number increases, fundamentally altering the statistical characteristics of the flow and affecting key engineering quantities such as wall friction and heat transfer.</p>
-                        <p>Through detailed analysis of direct numerical simulation data, I have developed novel methodologies for scale separation and analysis, enabling a deeper understanding of the modulation effects of large-scale structures on near-wall turbulence. This work has challenged existing paradigms, particularly the quasi-steady hypothesis, by revealing complex asymmetric responses and non-linear interactions that conventional models fail to capture.</p>
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <h3 class="methodology-title">Advanced Statistical Analysis</h3>
+                    <p class="methodology-description">Novel statistical frameworks including joint PDFs and conditional analyses to understand complex physical interactions across scales.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="methodology-title">Machine Learning Integration</h3>
+                    <p class="methodology-description">Combining physical insights with data-driven approaches to develop predictive models and efficient flow control strategies.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="methodology-title">Flow Control Optimisation</h3>
+                    <p class="methodology-description">Development of active control techniques to manipulate turbulence mechanisms for enhanced energy and thermal efficiency.</p>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Core Research Axes Section -->
+    <section class="research-section">
+        <div class="container">
+            <h2 class="section-title">Core Research Axes</h2>
+
+            <!-- Research Area 1 -->
+            <article id="wall-bounded-turbulence" class="research-card">
+                <h3 class="research-area-title">1. Unveiling the Dynamics of Wall-Bounded Turbulence</h3>
+                <p class="research-area-subtitle">Decoding the multi-scale structure and interactions.</p>
+                <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                    <div class="md:col-span-3 mb-6 md:mb-0 text-gray-700 leading-relaxed">
                         
-                        <div class="key-points">
-                            <div class="key-point">
-                                <i class="fas fa-check-circle"></i>
-                                <div>Developed auto-encoder methodology to separate large and small scale turbulent motions in high Reynolds number flows</div>
+                        <h4 class="research-subheading">The Multi-Scale Puzzle</h4>
+                        <p class="mb-4">Wall-bounded turbulence is characterised by a fascinating "zoology" of coherent structures spanning a vast range of scales. Near the wall, viscous effects dominate, leading to the formation of elongated "streaks." As the Reynolds number increases, larger structures emerge, including energetic "super-streaks" and hierarchies of "attached eddies" in the logarithmic region. Understanding how these different scales interact – the "puzzle" of wall turbulence – is fundamental to predicting and controlling these flows.</p>
+                        
+                        <p class="mb-4">My research has shown that as Reynolds number increases, the spectral space available between viscous scales (δν) and boundary layer thickness (δ) expands, allowing for new hierarchies of attached eddies to develop. Essentially, outer scales become progressively stronger and their influence on near-wall regions (through "footprinting" and "modulation") becomes more pronounced. This complex interplay between scales directly impacts both drag and heat transfer properties.</p>
+                        
+                        <h4 class="research-subheading">The Attached Eddy Hypothesis (AEH)</h4>
+                        <p class="mb-4">The AEH provides a conceptual framework for understanding the structure of the logarithmic layer, proposing a hierarchy of self-similar eddies whose size scales with distance from the wall. While foundational, the classical AEH struggles to explain certain observed phenomena, like the energy plateau in the lower log-layer (meso-layer). My research critically examines the AEH using detailed DNS data and structure-function analysis. This has led to proposed refinements, suggesting modifications to the energy distribution within eddies to better reconcile the AEH with experimental and numerical observations across the entire meso-layer.</p>
+                        
+                        <p class="mb-4">I've developed an extended conceptual model of attached eddies that explains both the logarithmic decay region of turbulent energy profiles and the plateau region observed in experimental data. This model, validated against high Reynolds number measurements from the CICLoPE facility, provides valuable insights into the full spectrum of turbulent structures present in wall-bounded flows.</p>
+
+                        <div class="key-points mb-4 mt-6">
+                            <div class="key-point">Characterisation of the "zoology": streaks, super-streaks, attached eddies.</div>
+                            <div class="key-point">Analysis of Reynolds number effects on the multi-scale structure.</div>
+                            <div class="key-point">Critical evaluation and refinement of the Attached Eddy Hypothesis (AEH).</div>
+                            <div class="key-point">Use of structure functions to analyse self-similarity and scaling.</div>
+                            <div class="key-point">Explanation of experimental observations of energy plateaus in the meso-layer.</div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 image-grid">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/fig_1_1_zoology.png" alt="Wall Turbulence Zoology"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-chart-line\'></i><div>Wall Turbulence Zoology</div><div>Illustration of different turbulent structures at various scales</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_1_6_puzzle.png" alt="Conceptual Puzzle of Wall Turbulence"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-puzzle-piece\'></i><div>Conceptual Puzzle of Wall Turbulence</div><div>Visualization showing interaction between different turbulent scales</div></div>'">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="key-point">
-                                <i class="fas fa-check-circle"></i>
-                                <div>Demonstrated asymmetric modulation and "splatting" effects that standard models fail to account for</div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
                             </div>
-                            <div class="key-point">
-                                <i class="fas fa-check-circle"></i>
-                                <div>Established quantitative connections between turbulent structures and their contributions to wall shear stress</div>
-                            </div>
-                            <div class="key-point">
-                                <i class="fas fa-check-circle"></i>
-                                <div>Examined scale-dependent phase relationships in turbulent boundary layers</div>
-                            </div>
+                            <p class="image-note">Turbulence "zoology" and conceptual puzzle visualization showing how different structures (streaks, attached eddies, super-streaks) populate the boundary layer at increasing Reynolds numbers.</p>
                         </div>
                         
-                        <div class="key-publications">
-                            <h4>Key Publications</h4>
-                            <div class="publication-item">
-                                "Zones of influence and shock boundary layer interaction", AIAA Journal (2012)
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/fig_6_1_AE_concept.png" alt="Conceptual view of Attached Eddy Hypothesis"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>Attached Eddy Hypothesis Concept</div><div>Visual representation of the classical attached eddy model</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_6_17_revised_AEH.png" alt="Revised Attached Eddy Hypothesis"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>Revised Attached Eddy Hypothesis</div><div>Illustration of the extended model explaining both logarithmic and plateau regions</div></div>'">
+                                    </div>
+                                </div>
                             </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Classical and revised Attached Eddy Hypothesis models, showing how my expanded model explains both logarithmic decay and plateau regions in energy profiles.</p>
                         </div>
                     </div>
-                    <div class="research-area-image">
-                        <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shock wave visualization">
+                </div>
+            </article>
+
+            <!-- Research Area 2 -->
+            <article id="flow-control" class="research-card">
+                <h3 class="research-card-title">2. Flow Control for Drag Reduction & Heat Transfer Enhancement</h3>
+                <p class="research-card-subtitle">Manipulating turbulence for improved efficiency.</p>
+                 <div class="research-content">
+                    <div class="research-text">
+                        <p>A significant part of my research explores active flow control techniques, primarily spanwise wall oscillations, to reduce turbulent skin friction drag. Detailed DNS studies have allowed me to elucidate the underlying mechanisms, including the disruption of near-wall streaks by the unsteady Stokes layer, and the crucial roles of velocity skewness and hysteresis in the drag reduction cycle.</p>
+                        
+                        <p>I've identified that the mechanism behind drag reduction is not streak destruction (as previously thought) but rather prevention of streak regeneration. The spanwise Stokes layer induced by wall motion causes tilting of wall-normal vorticity tubes, which inhibits the streak formation process. This understanding is crucial for optimising control strategies.</p>
+                        
+                        <p>I investigate why the effectiveness of such control strategies diminishes at higher Reynolds numbers, linking this decline to the increasing influence of large-scale outer structures (modulation). Current work extends this to heat transfer, exploring how wall oscillations can preferentially enhance heat transfer over drag, potentially breaking the classical Reynolds analogy (linked to ANR SOLAIRE project).</p>
+                        
+                        <p>My recent findings show that with carefully selected actuation parameters (T+ = 500, W+ = 30), heat transfer can be enhanced by 15% while drag increases by only 7.7%, challenging conventional understanding that heat transfer and momentum transfer behaviours are tightly coupled. This discovery opens new possibilities for thermal management applications.</p>
+                        
+                        <h4 class="research-subheading">Key Points:</h4>
+                        <ul class="key-points-list">
+                            <li>Analysis of drag reduction mechanisms via spanwise wall oscillations.</li>
+                            <li>Identification of the roles of skewness, hysteresis, and Stokes strain.</li>
+                            <li>Quantification of Reynolds number impact on control efficiency due to large-scale modulation.</li>
+                            <li>Investigation of heat transfer enhancement and breaking the Reynolds analogy using wall oscillations.</li>
+                            <li>Development of reinforcement learning approaches for optimising control parameters.</li>
+                         </ul>
+                    </div>
+                    <div class="research-images">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                         <img src="images/research/fig_2_1_control_map.png" alt="Control Map for Spanwise Oscillations"
+                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-map\'></i><div>Control Map for Spanwise Oscillations</div><div>Parameter space showing regions of drag reduction and increase</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                         <img src="images/research/fig_2_32_DR_mechanism.png" alt="Drag Reduction Mechanism Sketch"
+                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-draw-polygon\'></i><div>Drag Reduction Mechanism Sketch</div><div>Conceptual representation of vorticity dynamics during control</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Control parameter map showing regions of drag reduction (DR) and drag increase (DI), and conceptual sketch of the vorticity dynamics responsible for drag reduction.</p>
+                        </div>
+                        
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                         <img src="images/research/heat_transfer_enhancement.png" alt="Heat Transfer Enhancement"
+                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-temperature-high\'></i><div>Heat Transfer Enhancement</div><div>Visualization of enhanced heat transfer through wall oscillation</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Visualization of improved heat transfer capability achieved through optimized wall oscillation parameters, demonstrating the breaking of Reynolds analogy.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </article>
+
+            <!-- Research Area 3 -->
+            <article id="scale-interactions" class="research-card">
+                <h3 class="research-card-title">3. Scale Interactions & Predictive Modelling</h3>
+                <p class="research-card-subtitle">Understanding and predicting the influence of large scales on near-wall turbulence.</p>
+                 <div class="research-content">
+                    <div class="research-text">
+                        <p>Understanding how large-scale outer structures influence the near-wall region (footprinting and modulation) is critical for predicting high-Reynolds-number flows. My work scrutinises these interactions, revealing that the "modulation" effect is not a direct scale interaction but rather an indirect consequence of large scales altering local shear production rates.</p>
+                        
+                        <p>I have shown that the response of small scales is asymmetric: positive large-scale fluctuations (sweeps) cause stronger amplification than the attenuation caused by negative fluctuations (ejections), partly due to "splatting" effects near the wall. This challenges linear predictive models like the PIO model proposed by Marusic and colleagues.</p>
+                        
+                        <p>By developing novel statistical approaches based on multivariate joint PDFs and bi-dimensional Empirical Mode Decomposition (BEMD), I've demonstrated that the modulation of near-wall turbulence involves not just amplitude changes but also asymmetric redistribution of energy (splatting). This has led to improvements in predictive models for high-Reynolds-number flows.</p>
+                        
+                        <p>I also investigate the validity of the Quasi-Steady Hypothesis (QSH), finding that near-wall statistics often scale well with the local large-scale friction velocity, particularly for amplitude modulation, but with limitations for wavelength modulation and at positions further from the wall.</p>
+                         <h4 class="research-subheading">Key Points:</h4>
+                         <ul class="key-points-list">
+                            <li>Analysis of amplitude and length-scale modulation mechanisms.</li>
+                            <li>Demonstration of asymmetric modulation and the role of "splatting".</li>
+                            <li>Quantification of scale contributions to skin friction using FIK and RD identities.</li>
+                            <li>Testing the validity and limitations of the Quasi-Steady Hypothesis (QSH).</li>
+                            <li>Development of improved predictive models for high-Reynolds-number flows.</li>
+                         </ul>
+                    </div>
+                    <div class="research-images">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/fig_4_14_modulation_concept.png" alt="Modulation Concept Schematic"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-wave-square\'></i><div>Modulation Concept Schematic</div><div>Visual representation of amplitude modulation mechanism</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_4_30_LS_effects_concept.png" alt="LS Effects Concept"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-arrows-alt\'></i><div>Large-Scale Effects Concept</div><div>Illustration of how large scales influence near-wall turbulence</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_5_17_QSH_concept.png" alt="Quasi-Steady Hypothesis Concept"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-balance-scale\'></i><div>Quasi-Steady Hypothesis Concept</div><div>Visualisation of quasi-steady scaling principle</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Schematics illustrating modulation, large-scale (LS) effects, and the Quasi-Steady Hypothesis concepts that govern scale interactions in wall turbulence.</p>
+                        </div>
+                        
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/multivariate_pdf_analysis.png" alt="Multivariate PDF Analysis"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-chart-bar\'></i><div>Multivariate PDF Analysis</div><div>Statistical approach to analysing complex scale interactions</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Novel multivariate joint PDF analysis revealing complex scale interactions and their statistical signatures in turbulent flows.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Research Area 4 -->
+            <article id="machine-learning" class="research-card">
+                <h3 class="research-card-title">4. Data-Driven Approaches & Machine Learning in Fluid Dynamics</h3>
+                <p class="research-card-subtitle">Leveraging AI for analysis, modelling, and control.</p>
+                <div class="research-content">
+                    <div class="research-text">
+                        <p>The increasing volume and complexity of simulation and experimental data necessitate advanced analysis tools. I actively develop and apply data-driven methods, particularly machine learning, to extract insights, build reduced-order models (ROMs), and discover control laws for turbulent flows.</p>
+                        
+                        <p>Key techniques include Bi-dimensional Empirical Mode Decomposition (BEMD) and Auto-Encoders (AE) for scale separation and feature extraction, especially in high-Re flows where traditional methods struggle. I've demonstrated how AEs can be used to identify large-scale structures in DNS data at Reτ ≈ 5200, where conventional methods become computationally prohibitive.</p>
+                        
+                        <p>I also employ symbolic regression (e.g., Gene Expression Programming - GEP) to derive interpretable physical models from data, and explore clustering and Deep Reinforcement Learning (DRL) for ROM development and control optimisation (linked to ANR INFERENCE and MUFDD projects).</p>
+                        
+                        <p>My approach to ROM construction involves a 5-step framework: (1) dimensionality reduction with auto-encoders, (2) clustering to identify key flow states, (3) development of Markov chain models for state transitions, (4) reconstruction of high-fidelity data, and (5) extraction of physical insights. This framework has been successfully applied to cylinder flows and is being extended to wall turbulence.</p>
+                        <h4 class="research-subheading">Key Points:</h4>
+                        <ul class="key-points-list">
+                            <li>Development of Auto-Encoder methodology for scale separation in large DNS datasets.</li>
+                            <li>Application of BEMD for analysing scale interactions.</li>
+                            <li>Use of multivariate joint PDFs for conditional statistical analysis.</li>
+                            <li>Exploration of GEP, Clustering, Markov Chains, and DRL for modelling and control.</li>
+                            <li>Development of a comprehensive ROM framework combining physics understanding with data-driven approaches.</li>
+                        </ul>
+                    </div>
+                    <div class="research-images">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/fig_5_1_AE_concept.png" alt="Auto-Encoder Concept"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-brain\'></i><div>Auto-Encoder Concept</div><div>Diagram showing encoding-decoding architecture for turbulence analysis</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_8_5_ML_paradigm.png" alt="Machine Learning Paradigm Shift"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-sitemap\'></i><div>Machine Learning Paradigm Shift</div><div>Visualization of data-driven approach to fluid mechanics research</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Auto-Encoder methodology for extracting large-scale structures and ML paradigm shift in fluid mechanics research.</p>
+                        </div>
+                        
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/fig_8_6_ROM_Framework.png" alt="ROM Framework"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>ROM Framework</div><div>5-step approach to reduced-order model development</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/fig_8_11_AE_Clustering_ROM.png" alt="AE Clustering ROM"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-network-wired\'></i><div>AE Clustering ROM</div><div>Clustering approach for identifying flow regimes and state transitions</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">ROM framework and AE clustering approach for building data-driven reduced-order models.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="heat-transfer" class="research-card">
+                <h3 class="research-card-title">5. Thermal Transport in Wall-Bounded Flows</h3>
+                <p class="research-card-subtitle">Breaking the Reynolds analogy for enhanced heat transfer.</p>
+                 <div class="research-content">
+                    <div class="research-text">
+                        <p>A significant portion of my current research focuses on understanding and optimising heat transfer in turbulent flows. This work bridges fundamental fluid mechanics with practical thermal management applications, addressing critical challenges in energy systems and sustainable technologies.</p>
+                        
+                        <p>My research on heat transfer spans both passive and active control techniques. The passive approaches utilise surface features and natural flow instabilities, while active methods employ techniques like spanwise wall oscillations. The latter has been extensively studied for drag reduction, but my work shows it also has untapped potential for heat transfer enhancement.</p>
+                        
+                        <p>A key finding from my research is the possibility of "breaking" the Reynolds analogy—the traditional understanding that heat and momentum transport are tightly coupled in turbulent flows. Through careful selection of control parameters, I've demonstrated that it's possible to enhance heat transfer more substantially than the associated drag increase, which has significant implications for thermal management in various engineering applications.</p>
+                        
+                        <p>In my ANR SOLAIRE project, I'm applying these insights to solar receivers, where efficient heat transfer is crucial for overall system performance. By manipulating wall-bounded turbulence, we aim to achieve substantial improvements in receiver efficiency without prohibitive pressure drop penalties.</p>
+                        
+                        <p>My current work in this area also explores how the large-scale structures in high-Reynolds number flows influence thermal transport, extending predictive models to include both momentum and heat transfer. This research is driven by both fundamental scientific interest and the urgent practical need for more efficient thermal management solutions as we transition to sustainable energy systems.</p>
+                        
+                        <h4 class="research-subheading">Key Points:</h4>
+                        <ul class="key-points-list">
+                            <li>Investigation of the relationship between momentum and heat transfer in wall-bounded flows.</li>
+                            <li>Discovery of active control parameters that preferentially enhance heat transfer over drag.</li>
+                            <li>Analysis of the underlying physical mechanisms that allow breaking the Reynolds analogy.</li>
+                            <li>Application to solar receiver design in the ANR SOLAIRE project.</li>
+                            <li>Development of machine learning optimisation approaches for thermal management.</li>
+                        </ul>
+                    </div>
+                    <div class="research-images">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/thermal_transport_concept.png" alt="Thermal Transport Concept"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-fire\'></i><div>Thermal Transport Concept</div><div>Visualisation of thermal boundary layer control concepts</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/reynolds_analogy_breaking.png" alt="Breaking Reynolds Analogy"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-unlink\'></i><div>Breaking Reynolds Analogy</div><div>Demonstration of decoupling between heat and momentum transfer</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Conceptual representations of thermal boundary layer control and the breaking of Reynolds analogy through optimised control parameters.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Research Area 6 -->
+            <article id="secondary-flow" class="research-card">
+                <h3 class="research-card-title">6. Exploiting Secondary Flow Instabilities</h3>
+                <p class="research-card-subtitle">Generating controlled vortical structures for thermal enhancement.</p>
+                 <div class="research-content">
+                    <div class="research-text">
+                        <p>An innovative aspect of my research involves exploiting natural flow instabilities, particularly those that develop on concave surfaces, to enhance heat transfer with minimal energy input. This approach leverages Görtler instabilities that naturally form coherent vortical structures when a fluid flows over a concave surface.</p>
+                        
+                        <p>Unlike traditional passive vortex generators (such as fins or ribs) that increase pressure drop significantly, my approach uses minimal perturbations to trigger and control these natural instabilities. By carefully tuning these perturbations using plasma actuators, we can generate longitudinal vortices that significantly enhance mixing between the wall and free-stream fluid.</p>
+                        
+                        <p>This research has important applications in heat exchanger design, particularly for aerospace applications where both thermal performance and weight/pressure drop considerations are critical. In collaboration with industrial partners like Safran, we're exploring how these concepts can improve thermal management in aircraft engines.</p>
+                        
+                        <p>The control strategy involves more than just triggering instabilities—it's about precisely manipulating vortex characteristics (size, spacing, strength) to achieve optimal heat transfer enhancement while minimising the associated pressure penalty. My research employs both high-fidelity simulations and experiments to develop and validate these approaches.</p>
+                        
+                        <h4 class="research-subheading">Key Points:</h4>
+                        <ul class="key-points-list">
+                            <li>Exploitation of Görtler instabilities on concave surfaces for efficient vortex generation.</li>
+                            <li>Development of plasma actuation techniques for precise control of vortical structures.</li>
+                            <li>Optimisation of vortex characteristics for maximum thermal enhancement with minimal pressure loss.</li>
+                            <li>Application to aerospace heat exchangers in collaboration with industrial partners.</li>
+                            <li>Combination of high-fidelity simulations and experimental validation.</li>
+                        </ul>
+                    </div>
+                    <div class="research-images">
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slides">
+                                    <div class="carousel-slide active">
+                                        <img src="images/research/secondary_flow_concept.png" alt="Secondary Flow Concept"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-wind\'></i><div>Secondary Flow Concept</div><div>Illustration of controlled Görtler vortices for heat transfer enhancement</div></div>'">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/gortler_vortices.png" alt="Görtler Vortices"
+                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-vortex\'></i><div>Görtler Vortices</div><div>Visualisation of vortex structures over concave surfaces</div></div>'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-controls">
+                                <button class="carousel-prev">&lt;</button>
+                                <div class="carousel-indicators">
+                                    <span class="carousel-indicator active"></span>
+                                    <span class="carousel-indicator"></span>
+                                </div>
+                                <button class="carousel-next">&gt;</button>
+                            </div>
+                            <p class="image-note">Conceptual illustration of controlled Görtler vortices for heat transfer enhancement and their application in heat exchanger design.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Machine Learning Approach -->
-    <section class="ml-approach">
+    <!-- Current Projects Section -->
+    <section class="research-section bg-gray-100">
         <div class="container">
-            <h2 class="section-title">Machine Learning Approach in Fluid Dynamics</h2>
+            <h2 class="section-title">Current Research Projects</h2>
             
-            <div class="ml-content">
-                <div class="ml-text">
-                    <h3>A New Paradigm for Flow Analysis and Control</h3>
-                    <p>Traditional approaches to flow modeling and control face significant challenges when dealing with the high-dimensional, non-linear, and multi-scale nature of turbulent flows. My research leverages machine learning techniques to overcome these limitations, offering a transformative framework for studying complex fluid dynamics problems.</p>
-                    <p>Rather than following the classical sequential process of understanding, modeling, and then optimizing, my approach employs an iterative methodology that couples data-driven modeling with optimization of control strategies. This paradigm shift enables more efficient discovery of effective control laws and deeper insights into flow physics.</p>
-                    <p>The integration of physical knowledge with data-driven methods is a cornerstone of my research philosophy. By embedding physical constraints and domain expertise into machine learning architectures, I develop models that are both accurate and physically consistent, bridging the gap between purely data-driven approaches and traditional physics-based modeling.</p>
-                </div>
-                <div class="ml-diagram">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine learning workflow diagram">
+            <div class="research-card">
+                <h3 class="research-card-title">ANR JCJC INFERENCE (2024-2028)</h3>
+                <p class="research-card-subtitle">Machine Learning for High-Reynolds Number Turbulence Modelling</p>
+                <div class="research-content">
+                    <div class="research-text">
+                        <p>The INFERENCE project, which I lead as principal investigator, aims to deepen our understanding of wall-bounded turbulence at high Reynolds numbers, focusing on how outer flow structures affect wall friction and heat transfer. This fundamental research has significant implications for accurately predicting and controlling industrial and environmental flows.</p>
+                        
+                        <p>A core objective is to develop robust reduced-order models that can predict how large-scale structures in the outer flow influence near-wall turbulence, drag, and heat transfer. These models will be derived using a combination of high-fidelity simulations and data-driven approaches, with particular emphasis on symbolic regression to discover interpretable mathematical relationships.</p>
+                        
+                        <p>The project also explores how active control strategies interact with large-scale structures, aiming to develop adaptive control approaches that remain effective at high Reynolds numbers. This addresses a critical limitation of current control methods, which often lose effectiveness as Reynolds number increases due to the growing influence of outer flow structures.</p>
+                        
+                        <h4 class="research-subheading">Expected Outcomes:</h4>
+                        <ul class="key-points-list">
+                            <li>Novel predictive models for wall friction and heat transfer at high Reynolds numbers.</li>
+                            <li>Improved understanding of large-scale/small-scale interactions in controlled flows.</li>
+                            <li>Adaptive control strategies that maintain effectiveness across Reynolds numbers.</li>
+                            <li>General methodologies for reduced-order modelling of complex turbulent flows.</li>
+                        </ul>
+                    </div>
+                    <div class="research-images">
+                        <img src="images/research/anr_inference.png" alt="ANR INFERENCE Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>ANR INFERENCE Project</div><div>Conceptual representation of the project\'s modelling approach</div></div>'">
+                        <p class="image-note">Conceptual representation of the INFERENCE project's modelling approach.</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="workflow-steps">
-                <div class="workflow-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Feature Extraction with Auto-Encoders</h4>
-                        <p>The first step involves using specialized auto-encoder architectures to extract the most relevant features from high-dimensional flow data. These neural networks compress the complex flow information into a low-dimensional latent space that captures the essential dynamics of the system. By analyzing this latent representation, we can identify coherent structures and dominant flow patterns that would be difficult to detect with traditional methods.</p>
+            <div class="research-card">
+                <h3 class="research-card-title">ANR SOLAIRE (2022-2026)</h3>
+                <p class="research-card-subtitle">Machine Learning for High-Temperature Solar Receivers</p>
+                <div class="research-content">
+                    <div class="research-text">
+                        <p>The SOLAIRE project focuses on improving the efficiency of concentrated solar power (CSP) plants by optimising heat transfer in the solar receiver—the critical component that absorbs concentrated solar energy and transfers it to the working fluid. My role involves developing active flow control strategies to enhance convective heat transfer while minimising pressure drop penalties.</p>
+                        
+                        <p>Through a combination of high-fidelity numerical simulations and machine learning approaches, we're investigating how spanwise wall oscillations can be optimised to preferentially enhance heat transfer over drag. This work directly addresses one of the key challenges in CSP technology—maximising thermal efficiency without excessive pumping power requirements.</p>
+                        
+                        <p>The project involves close collaboration with PROMES and LISN laboratories, integrating expertise in thermal engineering, fluid dynamics, and artificial intelligence. This interdisciplinary approach allows us to develop innovative solutions that would not be possible within the boundaries of a single discipline.</p>
+                        
+                        <h4 class="research-subheading">Key Achievements:</h4>
+                        <ul class="key-points-list">
+                            <li>Discovery of control parameters that enhance heat transfer by 15% with only 7.7% drag increase.</li>
+                            <li>Development of deep reinforcement learning approaches for parameter optimisation.</li>
+                            <li>Identification of physical mechanisms responsible for thermal transport enhancement.</li>
+                        </ul>
+                    </div>
+                    <div class="research-images">
+                        <img src="images/research/anr_solaire.png" alt="ANR SOLAIRE Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-solar-panel\'></i><div>ANR SOLAIRE Project</div><div>Visualization of solar receiver optimization approach</div></div>'">
+                        <p class="image-note">Conceptual visualization of the SOLAIRE project's approach to solar receiver optimisation.</p>
                     </div>
                 </div>
-                
-                <div class="workflow-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Clustering and Reduced-Order Modeling</h4>
-                        <p>The low-dimensional representation from the auto-encoder is further analyzed using clustering algorithms to identify distinct flow states and their transitions. This approach enables the construction of reduced-order dynamical models that can efficiently predict the temporal evolution of the flow. By combining the auto-encoder with clustering techniques, we obtain a powerful framework for understanding complex flow dynamics in a computationally efficient manner.</p>
+            </div>
+            
+            <div class="research-card">
+                <h3 class="research-card-title">ANR MUFDD (2023-2027)</h3>
+                <p class="research-card-subtitle">Data-Driven Modelling of Urban Canopy Flows</p>
+                <div class="research-content">
+                    <div class="research-text">
+                        <p>The MUFDD project combines atmospheric sciences and data science to develop data-driven reduced-order models of urban turbulent flows. My contribution focuses on developing efficient estimators and reduced-order models from simulation and experimental data, drawing on my expertise in machine learning and turbulence analysis.</p>
+                        
+                        <p>This collaborative project with LHEEA and IMFT aims to create models that are both accurate and computationally efficient, enabling better predictions of urban microclimate, street ventilation, and pollutant dispersion. These models will ultimately be integrated into operational urban forecasting systems.</p>
+                        
+                        <h4 class="research-subheading">Key Contributions:</h4>
+                        <ul class="key-points-list">
+                            <li>Application of auto-encoder technologies for dimensionality reduction of complex urban flows.</li>
+                            <li>Development of clustering-based reduced-order models for efficient simulation.</li>
+                            <li>Transfer of methodologies between canonical and complex turbulent flows.</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div class="workflow-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Physics-Informed Machine Learning</h4>
-                        <p>To enhance the reliability and physical consistency of the models, I incorporate domain knowledge and physical constraints into the machine learning algorithms. This physics-informed approach ensures that the predictions respect fundamental conservation laws and physical principles, leading to more robust and interpretable models. The integration of physical knowledge also improves the generalization capabilities of the models to conditions not seen in the training data.</p>
-                    </div>
-                </div>
-                
-                <div class="workflow-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>Optimization and Control</h4>
-                        <p>The final step involves using the reduced-order models to design and optimize control strategies for specific objectives, such as drag reduction or heat transfer enhancement. Advanced optimization algorithms, including reinforcement learning, are employed to explore the parameter space efficiently and identify optimal control laws. This data-driven approach to flow control has demonstrated significant potential for discovering novel control strategies that outperform traditional methods.</p>
+                    <div class="research-images">
+                        <img src="images/research/anr_mufdd.png" alt="ANR MUFDD Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-city\'></i><div>ANR MUFDD Project</div><div>Urban canopy flow modelling approach visualization</div></div>'">
+                        <p class="image-note">Urban canopy flow modelling approach in the MUFDD project.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Future Research -->
-    <section class="future-research">
+    <!-- Future Directions Section -->
+    <section class="research-section bg-white">
         <div class="container">
             <h2 class="section-title">Future Research Directions</h2>
-            
-            <div class="future-research-cards">
-                <div class="future-card">
-                    <div class="future-card-content">
-                        <h3>Multi-scale Control of Wall Turbulence</h3>
-                        <p>My future research aims to develop innovative control strategies that operate simultaneously at different scales of turbulence, allowing for enhancement or limitation of heat transfer across a wide range of Reynolds numbers. This multi-scale approach will target both near-wall structures and large-scale outer motions, exploiting their interactions to achieve unprecedented control capabilities.</p>
-                        <p>By leveraging the understanding of scale interactions gained from my previous work, I plan to design control algorithms that can adaptively respond to the multi-scale nature of the flow, providing more effective and robust performance than single-scale approaches. This research will have significant impact on renewable energy development and improvement of industrial processes using heat exchangers.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
+            <div class="future-directions-grid">
+                <div class="direction-card">
+                    <h3>Multi-Scale Control Strategies</h3>
+                    <p>Developing control approaches targeting both near-wall and outer-layer structures simultaneously to optimise drag and heat transfer across Reynolds numbers. This involves creating adaptive control strategies that can adjust to different flow conditions and respond to the growing influence of large-scale structures with increasing Reynolds number.</p>
                 </div>
-                
-                <div class="future-card">
-                    <div class="future-card-content">
-                        <h3>Hybrid Data-Physics Framework</h3>
-                        <p>I aim to develop a comprehensive methodological framework that integrates physical knowledge and data-driven approaches to design optimal active control strategies for complex fluid systems. This hybrid approach will combine the interpretability and generalizability of physics-based models with the flexibility and predictive power of machine learning algorithms.</p>
-                        <p>The framework will incorporate multi-fidelity modeling, uncertainty quantification, and adaptive learning techniques to create robust and reliable models that can operate across a wide range of flow conditions. This approach will offer new possibilities for improving industrial processes, particularly in the context of complex geometries made possible by additive manufacturing.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
+                <div class="direction-card">
+                    <h3>Physics-Informed ML Models</h3>
+                    <p>Creating hybrid models that combine physical laws with data-driven techniques (like GEP and AE-based ROMs) for robust and interpretable prediction of turbulent flows. These models will integrate our understanding of fundamental flow physics with the powerful pattern-recognition capabilities of machine learning, ensuring both accuracy and physical consistency.</p>
                 </div>
-                
-                <div class="future-card">
-                    <div class="future-card-content">
-                        <h3>Adaptive Modeling for Thermofluid Systems</h3>
-                        <p>Future research will focus on developing adaptive models capable of adjusting to changing flow conditions, enabling accurate prediction and robust control in variable industrial environments. These models will leverage online learning techniques and transfer learning approaches to continuously update their predictions based on new observations.</p>
-                        <p>A key aspect of this research will be the integration of these adaptive models with sensing and actuation systems to create intelligent control frameworks that can optimize performance in real-time. The resulting technology will pave the way for smart heat exchangers and other thermal-fluid systems with significantly improved efficiency and responsiveness.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
+                <div class="direction-card">
+                    <h3>Adaptive Control for Heat Transfer</h3>
+                    <p>Designing intelligent systems using DRL and adaptive modelling to optimise heat exchanger performance in real-time under varying operating conditions, potentially exploiting secondary flow instabilities. This research aims to overcome the limitations of fixed-geometry heat exchangers by creating dynamically responsive systems.</p>
+                </div>
+                <div class="direction-card">
+                    <h3>Compressible Flow Control</h3>
+                    <p>Extending successful control strategies from incompressible to compressible flows, addressing the additional complexities introduced by density variations and shock waves. This work will build on my earlier research on shock/boundary layer interactions and explore how active control can be adapted for high-speed applications.</p>
+                </div>
+                <div class="direction-card">
+                    <h3>Digital Twins for Fluid Systems</h3>
+                    <p>Developing digital twin frameworks that combine physics-based models, data assimilation, and machine learning to create real-time virtual representations of complex fluid systems. These digital twins will enable predictive maintenance, optimisation, and control of real-world systems like heat exchangers and turbomachinery.</p>
+                </div>
+                <div class="direction-card">
+                    <h3>Generalisable Flow Control</h3>
+                    <p>Formulating universal principles and methodologies for flow control that can be applied across a wide range of Reynolds numbers, geometries, and flow conditions. This ambitious direction aims to move beyond case-specific solutions toward a more fundamental understanding of how turbulent flows respond to control inputs.</p>
                 </div>
             </div>
         </div>
@@ -216,6 +1024,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#about">About</a></li>
                         <li><a href="research.html">Research</a></li>
+                        <li><a href="teams.html">Teams</a></li>
                         <li><a href="projects.html">Projects</a></li>
                         <li><a href="publications.html">Publications</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
@@ -224,12 +1033,19 @@
                 <div class="footer-links">
                     <h4>Research Areas</h4>
                     <ul>
-                        <li><a href="#boundary-layer">Wall-bounded Turbulence</a></li>
-                        <li><a href="#drag-reduction">Drag Reduction</a></li>
+                        <li><a href="#wall-bounded-turbulence">Wall-bounded Turbulence</a></li>
+                        <li><a href="#flow-control">Flow Control</a></li>
+                        <li><a href="#scale-interactions">Scale Interactions</a></li>
                         <li><a href="#machine-learning">Machine Learning</a></li>
-                        <li><a href="#shock-wave">Shock-Wave Interactions</a></li>
+                        <li><a href="#heat-transfer">Heat Transfer</a></li>
+                        <li><a href="#secondary-flow">Secondary Flows</a></li>
                     </ul>
                 </div>
+                 <div>
+                    <h4>Contact</h4>
+                     <p>Institut Pprime, Poitiers, France</p>
+                     <p>Email: lionel.agostini@univ-poitiers.fr</p>
+                 </div>
             </div>
             <div class="copyright">
                 &copy; 2025 Dr. Lionel Agostini. All rights reserved.
@@ -237,7 +1053,7 @@
         </div>
     </footer>
 
+    <!-- Local script removed as global script.js handles carousels now -->
     <script src="script.js"></script>
 </body>
 </html>
-                <li><a href="teams.html">Teams</a></li>

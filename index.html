@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Lionel Agostini | Researcher in Fluid Mechanics</title>
-    <meta name="description" content="Dr. Lionel Agostini is a CNRS Researcher in Fluid Mechanics specializing in turbulence, computational fluid dynamics, and machine learning applications.">
+    <title>Dr Lionel Agostini | Researcher in Fluid Mechanics</title>
+    <meta name="description" content="Dr Lionel Agostini is a CNRS Researcher in Fluid Mechanics specialising in turbulence, computational fluid dynamics, machine learning applications, and thermal transfer optimisation.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,13 +14,14 @@
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <img src="logos/logo_cnrs.png" alt="CNRS Logo">
-                Dr. Lionel Agostini
+                Dr Lionel Agostini
             </a>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="teams.html">Teams</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -33,19 +34,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-position">Dr. Lionel Agostini | CNRS Researcher</p>
-            <h2 class="hero-title">
-                Diving into the Complexities of<br>
+            <p class="hero-position">Dr Lionel Agostini | CNRS Researcher</p>
+            <h1 class="hero-title">
+                Exploring the Dynamics of<br>
                 Multi-Scale Wall-Bounded<br>
-                Turbulence Dynamics
-            </h2>
+                Turbulence
+            </h1>
             <p class="hero-description">
-                Exploring the fundamental physics of turbulent flows through advanced numerical simulations and data-driven approaches to improve energy efficiency and sustainability.
+                Developing innovative approaches at the intersection of fluid mechanics and machine learning to enhance energy efficiency and thermal management in engineering systems.
             </p>
             <div class="hero-btns">
                 <a href="#research" class="btn">View Research</a>
                 <a href="https://sdrive.cnrs.fr/s/4wJr3zABm2RZgCG" class="btn" target="_blank">Download HDR Manuscript</a>
-                <a href="images/Resume.pdf" class="btn" target="_blank">Download CV</a>
+                <a href="resume.html" class="btn" target="_blank">View Complete CV</a>
             </div>
         </div>
         <div class="hero-background">
@@ -54,342 +55,548 @@
             </video>
             <div class="hero-overlay"></div>
         </div>
+        <a href="#about" class="hero-scroll" aria-label="Scroll to About section">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About Section (Foldable & Enhanced) -->
+    <section id="about" class="about foldable-section expanded">
         <div class="container">
-            <h2 class="section-title">Understanding and Controlling Wall-Bounded Turbulence</h2>
-            
-            <div class="about-intro-text">
-                <p>When any body moves through a fluid or when fluid flows through pipes, a <span class="text-primary">boundary layer</span> forms where various families of <span class="text-primary">turbulent structures</span> develop, significantly impacting both <span class="text-drag">drag</span> and <span class="text-heat">heat transfer</span>.</p>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <button class="section-toggle-button" aria-expanded="true" aria-controls="about-content">
+                    <i class="fas fa-minus"></i> <!-- Start expanded -->
+                </button>
             </div>
-            
-            <div class="about-image-row">
-                <div class="about-image-card">
-                    <img src="images/index_page/drag.webp" alt="Drag Reduction in Transport">
-                    <div class="about-image-caption about-image-caption-drag">
-                        <h3>Drag Reduction in Transport</h3>
-                    </div>
+            <div class="section-content" id="about-content">
+                <div class="about-intro-text">
+                    <p>I am a <span class="text-primary">Chargé de Recherche</span> (Tenured Researcher) at the <span class="text-primary">French National Centre for Scientific Research (CNRS)</span>, based at the <span class="text-primary">Pprime Institute</span> in Poitiers, France. With over 15 years of experience in fluid mechanics research, my work focuses on understanding and controlling wall-bounded turbulent flows to improve energy efficiency and thermal management in various engineering applications.</p>
                 </div>
-                
-                <div class="about-image-card">
-                    <img src="images/index_page/heat.webp" alt="Heat Transfer Applications">
-                    <div class="about-image-caption about-image-caption-heat">
-                        <h3>Heat Transfer Applications</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-content">
-                <p>These eddies play a major role in both <span class="text-drag">skin-friction drag</span> and <span class="text-heat">heat transfer</span>. As velocity increases further, new families of <span class="text-primary">turbulent structures</span> emerge and their characteristics evolve, often being influenced by wall properties and geometry. This evolution renders the flow increasingly complex and challenging to predict or control.</p>
-                
-                <div class="about-info-boxes">
-                    <div class="info-box info-box-drag">
-                        <h4>Drag Reduction Research</h4>
-                        <p>For transport applications—aircraft, ships, and pipelines—<span class="text-drag">drag reduction</span> is essential, as turbulence can increase friction by factors of 10-100 compared to laminar conditions, significantly affecting energy consumption and emissions.</p>
-                    </div>
-                    
-                    <div class="info-box info-box-heat">
-                        <h4>Heat Transfer Control</h4>
-                        <p><span class="text-heat">Heat transfer</span> is approached with dual objectives: for renewable energy harvesting (CSP plants), heat transfer must be significantly enhanced, while in engines and industrial equipment, it must be carefully regulated within optimal operating ranges.</p>
-                    </div>
-                </div>
-                
-                <p>My research is motivated by the critical need to address <span class="text-primary">climate change</span> through improved understanding and control of these wall-bounded turbulent flows. A synergistic approach is employed in my research, wherein traditional <span class="text-primary">fluid mechanics</span> is integrated with advanced <span class="text-primary">machine learning</span> techniques. Through the development of innovative <span class="text-primary">control strategies</span> targeting these boundary layer structures, significant improvements in energy efficiency and sustainability can be achieved across diverse engineering applications.</p>
-                
-                <div class="about-cv-link">
-                    <a href="images/Resume.pdf" class="btn" target="_blank">Download Full CV</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Research Interests -->
-    <section id="research" class="research">
-        <div class="container">
-            <h2 class="section-title">Research Interests</h2>
-            <div class="research-intro">
-                <p>My research focuses on understanding the fundamental physics of turbulent flows, particularly wall-bounded turbulence, which is omnipresent in engineering applications and natural phenomena. I develop new methodologies to analyze, model, and control these complex systems with the ultimate goal of improving energy efficiency and sustainability.</p>
-            </div>
-            <div class="research-grid">
-                <div class="research-card">
-                    <div class="research-card-img carousel-container">
-                        <div class="carousel-slides">
-                            <div class="carousel-slide active">
-                                <img src="image_NW/pics/nw0.svg" alt="Wall-bounded Turbulence Visualization 1">
+
+                <div class="profile-section">
+                    <div class="profile-content">
+                        <div class="profile-image">
+                            <img src="images/team/lionel_agostini.jpg" alt="Dr Lionel Agostini">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Current Position & Responsibilities</h3>
+                            <ul class="profile-details">
+                                <li><i class="fas fa-microscope fa-fw"></i> <strong>Tenured Researcher (CNRS)</strong> - Pprime Institute, Fluid Dynamics Department, CURIOSITY Team</li>
+                                <li><i class="fas fa-users fa-fw"></i> <strong>Member of the Scientific Evaluation Committee (CES 60)</strong> - University of Poitiers</li>
+                                <li><i class="fas fa-bullhorn fa-fw"></i> <strong>Member of the Pprime Communication Committee</strong></li>
+                                <li><i class="fas fa-project-diagram fa-fw"></i> <strong>Principal Investigator</strong> - ANR JCJC INFERENCE Project (2024-2028)</li>
+                                <li><i class="fas fa-user-graduate fa-fw"></i> <strong>PhD Supervision</strong> - Currently supervising research in turbulence modelling and heat transfer</li>
+                            </ul>
+
+                            <div class="expertise-areas">
+                                <h4>Areas of Expertise</h4>
+                                <div class="expertise-tags">
+                                    <span>Fluid Mechanics</span>
+                                    <span>Wall-bounded Turbulence</span>
+                                    <span>Computational Fluid Dynamics</span>
+                                    <span>Machine Learning</span>
+                                    <span>Flow Control</span>
+                                    <span>Heat Transfer</span>
+                                    <span>Reduced-Order Modelling</span>
+                                </div>
                             </div>
-                            <div class="carousel-slide">
-                                <img src="image_NW/pics/nw1.svg" alt="Wall-bounded Turbulence Visualization 2">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="image_NW/pics/nw2.svg" alt="Wall-bounded Turbulence Visualization 3">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="image_NW/pics/nw3.jpg" alt="Wall-bounded Turbulence Visualization 4">
+
+                            <div class="profile-metrics">
+                                <div class="metric">
+                                    <span class="metric-number">20+</span>
+                                    <span class="metric-label">Journal Articles</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-number">30+</span>
+                                    <span class="metric-label">Conference Papers</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-number">1250+</span>
+                                    <span class="metric-label">Citations</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-number">18</span>
+                                    <span class="metric-label">H-index</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-prev">&lt;</button>
-                            <div class="carousel-indicators">
-                                <span class="carousel-indicator active"></span>
-                                <span class="carousel-indicator"></span>
-                                <span class="carousel-indicator"></span>
-                                <span class="carousel-indicator"></span>
-                            </div>
-                            <button class="carousel-next">&gt;</button>
-                        </div>
-                    </div>
-                    <div class="research-card-content">
-                        <h3>Wall-bounded Turbulence</h3>
-                        <p>I investigate the multi-scale dynamics of turbulent flows, particularly focusing on how large-scale outer structures interact with and modulate small-scale near-wall turbulence. My work has pioneered new techniques for scale separation, challenging traditional paradigms like the quasi-steady hypothesis by revealing complex asymmetric responses and non-linear interactions. These findings are critical for understanding friction and heat transfer at high Reynolds numbers.</p>
-                        <a href="research.html#boundary-layer" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-card-img">
-                        <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Drag Reduction & Heat Transfer">
-                    </div>
-                    <div class="research-card-content">
-                        <h3>Drag Reduction & Heat Transfer</h3>
-                        <p>My research explores innovative flow control techniques, particularly using spanwise wall oscillations to manipulate near-wall turbulence. Recently, I've achieved a significant breakthrough by demonstrating preferential enhancement of heat transfer over drag, effectively breaking the Reynolds analogy. This work has profound implications for thermal management in various engineering systems, potentially leading to more efficient heat exchangers with minimal energy penalties.</p>
-                        <a href="research.html#drag-reduction" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-card-img">
-                        <img src="https://images.unsplash.com/photo-1527474305487-b87b222841cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine Learning in Fluid Dynamics">
-                    </div>
-                    <div class="research-card-content">
-                        <h3>Machine Learning in Fluid Dynamics</h3>
-                        <p>I develop and apply advanced machine learning techniques to extract physical insights from complex turbulent flow data. My work with auto-encoders and other data-driven methods has enabled the identification of coherent structures and the creation of reduced-order models for predicting flow behavior. This research represents a paradigm shift from traditional sequential modeling approaches to an iterative methodology that couples data-driven modeling with optimization of control strategies.</p>
-                        <a href="research.html#machine-learning" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Methodologies Section -->
-    <section class="methodologies">
+    <!-- Experience Timeline Section (Foldable & Enhanced with Logos) -->
+    <section id="experience" class="experience-section foldable-section expanded">
         <div class="container">
-            <h2 class="section-title">Advanced Methodologies</h2>
-            <div class="methodology-grid">
-                <div class="methodology-item">
-                    <div class="methodology-icon">
-                        <i class="fas fa-cubes"></i>
+             <div class="section-header">
+                <h2 class="section-title">Academic & Professional Journey</h2>
+                 <button class="section-toggle-button" aria-expanded="true" aria-controls="experience-content">
+                    <i class="fas fa-minus"></i> <!-- Start expanded -->
+                </button>
+            </div>
+            <div class="section-content" id="experience-content">
+                <div class="timeline-container revised-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                             <img src="logos/cnrs.png" alt="CNRS Logo" class="timeline-institution-logo">
+                            <div class="timeline-date">2020 – Present</div>
+                            <h3 class="timeline-title">Chargé de Recherche (Tenured Researcher)</h3>
+                            <h4 class="timeline-institution">CNRS - Institut Pprime, Université de Poitiers, France</h4>
+                            <ul class="timeline-details">
+                                <li>Leading research on multi-scale interactions in wall-bounded turbulence.</li>
+                                <li>Developing novel flow control strategies for drag reduction and heat transfer enhancement.</li>
+                                <li>Applying data-driven methods (Machine Learning, AI) to fluid dynamics modelling.</li>
+                                <li>Securing and managing competitive research grants (e.g., ANR JCJC INFERENCE PI).</li>
+                                <li>Supervising PhD students and mentoring junior researchers.</li>
+                                <li>Contributing to institutional committees (Scientific Evaluation, Communication).</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>Research Leadership</span>
+                                <span>ANR Projects</span>
+                                <span>PhD Supervision</span>
+                                <span>Machine Learning</span>
+                                <span>Flow Control</span>
+                                <span>Heat Transfer</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="methodology-title">High-Fidelity DNS</h3>
-                    <p>Using direct numerical simulations to obtain detailed data on wall turbulence, allowing in-depth analysis of turbulent structures and their interactions.</p>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <img src="logos/imperial_college_london_logo.jpg" alt="Imperial College London Logo" class="timeline-institution-logo">
+                            <div class="timeline-date">2019 – 2020</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <h4 class="timeline-institution">Imperial College London, Department of Aeronautics, UK</h4>
+                            <ul class="timeline-details">
+                                <li>Contributed to the EU H2020 HIFI-TURB project (Supervisor: Prof. Peter Vincent).</li>
+                                <li>Analysed high-fidelity LES/DNS data for innovative turbulence model development.</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>EU Project</span>
+                                <span>Turbulence Modelling</span>
+                                <span>High-Fidelity Simulations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                             <img src="logos/imperial_college_london_logo.jpg" alt="Imperial College London Logo" class="timeline-institution-logo">
+                            <div class="timeline-date">2016 – 2019</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <h4 class="timeline-institution">Imperial College London, Department of Aeronautics, UK</h4>
+                            <ul class="timeline-details">
+                                <li>Investigated near-wall turbulence and drag reduction at high Reynolds numbers.</li>
+                                <li>Worked within the EU-China project DRAGY (Supervisor: Prof. Michael Leschziner).</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>EU-China Project</span>
+                                <span>Drag Reduction</span>
+                                <span>High Reynolds Number</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                             <img src="logos/Ohio_State_University_Logo.jpg" alt="Ohio State University Logo" class="timeline-institution-logo">
+                            <div class="timeline-date">2014 – 2017</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <h4 class="timeline-institution">Ohio State University, Department of Mechanical & Aerospace Engineering, USA</h4>
+                            <ul class="timeline-details">
+                                <li>Conducted research on near-wall turbulence, shockwave/boundary layer interaction, and jet flows.</li>
+                                <li>Funded by the US Air Force (Supervisor: Prof. Datta Gaitonde).</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>US Air Force Funding</span>
+                                <span>Shockwave Interaction</span>
+                                <span>Supersonic Jets</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                             <img src="logos/imperial_college_london_logo.jpg" alt="Imperial College London Logo" class="timeline-institution-logo">
+                            <div class="timeline-date">2013 – 2014</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <h4 class="timeline-institution">Imperial College London, Department of Aeronautics, UK</h4>
+                            <ul class="timeline-details">
+                                <li>Focused on drag reduction in turbulent channel flow using spanwise wall oscillations.</li>
+                                <li>EPSRC funded project (Supervisor: Prof. Michael Leschziner).</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>EPSRC Funding</span>
+                                <span>Drag Reduction</span>
+                                <span>Flow Control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <!-- No specific logo for IUSTI/Aix-Marseille -->
+                            <div class="timeline-date">2011 – 2013</div>
+                            <h3 class="timeline-title">Research Associate</h3>
+                            <h4 class="timeline-institution">IUSTI, Aix-Marseille University, France</h4>
+                            <ul class="timeline-details">
+                                <li>Investigated control of Görtler vortices using plasma actuators.</li>
+                                <li>ANR funded project (Supervisor: Prof. Patrick Bontoux).</li>
+                            </ul>
+                            <div class="timeline-badges">
+                                <span>ANR Project</span>
+                                <span>Flow Control</span>
+                                <span>Görtler Vortices</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item education">
+                        <div class="timeline-marker education"></div>
+                        <div class="timeline-card">
+                             <!-- No specific logo for IUSTI/Aix-Marseille -->
+                            <div class="timeline-date">2008 – 2011</div>
+                            <h3 class="timeline-title">PhD in Fluid Mechanics</h3>
+                            <h4 class="timeline-institution">IUSTI, Aix-Marseille University, France</h4>
+                            <p class="timeline-details">Thesis: "Unsteadiness in separated supersonic flow". Supervisors: Prof. Jean-Paul Dussauge & Dr Pierre Dupont. Awarded with highest honours (Très Honorable).</p>
+                             <div class="timeline-badges">
+                                <span>PhD</span>
+                                <span>Supersonic Flow</span>
+                                <span>Flow Instability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item education">
+                         <div class="timeline-marker education"></div>
+                         <div class="timeline-card">
+                             <!-- No specific logo for Paris Sud -->
+                            <div class="timeline-date">2007 – 2008</div>
+                            <h3 class="timeline-title">Master's Degree in Fluid Dynamics and Aeroacoustics</h3>
+                            <h4 class="timeline-institution">Paris Sud University (Paris XI), France</h4>
+                            <p class="timeline-details">Graduated with high distinction (Mention Bien). Ranked 1st in class (30 students).</p>
+                             <div class="timeline-badges">
+                                <span>MSc</span>
+                                <span>Fluid Dynamics</span>
+                                <span>Aeroacoustics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item education">
+                         <div class="timeline-marker education"></div>
+                         <div class="timeline-card">
+                             <!-- No specific logo for Aix-Marseille -->
+                            <div class="timeline-date">2005 – 2006</div>
+                            <h3 class="timeline-title">Bachelor's Degree in Physics</h3>
+                            <h4 class="timeline-institution">Aix-Marseille University, France</h4>
+                            <p class="timeline-details">Graduated with high distinction (Mention Bien).</p>
+                             <div class="timeline-badges">
+                                <span>BSc</span>
+                                <span>Physics</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="methodology-item">
-                    <div class="methodology-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="methodology-title">Advanced Statistical Analysis</h3>
-                    <p>Employing sophisticated statistical methods, including joint and conditional PDF analysis, to quantify relationships between different scales and flow properties.</p>
-                </div>
-                
-                <div class="methodology-item">
-                    <div class="methodology-icon">
-                        <i class="fas fa-filter"></i>
-                    </div>
-                    <h3 class="methodology-title">Bimodal Empirical Decomposition</h3>
-                    <p>Utilizing data-driven filtering methods to separate large and small-scale fluctuations and study their interactions in turbulent flows.</p>
-                </div>
-                
-                <div class="methodology-item">
-                    <div class="methodology-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="methodology-title">Machine Learning Techniques</h3>
-                    <p>Developing and applying machine learning algorithms such as auto-encoders and symbolic regression to extract key information from vast simulation datasets.</p>
+
+                <div class="experience-cta">
+                    <a href="resume.html" class="btn">View Complete Academic Résumé</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Research Interests (Foldable) -->
+    <section id="research" class="research foldable-section">
         <div class="container">
-            <h2 class="section-title">Current Projects</h2>
-            <div class="projects-overview">
-                <div class="projects-intro">
-                    <p>I currently lead and participate in several research projects, including:</p>
+             <div class="section-header">
+                <h2 class="section-title">Core Research Themes</h2>
+                 <button class="section-toggle-button" aria-expanded="false" aria-controls="research-content">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="research-content">
+                <div class="research-intro">
+                    <p>My research delves into the fundamental physics of turbulent flows, particularly wall-bounded turbulence, ubiquitous in engineering and nature. I develop innovative methodologies combining high-fidelity simulations with data-driven approaches to analyse, model, and control these complex systems, aiming to enhance energy efficiency and thermal management.</p>
                 </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-period">2022-2026</span>
-                            <h3>ANR SOLAIRE</h3>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-card-img">
+                             <img src="images/research/fig_1_1_zoology.png" alt="Visualisation of wall-bounded turbulence structures">
                         </div>
-                        <p class="project-focus">Machine learning for solar receivers optimization</p>
-                        <div class="project-meta">
-                            <span class="project-role">Co-investigator</span>
-                            <span class="project-funding">179,000€</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-period">2023-2027</span>
-                            <h3>ANR MUFDD</h3>
-                        </div>
-                        <p class="project-focus">Data-driven modeling of urban canopy flows</p>
-                        <div class="project-meta">
-                            <span class="project-role">Team Member</span>
-                            <span class="project-funding">182,000€</span>
+                        <div class="research-card-content">
+                            <h3>Wall-bounded Turbulence</h3>
+                            <p>Investigating the multi-scale dynamics, focusing on how large outer structures interact with and modulate near-wall turbulence. Pioneering new techniques for scale separation and statistical analysis to quantify interactions, challenging traditional paradigms and improving understanding of friction and heat transfer at high Reynolds numbers.</p>
+                            <a href="research.html#wall-bounded-turbulence" class="btn btn-outline">Learn More</a>
                         </div>
                     </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-period">2024-2028</span>
-                            <h3>ANR JCJC INFERENCE</h3>
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="images/research/heat_transfer_enhancement.png" alt="Visualisation of heat transfer enhancement concept">
                         </div>
-                        <p class="project-focus">Modeling near-wall turbulence at high Reynolds numbers</p>
-                        <div class="project-meta">
-                            <span class="project-role">Project Lead</span>
-                            <span class="project-funding">330,000€</span>
+                        <div class="research-card-content">
+                            <h3>Drag Reduction & Heat Transfer</h3>
+                            <p>Exploring innovative flow control techniques, like spanwise wall oscillations, to manipulate near-wall turbulence. Achieved preferential enhancement of heat transfer over drag (breaking the Reynolds analogy), with significant implications for thermal management efficiency in engineering systems.</p>
+                            <a href="research.html#flow-control" class="btn btn-outline">Learn More</a>
                         </div>
                     </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-period">2025-2029</span>
-                            <h3>SAFRAN Aircraft Engines</h3>
+                    <div class="research-card">
+                        <div class="research-card-img">
+                             <img src="images/research/fig_8_6_ROM_Framework.png" alt="Framework for Machine Learning in Fluid Dynamics">
                         </div>
-                        <p class="project-focus">Turbulent flows in aircraft engines</p>
-                        <div class="project-meta">
-                            <span class="project-role">Project Lead</span>
-                            <span class="project-duration">4 years</span>
+                        <div class="research-card-content">
+                            <h3>Machine Learning in Fluid Dynamics</h3>
+                            <p>Developing and applying advanced machine learning (e.g., auto-encoders, symbolic regression) to extract physical insights from complex flow data. Creating reduced-order models and coupling data-driven modelling with control optimisation for a powerful framework to understand and manipulate complex flows.</p>
+                            <a href="research.html#machine-learning" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="images/research/secondary_flow_concept.png" alt="Concept of secondary flow control">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Secondary Flow Instabilities</h3>
+                            <p>Exploiting natural flow instabilities (e.g., Görtler vortices on concave surfaces) to enhance heat transfer efficiently. Research focuses on controlling these instabilities using minimal energy input (e.g., plasma actuators) for applications like aerospace heat exchanger design.</p>
+                            <a href="research.html#secondary-flow" class="btn btn-outline">Learn More</a>
                         </div>
                     </div>
                 </div>
-                <div class="projects-action">
-                    <a href="projects.html" class="btn">View All Projects</a>
+                <div class="research-cta">
+                    <a href="research.html" class="btn">Explore My Research in Detail</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
+    <!-- Projects Section (Foldable) -->
+    <section id="projects" class="projects foldable-section">
         <div class="container">
-            <h2 class="section-title">Selected Publications</h2>
-            <div class="publication-filters">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="boundary-layer">Boundary Layer Theory</button>
-                <button class="filter-btn" data-category="drag-reduction">Drag Reduction</button>
-                <button class="filter-btn" data-category="heat-transfer">Heat Transfer</button>
-                <button class="filter-btn" data-category="machine-learning">Machine Learning</button>
+             <div class="section-header">
+                <h2 class="section-title">Current Research Projects</h2>
+                 <button class="section-toggle-button" aria-expanded="false" aria-controls="projects-content">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
-            <div class="publication-list">
-                <div class="publication-item" data-categories="machine-learning boundary-layer">
-                    <h3 class="publication-title">Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at friction Reynolds number of 5200</h3>
-                    <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
-                    <p class="publication-journal">Physics of Fluids, Vol. 34</p>
-                    <p class="publication-year">2022</p>
-                    <div class="publication-links">
-                        <a href="https://hal.science/hal-03852043/document" class="publication-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="publication-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> DOI
-                        </a>
+            <div class="section-content" id="projects-content">
+                <div class="projects-overview">
+                    <div class="projects-intro">
+                        <p>I currently lead and participate in several research projects focused on advancing our understanding of turbulent flows and developing innovative control strategies:</p>
+                    </div>
+                    <div class="projects-grid">
+                         <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-period">2024 – 2028</span>
+                                <h3>ANR JCJC INFERENCE</h3>
+                            </div>
+                            <p class="project-focus">Modelling near-wall turbulence at high Reynolds numbers and developing predictive models for wall flux fluctuations.</p>
+                            <div class="project-meta">
+                                <span class="project-role"><i class="fas fa-user-tie fa-fw"></i> Project Lead (PI)</span>
+                                <span class="project-funding"><i class="fas fa-euro-sign fa-fw"></i> 330k€</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-period">2022 – 2026</span>
+                                <h3>ANR SOLAIRE</h3>
+                            </div>
+                            <p class="project-focus">Improving heat transfer in solar receivers through active control methods and machine learning optimisation.</p>
+                            <div class="project-meta">
+                                <span class="project-role"><i class="fas fa-users fa-fw"></i> Co-Investigator</span>
+                                <span class="project-funding"><i class="fas fa-euro-sign fa-fw"></i> 179k€ (Pprime share)</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-period">2023 – 2027</span>
+                                <h3>ANR MUFDD</h3>
+                            </div>
+                            <p class="project-focus">Data-driven modelling of urban canopy flows using advanced machine learning techniques.</p>
+                            <div class="project-meta">
+                                <span class="project-role"><i class="fas fa-user fa-fw"></i> Team Member</span>
+                                <span class="project-funding"><i class="fas fa-euro-sign fa-fw"></i> 182k€ (Pprime share)</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-period">2025 – 2029</span>
+                                <h3>SAFRAN Aircraft Engines Collaboration</h3>
+                            </div>
+                            <p class="project-focus">Enhancing heat transfer in aircraft engines through active control of secondary flow instabilities.</p>
+                            <div class="project-meta">
+                                <span class="project-role"><i class="fas fa-user-tie fa-fw"></i> Project Lead (Pprime)</span>
+                                <span class="project-duration"><i class="far fa-calendar-alt fa-fw"></i> 4 years</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projects-action">
+                        <a href="projects.html" class="btn">View All Projects</a>
                     </div>
                 </div>
-                <div class="publication-item" data-categories="heat-transfer drag-reduction">
-                    <h3 class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</h3>
-                    <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu, & <strong>L. Agostini</strong></p>
-                    <p class="publication-journal">International Journal of Heat and Fluid Flow, Vol. 1010:109564</p>
-                    <p class="publication-year">2024</p>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" class="publication-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="publication-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> DOI
-                        </a>
-                    </div>
-                </div>
-                <div class="publication-item" data-categories="drag-reduction boundary-layer">
-                    <h3 class="publication-title">Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology</h3>
-                    <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
-                    <p class="publication-journal">Journal of Fluid Mechanics, Vol. 923</p>
-                    <p class="publication-year">2021</p>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1017/jfm.2021.585" class="publication-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="publication-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> DOI
-                        </a>
-                    </div>
-                </div>
-                <div class="publication-item" data-categories="machine-learning">
-                    <h3 class="publication-title">Exploration and prediction of fluid dynamical systems using Auto-Encoder technology</h3>
-                    <p class="publication-authors"><strong>L. Agostini</strong></p>
-                    <p class="publication-journal">Physics of Fluids, Vol. 32(6):067103</p>
-                    <p class="publication-year">2020</p>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1063/5.0012906" class="publication-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="publication-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> DOI
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="publications-action text-center">
-                <a href="publications.html" class="btn">View All Publications</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Advanced Methodologies Section (Foldable) -->
+    <section class="methodologies foldable-section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+             <div class="section-header">
+                <h2 class="section-title">Advanced Methodologies</h2>
+                 <button class="section-toggle-button" aria-expanded="false" aria-controls="methodologies-content">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="methodologies-content">
+                <div class="methodology-grid">
+                    <div class="methodology-item">
+                        <div class="methodology-icon">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Institut Pprime, Université de Poitiers<br>France</p>
+                        <h3 class="methodology-title">High-Fidelity DNS/LES</h3>
+                        <p>Utilising direct numerical simulations (DNS) and large-eddy simulations (LES) to obtain detailed data for in-depth analysis of turbulent structures and interactions.</p>
+                    </div>
+
+                    <div class="methodology-item">
+                        <div class="methodology-icon">
+                            <i class="fas fa-chart-area"></i>
+                        </div>
+                        <h3 class="methodology-title">Advanced Statistical Analysis</h3>
+                        <p>Employing sophisticated statistical methods (joint/conditional PDFs, spectral analysis) to quantify relationships between scales and flow properties.</p>
+                    </div>
+
+                    <div class="methodology-item">
+                        <div class="methodology-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3 class="methodology-title">Scale Separation Techniques</h3>
+                        <p>Applying innovative methods like auto-encoders and empirical mode decomposition to isolate large and small-scale fluctuations and study their interactions.</p>
+                    </div>
+
+                    <div class="methodology-item">
+                        <div class="methodology-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="methodology-title">Machine Learning Applications</h3>
+                        <p>Developing and applying ML algorithms (auto-encoders, symbolic regression, reinforcement learning) to extract insights, create interpretable models, and optimise control.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section (Foldable) -->
+    <section id="publications" class="publications foldable-section">
+        <div class="container">
+             <div class="section-header">
+                <h2 class="section-title">Selected Publications</h2>
+                 <button class="section-toggle-button" aria-expanded="false" aria-controls="publications-content">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="publications-content">
+                <!-- Publication filters can be kept if desired, or removed for simplicity on the homepage -->
+                <!-- <div class="publication-filters"> ... </div> -->
+                <div class="publication-list">
+                     <div class="publication-item">
+                        <h3 class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</h3>
+                        <p class="publication-authors">L. Guérin, C. Flageul, L. Cordier, S. Grieu, & <strong>L. Agostini</strong></p>
+                        <p class="publication-journal">International Journal of Heat and Fluid Flow, Vol. 1010:109564 (2024)</p>
+                        <div class="publication-links">
+                            <a href="https://hal.science/hal-03852044/document" class="publication-link" target="_blank" aria-label="View PDF of Preferential Enhancement publication"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" class="publication-link" target="_blank" aria-label="View DOI of Preferential Enhancement publication"><i class="fas fa-external-link-alt"></i> DOI</a>
                         </div>
                     </div>
-                    <div class="contact-detail">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>lionel.agostini@univ-poitiers.fr<br>lionel.agostini@cnrs.fr</p>
+                     <div class="publication-item">
+                        <h3 class="publication-title">Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence by outer large-scale structures in channel flow at Reτ=5200</h3>
+                        <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
+                        <p class="publication-journal">Physics of Fluids, Vol. 34 (2022)</p>
+                        <div class="publication-links">
+                            <a href="https://hal.science/hal-03852043/document" class="publication-link" target="_blank" aria-label="View PDF of Auto-encoder-assisted analysis publication"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="https://doi.org/10.1063/5.0121617" class="publication-link" target="_blank" aria-label="View DOI of Auto-encoder-assisted analysis publication"><i class="fas fa-external-link-alt"></i> DOI</a>
                         </div>
                     </div>
-                    <h3>Academic Profiles</h3>
-                    <div class="social-links">
-                        <a href="https://orcid.org/0000-0001-8305-5493" class="social-link" target="_blank" title="ORCID">
-                            <i class="fab fa-orcid"></i>
-                        </a>
-                        <a href="https://publons.com/researcher/2949337/lionel-agostini/" class="social-link" target="_blank" title="Publons">
-                            <i class="fas fa-bookmark"></i>
-                        </a>
-                        <a href="https://scholar.google.co.uk/citations?user=wGGHJvijIz8C&hl=en" class="social-link" target="_blank" title="Google Scholar">
-                            <i class="fas fa-graduation-cap"></i>
-                        </a>
-                        <a href="https://github.com/LionelAgo" class="social-link" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.scopus.com/authid/detail.uri?authorId=55015567200" class="social-link" target="_blank" title="Scopus">
-                            <i class="fas fa-database"></i>
-                        </a>
+                    <div class="publication-item">
+                        <h3 class="publication-title">Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology</h3>
+                        <p class="publication-authors"><strong>L. Agostini</strong> & M. A. Leschziner</p>
+                        <p class="publication-journal">Journal of Fluid Mechanics, Vol. 923 (2021)</p>
+                        <div class="publication-links">
+                            <a href="https://hal.science/hal-03852045/document" class="publication-link" target="_blank" aria-label="View PDF of Statistical analysis publication"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="https://doi.org/10.1017/jfm.2021.585" class="publication-link" target="_blank" aria-label="View DOI of Statistical analysis publication"><i class="fas fa-external-link-alt"></i> DOI</a>
+                        </div>
+                    </div>
+                    <div class="publication-item">
+                        <h3 class="publication-title">Exploration and prediction of fluid dynamical systems using Auto-Encoder technology</h3>
+                        <p class="publication-authors"><strong>L. Agostini</strong></p>
+                        <p class="publication-journal">Physics of Fluids, Vol. 32(6):067103 (2020)</p>
+                        <div class="publication-links">
+                            <a href="https://hal.science/hal-03852046/document" class="publication-link" target="_blank" aria-label="View PDF of Exploration and prediction publication"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="https://doi.org/10.1063/5.0012906" class="publication-link" target="_blank" aria-label="View DOI of Exploration and prediction publication"><i class="fas fa-external-link-alt"></i> DOI</a>
+                        </div>
+                    </div>
+                     <!-- Add more selected publications as needed -->
+                </div>
+                <div class="publications-action">
+                    <a href="publications.html" class="btn">View All Publications</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Foldable) -->
+    <section id="contact" class="contact foldable-section">
+        <div class="container">
+             <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                 <button class="section-toggle-button" aria-expanded="false" aria-controls="contact-content">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="contact-content">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Institut Pprime, CNRS UPR 3346<br>Dept. Fluides, Thermique, Combustion<br>Bâtiment H2 - SP2MI, TSA 41123<br>11 Boulevard Marie et Pierre Curie<br>86073 POITIERS CEDEX 9, France</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:lionel.agostini@univ-poitiers.fr">lionel.agostini@univ-poitiers.fr</a><br><a href="mailto:lionel.agostini@cnrs.fr">lionel.agostini@cnrs.fr</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+33 (0)5 49 49 69 45</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="contact-profiles">
+                        <h3>Academic & Professional Profiles</h3>
+                        <div class="social-links">
+                            <a href="https://orcid.org/0000-0001-8305-5493" class="social-link" target="_blank" title="ORCID" aria-label="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                            <a href="https://scholar.google.co.uk/citations?user=wGGHJvijIz8C&hl=en" class="social-link" target="_blank" title="Google Scholar" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="https://www.scopus.com/authid/detail.uri?authorId=55015567200" class="social-link" target="_blank" title="Scopus" aria-label="Scopus Profile"><i class="fas fa-database"></i></a>
+                            <a href="https://www.researchgate.net/profile/Lionel-Agostini" class="social-link" target="_blank" title="ResearchGate" aria-label="ResearchGate Profile"><i class="fab fa-researchgate"></i></a>
+                            <a href="https://github.com/LionelAgo" class="social-link" target="_blank" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                            <a href="https://cv.hal.science/lionel-agostini" class="social-link" target="_blank" title="HAL CV" aria-label="HAL CV Profile"><i class="fas fa-scroll"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -399,14 +606,15 @@
     <!-- Institute Logos -->
     <section class="institutes">
         <div class="container">
+            <h3 class="institutes-title">Affiliations</h3>
             <div class="institute-logos-container">
-                <a href="https://www.cnrs.fr/" target="_blank">
+                <a href="https://www.cnrs.fr/" target="_blank" aria-label="CNRS Website">
                     <img src="logos/cnrs.png" alt="CNRS Logo">
                 </a>
-                <a href="https://www.univ-poitiers.fr/" target="_blank">
+                <a href="https://www.univ-poitiers.fr/" target="_blank" aria-label="Université de Poitiers Website">
                     <img src="logos/logo_up.png" alt="Université de Poitiers Logo">
                 </a>
-                <a href="https://pprime.fr/" target="_blank">
+                <a href="https://pprime.fr/" target="_blank" aria-label="Institut Pprime Website">
                     <img src="logos/logo_pprime.jpg" alt="Institut Pprime Logo">
                 </a>
             </div>
@@ -418,37 +626,40 @@
         <div class="container">
             <div class="footer-container">
                 <div>
-                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <div class="footer-logo">Dr Lionel Agostini</div>
                     <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
                         <li><a href="research.html">Research</a></li>
                         <li><a href="teams.html">Teams</a></li>
                         <li><a href="projects.html">Projects</a></li>
                         <li><a href="publications.html">Publications</a></li>
                         <li><a href="#contact">Contact</a></li>
+                         <li><a href="resume.html">Full CV</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Research Areas</h4>
+                    <h4>Research Themes</h4>
                     <ul>
-                        <li><a href="research.html#boundary-layer">Wall-bounded Turbulence</a></li>
-                        <li><a href="research.html#drag-reduction">Drag Reduction</a></li>
+                        <li><a href="research.html#wall-bounded-turbulence">Wall-bounded Turbulence</a></li>
+                        <li><a href="research.html#flow-control">Flow Control</a></li>
                         <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
                         <li><a href="research.html#machine-learning">Machine Learning</a></li>
-                        <li><a href="research.html#shock-wave">Computational Fluid Dynamics</a></li>
+                        <li><a href="research.html#secondary-flow">Secondary Flow Control</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+                &copy; 2025 Dr Lionel Agostini. All rights reserved. | Website developed with assistance from AI.
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

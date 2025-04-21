@@ -694,87 +694,6 @@ header.scrolled {
     transform: scale(1.1);
 }
 
-/* Carousel Styles */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    height: 220px;
-}
-
-.carousel-slides {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    display: none;
-}
-
-.carousel-slide.active {
-    opacity: 1;
-    display: block;
-}
-
-.carousel-controls {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-}
-
-.carousel-prev, .carousel-next {
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: var(--transition);
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background: white;
-    transform: scale(1.1);
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    margin: 0 10px;
-}
-
-.carousel-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.carousel-indicator.active {
-    background-color: white;
-    transform: scale(1.3);
-}
-
 .research-card-content {
     padding: 25px;
     flex-grow: 1;
@@ -997,319 +916,6 @@ header.scrolled {
 
 .project-role {
     color: var(--primary-color);
-
-/* Academic Profiles Section */
-.academic-profiles-section {
-    padding: 60px 0;
-    background-color: #f8f9fa;
-}
-
-.academic-profiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.academic-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.academic-profile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.academic-profile i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-}
-
-/* Publication Search */
-.publication-search-container {
-    margin: 30px 0;
-}
-
-.search-input-wrapper {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.publication-search {
-    width: 100%;
-    padding: 12px 20px;
-    padding-right: 40px;
-    border: 1px solid #ddd;
-    border-radius: 30px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.publication-search:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 37, 111, 0.1);
-    outline: none;
-}
-
-.clear-search {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #999;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.clear-search:hover {
-    color: var(--primary-color);
-}
-
-/* Publication Filters */
-.publication-filters, .research-area-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.filter-btn {
-    padding: 8px 16px;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 14px;
-}
-
-.filter-btn.active {
-    background: var(--primary-color);
-    color: white;
-}
-
-.filter-btn:hover:not(.active) {
-    background: #e0e0e0;
-}
-
-/* Publication Grid */
-.publication-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.publication-item {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.publication-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.publication-category {
-    display: inline-block;
-    padding: 3px 8px;
-    background: var(--accent-color);
-    color: white;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.publication-title {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.publication-authors {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-.publication-journal {
-    font-size: 14px;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.publication-links {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.publication-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    background: #f0f0f0;
-    border-radius: 4px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.3s ease;
-}
-
-.publication-link:hover {
-    background: #e0e0e0;
-}
-
-.citation-dropdown {
-    position: relative;
-}
-
-.citation-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 4px;
-    color: var(--primary-color);
-    cursor: pointer;
-    font-size: 14px;
-}
-
-
-/* Statistics Section */
-.statistics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    margin: 40px 0;
-}
-
-.statistic-card {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.statistic-card:hover {
-    transform: translateY(-5px);
-}
-
-.statistic-value {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-}
-
-.statistic-label {
-    font-size: 14px;
-    color: #666;
-}
-
-.statistics-charts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.chart-container {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-    .statistics-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .statistics-charts {
-        grid-template-columns: 1fr;
-    }
-}
-.citation-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 5px 0;
-    min-width: 120px;
-    z-index: 10;
-    display: none;
-}
-
-.citation-dropdown:hover .citation-options {
-    display: block;
-}
-
-.citation-option {
-    padding: 5px 10px;
-    color: #333;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-}
-
-.citation-option:hover {
-    background: #f5f5f5;
-}
-
-.publication-keywords {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.publication-keyword {
-    display: inline-block;
-    padding: 3px 8px;
-    background: #e0e7ff;
-    color: var(--primary-color);
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .publication-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .academic-profiles {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
     font-weight: 500;
 }
 
@@ -1428,12 +1034,11 @@ header.scrolled {
     transform: translateX(3px);
 }
 
-
-
 .publications-action {
     margin-top: 40px;
     text-align: center;
 }
+
 /* Contact Section */
 .contact {
     padding: var(--section-padding);
@@ -1544,7 +1149,6 @@ header.scrolled {
     background-color: white;
 }
 
-
 .institute-logos-container {
     display: flex;
     justify-content: center;
@@ -1561,6 +1165,7 @@ header.scrolled {
     width: 100%;
     height: auto;
 }
+
 .institutes img {
     filter: grayscale(100%);
     transition: filter 0.5s ease, transform 0.5s ease;
@@ -2131,6 +1736,124 @@ footer::before {
     transform: translateY(-3px);
 }
 
+/* Carousel Styles - UPDATED */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.carousel-slides {
+    width: 100%;
+    position: relative;
+    height: 300px; /* Adjust height as needed */
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+
+.carousel-prev, .carousel-next {
+    background: rgba(37, 37, 111, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.carousel-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(37, 37, 111, 0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background-color: var(--primary-color);
+    transform: scale(1.3);
+}
+
+/* Placeholder for missing images */
+.placeholder-image {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--text-light);
+    font-style: italic;
+    height: 300px;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.placeholder-image i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
 /* Responsiveness */
 @media (max-width: 992px) {
     .hero-content {
@@ -2262,5 +1985,329 @@ footer::before {
     .tab-button {
         padding: 10px 15px;
         font-size: 14px;
+    }
+}
+/* Enhanced About Me Section Styles */
+.about .profile-section {
+    background-color: #fdfdfd; /* Slightly off-white background */
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin-top: 40px;
+    border: 1px solid #eee; /* Subtle border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Softer shadow */
+}
+
+.about .profile-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.about .profile-image {
+    flex-basis: 250px; /* Fixed width for image */
+    flex-shrink: 0;
+    border-radius: 50%; /* Circular image */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about .profile-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.about .profile-info {
+    flex-grow: 1;
+}
+
+.about .profile-details {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.about .profile-details li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.about .profile-details i {
+    color: var(--primary-color);
+    width: 20px; /* Ensure consistent icon alignment */
+    text-align: center;
+}
+
+.about .expertise-areas {
+    margin-bottom: 25px;
+}
+
+.about .expertise-areas h4 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.about .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.about .expertise-tags span {
+    background-color: rgba(37, 37, 111, 0.08);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.about .profile-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.about .metric {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.about .metric-number {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+}
+
+.about .metric-label {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* Enhanced Timeline Styles */
+.revised-timeline .timeline-item {
+    padding: 20px 40px; /* Increased padding */
+}
+
+.revised-timeline .timeline-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5; /* Subtle border */
+    padding: 25px; /* Increased padding */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Slightly enhanced shadow */
+    position: relative; /* Needed for logo positioning */
+}
+
+.revised-timeline .timeline-item:hover .timeline-card {
+    border-color: #d5d5d5;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.revised-timeline .timeline-institution-logo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    max-height: 40px; /* Control logo size */
+    max-width: 100px;
+    opacity: 0.7; /* Subtle logo appearance */
+    transition: opacity 0.3s ease;
+}
+
+.revised-timeline .timeline-card:hover .timeline-institution-logo {
+    opacity: 1;
+}
+
+.revised-timeline .timeline-title {
+    font-size: 18px; /* Slightly smaller title */
+    margin-bottom: 5px;
+}
+
+.revised-timeline .timeline-institution {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.revised-timeline .timeline-details {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-left: 18px; /* Indent list items */
+    list-style: disc; /* Use standard bullets */
+}
+
+.revised-timeline .timeline-details li {
+    margin-bottom: 8px;
+}
+
+.revised-timeline .timeline-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.revised-timeline .timeline-badges span {
+    background-color: rgba(37, 37, 111, 0.08);
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Styles for Foldable Sections */
+.foldable-section {
+    position: relative; /* For positioning the button */
+    margin-bottom: 20px; /* Add space between sections */
+    background-color: var(--light-bg-color); /* Default background */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Ensure content clipping */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+/* Specific background for certain sections */
+.foldable-section.about,
+.foldable-section.publications {
+    background-color: var(--light-bg-color);
+}
+.foldable-section.experience-section,
+.foldable-section.projects {
+     background-color: var(--background-color); /* Slightly different bg */
+}
+.foldable-section.research {
+     background-color: var(--background-color);
+}
+.foldable-section.methodologies {
+    background-color: var(--primary-color);
+    color: white;
+}
+.foldable-section.contact {
+     background-color: var(--background-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; /* Padding for the header */
+    cursor: pointer;
+    border-bottom: 1px solid transparent; /* Add border separation when open */
+    transition: border-color 0.3s ease;
+}
+
+.foldable-section.expanded .section-header {
+     border-bottom-color: var(--border-color); /* Show border when expanded */
+}
+.foldable-section.methodologies.expanded .section-header {
+     border-bottom-color: rgba(255, 255, 255, 0.2); /* Lighter border for dark bg */
+}
+
+
+.section-header .section-title {
+    margin-bottom: 0; /* Remove default margin */
+    padding-bottom: 0; /* Remove default padding */
+    text-align: left; /* Align title left */
+    font-size: 28px; /* Adjust title size */
+}
+.section-header .section-title::after {
+    display: none; /* Remove underline from title */
+}
+.foldable-section.methodologies .section-header .section-title {
+    color: white; /* Ensure title is white on dark bg */
+}
+
+
+.section-toggle-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 24px; /* Adjust icon size */
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+.foldable-section.methodologies .section-toggle-button {
+    color: white; /* White icon for dark bg */
+}
+
+.foldable-section:not(.expanded) .section-toggle-button {
+    transform: rotate(0deg);
+}
+.foldable-section.expanded .section-toggle-button {
+    transform: rotate(180deg); /* Rotate icon when expanded - adjust if using +/- */
+}
+.foldable-section.expanded .section-toggle-button i.fa-plus::before {
+    content: "\f068"; /* Change plus to minus */
+}
+.foldable-section:not(.expanded) .section-toggle-button i.fa-minus::before {
+    content: "\f067"; /* Change minus to plus */
+}
+
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 20px; /* Horizontal padding only when collapsed */
+}
+
+.foldable-section.expanded .section-content {
+    max-height: 5000px; /* Large enough height for content */
+    overflow: visible; /* Allow content overflow when expanded */
+    padding: 30px 20px; /* Add vertical padding when expanded */
+    transition: max-height 0.7s ease-in, padding 0.7s ease-in;
+}
+
+/* Adjust padding for specific sections when expanded */
+.foldable-section.about.expanded .section-content,
+.foldable-section.experience-section.expanded .section-content,
+.foldable-section.research.expanded .section-content,
+.foldable-section.projects.expanded .section-content,
+.foldable-section.publications.expanded .section-content,
+.foldable-section.contact.expanded .section-content {
+    padding: 40px 20px; /* Standard padding */
+}
+.foldable-section.methodologies.expanded .section-content {
+    padding: 40px 20px; /* Standard padding */
+}
+
+
+/* Responsive adjustments for foldable sections */
+@media (max-width: 768px) {
+    .section-header .section-title {
+        font-size: 22px; /* Smaller title on mobile */
+    }
+    .section-toggle-button {
+        font-size: 20px;
+    }
+    .foldable-section.expanded .section-content {
+        padding: 20px 15px; /* Reduced padding on mobile */
+    }
+    .about .profile-content {
+        flex-direction: column; /* Stack profile image and info */
+        align-items: center;
+    }
+    .about .profile-image {
+        max-width: 200px; /* Smaller image on mobile */
+        margin-bottom: 20px;
+    }
+    .about .profile-info {
+        text-align: center; /* Center text */
+    }
+    .about .profile-details {
+        align-items: flex-start; /* Align list items left */
+    }
+    .about .expertise-tags, .about .profile-metrics {
+        justify-content: center; /* Center tags and metrics */
     }
 }

@@ -3,10 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Team - Dr. Lionel Agostini</title>
-    <meta name="description" content="Meet Dr. Lionel Agostini's research team at Institut Pprime, working on fluid dynamics, turbulence modeling, and machine learning applications.">
+    <title>Dr. Lionel Agostini | Research Team</title>
+    <meta name="description" content="Meet Dr. Lionel Agostini's research team at Institut Pprime, working on fluid dynamics, turbulence modelling, and machine learning applications.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Teams page specific styles */
+        .team-section {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .team-section:nth-child(even) {
+            background-color: var(--background-color);
+        }
+        
+        /* Team Lead */
+        .team-lead {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .team-lead:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .team-lead-img {
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .team-lead-img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-lead-img img:hover {
+            transform: scale(1.05);
+        }
+        
+        .team-lead-content {
+            flex: 2;
+        }
+        
+        .team-lead-content h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .team-lead-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .position {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Team Members */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .member-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .member-card:hover .member-img img {
+            transform: scale(1.05);
+        }
+        
+        .member-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .member-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .member-position {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .member-duration {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .member-funding {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .member-funding i {
+            color: var(--accent-color);
+        }
+        
+        .member-project {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .member-project h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .member-achievements {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .member-achievements h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .achievements-list {
+            list-style: none;
+        }
+        
+        .achievements-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .achievements-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+        
+        .member-publications {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .member-publications h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .publications-list {
+            list-style: none;
+        }
+        
+        .publications-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+        
+        .publication-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .publication-title a:hover {
+            color: var(--accent-color);
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            color: var(--text-light);
+        }
+        
+        .member-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .collaboration-section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            color: var(--primary-color);
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .collaboration-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .collaborator-card {
+            padding: 25px;
+            height: 100%;
+        }
+        
+        .collaborator-card .member-name {
+            font-size: 20px;
+        }
+        
+        .empty-section {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .empty-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-color);
+            opacity: 0.05;
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .empty-section::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-color);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -75px;
+            left: -75px;
+        }
+        
+        .empty-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .empty-section p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .team-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .team-stat {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .team-stat:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .team-stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .team-stat-label {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 992px) {
+            .team-lead {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .team-lead-img {
+                margin: 0 auto 30px;
+            }
+            
+            .team-lead-content h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .team-stats {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-stat {
+                min-width: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -23,7 +451,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="research.html">Research</a></li>
-                <li><a href="teams.html">Teams</a></li>
+                <li><a href="teams.html" class="active">Teams</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
@@ -34,10 +462,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2 class="hero-subtitle" style="font-size: 48px; margin-bottom: 40px; line-height: 1.3; font-weight: 700; color: var(--accent-color);">
-                Research Teams
-            </h2>
-            <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--accent-color);">
+            <h2 class="hero-title">Research Teams</h2>
+            <p class="hero-description">
                 Collaborating with talented researchers and students to advance our understanding of fluid mechanics.
             </p>
         </div>
@@ -47,8 +473,44 @@
         </div>
     </section>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Meet Our Team</h1>
+            <p class="page-subtitle">Talented researchers working together to solve complex challenges in fluid mechanics.</p>
+        </div>
+    </section>
+
+    <!-- Team Overview -->
+    <section class="team-section" style="padding-bottom: 0;">
+        <div class="container">
+            <p class="section-description">
+                Our research team combines expertise in numerical simulations, machine learning, and experimental techniques to tackle fundamental problems in fluid mechanics. Together, we are developing innovative approaches to understand and control complex turbulent flows, with applications ranging from energy efficiency to sustainable transport.
+            </p>
+            
+            <div class="team-stats">
+                <div class="team-stat">
+                    <div class="team-stat-number">8</div>
+                    <div class="team-stat-label">Team Members</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-number">3</div>
+                    <div class="team-stat-label">PhD Students</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-number">12</div>
+                    <div class="team-stat-label">Publications (2024)</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-number">4</div>
+                    <div class="team-stat-label">Research Projects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Team Lead Section -->
-    <section class="team-section" style="margin-top: 80px;">
+    <section class="team-section">
         <div class="container">
             <h2 class="section-title">Team Lead</h2>
             <div class="team-lead">
@@ -58,9 +520,9 @@
                 <div class="team-lead-content">
                     <h3>Dr. Lionel Agostini</h3>
                     <p class="position">Chargé de Recherche HDR - CNRS - Section 10</p>
-                    <p>I am a researcher in fluid mechanics with over 15 years of experience in the study and modeling of wall-bounded turbulent flows. My expertise is built on an interdisciplinary approach that combines fundamental theory of turbulent flows, high-fidelity numerical code development, and implementation of advanced machine learning methods.</p>
-                    <p>My work aims to develop robust predictive models and innovative control strategies to optimize fluid systems performance, leveraging deep knowledge of turbulence physics combined with machine learning algorithms capabilities. This approach directly contributes to addressing current energy and environmental challenges by improving efficiency in transport systems and industrial heat exchangers.</p>
-                    <p>Currently, I lead the <span class="highlight">ANR JCJC INFERENCE</span> project on modeling near-wall turbulence at high Reynolds numbers, and co-supervise multiple PhD students working on topics ranging from heat transfer enhancement to reduced-order modeling using machine learning techniques.</p>
+                    <p>I am a researcher in fluid mechanics with over 15 years of experience in the study and modelling of wall-bounded turbulent flows. My expertise is built on an interdisciplinary approach that combines fundamental theory of turbulent flows, high-fidelity numerical code development, and implementation of advanced machine learning methods.</p>
+                    <p>My work aims to develop robust predictive models and innovative control strategies to optimise fluid systems performance, leveraging deep knowledge of turbulence physics combined with machine learning algorithms capabilities. This approach directly contributes to addressing current energy and environmental challenges by improving efficiency in transport systems and industrial heat exchangers.</p>
+                    <p>Currently, I lead the <span class="highlight">ANR JCJC INFERENCE</span> project on modelling near-wall turbulence at high Reynolds numbers, and co-supervise multiple PhD students working on topics ranging from heat transfer enhancement to reduced-order modelling using machine learning techniques.</p>
                     <div class="member-socials">
                         <a href="https://orcid.org/0000-0001-8305-5493" target="_blank" class="social-link" title="ORCID">
                             <i class="fab fa-orcid"></i>
@@ -105,32 +567,9 @@
                             <h4>Achievements</h4>
                             <ul class="achievements-list">
                                 <li>Demonstrated for the first time a preferential enhancement of heat transfer over drag, breaking the Reynolds analogy</li>
-                                <li>Developed machine learning algorithms for control parameter optimization</li>
+                                <li>Developed machine learning algorithms for control parameter optimisation</li>
                                 <li>Presented research at multiple international conferences including DLES 14 and EUROMECH COLLOQUIUM 631</li>
                             </ul>
-                        </div>
-                        
-                        <div class="member-publications">
-                            <h4>Publications</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</p>
-                                    <p class="publication-journal">International Journal of Heat and Fluid Flow (2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</p>
-                                    <p class="publication-journal">arXiv preprint (2024)</p>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="member-socials">
-                            <a href="https://orcid.org/0009-0002-1274-777X" target="_blank" class="social-link" title="ORCID">
-                                <i class="fab fa-orcid"></i>
-                            </a>
-                            <a href="mailto:lou.guerin@univ-poitiers.fr" class="social-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
                         </div>
                         
                         <div class="member-publications">
@@ -145,30 +584,19 @@
                                     <p class="publication-journal">arXiv preprint (2024)</p>
                                 </li>
                                 <li>
-                                    <p class="publication-title"><a href="https://doi.org/10.1007/s00521-025-11067-y" target="_blank">Policy-based optimization for drag reduction via spanwise wall oscillations</a></p>
+                                    <p class="publication-title"><a href="https://doi.org/10.1007/s00521-025-11067-y" target="_blank">Policy-based optimisation for drag reduction via spanwise wall oscillations</a></p>
                                     <p class="publication-journal">Neural Computing and Applications (2025)</p>
                                 </li>
                             </ul>
-                            
-                            <h4>Conferences</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</a></p>
-                                    <p class="publication-journal">DLES 14, Erlangen, Germany (April 2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</a></p>
-                                    <p class="publication-journal">EUROMECH COLLOQUIUM 631, Madrid, Spain (March 2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Policy-Based Signal Shape Optimization for Drag Reduction via Spanwise Wall Oscillations</a></p>
-                                    <p class="publication-journal">EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics, London, UK (April 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations</a></p>
-                                    <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
-                                </li>
-                            </ul>
+                        </div>
+                        
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0009-0002-1274-777X" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="mailto:lou.guerin@univ-poitiers.fr" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -186,25 +614,16 @@
                         
                         <div class="member-project">
                             <h4>Project Summary</h4>
-                            <p>Reduced order modeling of turbulent flows using machine learning methods. This project aims to develop innovative data-driven methods to extract the essential characteristics of turbulent flows and project them into a reduced space, particularly using variational autoencoders and neural networks.</p>
+                            <p>Reduced order modelling of turbulent flows using machine learning methods. This project aims to develop innovative data-driven methods to extract the essential characteristics of turbulent flows and project them into a reduced space, particularly using variational autoencoders and neural networks.</p>
                         </div>
                         
                         <div class="member-achievements">
                             <h4>Achievements</h4>
                             <ul class="achievements-list">
-                                <li>Developed novel β-Variational Autoencoder approaches for low-order dynamical modeling</li>
-                                <li>Combined transformer-based architecture with autoencoders for turbulence modeling</li>
+                                <li>Developed novel β-Variational Autoencoder approaches for low-order dynamical modelling</li>
+                                <li>Combined transformer-based architecture with autoencoders for turbulence modelling</li>
                                 <li>Presented research at multiple international conferences</li>
                             </ul>
-                        </div>
-                        
-                        <div class="member-socials">
-                            <a href="https://niccolotonioni.github.io" target="_blank" class="social-link" title="Personal Website">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="mailto:niccolo.tonioni@univ-poitiers.fr" class="social-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
                         </div>
                         
                         <div class="member-publications">
@@ -220,21 +639,18 @@
                                 </li>
                                 <li>
                                     <p class="publication-title"><a href="#" target="_blank">Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders</a></p>
-                                    <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders</a></p>
                                     <p class="publication-journal">GDR I-GAIA, Paris, France (December 2024)</p>
                                 </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Taming the chaos: Reduced-Order Models for Turbulent Flows</a></p>
-                                    <p class="publication-journal">PPrime cross-labs PhD Meetings, Poitiers, France (March 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Reduced-order Modeling of Turbulent Flows</a></p>
-                                    <p class="publication-journal">EurINTREE Strategic Committee, Poitiers, France (September 2024)</p>
-                                </li>
                             </ul>
+                        </div>
+                        
+                        <div class="member-socials">
+                            <a href="https://niccolotonioni.github.io" target="_blank" class="social-link" title="Personal Website">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="mailto:niccolo.tonioni@univ-poitiers.fr" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -252,15 +668,15 @@
                         
                         <div class="member-project">
                             <h4>Project Summary</h4>
-                            <p>Modeling of near-wall turbulence at high Reynolds number and development of control strategies. This research focuses on understanding how outer flow structures affect wall shear and heat transfer, and developing predictive models using advanced data-driven approaches.</p>
+                            <p>Modelling of near-wall turbulence at high Reynolds number and development of control strategies. This research focuses on understanding how outer flow structures affect wall shear and heat transfer, and developing predictive models using advanced data-driven approaches.</p>
                         </div>
                         
                         <div class="member-achievements">
-                            <h4>Achievements</h4>
+                            <h4>Current Focus</h4>
                             <ul class="achievements-list">
-                                <li>Recently started the PhD program (2024)</li>
-                                <li>Initial literature review and research plan completed</li>
-                                <li>Training in high-performance computing and numerical methods for fluid dynamics</li>
+                                <li>Literature review on scale interactions in wall-bounded turbulent flows</li>
+                                <li>Development of computational framework for high-fidelity simulations</li>
+                                <li>Training in advanced data analysis techniques for turbulence research</li>
                             </ul>
                         </div>
                         
@@ -285,15 +701,15 @@
                         
                         <div class="member-project">
                             <h4>Project Summary</h4>
-                            <p>Data-driven modeling of urban canopy flows. This research focuses on developing methods to build estimators and reduced-order models from simulation and experimental data, with particular emphasis on urban canopy flow dynamics.</p>
+                            <p>Data-driven modelling of urban canopy flows. This research focuses on developing methods to build estimators and reduced-order models from simulation and experimental data, with particular emphasis on urban canopy flow dynamics.</p>
                         </div>
                         
                         <div class="member-achievements">
-                            <h4>Achievements</h4>
+                            <h4>Research Focus</h4>
                             <ul class="achievements-list">
                                 <li>Development of advanced data assimilation techniques for maintaining model accuracy in real conditions</li>
                                 <li>Integration of physical knowledge into machine learning algorithm design</li>
-                                <li>Implementation of reduced-order modeling techniques for complex environmental flows</li>
+                                <li>Implementation of reduced-order modelling techniques for complex environmental flows</li>
                             </ul>
                         </div>
                         
@@ -317,20 +733,23 @@
     <!-- Collaborations Section -->
     <section class="team-section">
         <div class="container">
-            <h2 class="section-title">Collaborations</h2>
+            <h2 class="section-title">Research Collaborations</h2>
+            <p class="section-description">
+                Our team maintains active collaborations with leading researchers in fluid mechanics, computational science, and machine learning, both within Institut Pprime and internationally.
+            </p>
             
             <!-- Curiosity Team Collaborators -->
-            <h3 style="text-align: center; margin-bottom: 40px; color: var(--primary-color);">Curiosity Team at Institut Pprime</h3>
+            <h3 class="collaboration-section-title">Curiosity Team at Institut Pprime</h3>
             <div class="members-grid">
                 <!-- Laurent Cordier -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Laurent Cordier</h3>
                         <p class="member-position">Researcher - CNRS</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
                             <h4>Research Focus</h4>
                             <ul class="achievements-list">
-                                <li>Reduced-order modeling</li>
+                                <li>Reduced-order modelling</li>
                                 <li>Flow control</li>
                                 <li>Data-driven methods for fluid dynamics</li>
                             </ul>
@@ -348,14 +767,14 @@
                 
                 <!-- Cédric Flageul -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Cédric Flageul</h3>
                         <p class="member-position">Lecturer - Université de Poitiers</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
                             <h4>Research Focus</h4>
                             <ul class="achievements-list">
                                 <li>Numerical methods for fluid dynamics</li>
-                                <li>Turbulence modeling</li>
+                                <li>Turbulence modelling</li>
                                 <li>Heat transfer in complex flows</li>
                             </ul>
                         </div>
@@ -372,7 +791,7 @@
                 
                 <!-- Franck Kerhervé -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Franck Kerhervé</h3>
                         <p class="member-position">Lecturer - Université de Poitiers</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
@@ -393,14 +812,14 @@
                 
                 <!-- Philippe Traoré -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Philippe Traoré</h3>
                         <p class="member-position">Professor - Université de Poitiers</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
                             <h4>Research Focus</h4>
                             <ul class="achievements-list">
                                 <li>Computational fluid dynamics</li>
-                                <li>Multiphysics modeling</li>
+                                <li>Multiphysics modelling</li>
                                 <li>Electrohydrodynamics</li>
                             </ul>
                         </div>
@@ -414,18 +833,18 @@
             </div>
             
             <!-- National Collaborators -->
-            <h3 style="text-align: center; margin: 60px 0 40px; color: var(--primary-color);">National Collaborations</h3>
+            <h3 class="collaboration-section-title">National Collaborations</h3>
             <div class="members-grid">
                 <!-- Stéphane Grieu -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Stéphane Grieu</h3>
                         <p class="member-position">Researcher - PROMES</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
                             <h4>Research Focus</h4>
                             <ul class="achievements-list">
                                 <li>Solar energy systems</li>
-                                <li>Thermal processes modeling</li>
+                                <li>Thermal processes modelling</li>
                                 <li>Control systems</li>
                             </ul>
                         </div>
@@ -439,7 +858,7 @@
                 
                 <!-- Lionel Larchevêque -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Lionel Larchevêque</h3>
                         <p class="member-position">Lecturer - Aix Marseille Université</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
@@ -463,7 +882,7 @@
                 
                 <!-- Pierre Dupont -->
                 <div class="member-card">
-                    <div class="member-content">
+                    <div class="member-content collaborator-card">
                         <h3 class="member-name">Pierre Dupont</h3>
                         <p class="member-position">Researcher - IUSTI</p>
                         <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
@@ -488,13 +907,27 @@
         </div>
     </section>
     
+    <!-- Join the Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Join Our Team</h2>
+            <div class="section-description">
+                <p>We are always looking for talented and motivated researchers to join our team. If you are interested in our research areas and would like to contribute to our projects, please get in touch.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html#contact" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Alumni Section -->
     <section class="team-section">
         <div class="container">
             <h2 class="section-title">Alumni</h2>
             <div class="empty-section">
                 <h3>Coming Soon</h3>
-                <p>Our alumni section is currently under development. Check back later to learn about the accomplished researchers who have been part of our team and their current endeavors.</p>
+                <p>Our alumni section is currently under development. Check back later to learn about the accomplished researchers who have been part of our team and their current endeavours.</p>
             </div>
         </div>
     </section>
@@ -522,11 +955,11 @@
                 <div class="footer-links">
                     <h4>Research Areas</h4>
                     <ul>
-                        <li><a href="#">Wall-bounded Turbulence</a></li>
-                        <li><a href="#">Drag Reduction</a></li>
-                        <li><a href="#">Heat Transfer</a></li>
-                        <li><a href="#">Machine Learning</a></li>
-                        <li><a href="#">Computational Fluid Dynamics</a></li>
+                        <li><a href="research.html#wall-bounded-turbulence">Wall-bounded Turbulence</a></li>
+                        <li><a href="research.html#flow-control">Drag Reduction</a></li>
+                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
+                        <li><a href="research.html#machine-learning">Machine Learning</a></li>
+                        <li><a href="research.html#shock-wave">Computational Fluid Dynamics</a></li>
                     </ul>
                 </div>
             </div>
