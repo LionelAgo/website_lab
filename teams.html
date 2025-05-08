@@ -13,11 +13,11 @@
             padding: var(--section-padding);
             background-color: white;
         }
-        
+
         .team-section:nth-child(even) {
             background-color: var(--background-color);
         }
-        
+
         /* Team Lead */
         .team-lead {
             display: flex;
@@ -30,17 +30,17 @@
             box-shadow: var(--card-shadow);
             transition: var(--transition);
         }
-        
+
         .team-lead:hover {
             transform: translateY(-5px);
             box-shadow: var(--card-shadow-hover);
         }
-        
+
         .team-lead-img {
             flex: 1;
             max-width: 300px;
         }
-        
+
         .team-lead-img img {
             width: 100%;
             height: 300px;
@@ -49,15 +49,15 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .team-lead-img img:hover {
             transform: scale(1.05);
         }
-        
+
         .team-lead-content {
             flex: 2;
         }
-        
+
         .team-lead-content h3 {
             font-size: 32px;
             margin-bottom: 15px;
@@ -65,7 +65,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .team-lead-content h3::after {
             content: '';
             position: absolute;
@@ -75,25 +75,25 @@
             height: 3px;
             background-color: var(--accent-color);
         }
-        
+
         .position {
             font-size: 18px;
             color: var(--text-light);
             margin-bottom: 20px;
         }
-        
+
         .highlight {
             color: var(--primary-color);
             font-weight: 600;
         }
-        
+
         /* Team Members */
         .members-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
-        
+
         .member-card {
             background: white;
             border-radius: var(--border-radius);
@@ -104,19 +104,19 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .member-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--card-shadow-hover);
         }
-        
+
         .member-img {
             width: 100%;
             height: 300px;
             overflow: hidden;
             position: relative;
         }
-        
+
         .member-img img {
             width: 100%;
             height: 100%;
@@ -124,30 +124,30 @@
             object-position: center;
             transition: transform 0.5s ease;
         }
-        
+
         .member-card:hover .member-img img {
             transform: scale(1.05);
         }
-        
+
         .member-content {
             padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .member-name {
             font-size: 22px;
             margin-bottom: 5px;
             color: var(--primary-color);
         }
-        
+
         .member-position {
             font-size: 16px;
             color: var(--text-light);
             margin-bottom: 15px;
         }
-        
+
         .member-duration {
             display: inline-block;
             background: var(--primary-color);
@@ -157,7 +157,7 @@
             font-size: 14px;
             margin-bottom: 15px;
         }
-        
+
         .member-funding {
             font-size: 14px;
             color: var(--text-light);
@@ -166,45 +166,45 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .member-funding i {
             color: var(--accent-color);
         }
-        
+
         .member-project {
             margin-top: 20px;
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
-        
+
         .member-project h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
             font-size: 18px;
         }
-        
+
         .member-achievements {
             margin-top: 20px;
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
-        
+
         .member-achievements h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
             font-size: 18px;
         }
-        
+
         .achievements-list {
             list-style: none;
         }
-        
+
         .achievements-list li {
             margin-bottom: 8px;
             position: relative;
             padding-left: 25px;
         }
-        
+
         .achievements-list li::before {
             content: '\f058';
             font-family: 'Font Awesome 5 Free';
@@ -214,55 +214,55 @@
             top: 2px;
             color: var(--accent-color);
         }
-        
+
         .member-publications {
             margin-top: 20px;
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
-        
+
         .member-publications h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
             font-size: 18px;
         }
-        
+
         .publications-list {
             list-style: none;
         }
-        
+
         .publications-list li {
             margin-bottom: 12px;
             font-size: 14px;
         }
-        
+
         .publication-title {
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 3px;
         }
-        
+
         .publication-title a {
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .publication-title a:hover {
             color: var(--accent-color);
         }
-        
+
         .publication-journal {
             font-style: italic;
             color: var(--text-light);
         }
-        
+
         .member-socials {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-link {
             width: 40px;
             height: 40px;
@@ -274,13 +274,13 @@
             color: var(--primary-color);
             transition: var(--transition);
         }
-        
+
         .social-link:hover {
             background-color: var(--primary-color);
             color: white;
             transform: translateY(-3px);
         }
-        
+
         .section-description {
             text-align: center;
             max-width: 900px;
@@ -289,7 +289,7 @@
             font-size: 18px;
             line-height: 1.6;
         }
-        
+
         .collaboration-section-title {
             text-align: center;
             margin: 60px 0 30px;
@@ -298,7 +298,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .collaboration-section-title::after {
             content: '';
             position: absolute;
@@ -309,16 +309,16 @@
             height: 3px;
             background-color: var(--accent-color);
         }
-        
+
         .collaborator-card {
             padding: 25px;
             height: 100%;
         }
-        
+
         .collaborator-card .member-name {
             font-size: 20px;
         }
-        
+
         .empty-section {
             background-color: var(--background-color);
             border-radius: var(--border-radius);
@@ -329,7 +329,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .empty-section::before {
             content: '';
             position: absolute;
@@ -341,7 +341,7 @@
             top: -100px;
             right: -100px;
         }
-        
+
         .empty-section::after {
             content: '';
             position: absolute;
@@ -353,13 +353,13 @@
             bottom: -75px;
             left: -75px;
         }
-        
+
         .empty-section h3 {
             color: var(--primary-color);
             margin-bottom: 20px;
             font-size: 28px;
         }
-        
+
         .empty-section p {
             color: var(--text-light);
             max-width: 600px;
@@ -367,7 +367,7 @@
             font-size: 18px;
             line-height: 1.6;
         }
-        
+
         .team-stats {
             display: flex;
             flex-wrap: wrap;
@@ -375,7 +375,7 @@
             gap: 30px;
             margin: 50px 0;
         }
-        
+
         .team-stat {
             flex: 1;
             min-width: 200px;
@@ -387,49 +387,49 @@
             text-align: center;
             transition: var(--transition);
         }
-        
+
         .team-stat:hover {
             transform: translateY(-10px);
             box-shadow: var(--card-shadow-hover);
         }
-        
+
         .team-stat-number {
             font-size: 48px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
-        
+
         .team-stat-label {
             font-size: 18px;
             color: var(--text-light);
         }
-        
+
         @media (max-width: 992px) {
             .team-lead {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .team-lead-img {
                 margin: 0 auto 30px;
             }
-            
+
             .team-lead-content h3::after {
                 left: 50%;
                 transform: translateX(-50%);
             }
-            
+
             .team-stats {
                 gap: 20px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .members-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .team-stat {
                 min-width: 150px;
             }
@@ -487,7 +487,7 @@
             <p class="section-description">
                 Our research team combines expertise in numerical simulations, machine learning, and experimental techniques to tackle fundamental problems in fluid mechanics. Together, we are developing innovative approaches to understand and control complex turbulent flows, with applications ranging from energy efficiency to sustainable transport.
             </p>
-            
+
             <div class="team-stats">
                 <div class="team-stat">
                     <div class="team-stat-number">8</div>
@@ -557,12 +557,12 @@
                         <p class="member-position">PhD Student</p>
                         <span class="member-duration">2022-2025</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR SOLAIRE</p>
-                        
+
                         <div class="member-project">
                             <h4>Project Summary</h4>
                             <p>Improving heat transfers in solar receivers through active control methods. The research focuses on enhancing thermal performance of concentrated solar power systems through innovative flow control techniques, particularly using spanwise wall oscillations.</p>
                         </div>
-                        
+
                         <div class="member-achievements">
                             <h4>Achievements</h4>
                             <ul class="achievements-list">
@@ -571,7 +571,7 @@
                                 <li>Presented research at multiple international conferences including DLES 14 and EUROMECH COLLOQUIUM 631</li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-publications">
                             <h4>Publications</h4>
                             <ul class="publications-list">
@@ -589,7 +589,7 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-socials">
                             <a href="https://orcid.org/0009-0002-1274-777X" target="_blank" class="social-link" title="ORCID">
                                 <i class="fab fa-orcid"></i>
@@ -600,7 +600,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Niccolò Tonioni -->
                 <div class="member-card">
                     <div class="member-img">
@@ -611,12 +611,12 @@
                         <p class="member-position">PhD Student</p>
                         <span class="member-duration">2023-2026</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: EUR Intree/KTH</p>
-                        
+
                         <div class="member-project">
                             <h4>Project Summary</h4>
                             <p>Reduced order modelling of turbulent flows using machine learning methods. This project aims to develop innovative data-driven methods to extract the essential characteristics of turbulent flows and project them into a reduced space, particularly using variational autoencoders and neural networks.</p>
                         </div>
-                        
+
                         <div class="member-achievements">
                             <h4>Achievements</h4>
                             <ul class="achievements-list">
@@ -625,7 +625,7 @@
                                 <li>Presented research at multiple international conferences</li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-publications">
                             <h4>Conferences</h4>
                             <ul class="publications-list">
@@ -643,7 +643,7 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-socials">
                             <a href="https://niccolotonioni.github.io" target="_blank" class="social-link" title="Personal Website">
                                 <i class="fas fa-globe"></i>
@@ -654,7 +654,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Blessing Akinpelu -->
                 <div class="member-card">
                     <div class="member-img">
@@ -665,12 +665,12 @@
                         <p class="member-position">PhD Student</p>
                         <span class="member-duration">2024-2027</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR INFERENCE</p>
-                        
+
                         <div class="member-project">
                             <h4>Project Summary</h4>
                             <p>Modelling of near-wall turbulence at high Reynolds number and development of control strategies. This research focuses on understanding how outer flow structures affect wall shear and heat transfer, and developing predictive models using advanced data-driven approaches.</p>
                         </div>
-                        
+
                         <div class="member-achievements">
                             <h4>Current Focus</h4>
                             <ul class="achievements-list">
@@ -679,7 +679,7 @@
                                 <li>Training in advanced data analysis techniques for turbulence research</li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-socials">
                             <a href="mailto:blessing.akinpelu@univ-poitiers.fr" class="social-link" title="Email">
                                 <i class="fas fa-envelope"></i>
@@ -698,12 +698,12 @@
                         <p class="member-position">Postdoctoral Researcher</p>
                         <span class="member-duration">2023-2025</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR MUFDD</p>
-                        
+
                         <div class="member-project">
                             <h4>Project Summary</h4>
                             <p>Data-driven modelling of urban canopy flows. This research focuses on developing methods to build estimators and reduced-order models from simulation and experimental data, with particular emphasis on urban canopy flow dynamics.</p>
                         </div>
-                        
+
                         <div class="member-achievements">
                             <h4>Research Focus</h4>
                             <ul class="achievements-list">
@@ -712,7 +712,7 @@
                                 <li>Implementation of reduced-order modelling techniques for complex environmental flows</li>
                             </ul>
                         </div>
-                        
+
                         <div class="member-socials">
                             <a href="https://orcid.org/0000-0001-5759-0708" target="_blank" class="social-link" title="ORCID">
                                 <i class="fab fa-orcid"></i>
@@ -737,7 +737,7 @@
             <p class="section-description">
                 Our team maintains active collaborations with leading researchers in fluid mechanics, computational science, and machine learning, both within Institut Pprime and internationally.
             </p>
-            
+
             <!-- Curiosity Team Collaborators -->
             <h3 class="collaboration-section-title">Curiosity Team at Institut Pprime</h3>
             <div class="members-grid">
@@ -764,7 +764,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Cédric Flageul -->
                 <div class="member-card">
                     <div class="member-content collaborator-card">
@@ -788,7 +788,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Franck Kerhervé -->
                 <div class="member-card">
                     <div class="member-content collaborator-card">
@@ -809,7 +809,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Philippe Traoré -->
                 <div class="member-card">
                     <div class="member-content collaborator-card">
@@ -831,8 +831,119 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- National Collaborators -->
+
+            <!-- Current International Collaborations -->
+            <h3 class="collaboration-section-title">Current International Collaborations</h3>
+            <div class="members-grid">
+                <!-- Ricardo Vinuesa -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Ricardo Vinuesa</h3>
+                        <p class="member-position">Associate Professor - KTH Royal Institute of Technology, Sweden</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Turbulent boundary layers</li>
+                                <li>Flow control</li>
+                                <li>Sustainability</li>
+                                <li>Artificial Intelligence</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.es/citations?user=UbyF8_oAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Ricardo-Vinuesa" target="_blank" class="social-link" title="ResearchGate">
+                                <i class="fab fa-researchgate"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@rvinuesa" target="_blank" class="social-link" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://twitter.com/ricardovinuesa" target="_blank" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arvind T. Mohan -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Arvind T. Mohan</h3>
+                        <p class="member-position">Scientist - Los Alamos National Laboratory, USA</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Reduced Order Modeling</li>
+                                <li>Machine Learning</li>
+                                <li>Aerodynamics</li>
+                                <li>Computational Physics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.com/citations?user=kr8XW9oAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://github.com/arvindmohan" target="_blank" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/ArvindMohan15" target="_blank" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Datta Gaitonde -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Datta Gaitonde</h3>
+                        <p class="member-position">Professor - The Ohio State University, USA</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Hypersonics</li>
+                                <li>Turbulence</li>
+                                <li>Flow control</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.com/citations?user=bgGRmnYAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.ratemyprofessors.com/professor/1825444" target="_blank" class="social-link" title="Rate My Professors">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Michael A. Leschziner -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Michael A. Leschziner</h3>
+                        <p class="member-position">Emeritus Professor of Computational Aerodynamics - Imperial College London, UK</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Turbulent flows</li>
+                                <li>Computational Aerodynamics</li>
+                                <li>Fluid Mechanics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.co.uk/citations?user=hLSK5tcAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.imperial.ac.uk/people/mike.leschziner" target="_blank" class="social-link" title="Imperial College London">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- National Collaborations -->
             <h3 class="collaboration-section-title">National Collaborations</h3>
             <div class="members-grid">
                 <!-- Stéphane Grieu -->
@@ -855,7 +966,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Lionel Larchevêque -->
                 <div class="member-card">
                     <div class="member-content collaborator-card">
@@ -879,7 +990,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Pierre Dupont -->
                 <div class="member-card">
                     <div class="member-content collaborator-card">
@@ -906,7 +1017,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Join the Team Section -->
     <section class="team-section">
         <div class="container">
@@ -914,13 +1025,13 @@
             <div class="section-description">
                 <p>We are always looking for talented and motivated researchers to join our team. If you are interested in our research areas and would like to contribute to our projects, please get in touch.</p>
             </div>
-            
+
             <div style="text-align: center; margin-top: 40px;">
                 <a href="index.html#contact" class="btn">Contact Us</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Alumni Section -->
     <section class="team-section">
         <div class="container">
