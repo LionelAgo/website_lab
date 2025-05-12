@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr Lionel Agostini | Researcher in Fluid Mechanics</title>
-    <meta name="description" content="Dr Lionel Agostini is a CNRS Researcher in Fluid Mechanics specialising in turbulence, computational fluid dynamics, machine learning applications, and thermal transfer optimisation.">
+    <title>Dr Lionel Agostini | Researcher in Fluid Mechanics & Research Leadership</title>
+    <meta name="description" content="Dr Lionel Agostini, CNRS Researcher, expert in fluid mechanics, turbulence, machine learning, and thermal optimisation. Discover his HDR insights, research leadership, and vision for future engineering solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,36 +19,36 @@
                 <img src="logos/logo_cnrs.png" alt="CNRS Logo">
                 Dr Lionel Agostini
             </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-mobile">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul class="nav-links" id="nav-links-mobile">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="teams.html">Teams</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="resume.html">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </header>
-
+<main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <p class="hero-position">Dr Lionel Agostini | CNRS Researcher</p>
             <h1 class="hero-title">
-                Exploring the Dynamics of<br>
-                Multi-Scale Wall-Bounded<br>
-                Turbulence
+                Diving into Multi-Scale Wall-Bounded Turbulence:<br>
+                Dynamics, Theory, and Control Mechanisms
             </h1>
             <p class="hero-description">
-                Developing innovative approaches at the intersection of fluid mechanics and machine learning to enhance energy efficiency and thermal management in engineering systems.
+                Pioneering novel methodologies at the confluence of fundamental fluid dynamics, machine learning, and HDR-driven insights to architect energy-efficient and thermally optimized engineering systems.
             </p>
             <div class="hero-btns">
                 <a href="#research" class="btn">View Research</a>
-                <a href="https://sdrive.cnrs.fr/s/4wJr3zABm2RZgCG" class="btn" target="_blank">Download HDR Manuscript</a>
+                <a href="https://sdrive.cnrs.fr/s/GAwHTNBaii3mpjW" class="btn" target="_blank">Explore HDR Highlights</a>
                 <a href="resume.html" class="btn" target="_blank">View Complete CV</a>
             </div>
         </div>
@@ -60,6 +63,30 @@
         </a>
     </section>
 
+<!-- Research Motivation Section -->
+    <section id="research-motivation" class="research-motivation foldable-section expanded">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research Motivation</h2>
+                <button class="section-toggle-button" aria-expanded="true" aria-controls="research-motivation-content">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="research-motivation-content">
+                <p>My research is driven by the critical need to enhance energy efficiency and reduce environmental impact across various engineering and natural systems. Wall-bounded turbulent flows, prevalent in applications from transportation to energy generation, are characterized by high friction drag and complex heat transfer mechanisms. Understanding and controlling these multi-scale phenomena is paramount for developing innovative solutions. Specifically, my work aims to unravel the intricate dynamics of turbulence to devise strategies for significant drag reduction, thereby lowering fuel consumption and emissions, and to optimize heat transfer processes, crucial for improving the performance of systems like heat exchangers in solar energy applications and advanced engine designs. By integrating high-fidelity simulations, experimental insights, and data-driven approaches, the ultimate goal is to translate fundamental discoveries into tangible benefits for a more sustainable future.</p>
+                <div class="motivation-images">
+                    <figure>
+                        <img src="images/index_page/drag.webp" alt="Illustration of drag reduction concepts in turbulent flow" style="max-width: 100%; height: auto;">
+                        <figcaption>Conceptual illustration of drag reduction mechanisms.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/index_page/heat.webp" alt="Illustration of heat transfer enhancement in fluid dynamics" style="max-width: 100%; height: auto;">
+                        <figcaption>Conceptual illustration of heat transfer enhancement.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- About Section (Foldable & Enhanced) -->
     <section id="about" class="about foldable-section expanded">
         <div class="container">
@@ -73,7 +100,6 @@
                 <div class="about-intro-text">
                     <p>I am a <span class="text-primary">Chargé de Recherche</span> (Tenured Researcher) at the <span class="text-primary">French National Centre for Scientific Research (CNRS)</span>, based at the <span class="text-primary">Pprime Institute</span> in Poitiers, France. With over 15 years of experience in fluid mechanics research, my work focuses on understanding and controlling wall-bounded turbulent flows to improve energy efficiency and thermal management in various engineering applications.</p>
                 </div>
-
                 <div class="profile-section">
                     <div class="profile-content">
                         <div class="profile-image">
@@ -94,11 +120,14 @@
                                 <div class="expertise-tags">
                                     <span>Fluid Mechanics</span>
                                     <span>Wall-bounded Turbulence</span>
-                                    <span>Computational Fluid Dynamics</span>
-                                    <span>Machine Learning</span>
-                                    <span>Flow Control</span>
-                                    <span>Heat Transfer</span>
-                                    <span>Reduced-Order Modelling</span>
+                                    <span>Computational Fluid Dynamics (CFD)</span>
+                                    <span>Machine Learning & AI</span>
+                                    <span>Flow Control & Optimisation</span>
+                                    <span>Heat Transfer Enhancement</span>
+                                    <span>Reduced-Order Modelling (ROM)</span>
+                                    <span>High-Fidelity Simulations (DNS/LES)</span>
+                                    <span>Scientific Leadership</span>
+                                    <span>HDR Supervision & Mentoring</span>
                                 </div>
                             </div>
 
@@ -122,6 +151,50 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HDR Highlights / Research Vision Section -->
+    <section id="hdr-vision" class="hdr-vision-section foldable-section expanded">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research Leadership & Vision (HDR)</h2>
+                <button class="section-toggle-button" aria-expanded="true" aria-controls="hdr-vision-content">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <div class="section-content" id="hdr-vision-content">
+                <div class="hdr-intro-text">
+                    <p>My Habilitation à Diriger des Recherches (HDR) encapsulates a significant body of work, reflecting a mature research program and a forward-looking vision for fluid mechanics. It underscores my contributions to understanding multi-scale turbulence, developing innovative control strategies, and integrating machine learning for deeper physical insights and practical applications.</p>
+                    <p>Key themes from my HDR include the nuanced interplay of large- and small-scale structures in wall-bounded flows, the strategic manipulation of these dynamics for enhanced thermal-fluid performance, and the development of data-driven frameworks that bridge fundamental research with engineering solutions.</p>
+                </div>
+
+                <div class="hdr-key-achievements">
+                    <h3>Key Contributions & Insights from HDR</h3>
+                    <ul>
+                        <li><i class="fas fa-atom fa-fw"></i> Advanced understanding of scale interactions in turbulent flows.</li>
+                        <li><i class="fas fa-cogs fa-fw"></i> Novel methodologies for flow control and drag reduction.</li>
+                        <li><i class="fas fa-brain fa-fw"></i> Pioneering use of Machine Learning for turbulence modelling and analysis.</li>
+                        <li><i class="fas fa-chart-line fa-fw"></i> Development of predictive models for complex fluid systems.</li>
+                        <li><i class="fas fa-seedling fa-fw"></i> Mentorship and supervision leading to impactful research outcomes.</li>
+                    </ul>
+                </div>
+
+                <div class="future-directions">
+                    <h4>Future Research Directions</h4>
+                    <p>Building on this foundation, my future research will focus on:</p>
+                    <ul>
+                        <li>Developing next-generation, AI-augmented turbulence models for high-Reynolds number industrial applications.</li>
+                        <li>Exploring adaptive and real-time flow control systems leveraging reinforcement learning for optimal energy efficiency.</li>
+                        <li>Investigating multi-physics phenomena where turbulence interacts with other physical processes (e.g., combustion, phase change).</li>
+                        <li>Championing open science practices and collaborative research to tackle grand challenges in fluid mechanics.</li>
+                    </ul>
+                    <p>The goal is to translate fundamental discoveries into tangible benefits for society, particularly in sustainable energy and advanced manufacturing.</p>
+                </div>
+                 <div class="hero-btns" style="margin-top: 30px; justify-content: flex-start;">
+                    <a href="https://sdrive.cnrs.fr/s/GAwHTNBaii3mpjW" class="btn" target="_blank">Explore Full HDR Manuscript</a>
                 </div>
             </div>
         </div>
@@ -330,7 +403,25 @@
                 <div class="research-grid">
                     <div class="research-card">
                         <div class="research-card-img">
-                             <img src="images/research/fig_1_1_zoology.png" alt="Visualisation of wall-bounded turbulence structures">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">
+                                <img src="image_NW/pics/nw0.svg" alt="Wall-bounded turbulence structure visualization 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw1.svg" alt="Wall-bounded turbulence structure visualization 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw2.svg" alt="Wall-bounded turbulence structure visualization 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="image_NW/pics/nw3.jpg" alt="Wall-bounded turbulence structure visualization 4">
+                            </div>
+                            <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
+                            <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+                            <div class="carousel-dots">
+                                <!-- Dots will be generated by JS -->
+                            </div>
+                        </div>
                         </div>
                         <div class="research-card-content">
                             <h3>Wall-bounded Turbulence</h3>
@@ -340,7 +431,19 @@
                     </div>
                     <div class="research-card">
                         <div class="research-card-img">
-                            <img src="images/research/heat_transfer_enhancement.png" alt="Visualisation of heat transfer enhancement concept">
+                            <div class="carousel-container" id="drht-carousel">
+                                <div class="carousel-slide active">
+                                    <img src="DRHT_Carousel_Figures/DR_Mechanism.jpg" alt="Drag Reduction Mechanism Visualization">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="DRHT_Carousel_Figures/DR_Results.jpg" alt="Drag Reduction Results Graph">
+                                </div>
+                                <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+                                <div class="carousel-dots">
+                                    <!-- Dots will be generated by JS -->
+                                </div>
+                            </div>
                         </div>
                         <div class="research-card-content">
                             <h3>Drag Reduction & Heat Transfer</h3>
@@ -350,7 +453,22 @@
                     </div>
                     <div class="research-card">
                         <div class="research-card-img">
-                             <img src="images/research/fig_8_6_ROM_Framework.png" alt="Framework for Machine Learning in Fluid Dynamics">
+                            <div class="carousel-container" id="ml-carousel">
+                                <div class="carousel-slide active">
+                                    <img src="images/research/fig_5_1_AE_concept.png" alt="Autoencoder Concept for Fluid Dynamics">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/research/fig_8_5_ML_paradigm.png" alt="Machine Learning Paradigm in Research">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/research/fig_8_11_AE_Clustering_ROM.png" alt="Autoencoder Clustering for Reduced Order Models">
+                                </div>
+                                <button class="carousel-prev" aria-label="Previous slide">&#10094;</button>
+                                <button class="carousel-next" aria-label="Next slide">&#10095;</button>
+                                <div class="carousel-dots">
+                                    <!-- Dots will be generated by JS -->
+                                </div>
+                            </div>
                         </div>
                         <div class="research-card-content">
                             <h3>Machine Learning in Fluid Dynamics</h3>
@@ -457,6 +575,7 @@
                 </button>
             </div>
             <div class="section-content" id="methodologies-content">
+                <p class="section-intro-text" style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">My research leverages a synergistic combination of cutting-edge computational techniques, sophisticated data analysis, and innovative machine learning approaches to unravel the complexities of turbulent flows and devise effective control strategies.</p>
                 <div class="methodology-grid">
                     <div class="methodology-item">
                         <div class="methodology-icon">
@@ -621,6 +740,7 @@
         </div>
     </section>
 
+</main>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -660,6 +780,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="carousel.js"></script>
 
 </body>
 </html>
