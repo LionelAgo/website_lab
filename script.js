@@ -1,8 +1,27 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Back to Top Button
+    const backToTopButton = document.querySelector('.back-to-top');
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('#nav-links-mobile');
     
     if (hamburger) {
         hamburger.addEventListener('click', () => {
@@ -233,9 +252,43 @@ function setupCarousels() {
         }
         
         updateButtons(); // Set initial button state
+
+            // Handle broken images within carousel slides
+            slides.forEach(slide => {
+                const imagesInSlide = slide.querySelectorAll('img');
+                imagesInSlide.forEach(img => {
+                    const originalSrc = img.getAttribute('src'); // Useful for logging
+
+                    img.onerror = function() {
+                        // 'this' refers to the img element
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'placeholder-image';
+
+                        if (this.parentNode && this.parentNode.contains(this)) {
+                            this.parentNode.replaceChild(placeholder, this);
+                        }
+                        // console.warn('Replaced broken image with placeholder via onerror:', originalSrc);
+                    };
+
+                    // Handle images that might already be broken when the script runs
+                    // Check if the image has attempted to load (complete), failed (naturalWidth is 0),
+                    // and actually has a src attribute.
+                    if (img.complete && img.naturalWidth === 0 && originalSrc) {
+                        // If it's already broken and hasn't been replaced by a concurrent onerror,
+                        // replace it directly. Check tagName to be sure it's still an IMG.
+                        if (img.tagName === 'IMG' && img.parentNode && img.parentNode.contains(img)) {
+                            const placeholder = document.createElement('div');
+                            placeholder.className = 'placeholder-image';
+                            img.parentNode.replaceChild(placeholder, img);
+                            // console.warn('Replaced already broken image directly:', originalSrc);
+                        }
+                    }
+                });
+            });
     });
     
     // Preload images to prevent display issues
+    /*
     const carouselImages = document.querySelectorAll('.carousel-slide img');
     carouselImages.forEach(img => {
         const imgSrc = img.getAttribute('src');
@@ -244,6 +297,7 @@ function setupCarousels() {
             preloadImg.src = imgSrc;
         }
     });
+    */
 }
 
 // Publication Statistics Charts

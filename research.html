@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -149,12 +149,6 @@
             overflow: hidden;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .carousel {
-            display: flex;
-            position: relative;
-            transition: transform 0.5s ease-in-out;
         }
 
         .carousel-slide {
@@ -512,22 +506,25 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/fig_1_1_zoology.png" alt="Wall Turbulence Zoology"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-chart-line\'></i><div>Wall Turbulence Zoology</div><div>Illustration of different turbulent structures at various scales</div></div>'">
+                                        <img src="images/research/fig_1_1_zoology.png" alt="Wall Turbulence Zoology">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_1_6_puzzle.png" alt="Conceptual Puzzle of Wall Turbulence"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-puzzle-piece\'></i><div>Conceptual Puzzle of Wall Turbulence</div><div>Visualization showing interaction between different turbulent scales</div></div>'">
+                                        <img src="images/research/fig_1_6_puzzle.png" alt="Conceptual Puzzle of Wall Turbulence">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/LS1.PNG" alt="Multi-Scale Puzzle LS1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/LS2.PNG" alt="Multi-Scale Puzzle LS2">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Turbulence "zoology" and conceptual puzzle visualization showing how different structures (streaks, attached eddies, super-streaks) populate the boundary layer at increasing Reynolds numbers.</p>
                         </div>
@@ -536,22 +533,28 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/fig_6_1_AE_concept.png" alt="Conceptual view of Attached Eddy Hypothesis"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>Attached Eddy Hypothesis Concept</div><div>Visual representation of the classical attached eddy model</div></div>'">
+                                        <img src="images/research/fig_6_1_AE_concept.png" alt="Conceptual view of Attached Eddy Hypothesis">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_6_17_revised_AEH.png" alt="Revised Attached Eddy Hypothesis"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>Revised Attached Eddy Hypothesis</div><div>Illustration of the extended model explaining both logarithmic and plateau regions</div></div>'">
+                                        <img src="images/research/fig_6_17_revised_AEH.png" alt="Revised Attached Eddy Hypothesis">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/AE1.PNG" alt="Attached Eddy Hypothesis AE1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/AE2.PNG" alt="Attached Eddy Hypothesis AE2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/AE3.PNG" alt="Attached Eddy Hypothesis AE3">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Classical and revised Attached Eddy Hypothesis models, showing how my expanded model explains both logarithmic decay and plateau regions in energy profiles.</p>
                         </div>
@@ -587,22 +590,31 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                         <img src="images/research/fig_2_1_control_map.png" alt="Control Map for Spanwise Oscillations"
-                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-map\'></i><div>Control Map for Spanwise Oscillations</div><div>Parameter space showing regions of drag reduction and increase</div></div>'">
+                                        <img src="images/research/fig_2_1_control_map.png" alt="Control Map for Spanwise Oscillations">
                                     </div>
                                     <div class="carousel-slide">
-                                         <img src="images/research/fig_2_32_DR_mechanism.png" alt="Drag Reduction Mechanism Sketch"
-                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-draw-polygon\'></i><div>Drag Reduction Mechanism Sketch</div><div>Conceptual representation of vorticity dynamics during control</div></div>'">
+                                        <img src="images/research/fig_2_32_DR_mechanism.png" alt="Drag Reduction Mechanism Sketch">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/DR1.PNG" alt="Drag Reduction Figure DR1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/DR2.PNG" alt="Drag Reduction Figure DR2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/DR3.PNG" alt="Drag Reduction Figure DR3">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/DR4.PNG" alt="Drag Reduction Figure DR4">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Control parameter map showing regions of drag reduction (DR) and drag increase (DI), and conceptual sketch of the vorticity dynamics responsible for drag reduction.</p>
                         </div>
@@ -611,17 +623,19 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                         <img src="images/research/heat_transfer_enhancement.png" alt="Heat Transfer Enhancement"
-                                              onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-temperature-high\'></i><div>Heat Transfer Enhancement</div><div>Visualization of enhanced heat transfer through wall oscillation</div></div>'">
+                                         <img src="images/research/LSC1.PNG" alt="Flow Control LSC1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                         <img src="images/research/LSC2.PNG" alt="Flow Control LSC2">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Visualization of improved heat transfer capability achieved through optimized wall oscillation parameters, demonstrating the breaking of Reynolds analogy.</p>
                         </div>
@@ -656,27 +670,22 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/fig_4_14_modulation_concept.png" alt="Modulation Concept Schematic"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-wave-square\'></i><div>Modulation Concept Schematic</div><div>Visual representation of amplitude modulation mechanism</div></div>'">
+                                        <img src="images/research/fig_4_14_modulation_concept.png" alt="Modulation Concept Schematic">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_4_30_LS_effects_concept.png" alt="LS Effects Concept"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-arrows-alt\'></i><div>Large-Scale Effects Concept</div><div>Illustration of how large scales influence near-wall turbulence</div></div>'">
+                                        <img src="images/research/fig_4_30_LS_effects_concept.png" alt="LS Effects Concept">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_5_17_QSH_concept.png" alt="Quasi-Steady Hypothesis Concept"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-balance-scale\'></i><div>Quasi-Steady Hypothesis Concept</div><div>Visualisation of quasi-steady scaling principle</div></div>'">
+                                        <img src="images/research/fig_5_17_QSH_concept.png" alt="Quasi-Steady Hypothesis Concept">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Schematics illustrating modulation, large-scale (LS) effects, and the Quasi-Steady Hypothesis concepts that govern scale interactions in wall turbulence.</p>
                         </div>
@@ -685,17 +694,19 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/multivariate_pdf_analysis.png" alt="Multivariate PDF Analysis"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-chart-bar\'></i><div>Multivariate PDF Analysis</div><div>Statistical approach to analysing complex scale interactions</div></div>'">
+                                        <img src="images/research/QS1.PNG" alt="Multivariate PDF Analysis">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/QS2.PNG" alt="Scale Interaction QS2">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Novel multivariate joint PDF analysis revealing complex scale interactions and their statistical signatures in turbulent flows.</p>
                         </div>
@@ -730,22 +741,19 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/fig_5_1_AE_concept.png" alt="Auto-Encoder Concept"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-brain\'></i><div>Auto-Encoder Concept</div><div>Diagram showing encoding-decoding architecture for turbulence analysis</div></div>'">
+                                        <img src="images/research/fig_5_1_AE_concept.png" alt="Auto-Encoder Concept">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_8_5_ML_paradigm.png" alt="Machine Learning Paradigm Shift"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-sitemap\'></i><div>Machine Learning Paradigm Shift</div><div>Visualization of data-driven approach to fluid mechanics research</div></div>'">
+                                        <img src="images/research/fig_8_5_ML_paradigm.png" alt="Machine Learning Paradigm Shift">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Auto-Encoder methodology for extracting large-scale structures and ML paradigm shift in fluid mechanics research.</p>
                         </div>
@@ -754,22 +762,19 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/fig_8_6_ROM_Framework.png" alt="ROM Framework"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>ROM Framework</div><div>5-step approach to reduced-order model development</div></div>'">
+                                        <img src="images/research/fig_8_6_ROM_Framework.png" alt="ROM Framework">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/fig_8_11_AE_Clustering_ROM.png" alt="AE Clustering ROM"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-network-wired\'></i><div>AE Clustering ROM</div><div>Clustering approach for identifying flow regimes and state transitions</div></div>'">
+                                        <img src="images/research/fig_8_11_AE_Clustering_ROM.png" alt="AE Clustering ROM">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">ROM framework and AE clustering approach for building data-driven reduced-order models.</p>
                         </div>
@@ -806,22 +811,31 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/thermal_transport_concept.png" alt="Thermal Transport Concept"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-fire\'></i><div>Thermal Transport Concept</div><div>Visualisation of thermal boundary layer control concepts</div></div>'">
+                                        <img src="images/research/thermal_transport_concept.png" alt="Thermal Transport Concept">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/reynolds_analogy_breaking.png" alt="Breaking Reynolds Analogy"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-unlink\'></i><div>Breaking Reynolds Analogy</div><div>Demonstration of decoupling between heat and momentum transfer</div></div>'">
+                                        <img src="images/research/reynolds_analogy_breaking.png" alt="Breaking Reynolds Analogy">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/HT1.PNG" alt="Heat Transfer Figure HT1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/HT2.PNG" alt="Heat Transfer Figure HT2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/HT3.PNG" alt="Heat Transfer Figure HT3">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/research/HT4.PNG" alt="Heat Transfer Figure HT4">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Conceptual representations of thermal boundary layer control and the breaking of Reynolds analogy through optimised control parameters.</p>
                         </div>
@@ -857,22 +871,19 @@
                             <div class="carousel-wrapper">
                                 <div class="carousel-slides">
                                     <div class="carousel-slide active">
-                                        <img src="images/research/secondary_flow_concept.png" alt="Secondary Flow Concept"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-wind\'></i><div>Secondary Flow Concept</div><div>Illustration of controlled Görtler vortices for heat transfer enhancement</div></div>'">
+                                        <img src="images/research/secondary_flow_concept.png" alt="Secondary Flow Concept">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/research/gortler_vortices.png" alt="Görtler Vortices"
-                                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-vortex\'></i><div>Görtler Vortices</div><div>Visualisation of vortex structures over concave surfaces</div></div>'">
+                                        <img src="images/research/gortler_vortices.png" alt="Görtler Vortices">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-controls">
-                                <button class="carousel-prev">&lt;</button>
+                                <button class="carousel-prev"><</button>
                                 <div class="carousel-indicators">
-                                    <span class="carousel-indicator active"></span>
-                                    <span class="carousel-indicator"></span>
+                                    <!-- JS will populate indicators here -->
                                 </div>
-                                <button class="carousel-next">&gt;</button>
+                                <button class="carousel-next">></button>
                             </div>
                             <p class="image-note">Conceptual illustration of controlled Görtler vortices for heat transfer enhancement and their application in heat exchanger design.</p>
                         </div>
@@ -907,7 +918,7 @@
                         </ul>
                     </div>
                     <div class="research-images">
-                        <img src="images/research/anr_inference.png" alt="ANR INFERENCE Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-project-diagram\'></i><div>ANR INFERENCE Project</div><div>Conceptual representation of the project\'s modelling approach</div></div>'">
+                        <img src="images/research/anr_inference.png" alt="ANR INFERENCE Project Visualization">
                         <p class="image-note">Conceptual representation of the INFERENCE project's modelling approach.</p>
                     </div>
                 </div>
@@ -932,7 +943,7 @@
                         </ul>
                     </div>
                     <div class="research-images">
-                        <img src="images/research/anr_solaire.png" alt="ANR SOLAIRE Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-solar-panel\'></i><div>ANR SOLAIRE Project</div><div>Visualization of solar receiver optimization approach</div></div>'">
+                        <img src="images/research/anr_solaire.png" alt="ANR SOLAIRE Project Visualization">
                         <p class="image-note">Conceptual visualization of the SOLAIRE project's approach to solar receiver optimisation.</p>
                     </div>
                 </div>
@@ -955,7 +966,7 @@
                         </ul>
                     </div>
                     <div class="research-images">
-                        <img src="images/research/anr_mufdd.png" alt="ANR MUFDD Project Visualization" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'placeholder-image\'><i class=\'fas fa-city\'></i><div>ANR MUFDD Project</div><div>Urban canopy flow modelling approach visualization</div></div>'">
+                        <img src="images/research/anr_mufdd.png" alt="ANR MUFDD Project Visualization">
                         <p class="image-note">Urban canopy flow modelling approach in the MUFDD project.</p>
                     </div>
                 </div>
@@ -997,6 +1008,24 @@
     </section>
 
     <!-- Footer -->
+<nav class="page-navigation">
+        <div class="container">
+            <a href="index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                <div>
+                    <span class="nav-label">Previous</span>
+                    <span class="nav-title">Home</span>
+                </div>
+            </a>
+            <a href="teams.html" class="nav-link next">
+                <div>
+                    <span class="nav-label">Next</span>
+                    <span class="nav-title">Teams</span>
+                </div>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </nav>
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -1042,4 +1071,4 @@
     <!-- Local script removed as global script.js handles carousels now -->
     <script src="script.js"></script>
 </body>
-</html>
+</html>]]>
