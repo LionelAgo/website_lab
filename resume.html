@@ -947,50 +947,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-        // Mobile navigation toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (hamburger && navLinks) {
-            if (!navLinks.id) {
-                navLinks.id = "nav-links-resume";
-            }
-            hamburger.setAttribute('aria-controls', navLinks.id);
-
-            hamburger.addEventListener('click', () => {
-                const isExpanded = navLinks.classList.toggle('active');
-                hamburger.setAttribute('aria-expanded', isExpanded);
-                const icon = hamburger.querySelector('i');
-                icon.classList.toggle('fa-times', isExpanded);
-                icon.classList.toggle('fa-bars', !isExpanded);
-            });
-        }
-        
-        // Update current year in footer
-        const currentYearElem = document.getElementById('currentYear');
-        if (currentYearElem) {
-            currentYearElem.textContent = new Date().getFullYear();
-        }
-        
-        // Add smooth scroll behavior to items with hash links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href') !== "#") {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100, // Adjust offset for fixed header
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- Common functionality shared across all pages -->
+    <script src="script-common.js"></script>
+    <!-- Resume page specific features -->
+    <script src="script-resume.js"></script>
 </body>
 </html>
