@@ -425,6 +425,87 @@
             }
         }
 
+        /* Additional member profile styles */
+        .member-affiliation {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-affiliation i {
+            color: var(--primary-color);
+        }
+
+        .member-education {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .member-education h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .education-list {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .education-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .education-list li::before {
+            content: '\f19d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+
+        .education-list strong {
+            color: var(--primary-color);
+        }
+
+        .member-research-interests {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .member-research-interests h4 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .research-tag {
+            display: inline-block;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .research-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .members-grid {
                 grid-template-columns: 1fr;
@@ -432,6 +513,10 @@
 
             .team-stat {
                 min-width: 150px;
+            }
+
+            .research-tag {
+                margin-right: 6px;
             }
         }
     </style>
@@ -594,45 +679,66 @@
                     </div>
                     <div class="member-content">
                         <h3 class="member-name">Niccolò Tonioni</h3>
-                        <p class="member-position">PhD Student</p>
-                        <span class="member-duration">2023-2026</span>
+                        <p class="member-position">PhD Candidate</p>
+                        <span class="member-duration">2023-Present</span>
+                        <p class="member-affiliation"><i class="fas fa-building"></i> Pprime Institute, Université de Poitiers</p>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: EUR Intree/KTH</p>
 
+                        <div class="member-education">
+                            <h4>Education</h4>
+                            <ul class="education-list">
+                                <li><strong>Master's Degree</strong> - Université de Liège (2022)<br>Simulation of wingtip vortex flow with Linear Eddie Viscosity turbulence models</li>
+                                <li><strong>Internship</strong> - Von Karman Institute (VKI)</li>
+                            </ul>
+                        </div>
+
                         <div class="member-project">
-                            <h4>Project Summary</h4>
-                            <p>Reduced order modelling of turbulent flows using machine learning methods. This project aims to develop innovative data-driven methods to extract the essential characteristics of turbulent flows and project them into a reduced space, particularly using variational autoencoders and neural networks.</p>
+                            <h4>Research Focus</h4>
+                            <p>Deep learning and machine learning for computational fluid dynamics. Developing data-driven reduced-order models using variational autoencoders and neural networks to predict turbulent flow behavior. His work focuses on extracting essential characteristics of turbulent flows and projecting them into reduced spaces, with applications to flow control and vortex-induced vibrations.</p>
                         </div>
 
                         <div class="member-achievements">
-                            <h4>Achievements</h4>
+                            <h4>Key Contributions</h4>
                             <ul class="achievements-list">
-                                <li>Developed novel β-Variational Autoencoder approaches for low-order dynamical modelling</li>
-                                <li>Combined transformer-based architecture with autoencoders for turbulence modelling</li>
-                                <li>Presented research at multiple international conferences</li>
+                                <li><strong>VIVALDy Framework:</strong> Developed a hybrid generative reduced-order model combining β-Variational Autoencoders with adversarial loss for vortex-induced vibrations</li>
+                                <li>Novel deep learning approaches for flow state reconstruction from minimal sensor measurements</li>
+                                <li>Transformer-based architectures integrated with autoencoders for advanced turbulence modeling</li>
+                                <li>Expertise in linear and nonlinear projection-based methods for flow analysis</li>
                             </ul>
                         </div>
 
                         <div class="member-publications">
-                            <h4>Conferences</h4>
+                            <h4>Recent Presentations</h4>
                             <ul class="publications-list">
                                 <li>
-                                    <p class="publication-title"><a href="#" target="_blank">VIVALDy: A novel β-Variational Autoencoder approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations</a></p>
+                                    <p class="publication-title">VIVALDy: A Hybrid Generative Reduced-Order Model for Turbulent Flows, Applied to Vortex-Induced Vibrations</p>
                                     <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
                                 </li>
                                 <li>
-                                    <p class="publication-title"><a href="#" target="_blank">β-Variational autoencoder and transformer-based data-driven modeling of near-wall turbulence</a></p>
-                                    <p class="publication-journal">EuroMech/ERCOFTAC joint conference on Data-Driven Fluid Dynamics, London, UK (April 2025)</p>
+                                    <p class="publication-title">β-Variational Autoencoder and Transformer-Based Data-Driven Modeling of Near-Wall Turbulence</p>
+                                    <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics, London, UK (April 2025)</p>
                                 </li>
                                 <li>
-                                    <p class="publication-title"><a href="#" target="_blank">Reduced-order Modeling of Experimental Turbulent Flows: from linear projection-based methods to autoencoders</a></p>
-                                    <p class="publication-journal">GDR I-GAIA, Paris, France (December 2024)</p>
+                                    <p class="publication-title">Reduced-Order Modeling of Experimental Turbulent Flows: From Linear Projection-Based Methods to Autoencoders</p>
+                                    <p class="publication-journal">GDR I-GAIA Workshop, Paris, France (December 2024)</p>
                                 </li>
                             </ul>
+                        </div>
+
+                        <div class="member-research-interests">
+                            <h4>Research Interests</h4>
+                            <p><span class="research-tag">Deep Learning</span> <span class="research-tag">Autoencoders</span> <span class="research-tag">Turbulence Modeling</span> <span class="research-tag">Reduced-Order Models</span> <span class="research-tag">Neural Networks</span> <span class="research-tag">Flow Control</span></p>
                         </div>
 
                         <div class="member-socials">
                             <a href="https://niccolotonioni.github.io" target="_blank" class="social-link" title="Personal Website">
                                 <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/niccolò-tonioni-22a079211/" target="_blank" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://gitlab.onelab.info/niccolo.tonioni" target="_blank" class="social-link" title="GitLab">
+                                <i class="fab fa-gitlab"></i>
                             </a>
                             <a href="mailto:niccolo.tonioni@univ-poitiers.fr" class="social-link" title="Email">
                                 <i class="fas fa-envelope"></i>
