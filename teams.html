@@ -257,6 +257,13 @@
             color: var(--text-light);
         }
 
+        .publication-authors {
+            font-size: 13px;
+            color: var(--primary-color);
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
         .member-socials {
             display: flex;
             gap: 15px;
@@ -506,6 +513,82 @@
             color: white;
         }
 
+        .member-resources {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .member-resources h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-resources h4 i {
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .resource-item {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .resource-item:hover {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(100, 181, 246, 0.2) 100%);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .resource-link i {
+            color: var(--accent-color);
+            font-size: 18px;
+        }
+
+        .resource-link:hover {
+            color: var(--accent-color);
+        }
+
+        .resource-link:hover i {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .resource-description {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 0;
+            padding-left: 28px;
+        }
+
         @media (max-width: 768px) {
             .members-grid {
                 grid-template-columns: 1fr;
@@ -517,6 +600,10 @@
 
             .research-tag {
                 margin-right: 6px;
+            }
+
+            .resource-item:hover {
+                transform: translateX(3px);
             }
         }
     </style>
@@ -711,6 +798,11 @@
                             <h4>Recent Presentations</h4>
                             <ul class="publications-list">
                                 <li>
+                                    <p class="publication-title">Data-Driven Modeling of Near-Wall Turbulence Using β-Variational Autoencoder, Transformers, and Adversarial Loss</p>
+                                    <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
+                                    <p class="publication-journal">11th International Symposium on Turbulence, Heat and Mass Transfer, Tokyo, Japan (July 2025)</p>
+                                </li>
+                                <li>
                                     <p class="publication-title">VIVALDy: A Hybrid Generative Reduced-Order Model for Turbulent Flows, Applied to Vortex-Induced Vibrations</p>
                                     <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
                                 </li>
@@ -728,6 +820,16 @@
                         <div class="member-research-interests">
                             <h4>Research Interests</h4>
                             <p><span class="research-tag">Deep Learning</span> <span class="research-tag">Autoencoders</span> <span class="research-tag">Turbulence Modeling</span> <span class="research-tag">Reduced-Order Models</span> <span class="research-tag">Neural Networks</span> <span class="research-tag">Flow Control</span></p>
+                        </div>
+
+                        <div class="member-resources">
+                            <h4><i class="fas fa-star"></i> Available Resources</h4>
+                            <div class="resource-item">
+                                <a href="https://niccolotonioni.github.io/vivaldy.github.io/" target="_blank" class="resource-link">
+                                    <i class="fas fa-cube"></i> VIVALDy Project
+                                </a>
+                                <p class="resource-description">Interactive visualization and documentation of the VIVALDy framework - A hybrid generative reduced-order model for turbulent flows</p>
+                            </div>
                         </div>
 
                         <div class="member-socials">
