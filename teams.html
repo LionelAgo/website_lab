@@ -738,6 +738,311 @@
                 transform: translateX(3px);
             }
         }
+
+        /* Organigram Styles */
+        .organigram-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .organigram {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px 20px;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .org-level-1 {
+            margin-bottom: 30px;
+        }
+
+        .org-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 180px;
+            max-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+
+        .org-member:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(26, 35, 126, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+        }
+
+        .org-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 15px 15px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .org-member:hover::before {
+            opacity: 1;
+        }
+
+        .org-member-photo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .org-member:hover .org-member-photo {
+            border-color: var(--accent-color);
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .org-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .org-member-info h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .org-member-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .org-connector {
+            background-color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .org-connector-vertical {
+            width: 3px;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        .org-connector-horizontal {
+            height: 3px;
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+
+        /* Member Modal Styles */
+        .member-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .member-modal.show {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            animation: slideDown 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            color: white;
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 15px 15px 0 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            background-color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        #modalMemberDetails {
+            padding: 30px;
+            clear: both;
+        }
+
+        .modal-member-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--background-color);
+        }
+
+        .modal-member-image {
+            flex-shrink: 0;
+        }
+
+        .modal-member-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .modal-member-title h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .modal-member-title p {
+            color: var(--text-light);
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .modal-member-body {
+            line-height: 1.8;
+        }
+
+        .modal-member-body h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .modal-member-body p {
+            margin-bottom: 15px;
+        }
+
+        .modal-member-body ul {
+            margin-left: 20px;
+        }
+
+        .modal-member-body .research-tag {
+            display: inline-block;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid var(--primary-color);
+        }
+
+        @media (max-width: 992px) {
+            .org-level-2 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .modal-member-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .org-level-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .org-member {
+                min-width: 150px;
+            }
+
+            .org-member-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .org-connector-horizontal {
+                width: 95%;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-member-image img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .org-level-2 {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -798,6 +1103,105 @@
             </div>
         </div>
     </section>
+
+    <!-- Team Organigram Section -->
+    <section class="team-section organigram-section">
+        <div class="container">
+            <h2 class="section-title">Team Structure</h2>
+            <p class="section-description">Click on any team member to view their detailed profile</p>
+
+            <div class="organigram">
+                <!-- Team Lead -->
+                <div class="org-level org-level-1">
+                    <div class="org-member" data-member="lionel">
+                        <div class="org-member-photo">
+                            <img src="images/team/lionel_agostini.jpg" alt="Dr. Lionel Agostini">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Dr. Lionel Agostini</h4>
+                            <p>Team Lead</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connector Line -->
+                <div class="org-connector org-connector-vertical"></div>
+                <div class="org-connector org-connector-horizontal"></div>
+
+                <!-- Team Members -->
+                <div class="org-level org-level-2">
+                    <!-- PhD Students -->
+                    <div class="org-member" data-member="lou">
+                        <div class="org-member-photo">
+                            <img src="images/team/lou_guerin.jpg" alt="Lou Guérin">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Lou Guérin</h4>
+                            <p>PhD Student</p>
+                        </div>
+                    </div>
+
+                    <div class="org-member" data-member="niccolo">
+                        <div class="org-member-photo">
+                            <img src="images/team/niccolo_tonioni.jpg" alt="Niccolò Tonioni">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Niccolò Tonioni</h4>
+                            <p>PhD Candidate</p>
+                        </div>
+                    </div>
+
+                    <div class="org-member" data-member="blessing">
+                        <div class="org-member-photo">
+                            <img src="images/team/blessing_akinpelu.jpg" alt="Blessing Akinpelu">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Blessing Akinpelu</h4>
+                            <p>PhD Student</p>
+                        </div>
+                    </div>
+
+                    <div class="org-member" data-member="kushagra">
+                        <div class="org-member-photo">
+                            <img src="images/team/kushagra_saurabh.jpg" alt="Kushagra Saurabh">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Kushagra Saurabh</h4>
+                            <p>PhD Student</p>
+                        </div>
+                    </div>
+
+                    <div class="org-member" data-member="ulrich">
+                        <div class="org-member-photo">
+                            <img src="images/team/Ulrich.jpg" alt="Ulrich Junior">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Ulrich Junior M. K.</h4>
+                            <p>PhD Student (CIFRE)</p>
+                        </div>
+                    </div>
+
+                    <div class="org-member" data-member="nishant">
+                        <div class="org-member-photo">
+                            <img src="images/team/nishant_kumar.jpg" alt="Nishant Kumar">
+                        </div>
+                        <div class="org-member-info">
+                            <h4>Nishant Kumar</h4>
+                            <p>Postdoc Researcher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Detail Modal -->
+    <div id="memberModal" class="member-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalMemberDetails"></div>
+        </div>
+    </div>
 
     <!-- Team Lead Section -->
     <section class="team-section">
@@ -923,16 +1327,6 @@
                                         <p class="publication-journal">EUROMECH COLLOQUIUM 631, Madrid, Spain (March 2024)</p>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <div class="member-resources">
-                            <h4><i class="fas fa-graduation-cap"></i> Thesis</h4>
-                            <div class="resource-item">
-                                <a href="https://sdrive.cnrs.fr/s/TqJtbAj5GFWad6A" target="_blank" class="resource-link">
-                                    <i class="fas fa-file-pdf"></i> PhD Thesis Manuscript
-                                </a>
-                                <p class="resource-description">Defense scheduled for <strong>9 December 2025</strong></p>
                             </div>
                         </div>
 
@@ -1194,16 +1588,6 @@
                         <div class="member-research-interests">
                             <h4>Research Interests</h4>
                             <p><span class="research-tag">Turbulence</span> <span class="research-tag">Heat Transfer</span> <span class="research-tag">Active Control</span> <span class="research-tag">Görtler Instability</span> <span class="research-tag">Plasma Actuators</span> <span class="research-tag">Machine Learning</span> <span class="research-tag">Reduced-Order Models</span> <span class="research-tag">CFD</span></p>
-                        </div>
-
-                        <div class="member-resources">
-                            <h4><i class="fas fa-star"></i> Project Resources</h4>
-                            <div class="resource-item">
-                                <a href="propa/these_CIFRE_description-1.pdf" target="_blank" class="resource-link">
-                                    <i class="fas fa-file-pdf"></i> PhD Project Description
-                                </a>
-                                <p class="resource-description">Complete description of the CIFRE PhD project on thermal transfer optimization through active turbulence control for turbojet engines</p>
-                            </div>
                         </div>
 
                         <div class="member-socials">
