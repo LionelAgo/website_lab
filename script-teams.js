@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Developed machine learning algorithms for control parameter optimisation',
                 'Presented research at multiple international conferences including DLES 14 and EUROMECH COLLOQUIUM 631'
             ],
+            phdDefense: {
+                manuscriptLink: 'https://sdrive.cnrs.fr/s/TqJtbAj5GFWad6A',
+                defenseDate: 'December 9, 2025'
+            },
             socials: [
                 { icon: 'fab fa-orcid', link: 'https://orcid.org/0009-0002-1274-777X', title: 'ORCID' },
                 { icon: 'fas fa-envelope', link: 'mailto:lou.guerin@univ-poitiers.fr', title: 'Email' }
@@ -97,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'Niccolò Tonioni',
             position: 'PhD Candidate',
             duration: '2023-Present',
-            affiliation: 'Pprime Institute, Université de Poitiers',
             funding: 'EUR Intree/KTH',
             image: 'images/team/niccolo_tonioni.jpg',
             project: 'Deep learning and machine learning for computational fluid dynamics. Developing data-driven reduced-order models using variational autoencoders and neural networks to predict turbulent flow behavior. His work focuses on extracting essential characteristics of turbulent flows and projecting them into reduced spaces, with applications to flow control and vortex-induced vibrations.',
@@ -224,6 +227,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>Research Interests</h3>
                 <p>
                     ${data.interests.map(interest => `<span class="research-tag">${interest}</span>`).join('')}
+                </p>
+            `;
+        }
+
+        if (data.phdDefense) {
+            html += `
+                <h3>PhD Defense</h3>
+                <p>
+                    <a href="${data.phdDefense.manuscriptLink}" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">
+                        <i class="fas fa-file-pdf"></i> PhD Manuscript
+                    </a>
+                    <br>
+                    <small style="color: var(--text-light);">Defense scheduled for ${data.phdDefense.defenseDate}</small>
                 </p>
             `;
         }
