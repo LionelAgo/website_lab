@@ -115,14 +115,21 @@
             height: 300px;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .member-img img {
-            width: 100%;
-            height: 100%;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
             object-fit: cover;
             object-position: center;
             transition: transform 0.5s ease;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .member-card:hover .member-img img {
@@ -1161,7 +1168,7 @@
                             <img src="images/team/nishant_kumar.jpg" alt="Nishant Kumar">
                         </div>
                         <div class="org-member-info">
-                            <h4>Nishant Kumar</h4>
+                            <h4>Dr. Nishant Kumar</h4>
                             <p>Postdoc Researcher</p>
                             <p class="org-member-period">2023-2025</p>
                         </div>
@@ -1180,7 +1187,7 @@
                         </div>
                         <div class="org-member-info">
                             <h4>Lou Guérin</h4>
-                            <p>PhD Student</p>
+                            <p>PhD Candidate</p>
                             <p class="org-member-period">2022-2025</p>
                         </div>
                     </div>
@@ -1192,7 +1199,7 @@
                         <div class="org-member-info">
                             <h4>Niccolò Tonioni</h4>
                             <p>PhD Candidate</p>
-                            <p class="org-member-period">2023-Present</p>
+                            <p class="org-member-period">2023-2026</p>
                         </div>
                     </div>
 
@@ -1202,7 +1209,7 @@
                         </div>
                         <div class="org-member-info">
                             <h4>Blessing Akinpelu</h4>
-                            <p>PhD Student</p>
+                            <p>PhD Candidate</p>
                             <p class="org-member-period">2024-2027</p>
                         </div>
                     </div>
@@ -1213,7 +1220,7 @@
                         </div>
                         <div class="org-member-info">
                             <h4>Kushagra Saurabh</h4>
-                            <p>PhD Student</p>
+                            <p>PhD Candidate</p>
                             <p class="org-member-period">2025-2028</p>
                         </div>
                     </div>
@@ -1224,7 +1231,7 @@
                         </div>
                         <div class="org-member-info">
                             <h4>Ulrich Junior M. K.</h4>
-                            <p>PhD Student (CIFRE)</p>
+                            <p>PhD Candidate (CIFRE)</p>
                             <p class="org-member-period">2025-2029</p>
                         </div>
                     </div>
@@ -1254,7 +1261,14 @@
                     <p class="position">Chargé de Recherche HDR - CNRS - Section 10</p>
                     <p>I am a researcher in fluid mechanics with over 15 years of experience in the study and modelling of wall-bounded turbulent flows. My expertise is built on an interdisciplinary approach that combines fundamental theory of turbulent flows, high-fidelity numerical code development, and implementation of advanced machine learning methods.</p>
                     <p>My work aims to develop robust predictive models and innovative control strategies to optimise fluid systems performance, leveraging deep knowledge of turbulence physics combined with machine learning algorithms capabilities. This approach directly contributes to addressing current energy and environmental challenges by improving efficiency in transport systems and industrial heat exchangers.</p>
-                    <p>Currently, I lead the <span class="highlight">ANR JCJC INFERENCE</span> project on modelling near-wall turbulence at high Reynolds numbers, and co-supervise multiple PhD students working on topics ranging from heat transfer enhancement to reduced-order modelling using machine learning techniques.</p>
+                    <p>I currently lead and participate in several interdisciplinary research projects:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li><span class="highlight">ANR PRC BENEFIT (2026-2029)</span> - Co-P.I.: Development of an innovative framework for active flow control, combining stability analysis and machine learning to exploit natural instabilities for optimising heat transfer and reducing drag (Consortium: Pprime, IUSTI, DynFluid)</li>
+                        <li><span class="highlight">Région Nouvelle-Aquitaine CHARGER (2025-2028)</span> - P.I.: Enhancement of convective heat transfer through multi-scale control of near-wall turbulence (wall oscillations + Görtler vortices), integrating high-fidelity simulations, reduced-order modelling, and machine learning</li>
+                        <li><span class="highlight">ANR JCJC INFERENCE (2024-2028)</span> - P.I.: Development of reduced-order models for turbulent boundary layer flows with Reynolds number and heating effects</li>
+                        <li><span class="highlight">ANR MUFDD (2023-2027)</span>: Modelling of urban canopy flows using data-driven approaches, developing estimators and reduced-order models from simulations and experiments</li>
+                        <li><span class="highlight">ANR SOLAIRE (2022-2026)</span> - Co-P.I.: Improvement of high-temperature solar receiver efficiency through active control of near-wall turbulence</li>
+                    </ul>
                     <div class="member-socials">
                         <a href="https://orcid.org/0000-0001-8305-5493" target="_blank" class="social-link" title="ORCID">
                             <i class="fab fa-orcid"></i>
@@ -1279,6 +1293,71 @@
         <div class="container">
             <h2 class="section-title">Current Team Members</h2>
             <div class="members-grid">
+                <!-- Nishant Kumar -->
+                <div class="member-card">
+                    <div class="member-img">
+                        <img src="images/team/nishant_kumar.jpg" alt="Nishant Kumar">
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Dr. Nishant Kumar</h3>
+                        <p class="member-position">Postdoctoral Researcher</p>
+                        <span class="member-duration">2023-2025</span>
+                        <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR MUFDD</p>
+
+                        <div class="member-project">
+                            <h4>Project Summary</h4>
+                            <p>Data-driven modelling of urban canopy flows. This research focuses on developing methods to build estimators and reduced-order models from simulation and experimental data, with particular emphasis on urban canopy flow dynamics.</p>
+                        </div>
+
+                        <div class="member-achievements">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Development of advanced data assimilation techniques for maintaining model accuracy in real conditions</li>
+                                <li>Integration of physical knowledge into machine learning algorithm design</li>
+                                <li>Implementation of reduced-order modelling techniques for complex environmental flows</li>
+                            </ul>
+                        </div>
+
+                        <div class="member-conferences foldable-conferences">
+                            <div class="conferences-header">
+                                <h4>
+                                    <i class="fas fa-microphone"></i> Conferences
+                                    <span class="conferences-count">2</span>
+                                </h4>
+                                <button class="conferences-toggle" aria-expanded="true">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="conferences-content">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title">Deep Learning of SPOD Time-Domain Coefficient Dynamics for Reduced-Order Modeling of Street Canyon Flow</p>
+                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
+                                        <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Spectral Proper Orthogonal Decomposition of Street Canyon Flow Dynamics and Its Application to Time-Domain Reconstruction</p>
+                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
+                                        <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0001-5759-0708" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="https://hal.science/search/index/?q=nishant-kumar&authIdHal_s=nishant-kumar" target="_blank" class="social-link" title="HAL">
+                                <i class="fas fa-book"></i>
+                            </a>
+                            <a href="mailto:nishant.kumar@univ-poitiers.fr" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Lou Guérin -->
                 <div class="member-card">
                     <div class="member-img">
@@ -1286,7 +1365,7 @@
                     </div>
                     <div class="member-content">
                         <h3 class="member-name">Lou Guérin</h3>
-                        <p class="member-position">PhD Student</p>
+                        <p class="member-position">PhD Candidate</p>
                         <span class="member-duration">2022-2025</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR SOLAIRE</p>
 
@@ -1387,7 +1466,7 @@
                     <div class="member-content">
                         <h3 class="member-name">Niccolò Tonioni</h3>
                         <p class="member-position">PhD Candidate</p>
-                        <span class="member-duration">2023-Present</span>
+                        <span class="member-duration">2023-2026</span>
                         <p class="member-affiliation"><i class="fas fa-building"></i> Pprime Institute, Université de Poitiers</p>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: EUR Intree/KTH</p>
 
@@ -1484,7 +1563,7 @@
                     </div>
                     <div class="member-content">
                         <h3 class="member-name">Blessing Akinpelu</h3>
-                        <p class="member-position">PhD Student</p>
+                        <p class="member-position">PhD Candidate</p>
                         <span class="member-duration">2024-2027</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR INFERENCE</p>
 
@@ -1510,71 +1589,6 @@
                     </div>
                 </div>
 
-                <!-- Nishant Kumar -->
-                <div class="member-card">
-                    <div class="member-img">
-                        <img src="images/team/nishant_kumar.jpg" alt="Nishant Kumar">
-                    </div>
-                    <div class="member-content">
-                        <h3 class="member-name">Nishant Kumar</h3>
-                        <p class="member-position">Postdoctoral Researcher</p>
-                        <span class="member-duration">2023-2025</span>
-                        <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: ANR MUFDD</p>
-
-                        <div class="member-project">
-                            <h4>Project Summary</h4>
-                            <p>Data-driven modelling of urban canopy flows. This research focuses on developing methods to build estimators and reduced-order models from simulation and experimental data, with particular emphasis on urban canopy flow dynamics.</p>
-                        </div>
-
-                        <div class="member-achievements">
-                            <h4>Research Focus</h4>
-                            <ul class="achievements-list">
-                                <li>Development of advanced data assimilation techniques for maintaining model accuracy in real conditions</li>
-                                <li>Integration of physical knowledge into machine learning algorithm design</li>
-                                <li>Implementation of reduced-order modelling techniques for complex environmental flows</li>
-                            </ul>
-                        </div>
-
-                        <div class="member-conferences foldable-conferences">
-                            <div class="conferences-header">
-                                <h4>
-                                    <i class="fas fa-microphone"></i> Conferences
-                                    <span class="conferences-count">2</span>
-                                </h4>
-                                <button class="conferences-toggle" aria-expanded="true">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <div class="conferences-content">
-                                <ul class="publications-list">
-                                    <li>
-                                        <p class="publication-title">Deep Learning of SPOD Time-Domain Coefficient Dynamics for Reduced-Order Modeling of Street Canyon Flow</p>
-                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
-                                        <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
-                                    </li>
-                                    <li>
-                                        <p class="publication-title">Spectral Proper Orthogonal Decomposition of Street Canyon Flow Dynamics and Its Application to Time-Domain Reconstruction</p>
-                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
-                                        <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="member-socials">
-                            <a href="https://orcid.org/0000-0001-5759-0708" target="_blank" class="social-link" title="ORCID">
-                                <i class="fab fa-orcid"></i>
-                            </a>
-                            <a href="https://hal.science/search/index/?q=nishant-kumar&authIdHal_s=nishant-kumar" target="_blank" class="social-link" title="HAL">
-                                <i class="fas fa-book"></i>
-                            </a>
-                            <a href="mailto:nishant.kumar@univ-poitiers.fr" class="social-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Kushagra Saurabh -->
                 <div class="member-card">
                     <div class="member-img">
@@ -1582,7 +1596,7 @@
                     </div>
                     <div class="member-content">
                         <h3 class="member-name">Kushagra Saurabh</h3>
-                        <p class="member-position">PhD Student</p>
+                        <p class="member-position">PhD Candidate</p>
                         <span class="member-duration">2025-2028</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: Government</p>
 
@@ -1612,7 +1626,7 @@
                     </div>
                     <div class="member-content">
                         <h3 class="member-name">Ulrich Junior Meukiedje Kamgang</h3>
-                        <p class="member-position">PhD Student (CIFRE)</p>
+                        <p class="member-position">PhD Candidate (CIFRE)</p>
                         <span class="member-duration">2025-2029</span>
                         <p class="member-funding"><i class="fas fa-money-bill-wave"></i> Funding: CIFRE - Safran Aircraft Engines</p>
 
