@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'kushagra': {
             name: 'Kushagra Saurabh',
             position: 'PhD Student',
-            duration: '2024-Present',
+            duration: '2025-2028',
             funding: 'Government',
             image: 'images/team/kushagra_saurabh.jpg',
             project: 'Modelling and Control of Near-Wall Turbulence: From Physical Understanding to Machine Learning Approaches. This research leverages machine learning algorithms to develop predictive models for near-wall turbulence in both incompressible and compressible flows, with dual objectives of reducing drag in transport systems and maximizing heat transfer in thermal applications.',
