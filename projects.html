@@ -177,7 +177,7 @@
         
         .calendar-years {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: repeat(9, 1fr);
             margin-bottom: 30px;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
@@ -636,7 +636,7 @@
                     <div class="projects-stats">
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-flask"></i></div>
-                            <div class="stat-number">3</div>
+                            <div class="stat-number">4</div>
                             <div class="stat-label">ANR Projects</div>
                         </div>
                         <div class="stat-item">
@@ -651,12 +651,12 @@
                         </div>
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-users"></i></div>
-                            <div class="stat-number">14</div>
+                            <div class="stat-number">17</div>
                             <div class="stat-label">Research Partners</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
-                            <div class="stat-number">751k€</div>
+                            <div class="stat-number">1,141k€</div>
                             <div class="stat-label">Total Funding</div>
                         </div>
                     </div>
@@ -715,6 +715,7 @@
                     <div class="year">2027</div>
                     <div class="year">2028</div>
                     <div class="year">2029</div>
+                    <div class="year">2030</div>
                 </div>
                 
                 <div class="calendar-projects">
@@ -762,6 +763,24 @@
                         </div>
                         <a href="#safran" class="project-link" aria-label="View SAFRAN Aircraft Engines project details"></a>
                     </div>
+
+                    <div class="calendar-project" style="grid-column: 5 / 10; background-color: rgba(100, 149, 237, 0.7);">
+                        <div class="project-dot"></div>
+                        <div class="project-info">
+                            <h3>ANR BENEFIT <img src="./logos/logo_anr.png" alt="ANR Logo" class="anr-logo"></h3>
+                            <p>2026 - 2030</p>
+                        </div>
+                        <a href="#benefit" class="project-link" aria-label="View ANR BENEFIT project details"></a>
+                    </div>
+
+                    <div class="calendar-project" style="grid-column: 5 / 7; background-color: rgba(255, 99, 71, 0.7);">
+                        <div class="project-dot"></div>
+                        <div class="project-info">
+                            <h3>ESR CHARGER <img src="./logos/region.jpg" alt="Région Nouvelle-Aquitaine Logo" class="anr-logo"></h3>
+                            <p>2026 - 2028</p>
+                        </div>
+                        <a href="#charger" class="project-link" aria-label="View ESR CHARGER project details"></a>
+                    </div>
                 </div>
                 
                 <div class="calendar-legend">
@@ -784,6 +803,14 @@
                     <div class="legend-item">
                         <span class="legend-color" style="background-color: rgba(221, 160, 221, 0.7);"></span>
                         <span class="legend-text">SAFRAN Aircraft Engines</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: rgba(100, 149, 237, 0.7);"></span>
+                        <span class="legend-text">ANR BENEFIT</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: rgba(255, 99, 71, 0.7);"></span>
+                        <span class="legend-text">ESR CHARGER</span>
                     </div>
                 </div>
             </div>
@@ -1154,6 +1181,181 @@
                     <h3>Expected Impact</h3>
                     <p>By building a sufficient fundamental understanding of active control of near-wall turbulence in heated boundary layers, this project has the potential to enable the rational design of effective control systems for improving heat exchangers at relatively high Reynolds numbers, taking into account compressibility effects.</p>
                     <p>The ultimate goal is to develop adaptive control strategies that dynamically enhance heat transfers in response to external conditions, with an aim to optimize the efficiency of thermal exchanges. This approach will generate a 'boost in the heat exchange coefficient' to accommodate extreme scenarios within the operational range, potentially leading to significant improvements in the energy efficiency of heat exchangers in various industrial applications.</p>
+                </div>
+            </div>
+
+            <!-- ANR BENEFIT Project -->
+            <div id="benefit" class="project-detail-card" style="border-left: 5px solid rgba(100, 149, 237, 0.7);">
+                <div class="project-detail-header">
+                    <h3 class="project-detail-title">ANR BENEFIT <img src="logos/logo_anr.png" alt="ANR Logo" class="anr-logo"></h3>
+                    <span class="project-detail-period">2026-2030</span>
+                </div>
+
+                <div class="project-detail-meta">
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span><strong>Role:</strong> Partner (WP Leader)</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-tags"></i>
+                        <span><strong>Focus:</strong> Stability-integrated machine learning for active flow control</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-euro-sign"></i>
+                        <span><strong>Total Funding:</strong> 634,728€</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-euro-sign"></i>
+                        <span><strong>Funding for Pprime:</strong> ~250,000€</span>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Project Description</h3>
+                    <p>The BENEFIT project (StaBility-integratEd machiNe lEarning For actIve flow conTrol) proposes a novel framework that synergistically integrates model-driven stability analysis with data-driven machine learning techniques to design interpretable control strategies for fluid flows. The project aims to overcome limitations of current approaches by exploiting natural flow instabilities and strategically influencing their dynamics to optimise quantities such as friction, heat transfer, and other relevant parameters with minimal energy input.</p>
+
+                    <div class="field-badges">
+                        <span class="field-badge">Flow Control</span>
+                        <span class="field-badge">Machine Learning</span>
+                        <span class="field-badge">Stability Analysis</span>
+                        <span class="field-badge">Heat Transfer</span>
+                        <span class="field-badge">Görtler Vortices</span>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Key Objectives</h3>
+                    <div class="project-objectives">
+                        <div class="objective-item">
+                            <p>Develop physics-informed dictionaries for symbolic regression, integrating physical principles from stability analysis directly into machine learning algorithms.</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Create reduced-order dynamical models in low-dimensional latent spaces using autoencoders while preserving nonlinear dynamics.</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Systematically exploit secondary instabilities, particularly Görtler vortices, for targeted manipulation with minimal energy input.</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Produce interpretable and adaptive control laws as explicit mathematical expressions for real-time adaptation to changing conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Pprime's Role</h3>
+                    <p>As partner coordinator for Work Package 3, Pprime leads the development of generalisable control laws leveraging secondary flow instabilities. Our team's responsibilities include:</p>
+                    <ul>
+                        <li>Developing reduced-order models using autoencoder technology and clustering techniques</li>
+                        <li>Implementing symbolic regression methods (SINDy and genetic programming) for interpretable control law discovery</li>
+                        <li>Applying reinforcement learning for optimal control parameter identification</li>
+                        <li>Supervising PhD research on reduced-order modelling and control optimisation</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Partners</h3>
+                    <div class="partners-list">
+                        <div class="partner-item">
+                            <i class="fas fa-university"></i>
+                            <span>IUSTI (Project Lead)</span>
+                        </div>
+                        <div class="partner-item">
+                            <i class="fas fa-university"></i>
+                            <span>Pprime</span>
+                        </div>
+                        <div class="partner-item">
+                            <i class="fas fa-university"></i>
+                            <span>DynFluid</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-section">
+                    <h3>Expected Impact</h3>
+                    <p>The stability-integrated machine learning framework will generate significant impacts across multiple domains, from fundamental fluid mechanics to industrial applications. By demonstrating how stability analysis can effectively constrain machine learning solution spaces, the project offers a blueprint for other complex physical systems where interpretable control is desired.</p>
+                    <p>The framework addresses critical challenges in aerospace, energy, and transportation sectors by enabling efficient, interpretable, and physically consistent control strategies. The interdisciplinary approach provides exceptional training opportunities for doctoral researchers at the intersection of fluid mechanics, stability theory, and machine learning.</p>
+                </div>
+            </div>
+
+            <!-- ESR CHARGER Project -->
+            <div id="charger" class="project-detail-card" style="border-left: 5px solid rgba(255, 99, 71, 0.7);">
+                <div class="project-detail-header">
+                    <h3 class="project-detail-title">ESR CHARGER <img src="logos/region.jpg" alt="Région Nouvelle-Aquitaine Logo" class="anr-logo"></h3>
+                    <span class="project-detail-period">2026-2028</span>
+                </div>
+
+                <div class="project-detail-meta">
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span><strong>Role:</strong> Project Lead</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-tags"></i>
+                        <span><strong>Focus:</strong> Enhancing heat transfer through multi-scale flow control</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-euro-sign"></i>
+                        <span><strong>Funding:</strong> 140,000€</span>
+                    </div>
+                    <div class="project-detail-meta-item">
+                        <i class="fas fa-building"></i>
+                        <span><strong>Funding Agency:</strong> Région Nouvelle-Aquitaine</span>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Project Description</h3>
+                    <p>The CHARGER project (enhanCing Heat trAnsfer by contRollinG the nEar-wall tuRbulence) investigates how to predict and enhance convective heat transfer through multi-scale flow control strategies. The project combines wall oscillation to generate beneficial near-wall vortices with secondary flow instabilities (Görtler vortices) to create large-scale structures that foster thermal exchange. This innovative dual-scale active flow control approach aims to maximise convective heat transfer while minimising drag penalties.</p>
+
+                    <div class="field-badges">
+                        <span class="field-badge">Heat Transfer</span>
+                        <span class="field-badge">Wall Oscillation</span>
+                        <span class="field-badge">Secondary Instabilities</span>
+                        <span class="field-badge">Multi-scale Control</span>
+                        <span class="field-badge">Renewable Energy</span>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Research Programme</h3>
+                    <p>The project follows a comprehensive triptych approach: predict, model, and control. Key research areas include:</p>
+                    <ul>
+                        <li><strong>Small-scale structures manipulation:</strong> Using spanwise wall oscillations to control near-wall coherent structures and enhance heat transfer in the inner region where temperature gradients are steepest.</li>
+                        <li><strong>Large-scale vortex generation:</strong> Exciting secondary flow instabilities such as Görtler vortices using plasma actuators to induce structures that promote thermal exchange between near-wall and outer regions.</li>
+                        <li><strong>Multi-scale integration:</strong> Synergistically combining actuation at both scales to maximise performance while maintaining acceptable drag characteristics.</li>
+                        <li><strong>Machine learning optimisation:</strong> Employing data-driven methods including autoencoders, symbolic regression, and deep reinforcement learning to identify optimal control strategies.</li>
+                    </ul>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Key Innovation</h3>
+                    <p>The project's innovative approach lies in leveraging flow instabilities to generate large streamwise vortices with minimal perturbations, offering:</p>
+                    <div class="project-objectives">
+                        <div class="objective-item">
+                            <p>Easier control and cost-effectiveness through exploitation of natural instability mechanisms</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Versatile plasma actuators enabling fine-tuning of perturbation characteristics on the fly</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Homogeneous heat extraction through controlled spanwise vortex motion</p>
+                        </div>
+                        <div class="objective-item">
+                            <p>Combined small and large-scale control for optimal thermal-aerodynamic performance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <h3>Collaboration</h3>
+                    <p>The project benefits from collaboration with IUSTI laboratory, where experimental validation will be conducted using their continuous hypoturbulent wind tunnel. Experimental investigations will provide essential validation data for numerical models and inform the design of control actuators.</p>
+                    <p>Industrial partnership with Safran Aircraft Engines provides expertise in thermal management systems and guides research towards practical implementation in heat exchangers for aviation and renewable energy applications.</p>
+                </div>
+
+                <div class="impact-section">
+                    <h3>Regional Impact</h3>
+                    <p>This fundamental research directly supports Nouvelle-Aquitaine's Néo Terra strategy for renewable energy development and industrial decarbonisation. Enhanced heat exchanger performance can significantly boost efficiency in solar concentrators, geothermal systems, and other thermal energy conversion technologies.</p>
+                    <p>Expected partnerships with regional industries will facilitate technology transfer, creating opportunities for local companies to adopt advanced thermal management solutions. The project aims to position the region at the forefront of renewable thermal research, attracting talent and future funding whilst contributing to the low-carbon transition of regional industries.</p>
                 </div>
             </div>
         </div>
