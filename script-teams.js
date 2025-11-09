@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'Niccolò Tonioni',
             position: 'PhD Candidate',
             duration: '2023-Present',
-            affiliation: 'Pprime Institute, Université de Poitiers',
             funding: 'EUR Intree/KTH',
             image: 'images/team/niccolo_tonioni.jpg',
             project: 'Deep learning and machine learning for computational fluid dynamics. Developing data-driven reduced-order models using variational autoencoders and neural networks to predict turbulent flow behavior. His work focuses on extracting essential characteristics of turbulent flows and projecting them into reduced spaces, with applications to flow control and vortex-induced vibrations.',
