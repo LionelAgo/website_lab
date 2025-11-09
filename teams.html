@@ -605,6 +605,138 @@
             .resource-item:hover {
                 transform: translateX(3px);
             }
+
+            /* Foldable Publications and Conferences Sections */
+            .foldable-publications,
+            .foldable-conferences {
+                margin-top: 20px;
+                border-top: 1px solid #eee;
+                padding-top: 20px;
+            }
+
+            .publications-header,
+            .conferences-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                padding: 12px;
+                border-radius: 8px;
+                transition: var(--transition);
+            }
+
+            .publications-header {
+                background-color: rgba(26, 35, 126, 0.08);
+                border-left: 4px solid var(--primary-color);
+            }
+
+            .publications-header:hover {
+                background-color: rgba(26, 35, 126, 0.15);
+            }
+
+            .conferences-header {
+                background-color: rgba(100, 181, 246, 0.08);
+                border-left: 4px solid var(--secondary-color);
+            }
+
+            .conferences-header:hover {
+                background-color: rgba(100, 181, 246, 0.15);
+            }
+
+            .publications-header h4,
+            .conferences-header h4 {
+                margin: 0;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-grow: 1;
+            }
+
+            .publications-header h4 {
+                color: var(--primary-color);
+            }
+
+            .publications-header h4 i {
+                color: var(--primary-color);
+            }
+
+            .conferences-header h4 {
+                color: var(--secondary-color);
+            }
+
+            .conferences-header h4 i {
+                color: var(--secondary-color);
+            }
+
+            .publications-count,
+            .conferences-count {
+                display: inline-block;
+                background-color: var(--primary-color);
+                color: white;
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                margin-left: 8px;
+            }
+
+            .conferences-count {
+                background-color: var(--secondary-color);
+            }
+
+            .publications-toggle,
+            .conferences-toggle {
+                background: none;
+                border: none;
+                font-size: 18px;
+                cursor: pointer;
+                color: var(--primary-color);
+                transition: var(--transition);
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .conferences-toggle {
+                color: var(--secondary-color);
+            }
+
+            .publications-toggle:hover,
+            .conferences-toggle:hover {
+                transform: scale(1.2);
+            }
+
+            .publications-content {
+                max-height: 1000px;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                opacity: 1;
+            }
+
+            .conferences-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                opacity: 0;
+            }
+
+            .foldable-publications.expanded .publications-content {
+                opacity: 1;
+            }
+
+            .foldable-conferences.expanded .conferences-content {
+                max-height: 1000px;
+                opacity: 1;
+            }
+
+            .foldable-publications.expanded .publications-toggle i,
+            .foldable-conferences.expanded .conferences-toggle i {
+                transform: rotate(180deg);
+            }
         }
     </style>
 </head>
@@ -730,48 +862,78 @@
                             </ul>
                         </div>
 
-                        <div class="member-publications">
-                            <h4>Publications</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title"><a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" target="_blank">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</a></p>
-                                    <p class="publication-journal">International Journal of Heat and Fluid Flow (2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="https://arxiv.org/html/2312.13002v1" target="_blank">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</a></p>
-                                    <p class="publication-journal">arXiv preprint (2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title"><a href="https://doi.org/10.1007/s00521-025-11067-y" target="_blank">Policy-based optimisation for drag reduction via spanwise wall oscillations</a></p>
-                                    <p class="publication-journal">Neural Computing and Applications (2025)</p>
-                                </li>
-                            </ul>
+                        <div class="member-publications foldable-publications expanded">
+                            <div class="publications-header">
+                                <h4>
+                                    <i class="fas fa-book"></i> Publications
+                                    <span class="publications-count">3</span>
+                                </h4>
+                                <button class="publications-toggle" aria-expanded="true">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="publications-content">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title"><a href="https://doi.org/10.1016/j.ijheatfluidflow.2024.109564" target="_blank">Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations</a></p>
+                                        <p class="publication-journal">International Journal of Heat and Fluid Flow (2024)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title"><a href="https://arxiv.org/html/2312.13002v1" target="_blank">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</a></p>
+                                        <p class="publication-journal">arXiv preprint (2024)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title"><a href="https://doi.org/10.1007/s00521-025-11067-y" target="_blank">Policy-based optimisation for drag reduction via spanwise wall oscillations</a></p>
+                                        <p class="publication-journal">Neural Computing and Applications (2025)</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="member-publications">
-                            <h4>Recent Presentations</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title">Policy-Based Signal Shape Optimization for Drag Reduction via Spanwise Wall Oscillations</p>
-                                    <p class="publication-authors"><strong>L. Guérin</strong>, L. Cordier, C. Flageul, S. Grieu & L. Agostini</p>
-                                    <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations</p>
-                                    <p class="publication-authors"><strong>L. Guérin</strong>, T. Fisk, L. Cordier, C. Flageul & L. Agostini</p>
-                                    <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</p>
-                                    <p class="publication-authors"><strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu & L. Agostini</p>
-                                    <p class="publication-journal">DLES 14, Erlangen, Germany (April 2024)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</p>
-                                    <p class="publication-authors"><strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu & L. Agostini</p>
-                                    <p class="publication-journal">EUROMECH COLLOQUIUM 631, Madrid, Spain (March 2024)</p>
-                                </li>
-                            </ul>
+                        <div class="member-conferences foldable-conferences">
+                            <div class="conferences-header">
+                                <h4>
+                                    <i class="fas fa-microphone"></i> Conferences
+                                    <span class="conferences-count">4</span>
+                                </h4>
+                                <button class="conferences-toggle" aria-expanded="false">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="conferences-content" style="display: none;">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title">Policy-Based Signal Shape Optimization for Drag Reduction via Spanwise Wall Oscillations</p>
+                                        <p class="publication-authors"><strong>L. Guérin</strong>, L. Cordier, C. Flageul, S. Grieu & L. Agostini</p>
+                                        <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations</p>
+                                        <p class="publication-authors"><strong>L. Guérin</strong>, T. Fisk, L. Cordier, C. Flageul & L. Agostini</p>
+                                        <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</p>
+                                        <p class="publication-authors"><strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu & L. Agostini</p>
+                                        <p class="publication-journal">DLES 14, Erlangen, Germany (April 2024)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow</p>
+                                        <p class="publication-authors"><strong>L. Guérin</strong>, C. Flageul, L. Cordier, S. Grieu & L. Agostini</p>
+                                        <p class="publication-journal">EUROMECH COLLOQUIUM 631, Madrid, Spain (March 2024)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="member-resources">
+                            <h4><i class="fas fa-graduation-cap"></i> Thesis</h4>
+                            <div class="resource-item">
+                                <a href="https://sdrive.cnrs.fr/s/TqJtbAj5GFWad6A" target="_blank" class="resource-link">
+                                    <i class="fas fa-file-pdf"></i> PhD Thesis Manuscript
+                                </a>
+                                <p class="resource-description">Defense scheduled for <strong>9 December 2025</strong></p>
+                            </div>
                         </div>
 
                         <div class="member-socials">
@@ -812,30 +974,40 @@
                             </ul>
                         </div>
 
-                        <div class="member-publications">
-                            <h4>Recent Presentations</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title">Data-Driven Modeling of Near-Wall Turbulence Using β-Variational Autoencoder, Transformers, and Adversarial Loss</p>
-                                    <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
-                                    <p class="publication-journal">11th International Symposium on Turbulence, Heat and Mass Transfer, Tokyo, Japan (July 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">VIVALDy: A Novel β-Variational Autoencoder Approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations</p>
-                                    <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
-                                    <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">β-Variational Autoencoder and Transformer-Based Data-Driven Modeling of Near-Wall Turbulence</p>
-                                    <p class="publication-authors"><strong>N. Tonioni</strong>, M. Umair, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
-                                    <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Reduced-Order Modeling of Experimental Turbulent Flows: From Linear Projection-Based Methods to Autoencoders</p>
-                                    <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
-                                    <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
-                                </li>
-                            </ul>
+                        <div class="member-conferences foldable-conferences">
+                            <div class="conferences-header">
+                                <h4>
+                                    <i class="fas fa-microphone"></i> Conferences
+                                    <span class="conferences-count">4</span>
+                                </h4>
+                                <button class="conferences-toggle" aria-expanded="true">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="conferences-content">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title">Data-Driven Modeling of Near-Wall Turbulence Using β-Variational Autoencoder, Transformers, and Adversarial Loss</p>
+                                        <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
+                                        <p class="publication-journal">11th International Symposium on Turbulence, Heat and Mass Transfer, Tokyo, Japan (July 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">VIVALDy: A Novel β-Variational Autoencoder Approach with Adversarial Loss for Low-Order Dynamical Modeling of Vortex-Induced Vibrations</p>
+                                        <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
+                                        <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">β-Variational Autoencoder and Transformer-Based Data-Driven Modeling of Near-Wall Turbulence</p>
+                                        <p class="publication-authors"><strong>N. Tonioni</strong>, M. Umair, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
+                                        <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Reduced-Order Modeling of Experimental Turbulent Flows: From Linear Projection-Based Methods to Autoencoders</p>
+                                        <p class="publication-authors"><strong>N. Tonioni</strong>, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa</p>
+                                        <p class="publication-journal">DTE AICOMAS, Paris, France (February 2025)</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="member-research-interests">
@@ -928,20 +1100,30 @@
                             </ul>
                         </div>
 
-                        <div class="member-publications">
-                            <h4>Recent Presentations</h4>
-                            <ul class="publications-list">
-                                <li>
-                                    <p class="publication-title">Deep Learning of SPOD Time-Domain Coefficient Dynamics for Reduced-Order Modeling of Street Canyon Flow</p>
-                                    <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
-                                    <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
-                                </li>
-                                <li>
-                                    <p class="publication-title">Spectral Proper Orthogonal Decomposition of Street Canyon Flow Dynamics and Its Application to Time-Domain Reconstruction</p>
-                                    <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
-                                    <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
-                                </li>
-                            </ul>
+                        <div class="member-conferences foldable-conferences">
+                            <div class="conferences-header">
+                                <h4>
+                                    <i class="fas fa-microphone"></i> Conferences
+                                    <span class="conferences-count">2</span>
+                                </h4>
+                                <button class="conferences-toggle" aria-expanded="true">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="conferences-content">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title">Deep Learning of SPOD Time-Domain Coefficient Dynamics for Reduced-Order Modeling of Street Canyon Flow</p>
+                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
+                                        <p class="publication-journal">1st International Symposium AI and Fluid Mechanics, Chania, Greece (May 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Spectral Proper Orthogonal Decomposition of Street Canyon Flow Dynamics and Its Application to Time-Domain Reconstruction</p>
+                                        <p class="publication-authors"><strong>N. Kumar</strong>, L. Agostini, F. Kerhervé & L. Cordier</p>
+                                        <p class="publication-journal">EuroMech/ERCOFTAC Joint Conference on Data-Driven Fluid Dynamics (Colloquium 629), London, United Kingdom (April 2025)</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="member-socials">
