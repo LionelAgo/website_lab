@@ -164,6 +164,8 @@
             margin-bottom: 20px;
             transition: var(--transition);
             border-left: 4px solid transparent;
+            position: relative;
+            min-height: 150px;
         }
         
         .publication-card:hover {
@@ -240,10 +242,14 @@
         }
         
         .publication-keywords {
-            margin-top: 15px;
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: flex-end;
+            max-width: 50%;
         }
         
         .keyword-tag {
@@ -307,7 +313,57 @@
         .keyword-tag[data-keyword="heat"]:hover {
             background-color: rgba(204, 102, 255, 0.5);
         }
-        
+
+        .keyword-tag[data-keyword="mlestimators"] {
+            background-color: rgba(0, 204, 204, 0.3);
+            border-color: rgba(0, 204, 204, 0.8);
+            color: #006666;
+        }
+
+        .keyword-tag[data-keyword="mlestimators"]:hover {
+            background-color: rgba(0, 204, 204, 0.5);
+        }
+
+        .keyword-tag[data-keyword="shockbl"] {
+            background-color: rgba(128, 128, 128, 0.3);
+            border-color: rgba(128, 128, 128, 0.8);
+            color: #333333;
+        }
+
+        .keyword-tag[data-keyword="shockbl"]:hover {
+            background-color: rgba(128, 128, 128, 0.5);
+        }
+
+        .keyword-tag[data-keyword="aeroacoustics"] {
+            background-color: rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.8);
+            color: #B8860B;
+        }
+
+        .keyword-tag[data-keyword="aeroacoustics"]:hover {
+            background-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .keyword-tag[data-keyword="aerodynamics"] {
+            background-color: rgba(138, 43, 226, 0.3);
+            border-color: rgba(138, 43, 226, 0.8);
+            color: #4B0082;
+        }
+
+        .keyword-tag[data-keyword="aerodynamics"]:hover {
+            background-color: rgba(138, 43, 226, 0.5);
+        }
+
+        .keyword-tag[data-keyword="reynolds"] {
+            background-color: rgba(255, 105, 180, 0.3);
+            border-color: rgba(255, 105, 180, 0.8);
+            color: #C71585;
+        }
+
+        .keyword-tag[data-keyword="reynolds"]:hover {
+            background-color: rgba(255, 105, 180, 0.5);
+        }
+
         .publication-links {
             display: flex;
             flex-wrap: wrap;
@@ -669,8 +725,13 @@
                         <button class="filter-btn keyword-filter-btn" data-keyword="blt" style="background-color: rgba(255, 102, 102, 0.2); border-color: rgba(255, 102, 102, 0.8);">Boundary Layer Theory</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="mlrom" style="background-color: rgba(102, 204, 255, 0.2); border-color: rgba(102, 204, 255, 0.8);">ML: ROM</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="mlcontrol" style="background-color: rgba(102, 255, 102, 0.2); border-color: rgba(102, 255, 102, 0.8);">ML: Control</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="mlestimators" style="background-color: rgba(0, 204, 204, 0.2); border-color: rgba(0, 204, 204, 0.8);">ML: Estimators</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="dragred" style="background-color: rgba(255, 204, 102, 0.2); border-color: rgba(255, 204, 102, 0.8);">Drag Reduction</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="heat" style="background-color: rgba(204, 102, 255, 0.2); border-color: rgba(204, 102, 255, 0.8);">Heat Transfer</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="shockbl" style="background-color: rgba(128, 128, 128, 0.2); border-color: rgba(128, 128, 128, 0.8);">Shockwave/Boundary Layer</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="aeroacoustics" style="background-color: rgba(255, 215, 0, 0.2); border-color: rgba(255, 215, 0, 0.8);">Aeroacoustics</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="aerodynamics" style="background-color: rgba(138, 43, 226, 0.2); border-color: rgba(138, 43, 226, 0.8);">Aerodynamics</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="reynolds" style="background-color: rgba(255, 105, 180, 0.2); border-color: rgba(255, 105, 180, 0.8);">Effect of Reynolds Number</button>
                     </div>
                 </div>
             </div>
@@ -740,12 +801,58 @@
             'blt': 'Boundary Layer Theory',
             'mlrom': 'ML: ROM',
             'mlcontrol': 'ML: Control',
+            'mlestimators': 'ML: Estimators',
             'dragred': 'Drag Reduction',
-            'heat': 'Heat Transfer'
+            'heat': 'Heat Transfer',
+            'shockbl': 'Shockwave/Boundary Layer',
+            'aeroacoustics': 'Aeroacoustics',
+            'aerodynamics': 'Aerodynamics',
+            'reynolds': 'Effect of Reynolds Number'
         };
 
         // Publications data
         const publicationsData = [
+            // Under Review / Preprints
+            {
+                id: 0,
+                title: "VIVALDy: A Hybrid Generative Reduced-Order Model for Turbulent Flows, Applied to Vortex-Induced Vibrations",
+                authors: "N. Tonioni, L. Agostini, F. Kerhervé, L. Cordier & R. Vinuesa",
+                year: 2025,
+                journal: "Physical Review Fluids",
+                volume: "Under Review",
+                type: "preprint",
+                category: "Machine learning",
+                link: "https://arxiv.org/abs/2509.24965",
+                topics: ["machine learning", "generative model", "reduced-order modeling", "vortex-induced vibrations", "turbulence"],
+                keywords: ["mlrom", "aerodynamics"],
+                bibtex: `@article{tonioni2025vivaldy,
+  title={VIVALDy: A Hybrid Generative Reduced-Order Model for Turbulent Flows, Applied to Vortex-Induced Vibrations},
+  author={Tonioni, N. and Agostini, L. and Kerhervé, F. and Cordier, L. and Vinuesa, R.},
+  journal={arXiv preprint arXiv:2509.24965},
+  year={2025},
+  note={Under Review at Physical Review Fluids}
+}`
+            },
+            {
+                id: -1,
+                title: "Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations",
+                authors: "L. Guérin, C. Flageul, L. Cordier & L. Agostini",
+                year: 2025,
+                journal: "Neural Computing and Applications",
+                volume: "Under Review",
+                type: "preprint",
+                category: "Machine learning",
+                link: "https://doi.org/10.1016/j.ijheatfluidflow.2024.109564",
+                topics: ["machine learning", "autoencoder", "dimensionality reduction", "channel flow", "spanwise wall oscillations", "drag reduction"],
+                keywords: ["mlrom", "dragred"],
+                bibtex: `@article{guerin2025autoencoder,
+  title={Autoencoder-Based Dimensionality Reduction of Turbulent Channel Flow Under Spanwise Wall Oscillations},
+  author={Guérin, L. and Flageul, C. and Cordier, L. and Agostini, L.},
+  journal={Neural Computing and Applications},
+  year={2025},
+  note={Under Review}
+}`
+            },
             // Boundary layer theory
             {
                 id: 1,
@@ -1139,6 +1246,7 @@
                 category: "Aeroacoustics",
                 link: "http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926",
                 topics: ["aeroacoustics", "supersonic jet", "intermittency", "directivity", "heat transfer"],
+                keywords: ["aeroacoustics"],
                 bibtex: `@article{agostini2015directivity,
   title={Directivity and intermittency in the nearfield of a Mach 1.3 jet},
   author={Agostini, L. and Sasidharan Nair, U. and Gaitonde, D.V.},
@@ -1372,6 +1480,7 @@
                 type: "conference",
                 category: "Oral Communication with Peer-Reviewed Proceedings",
                 topics: ["dynamic stall", "multivariate empirical mode decomposition", "statistics"],
+                keywords: ["aerodynamics", "mlrom"],
                 bibtex: `@inproceedings{mohan2018statistical,
   title={A statistical insight into the onset of deep dynamic stall using multivariate empirical mode decomposition},
   author={Mohan, A.T. and Agostini, L.},
@@ -1430,6 +1539,7 @@
                 type: "conference",
                 category: "Shock-wave and boundary layer interaction",
                 topics: ["shock wave", "boundary layer", "interaction", "low frequency", "motion", "heat transfer"],
+                keywords: ["shockbl"],
                 bibtex: `@inproceedings{agostini2010zones,
   title={Zones of Influence and Low Frequency Shock Motion in a Shock Boundary Layer Interaction},
   author={Agostini, Lionel and Larcheveque, Lionel and Dupont, Pierre and Debieve, Jean-Francois and Dussauge, Jean-Paul},
@@ -1448,6 +1558,7 @@
                 type: "conference",
                 category: "Shock-wave and boundary layer interaction",
                 topics: ["shock wave", "boundary layer", "interaction", "3D separation", "heat transfer"],
+                keywords: ["shockbl"],
                 bibtex: `@inproceedings{agostini2009three,
   title={Three-dimensional separation in shock/boundary layer interaction},
   author={Agostini, Lionel and Larchev{\^e}que, Lionel and Dupont, Pierre and Dussauge, Jean-Paul},
@@ -1464,6 +1575,7 @@
                 type: "journal",
                 category: "Shock-wave and boundary layer interaction",
                 topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "separation", "heat transfer"],
+                keywords: ["shockbl"],
                 bibtex: `@article{agostini2011shock,
   title={SHOCK WAVE AND SEPARATION UNSTEADINESS IN A TURBULENT SHOCK/BOUNDARY LAYER INTERACTION.},
   author={AGOSTINI, L and LARCHEVEQUE, L and DEBIEVE, JF and DUPONT, P and DUSSAUGE, JP},
@@ -1502,6 +1614,7 @@
                 category: "Boundary layer theory",
                 link: "http://dx.doi.org/10.1063/1.4890745",
                 topics: ["turbulence", "large-scale structures", "near-wall", "channel flow", "heat transfer"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@article{agostini2014influence,
   title={On the influence of outer large-scale structures on near-wall turbulence in channel flow},
   author={Agostini, L and Leschziner, MA},
@@ -1522,6 +1635,7 @@
                 category: "Drag reduction",
                 link: "http://dx.doi.org/10.1016/j.ijheatfluidflow.2014.08.002",
                 topics: ["turbulence", "vorticity", "drag reduction", "oscillatory wall motion", "heat transfer"],
+                keywords: ["dragred", "blt"],
                 bibtex: `@article{agostini2015turbulence,
   title={The turbulence vorticity as a window to the physics of friction-drag reduction by oscillatory wall motion},
   author={Agostini, L and Touber, E and Leschziner, MA},
@@ -1541,6 +1655,7 @@
                 type: "conference",
                 category: "Control theory",
                 topics: ["control", "streaks", "Görtler vortices", "free-stream", "disturbances", "heat transfer"],
+                keywords: ["mlcontrol", "blt"],
                 bibtex: `@inproceedings{lu2014optimal,
   title={Optimal state feedback control of streaks and G{\"o}rtler vortices induced by free-stream vortical disturbances},
   author={Lu, Liang and Agostini, Lionel and Ricco, Pierre and Papadakis, George},
@@ -1559,6 +1674,7 @@
                 type: "conference",
                 category: "Aerodynamics",
                 topics: ["statistics", "model reduction", "surface pressure", "vortex", "wing", "heat transfer"],
+                keywords: ["mlrom", "aerodynamics"],
                 bibtex: `@inproceedings{mohan2015statistical,
   title={Statistical Analysis and Model Reduction of Surface Pressure for Interaction of a Streamwise-Oriented Vortex with a Wing},
   author={Mohan, Arvind T and Agostini, Lionel and Gaitonde, Datta V and Garmann, Daniel J},
@@ -1577,6 +1693,7 @@
                 type: "conference",
                 category: "Aeroacoustics",
                 topics: ["supersonic jet", "noise", "intermittency", "LES", "heat transfer"],
+                keywords: ["aeroacoustics"],
                 bibtex: `@inproceedings{sasidharan2015analysis,
   title={Analysis of intermittency of supersonic jet noise with synchronized les},
   author={Sasidharan Nair, Unnikrishnan and Agostini, Lionel and Gaitonde, Datta V},
@@ -1594,6 +1711,7 @@
                 type: "conference",
                 category: "Shock-wave and boundary layer interaction",
                 topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "heat transfer"],
+                keywords: ["shockbl"],
                 bibtex: `@inproceedings{agostini2013features,
   title={FEATURES OF SHOCK WAVE UNSTEADINESS IN SHOCK WAVE BOUNDARY LAYER INTERACTION},
   author={Agostini, Lionel and Larcheveque, Lionel and Dupont, Pierre},
@@ -1612,6 +1730,7 @@
                 category: "Boundary layer theory",
                 link: "http://dx.doi.org/10.1063/1.4939707",
                 topics: ["turbulence", "near-wall", "large-scale", "prediction", "heat transfer"],
+                keywords: ["blt", "mlestimators"],
                 bibtex: `@article{agostini2016predicting,
   title={Predicting the response of small-scale near-wall turbulence to large-scale outer motions},
   author={Agostini, Lionel and Leschziner, Michael},
@@ -1631,6 +1750,7 @@
                 type: "conference",
                 category: "Boundary layer theory",
                 topics: ["turbulence", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@inproceedings{agostini2015improved,
   title={An improved method to characterise the modulation of small-scale turbulent by large-scale structures},
   author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
@@ -1648,6 +1768,7 @@
                 type: "journal",
                 category: "Boundary layer theory",
                 topics: ["turbulence", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@article{agostini2015detection,
   title={Detection of modulation of small-scale turbulence by large-scale structures},
   author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
@@ -1664,6 +1785,7 @@
                 type: "conference",
                 category: "Shock-wave and boundary layer interaction",
                 topics: ["shock wave", "boundary layer", "interaction", "unsteadiness", "conditional analysis", "heat transfer"],
+                keywords: ["shockbl"],
                 bibtex: `@inproceedings{waindim2016conditional,
   title={Conditional analysis of unsteadiness in shock boundary layer interactions},
   author={Waindim, Mbu and Agostini, Lionel M and Larch{\^e}veque, Lionel and Gaitonde, Datta V},
@@ -1681,6 +1803,7 @@
                 type: "conference",
                 category: "Supersonic flow",
                 topics: ["supersonic jet", "multistream", "aft-deck", "numerical investigation", "heat transfer"],
+                keywords: ["aeroacoustics"],
                 bibtex: `@inproceedings{stack2016numerical,
   title={Numerical investigation of a supersonic multistream jet with an aft-deck},
   author={Stack, Cory M and Gaitonde, Datta V and Agostini, Lionel and Berry, Matthew G and Magstadt, Andrew S and Glauser, Mark N},
@@ -1698,6 +1821,7 @@
                 type: "conference",
                 category: "Supersonic flow",
                 topics: ["supersonic jet", "intermittency", "spatio-temporal", "correlations", "heat transfer"],
+                keywords: ["aeroacoustics"],
                 bibtex: `@inproceedings{sasidharan2016scale,
   title={Scale-specific Intermittency and Spatio-temporal Correlations in a Supersonic Jet},
   author={Sasidharan Nair, Unnikrishnan and Agostini, Lionel M and Gaitonde, Datta V},
@@ -1716,6 +1840,7 @@
                 type: "conference",
                 category: "Aerodynamics",
                 topics: ["dynamic stall", "spectral decomposition", "scale separation", "high-fidelity", "heat transfer"],
+                keywords: ["aerodynamics", "mlrom"],
                 bibtex: `@inproceedings{mohan2016preliminary,
   title={A preliminary spectral decomposition and scale separation analysis of a high-fidelity dynamic stall dataset},
   author={Mohan, Arvind T and Agostini, Lionel M and Visbal, Miguel R and Gaitonde, Datta V},
@@ -1734,6 +1859,7 @@
                 type: "conference",
                 category: "Boundary layer theory",
                 topics: ["boundary layer", "compressible", "large-scale", "small-scale", "turbulence", "Mach 2.3", "heat transfer"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@inproceedings{agostini2016causal,
   title={Causal relationship between large outer structures and small-scale near-wall turbulence in a compressible boundary layer at Mach= 2.3},
   author={Agostini, Lionel M and Leschziner, Michael and Poggie, Jonathan and Bisek, Nicholas J and Gaitonde, Datta V},
@@ -1752,6 +1878,7 @@
                 type: "conference",
                 category: "Supersonic flow",
                 topics: ["rectangular jet", "nozzle", "varying cross-section", "heat transfer"],
+                keywords: ["aerodynamics"],
                 bibtex: `@inproceedings{sengupta2016investigation,
   title={Investigation of Rectangular Jet Issuing From a Varying Cross-Section Nozzle},
   author={Sengupta, Soumyo and Agostini, Lionel M and Sasidharan Nair, Unnikrishnan and Gaitonde, Datta V},
@@ -1771,6 +1898,7 @@
                 category: "Boundary layer theory",
                 link: "http://dx.doi.org/10.1063/1.4939712",
                 topics: ["turbulence", "skewness", "modulation", "large-scale structures", "small-scale", "heat transfer"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@article{agostini2016skewness,
   title={Skewness-induced asymmetric modulation of small-scale turbulence by large-scale structures},
   author={Agostini, Lionel and Leschziner, Michael and Gaitonde, Datta},
@@ -1791,6 +1919,7 @@
                 category: "Turbulence and boundary layer theory",
                 link: "http://dx.doi.org/10.1063/1.4944735",
                 topics: ["turbulence", "boundary layer", "quasi-steady", "large-scale", "small-scale"],
+                keywords: ["blt", "reynolds"],
                 bibtex: `@article{agostini2016validity,\n  title={On the validity of the quasi-steady-turbulence hypothesis in representing the effects of large scales on small scales in boundary layers},\n  author={Agostini, L and Leschziner, MA},\n  journal={Physics of Fluids},\n  volume={28},\n  number={4},\n  pages={045102},\n  year={2016}\n}`
             },
             {
@@ -1804,6 +1933,7 @@
                 category: "Drag reduction",
                 link: "https://doi.org/10.1017/jfm.2021.585",
                 topics: ["drag reduction", "channel flow", "large-scale", "small-scale", "PDF", "oscillatory wall motion"],
+                keywords: ["dragred", "blt"],
                 bibtex: `@article{agostini2021statistical,\n  title={Statistical analysis of outer large-scale/inner-layer interactions in channel flow subjected to oscillatory drag-reducing wall motion using a multiple-variable joint PDF methodology},\n  author={Agostini, L and Leschziner, MA},\n  journal={Journal of Fluid Mechanics},\n  volume={923},\n  year={2021}\n}`
             },
             {
@@ -1817,6 +1947,7 @@
                 category: "Drag reduction",
                 link: "https://link.springer.com/content/pdf/10.1007/s10494-018-9917-3.pdf",
                 topics: ["drag reduction", "large-scale structures", "near-wall", "spanwise wall motion"],
+                keywords: ["dragred", "blt"],
                 bibtex: `@article{agostini2018impact,\n  title={The impact of footprints of large-scale outer structures on the near-wall layer in the presence of drag-reducing spanwise wall motion},\n  author={Agostini, L and Leschziner, MA},\n  journal={Journal of Flow, Turbulence and Combustion},\n  year={2018}\n}`
             },
             {
@@ -1829,6 +1960,7 @@
                 type: "conference",
                 category: "Oral Communication with Peer-Reviewed Proceedings",
                 topics: ["rocket engine", "turbine", "field reconstruction", "sparse sensors", "machine learning", "AI"],
+                keywords: ["mlestimators"],
                 bibtex: `@inproceedings{kramer2025flow,\n  title={Flow field reconstruction of rocket engine turbine on sparse sensors},\n  author={Kramer, S. and Souverein, L. and Agostini, L. and Waxenegger-Wilfing, G. and Schlechtriem, S.},\n  booktitle={1st International Symposium AI and Fluid Mechanics},\n  year={2025},\n  address={Chania, Greece}\n}`
             }
         ];
@@ -2056,39 +2188,13 @@
                 return;
             }
             
-            // Group by category
-            const categorized = {};
-            publications.forEach(pub => {
-                if (!categorized[pub.category]) {
-                    categorized[pub.category] = [];
-                }
-                categorized[pub.category].push(pub);
-            });
-            
-            // Sort categories alphabetically
-            const sortedCategories = Object.keys(categorized).sort();
-            
-            // Render each category
-            sortedCategories.forEach(category => {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'publication-category';
-                
-                // Category heading
-                const heading = document.createElement('h3');
-                heading.className = 'category-heading';
-                heading.textContent = category;
-                categoryElement.appendChild(heading);
-                
-                // Sort publications by year (descending)
-                const sortedPubs = categorized[category].sort((a, b) => b.year - a.year);
-                
-                // Render each publication
-                sortedPubs.forEach(pub => {
-                    const pubElement = createPublicationCard(pub);
-                    categoryElement.appendChild(pubElement);
-                });
-                
-                publicationList.appendChild(categoryElement);
+            // Sort publications by year (descending)
+            const sortedPubs = publications.sort((a, b) => b.year - a.year);
+
+            // Render each publication
+            sortedPubs.forEach(pub => {
+                const pubElement = createPublicationCard(pub);
+                publicationList.appendChild(pubElement);
             });
         }
 
