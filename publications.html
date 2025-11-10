@@ -164,8 +164,6 @@
             margin-bottom: 20px;
             transition: var(--transition);
             border-left: 4px solid transparent;
-            position: relative;
-            min-height: 150px;
         }
         
         .publication-card:hover {
@@ -242,14 +240,11 @@
         }
         
         .publication-keywords {
-            position: absolute;
-            bottom: 20px;
-            right: 25px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             justify-content: flex-end;
-            max-width: 50%;
+            align-items: center;
         }
         
         .keyword-tag {
@@ -366,11 +361,20 @@
 
         .publication-links {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .publication-links-left {
+            display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 15px;
+            align-items: center;
         }
-        
+
         .publication-link {
             display: inline-flex;
             align-items: center;
@@ -2252,15 +2256,17 @@
                     <p class="publication-authors">${pub.authors}</p>
                     <p>${pub.journal}, ${pub.volume} (${pub.year})</p>
                 </div>
-                <div class="publication-keywords">
-                    ${pub.keywords ? pub.keywords.map(keyword => `
-                        <span class="keyword-tag" data-keyword="${keyword}">${keywordMapping[keyword] || keyword}</span>
-                    `).join('') : ''}
-                </div>
                 <div class="publication-links">
-                    ${pub.link ? `<a href="${pub.link}" class="publication-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Publication</a>` : ''}
-                    ${pub.halLink ? `<a href="${pub.halLink}" class="publication-link" target="_blank"><i class="fas fa-book"></i> View on HAL</a>` : ''}
-                    ${pub.bibtex ? `<span class="publication-link citation-button" data-id="${pub.id}"><i class="fas fa-quote-right"></i> Cite</span>` : ''}
+                    <div class="publication-links-left">
+                        ${pub.link ? `<a href="${pub.link}" class="publication-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Publication</a>` : ''}
+                        ${pub.halLink ? `<a href="${pub.halLink}" class="publication-link" target="_blank"><i class="fas fa-book"></i> View on HAL</a>` : ''}
+                        ${pub.bibtex ? `<span class="publication-link citation-button" data-id="${pub.id}"><i class="fas fa-quote-right"></i> Cite</span>` : ''}
+                    </div>
+                    <div class="publication-keywords">
+                        ${pub.keywords ? pub.keywords.map(keyword => `
+                            <span class="keyword-tag" data-keyword="${keyword}">${keywordMapping[keyword] || keyword}</span>
+                        `).join('') : ''}
+                    </div>
                 </div>
                 ${pub.bibtex ? `<div class="bibtex-container" id="bibtex-${pub.id}">${pub.bibtex}</div>` : ''}
             `;
