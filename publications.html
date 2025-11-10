@@ -238,6 +238,11 @@
         .publication-authors {
             font-weight: 500;
         }
+
+        .author-highlight {
+            color: #8B0000;
+            font-weight: 600;
+        }
         
         .publication-keywords {
             display: flex;
@@ -2243,17 +2248,20 @@
             }
             
             // Build HTML content
-            const titleElement = pub.link ? 
-                `<a href="${pub.link}" target="_blank">${pub.title}</a>` : 
+            const titleElement = pub.link ?
+                `<a href="${pub.link}" target="_blank">${pub.title}</a>` :
                 pub.title;
-            
+
+            // Highlight author name in dark red
+            const highlightedAuthors = pub.authors.replace(/L\. Agostini/g, '<span class="author-highlight">L. Agostini</span>');
+
             card.innerHTML = `
                 <div class="publication-header">
                     <h3 class="publication-title">${titleElement}</h3>
                     <span class="${badgeClass}">${typeLabel}</span>
                 </div>
                 <div class="publication-meta">
-                    <p class="publication-authors">${pub.authors}</p>
+                    <p class="publication-authors">${highlightedAuthors}</p>
                     <p>${pub.journal}, ${pub.volume} (${pub.year})</p>
                 </div>
                 <div class="publication-links">
@@ -2364,8 +2372,8 @@
             document.getElementById('total-publications').textContent = totalPublications;
             document.getElementById('journal-articles').textContent = journalArticles;
             document.getElementById('conference-papers').textContent = conferencePapers;
-            document.getElementById('citations').textContent = '1250+';
-            document.getElementById('h-index').textContent = '18';
+            document.getElementById('citations').textContent = '946';
+            document.getElementById('h-index').textContent = '15';
             
             // Initialize charts
             initCharts();
