@@ -164,6 +164,8 @@
             margin-bottom: 20px;
             transition: var(--transition);
             border-left: 4px solid transparent;
+            position: relative;
+            min-height: 150px;
         }
         
         .publication-card:hover {
@@ -240,10 +242,14 @@
         }
         
         .publication-keywords {
-            margin-top: 15px;
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: flex-end;
+            max-width: 50%;
         }
         
         .keyword-tag {
@@ -307,7 +313,47 @@
         .keyword-tag[data-keyword="heat"]:hover {
             background-color: rgba(204, 102, 255, 0.5);
         }
-        
+
+        .keyword-tag[data-keyword="mlestimators"] {
+            background-color: rgba(0, 204, 204, 0.3);
+            border-color: rgba(0, 204, 204, 0.8);
+            color: #006666;
+        }
+
+        .keyword-tag[data-keyword="mlestimators"]:hover {
+            background-color: rgba(0, 204, 204, 0.5);
+        }
+
+        .keyword-tag[data-keyword="shockbl"] {
+            background-color: rgba(128, 128, 128, 0.3);
+            border-color: rgba(128, 128, 128, 0.8);
+            color: #333333;
+        }
+
+        .keyword-tag[data-keyword="shockbl"]:hover {
+            background-color: rgba(128, 128, 128, 0.5);
+        }
+
+        .keyword-tag[data-keyword="aeroacoustics"] {
+            background-color: rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.8);
+            color: #B8860B;
+        }
+
+        .keyword-tag[data-keyword="aeroacoustics"]:hover {
+            background-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .keyword-tag[data-keyword="reynolds"] {
+            background-color: rgba(255, 105, 180, 0.3);
+            border-color: rgba(255, 105, 180, 0.8);
+            color: #C71585;
+        }
+
+        .keyword-tag[data-keyword="reynolds"]:hover {
+            background-color: rgba(255, 105, 180, 0.5);
+        }
+
         .publication-links {
             display: flex;
             flex-wrap: wrap;
@@ -669,8 +715,12 @@
                         <button class="filter-btn keyword-filter-btn" data-keyword="blt" style="background-color: rgba(255, 102, 102, 0.2); border-color: rgba(255, 102, 102, 0.8);">Boundary Layer Theory</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="mlrom" style="background-color: rgba(102, 204, 255, 0.2); border-color: rgba(102, 204, 255, 0.8);">ML: ROM</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="mlcontrol" style="background-color: rgba(102, 255, 102, 0.2); border-color: rgba(102, 255, 102, 0.8);">ML: Control</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="mlestimators" style="background-color: rgba(0, 204, 204, 0.2); border-color: rgba(0, 204, 204, 0.8);">ML: Estimators</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="dragred" style="background-color: rgba(255, 204, 102, 0.2); border-color: rgba(255, 204, 102, 0.8);">Drag Reduction</button>
                         <button class="filter-btn keyword-filter-btn" data-keyword="heat" style="background-color: rgba(204, 102, 255, 0.2); border-color: rgba(204, 102, 255, 0.8);">Heat Transfer</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="shockbl" style="background-color: rgba(128, 128, 128, 0.2); border-color: rgba(128, 128, 128, 0.8);">Shockwave/Boundary Layer</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="aeroacoustics" style="background-color: rgba(255, 215, 0, 0.2); border-color: rgba(255, 215, 0, 0.8);">Aeroacoustics</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="reynolds" style="background-color: rgba(255, 105, 180, 0.2); border-color: rgba(255, 105, 180, 0.8);">Effect of Reynolds Number</button>
                     </div>
                 </div>
             </div>
@@ -740,8 +790,12 @@
             'blt': 'Boundary Layer Theory',
             'mlrom': 'ML: ROM',
             'mlcontrol': 'ML: Control',
+            'mlestimators': 'ML: Estimators',
             'dragred': 'Drag Reduction',
-            'heat': 'Heat Transfer'
+            'heat': 'Heat Transfer',
+            'shockbl': 'Shockwave/Boundary Layer',
+            'aeroacoustics': 'Aeroacoustics',
+            'reynolds': 'Effect of Reynolds Number'
         };
 
         // Publications data
@@ -1139,6 +1193,7 @@
                 category: "Aeroacoustics",
                 link: "http://journals.sagepub.com/doi/pdf/10.1177/1475472X17709926",
                 topics: ["aeroacoustics", "supersonic jet", "intermittency", "directivity", "heat transfer"],
+                keywords: ["aeroacoustics"],
                 bibtex: `@article{agostini2015directivity,
   title={Directivity and intermittency in the nearfield of a Mach 1.3 jet},
   author={Agostini, L. and Sasidharan Nair, U. and Gaitonde, D.V.},
@@ -2056,39 +2111,13 @@
                 return;
             }
             
-            // Group by category
-            const categorized = {};
-            publications.forEach(pub => {
-                if (!categorized[pub.category]) {
-                    categorized[pub.category] = [];
-                }
-                categorized[pub.category].push(pub);
-            });
-            
-            // Sort categories alphabetically
-            const sortedCategories = Object.keys(categorized).sort();
-            
-            // Render each category
-            sortedCategories.forEach(category => {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'publication-category';
-                
-                // Category heading
-                const heading = document.createElement('h3');
-                heading.className = 'category-heading';
-                heading.textContent = category;
-                categoryElement.appendChild(heading);
-                
-                // Sort publications by year (descending)
-                const sortedPubs = categorized[category].sort((a, b) => b.year - a.year);
-                
-                // Render each publication
-                sortedPubs.forEach(pub => {
-                    const pubElement = createPublicationCard(pub);
-                    categoryElement.appendChild(pubElement);
-                });
-                
-                publicationList.appendChild(categoryElement);
+            // Sort publications by year (descending)
+            const sortedPubs = publications.sort((a, b) => b.year - a.year);
+
+            // Render each publication
+            sortedPubs.forEach(pub => {
+                const pubElement = createPublicationCard(pub);
+                publicationList.appendChild(pubElement);
             });
         }
 
