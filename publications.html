@@ -93,6 +93,18 @@
             color: white;
             border-color: var(--primary-color);
         }
+
+        /* Keyword filter buttons keep their color when active */
+        .keyword-filter-btn.active {
+            opacity: 1;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .keyword-filter-btn:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+        }
         
         .filter-btn:hover:not(.active) {
             background-color: #e0e0e0;
@@ -235,18 +247,65 @@
         }
         
         .keyword-tag {
-            background-color: rgba(37, 37, 111, 0.1);
-            color: var(--primary-color);
             padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 13px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
+            border: 1px solid;
+            display: inline-block;
         }
-        
-        .keyword-tag:hover {
-            background-color: var(--primary-color);
-            color: white;
+
+        /* Keyword category colors - matching LaTeX style */
+        .keyword-tag[data-keyword="blt"] {
+            background-color: rgba(255, 102, 102, 0.3);
+            border-color: rgba(255, 102, 102, 0.8);
+            color: #8B0000;
+        }
+
+        .keyword-tag[data-keyword="blt"]:hover {
+            background-color: rgba(255, 102, 102, 0.5);
+        }
+
+        .keyword-tag[data-keyword="mlrom"] {
+            background-color: rgba(102, 204, 255, 0.3);
+            border-color: rgba(102, 204, 255, 0.8);
+            color: #003D82;
+        }
+
+        .keyword-tag[data-keyword="mlrom"]:hover {
+            background-color: rgba(102, 204, 255, 0.5);
+        }
+
+        .keyword-tag[data-keyword="mlcontrol"] {
+            background-color: rgba(102, 255, 102, 0.3);
+            border-color: rgba(102, 255, 102, 0.8);
+            color: #006400;
+        }
+
+        .keyword-tag[data-keyword="mlcontrol"]:hover {
+            background-color: rgba(102, 255, 102, 0.5);
+        }
+
+        .keyword-tag[data-keyword="dragred"] {
+            background-color: rgba(255, 204, 102, 0.3);
+            border-color: rgba(255, 204, 102, 0.8);
+            color: #8B4500;
+        }
+
+        .keyword-tag[data-keyword="dragred"]:hover {
+            background-color: rgba(255, 204, 102, 0.5);
+        }
+
+        .keyword-tag[data-keyword="heat"] {
+            background-color: rgba(204, 102, 255, 0.3);
+            border-color: rgba(204, 102, 255, 0.8);
+            color: #4B0082;
+        }
+
+        .keyword-tag[data-keyword="heat"]:hover {
+            background-color: rgba(204, 102, 255, 0.5);
         }
         
         .publication-links {
@@ -605,17 +664,13 @@
             <!-- Keyword Filters Row -->
             <div class="filter-row">
                 <div class="filter-group">
-                    <h3>Research Areas</h3>
+                    <h3>Research Keywords</h3>
                     <div class="filter-buttons" id="topic-filters">
-                        <button class="filter-btn" data-topic="turbulence">Turbulence</button>
-                        <button class="filter-btn" data-topic="near-wall">Near-Wall Flows</button>
-                        <button class="filter-btn" data-topic="drag-reduction">Drag Reduction</button>
-                        <button class="filter-btn" data-topic="autoencoder">Auto-Encoders</button>
-                        <button class="filter-btn" data-topic="machine-learning">Machine Learning</button>
-                        <button class="filter-btn" data-topic="heat-transfer">Heat Transfer</button>
-                        <button class="filter-btn" data-topic="boundary-layer">Boundary Layer</button>
-                        <button class="filter-btn" data-topic="channel-flow">Channel Flow</button>
-                        <button class="filter-btn" data-topic="shock-wave">Shock Wave</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="blt" style="background-color: rgba(255, 102, 102, 0.2); border-color: rgba(255, 102, 102, 0.8);">Boundary Layer Theory</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="mlrom" style="background-color: rgba(102, 204, 255, 0.2); border-color: rgba(102, 204, 255, 0.8);">ML: ROM</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="mlcontrol" style="background-color: rgba(102, 255, 102, 0.2); border-color: rgba(102, 255, 102, 0.8);">ML: Control</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="dragred" style="background-color: rgba(255, 204, 102, 0.2); border-color: rgba(255, 204, 102, 0.8);">Drag Reduction</button>
+                        <button class="filter-btn keyword-filter-btn" data-keyword="heat" style="background-color: rgba(204, 102, 255, 0.2); border-color: rgba(204, 102, 255, 0.8);">Heat Transfer</button>
                     </div>
                 </div>
             </div>
@@ -680,6 +735,15 @@
 
     <!-- Publications Data and Logic -->
     <script>
+        // Keyword mapping - defines display names for each keyword code
+        const keywordMapping = {
+            'blt': 'Boundary Layer Theory',
+            'mlrom': 'ML: ROM',
+            'mlcontrol': 'ML: Control',
+            'dragred': 'Drag Reduction',
+            'heat': 'Heat Transfer'
+        };
+
         // Publications data
         const publicationsData = [
             // Boundary layer theory
@@ -694,6 +758,7 @@
                 category: "Turbulence and boundary layer theory",
                 link: "https://hal.science/hal-03852043/document",
                 topics: ["turbulence", "boundary layer", "autoencoder", "machine learning", "heat transfer"],
+                keywords: ["blt", "mlrom"],
                 halLink: "https://hal.science/hal-03852043/document",
                 bibtex: `@article{tonioni2025auto,
   title={Auto-encoder-assisted analysis of amplitude and wavelength modulation of near-wall turbulence},
@@ -797,6 +862,7 @@
                 link: "https://doi.org/10.1016/j.ijheatfluidflow.2024.109564",
                 halLink: "https://hal.science/hal-03852044/document",
                 topics: ["heat transfer", "drag reduction", "spanwise wall oscillations", "turbulence", "convection"],
+                keywords: ["heat", "dragred", "mlrom"],
                 bibtex: `@article{guerin2024preferential,
   title={Preferential Enhancement of Convective Heat Transfer Over Drag Via Near-Wall Turbulence Manipulation Using Spanwise Wall Oscillations},
   author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
@@ -818,6 +884,7 @@
                 link: "https://arxiv.org/html/2312.13002v1",
                 halLink: "https://hal.science/hal-03852045/document",
                 topics: ["heat transfer", "Reynolds analogy", "spanwise wall oscillation", "turbulence", "wall-bounded flow"],
+                keywords: ["heat", "dragred"],
                 bibtex: `@misc{guerin2024breaking,
   title={Breaking the Reynolds Analogy: Decoupling Turbulent Heat and Momentum Transport via Spanwise Wall Oscillation in Wall-Bounded Flow},
   author={Guérin, L. and Flageul, C. and Cordier, L. and Grieu, S. and Agostini, L.},
@@ -838,6 +905,7 @@
                 category: "Machine learning",
                 link: "https://doi.org/10.1007/s00521-025-11067-y",
                 topics: ["machine learning", "drag reduction", "spanwise wall oscillations", "policy optimization"],
+                keywords: ["mlcontrol", "dragred"],
                 bibtex: `@article{guerin2025policy,
   title={Policy-based optimization for drag reduction via spanwise wall oscillations},
   author={Guérin, L. and Cordier, L. and Flageul, C. and Grieu, S. and Agostini, L.},
@@ -875,6 +943,7 @@
                 category: "Machine learning",
                 link: "https://doi.org/10.1063/5.0012906",
                 topics: ["machine learning", "autoencoder", "fluid dynamics", "prediction"],
+                keywords: ["mlrom"],
                 bibtex: `@article{agostini2020exploration,
   title={Exploration and prediction of fluid dynamical systems using Auto-Encoder technology},
   author={Agostini, L.},
@@ -1386,6 +1455,7 @@
                 category: "Drag reduction",
                 link: "http://dx.doi.org/10.1017/jfm.2014.40",
                 topics: ["drag reduction", "spanwise oscillation", "channel flow", "DNS", "phase-wise", "heat transfer"],
+                keywords: ["blt", "dragred"],
                 bibtex: `@article{agostini2014spanwise,
   title={Spanwise oscillatory wall motion in channel flow: drag-reduction mechanisms inferred from DNS-predicted phase-wise property variations at},
   author={Agostini, Lionel and Touber, Emile and Leschziner, Michael A},
@@ -1915,13 +1985,16 @@
             const filteredPublications = publicationsData.filter(pub => {
                 // Filter by type
                 const typeMatch = activeTypeFilter === 'all' || pub.type === activeTypeFilter;
-                
-                // Filter by topics (must match all selected topics)
+
+                // Filter by topics/keywords (must match all selected topics)
                 let topicsMatch = true;
                 if (activeTopicFilters.length > 0) {
-                    topicsMatch = activeTopicFilters.every(topic => 
-                        pub.topics.some(pubTopic => pubTopic.toLowerCase() === topic.toLowerCase())
-                    );
+                    topicsMatch = activeTopicFilters.every(topic => {
+                        // Check both keywords and topics arrays
+                        const keywordMatch = pub.keywords && pub.keywords.includes(topic);
+                        const topicMatch = pub.topics && pub.topics.some(pubTopic => pubTopic.toLowerCase() === topic.toLowerCase());
+                        return keywordMatch || topicMatch;
+                    });
                 }
                 
                 // Filter by search query
@@ -2048,9 +2121,9 @@
                     <p>${pub.journal}, ${pub.volume} (${pub.year})</p>
                 </div>
                 <div class="publication-keywords">
-                    ${pub.topics.map(topic => `
-                        <span class="keyword-tag" data-topic="${topic}">${topic}</span>
-                    `).join('')}
+                    ${pub.keywords ? pub.keywords.map(keyword => `
+                        <span class="keyword-tag" data-keyword="${keyword}">${keywordMapping[keyword] || keyword}</span>
+                    `).join('') : ''}
                 </div>
                 <div class="publication-links">
                     ${pub.link ? `<a href="${pub.link}" class="publication-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Publication</a>` : ''}
@@ -2097,11 +2170,12 @@
                     activeFilterTags.appendChild(typeTag);
                 }
                 
-                // Add topic filter tags
+                // Add topic/keyword filter tags
                 activeTopicFilters.forEach(topic => {
                     const topicTag = document.createElement('span');
                     topicTag.className = 'active-filter-tag';
-                    topicTag.innerHTML = `${topic} <i class="fas fa-times" data-filter-type="topic" data-topic="${topic}"></i>`;
+                    const displayName = keywordMapping[topic] || topic;
+                    topicTag.innerHTML = `${displayName} <i class="fas fa-times" data-filter-type="topic" data-topic="${topic}"></i>`;
                     activeFilterTags.appendChild(topicTag);
                 });
                 
@@ -2183,22 +2257,22 @@
                 }
             });
             
-            // Topic filter buttons click
+            // Topic/Keyword filter buttons click
             topicFilters.addEventListener('click', function(e) {
                 if (e.target.classList.contains('filter-btn')) {
-                    const topic = e.target.dataset.topic;
-                    
-                    // Toggle topic filter
+                    const keyword = e.target.dataset.keyword || e.target.dataset.topic;
+
+                    // Toggle keyword filter
                     if (e.target.classList.contains('active')) {
-                        // Remove topic
-                        activeTopicFilters = activeTopicFilters.filter(t => t !== topic);
+                        // Remove keyword
+                        activeTopicFilters = activeTopicFilters.filter(t => t !== keyword);
                         e.target.classList.remove('active');
                     } else {
-                        // Add topic
-                        activeTopicFilters.push(topic);
+                        // Add keyword
+                        activeTopicFilters.push(keyword);
                         e.target.classList.add('active');
                     }
-                    
+
                     filterPublications();
                 }
             });
