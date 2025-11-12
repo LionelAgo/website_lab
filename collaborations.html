@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lionel Agostini | Research Collaborations</title>
+    <meta name="description" content="Research collaborations and partnerships of Dr. Lionel Agostini at Institut Pprime and worldwide.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Collaborations page specific styles */
+        .team-section {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+
+        .team-section:nth-child(even) {
+            background-color: var(--background-color);
+        }
+
+        /* Team Members */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .member-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .member-position {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .funding-logo {
+            height: 25px;
+            width: auto;
+            object-fit: contain;
+            margin-left: 5px;
+        }
+
+        .member-achievements {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .member-achievements h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .achievements-list {
+            list-style: none;
+        }
+
+        .achievements-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .achievements-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+
+        .publications-list {
+            list-style: none;
+        }
+
+        .publications-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .publication-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-title a:hover {
+            color: var(--accent-color);
+        }
+
+        .publication-journal {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .member-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .collaboration-section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            color: var(--primary-color);
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .collaboration-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .collaborator-card {
+            padding: 25px;
+            height: 100%;
+        }
+
+        .collaborator-card .member-name {
+            font-size: 20px;
+        }
+
+        /* Foldable Publications and Conferences Sections */
+        .foldable-publications,
+        .foldable-conferences {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .publications-header,
+        .conferences-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .publications-header {
+            background-color: rgba(26, 35, 126, 0.08);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .publications-header:hover {
+            background-color: rgba(26, 35, 126, 0.15);
+        }
+
+        .conferences-header {
+            background-color: rgba(100, 181, 246, 0.08);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .conferences-header:hover {
+            background-color: rgba(100, 181, 246, 0.15);
+        }
+
+        .publications-header h4,
+        .conferences-header h4 {
+            margin: 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .publications-header h4 {
+            color: var(--primary-color);
+        }
+
+        .publications-header h4 i {
+            color: var(--primary-color);
+        }
+
+        .conferences-header h4 {
+            color: var(--secondary-color);
+        }
+
+        .conferences-header h4 i {
+            color: var(--secondary-color);
+        }
+
+        .publications-count,
+        .conferences-count {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .conferences-count {
+            background-color: var(--secondary-color);
+        }
+
+        .publications-toggle,
+        .conferences-toggle {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: var(--transition);
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .conferences-toggle {
+            color: var(--secondary-color);
+        }
+
+        .publications-toggle:hover,
+        .conferences-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        .publications-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .conferences-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .foldable-publications.expanded .publications-content,
+        .foldable-conferences.expanded .conferences-content {
+            max-height: 1000px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .foldable-publications.expanded .publications-toggle i,
+        .foldable-conferences.expanded .conferences-toggle i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logos/logo_cnrs.png" alt="CNRS Logo">
+                Dr. Lionel Agostini
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teams.html">Teams</a></li>
+                <li><a href="collaborations.html" class="active">Collaborations</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Research Collaborations</h1>
+            <p>Building bridges across institutions and disciplines</p>
+        </div>
+    </section>
+
+    <!-- Research Collaborations Section -->
+    <section class="team-section">
+        <div class="container">
+            <p class="section-description">
+                Our team maintains active collaborations with leading researchers in fluid mechanics, computational science, and machine learning, both within Institut Pprime and internationally.
+            </p>
+
+            <!-- Curiosity Team Collaborators -->
+            <h3 class="collaboration-section-title">Curiosity Team at Institut Pprime</h3>
+            <div class="members-grid">
+                <!-- Laurent Cordier -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Laurent Cordier</h3>
+                        <p class="member-position">Researcher - CNRS</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Reduced-order modelling</li>
+                                <li>Flow control</li>
+                                <li>Data-driven methods for fluid dynamics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0002-8085-6102" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="https://hal.science/search/index/?q=laurent-cordier&authIdHal_s=laurent-cordier" target="_blank" class="social-link" title="HAL">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cédric Flageul -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Cédric Flageul</h3>
+                        <p class="member-position">Lecturer - Université de Poitiers</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Numerical methods for fluid dynamics</li>
+                                <li>Turbulence modelling</li>
+                                <li>Heat transfer in complex flows</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0003-1158-5262" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="https://hal.science/search/index/?q=cedric-flageul&authIdHal_s=cedric-flageul" target="_blank" class="social-link" title="HAL">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Franck Kerhervé -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Franck Kerhervé</h3>
+                        <p class="member-position">Lecturer - Université de Poitiers</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Experimental fluid mechanics</li>
+                                <li>Turbulence control</li>
+                                <li>Aeroacoustics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0003-0299-6991" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Philippe Traoré -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Philippe Traoré</h3>
+                        <p class="member-position">Professor - Université de Poitiers</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Computational fluid dynamics</li>
+                                <li>Multiphysics modelling</li>
+                                <li>Electrohydrodynamics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0002-3436-7834" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current International Collaborations -->
+            <h3 class="collaboration-section-title">Current International Collaborations</h3>
+            <div class="members-grid">
+                <!-- Ricardo Vinuesa -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Ricardo Vinuesa</h3>
+                        <p class="member-position">Associate Professor - KTH Royal Institute of Technology, Sweden</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Turbulent boundary layers</li>
+                                <li>Flow control</li>
+                                <li>Sustainability</li>
+                                <li>Artificial Intelligence</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.es/citations?user=UbyF8_oAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Ricardo-Vinuesa" target="_blank" class="social-link" title="ResearchGate">
+                                <i class="fab fa-researchgate"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@rvinuesa" target="_blank" class="social-link" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://twitter.com/ricardovinuesa" target="_blank" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arvind T. Mohan -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Arvind T. Mohan</h3>
+                        <p class="member-position">Scientist - Los Alamos National Laboratory, USA</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Reduced Order Modeling</li>
+                                <li>Machine Learning</li>
+                                <li>Aerodynamics</li>
+                                <li>Computational Physics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.com/citations?user=kr8XW9oAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://github.com/arvindmohan" target="_blank" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/ArvindMohan15" target="_blank" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Datta Gaitonde -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Datta Gaitonde</h3>
+                        <p class="member-position">Professor - The Ohio State University, USA</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Hypersonics</li>
+                                <li>Turbulence</li>
+                                <li>Flow control</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.com/citations?user=bgGRmnYAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.ratemyprofessors.com/professor/1825444" target="_blank" class="social-link" title="Rate My Professors">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Michael A. Leschziner -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Michael A. Leschziner</h3>
+                        <p class="member-position">Emeritus Professor of Computational Aerodynamics - Imperial College London, UK</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Turbulent flows</li>
+                                <li>Computational Aerodynamics</li>
+                                <li>Fluid Mechanics</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://scholar.google.co.uk/citations?user=hLSK5tcAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="https://www.imperial.ac.uk/people/mike.leschziner" target="_blank" class="social-link" title="Imperial College London">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- National Collaborations -->
+            <h3 class="collaboration-section-title">National Collaborations</h3>
+            <div class="members-grid">
+                <!-- Stéphane Grieu -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Stéphane Grieu</h3>
+                        <p class="member-position">Researcher - PROMES</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Solar energy systems</li>
+                                <li>Thermal processes modelling</li>
+                                <li>Control systems</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0002-2000-3001" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lionel Larchevêque -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Lionel Larchevêque</h3>
+                        <p class="member-position">Lecturer - Aix Marseille Université</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Compressible flows</li>
+                                <li>Shock-wave/boundary layer interactions</li>
+                                <li>Large-eddy simulation</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0002-8588-1374" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="https://hal.science/search/index/?q=lionel-larcheveque&authIdHal_s=lionel-larcheveque" target="_blank" class="social-link" title="HAL">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pierre Dupont -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Pierre Dupont</h3>
+                        <p class="member-position">Researcher - IUSTI</p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Research Focus</h4>
+                            <ul class="achievements-list">
+                                <li>Experimental fluid mechanics</li>
+                                <li>Shock-wave/boundary layer interactions</li>
+                                <li>High-speed flows</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://orcid.org/0000-0002-5495-303X" target="_blank" class="social-link" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            <a href="https://hal.science/search/index/?q=pierre-dupont&authIdHal_s=pierre-dupont" target="_blank" class="social-link" title="HAL">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industrial Collaborations -->
+            <h3 class="collaboration-section-title">Industrial Collaborations</h3>
+            <div class="members-grid">
+                <!-- Thomas Bacoup -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Thomas Bacoup</h3>
+                        <p class="member-position">Integration Engineer in Aerothermics - Safran Aircraft Engines <img src="logos/logo_safran.png" alt="Safran Logo" class="funding-logo"></p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Expertise</h4>
+                            <ul class="achievements-list">
+                                <li>Aerothermics and heat transfer in aircraft engines</li>
+                                <li>Aerodynamic design and analysis</li>
+                                <li>CFD simulations for aerospace applications</li>
+                                <li>Turbomachinery systems</li>
+                            </ul>
+                        </div>
+                        <div class="member-socials">
+                            <a href="https://www.linkedin.com/in/thomas-bacoup/" target="_blank" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Louis Souverein -->
+                <div class="member-card">
+                    <div class="member-content collaborator-card">
+                        <h3 class="member-name">Louis Souverein</h3>
+                        <p class="member-position">Rocket Engine Development Engineer - Space Propulsion <img src="logos/logo_ariane.png" alt="ArianeGroup Logo" class="funding-logo"></p>
+                        <div class="member-achievements" style="border-top: none; padding-top: 0; margin-top: 10px;">
+                            <h4>Expertise</h4>
+                            <ul class="achievements-list">
+                                <li>Rocket engine combustion chambers and turbopumps</li>
+                                <li>High-speed fluid dynamics</li>
+                                <li>Shock wave boundary layer interactions</li>
+                                <li>Two-phase flows and injection systems</li>
+                                <li>Test engineering and data analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="member-conferences foldable-conferences">
+                            <div class="conferences-header">
+                                <h4>
+                                    <i class="fas fa-microphone"></i> Conferences
+                                    <span class="conferences-count">2</span>
+                                </h4>
+                                <button class="conferences-toggle" aria-expanded="true">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <div class="conferences-content">
+                                <ul class="publications-list">
+                                    <li>
+                                        <p class="publication-title"><a href="https://www.eucass.eu/component/docindexer/?task=download&id=7279" target="_blank">Flow Field Reconstruction Applied on Flow Phenomena Detection in a Sparse Sensed Turbopump Manifold</a></p>
+                                        <p class="publication-journal">Sarah Kramer, Louis Souverein, Lionel Agostini, Günther Waxenegger-Wilfing, Stefan Schlechtriem - 11th European Conference for Aeronautics and Space Sciences, Rome, Italy (July 2025)</p>
+                                    </li>
+                                    <li>
+                                        <p class="publication-title">Flow field reconstruction of rocket engine turbine on sparse sensors</p>
+                                        <p class="publication-journal">Sarah Kramer, Louis Souverein, Lionel Agostini, Günther Waxenegger-Wilfing, Stefan Schlechtriem - 1st International Symposium AI and Fluid Mechanics, Chania, Greece (2025)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="member-socials">
+                            <a href="https://www.linkedin.com/in/louis-souverein-718a577/" target="_blank" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Louis-Souverein" target="_blank" class="social-link" title="ResearchGate">
+                                <i class="fab fa-researchgate"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <nav class="page-navigation">
+        <div class="container">
+            <a href="teams.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                <div>
+                    <span class="nav-label">Previous</span>
+                    <span class="nav-title">Teams</span>
+                </div>
+            </a>
+            <a href="projects.html" class="nav-link next">
+                <div>
+                    <span class="nav-label">Next</span>
+                    <span class="nav-title">Projects</span>
+                </div>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </nav>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <div class="footer-logo">Dr. Lionel Agostini</div>
+                    <p>Chargé de Recherche HDR - CNRS<br>Institut Pprime - Université de Poitiers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="collaborations.html">Collaborations</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Research Areas</h4>
+                    <ul>
+                        <li><a href="research.html#wall-bounded-turbulence">Wall-bounded Turbulence</a></li>
+                        <li><a href="research.html#flow-control">Drag Reduction</a></li>
+                        <li><a href="research.html#heat-transfer">Heat Transfer</a></li>
+                        <li><a href="research.html#machine-learning">Machine Learning</a></li>
+                        <li><a href="research.html#shock-wave">Computational Fluid Dynamics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Dr. Lionel Agostini. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Common functionality shared across all pages -->
+    <script src="script-common.js"></script>
+    <!-- Teams page specific features -->
+    <script src="script-teams.js"></script>
+</body>
+</html>
