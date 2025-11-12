@@ -2476,6 +2476,10 @@ footer {
     background-image: url('images/background/back5.jpg');
 }
 
+.collaborations-header {
+    background-image: url('images/background/back4.jpg');
+}
+
 /* Page Header Styles */
 .page-header {
     min-height: 40vh; /* Or a suitable height, e.g., 300px, 400px */
